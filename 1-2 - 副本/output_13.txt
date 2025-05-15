@@ -1,0 +1,52 @@
+To describe the trajectory of the vehicle, we¡¯ll break it down into three phases:  
+1. **Lane change to the left lane**  
+2. **Passing the obstacle**  
+3. **Lane change back to the right lane**  
+
+### Assumptions:  
+- Initial speed: 72 km/h (20 m/s)  
+- Maintain speed above 60 km/h (16.67 m/s)  
+- Lane width: 3.5 meters (Y = 0 for the right lane, Y = -3.5 for the left lane)  
+- Smooth lane change over 3 seconds  
+
+### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3)  
+At T = 0, the vehicle is at (0, 0). The lane change will be completed by T = 3, reaching Y = -3.5.  
+
+#### Trajectory:  
+- T = 1: (20, -1.17)  
+- T = 2: (40, -2.33)  
+- T = 3: (60, -3.5)  
+
+### Phase 2: Passing the Obstacle (T = 3 to T = 7)  
+The vehicle continues in the left lane, passing the obstacle at X = 100.  
+
+#### Trajectory:  
+- T = 4: (80, -3.5)  
+- T = 5: (100, -3.5)  
+- T = 6: (120, -3.5)  
+- T = 7: (140, -3.5)  
+
+### Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10)  
+The vehicle changes back to the right lane, completing the maneuver by T = 10.  
+
+#### Trajectory:  
+- T = 8: (160, -2.33)  
+- T = 9: (180, -1.17)  
+- T = 10: (200, 0)  
+
+### Summary of Positions:  
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -1.17)     |  
+| 2        | (40, -2.33)     |  
+| 3        | (60, -3.5)      |  
+| 4        | (80, -3.5)      |  
+| 5        | (100, -3.5)     |  
+| 6        | (120, -3.5)     |  
+| 7        | (140, -3.5)     |  
+| 8        | (160, -2.33)    |  
+| 9        | (180, -1.17)    |  
+| 10       | (200, 0)        |  
+
+This trajectory ensures the vehicle maintains a speed of 20 m/s (72 km/h), stays in the left lane while passing the obstacle, and smoothly returns to the right lane.

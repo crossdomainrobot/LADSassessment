@@ -1,0 +1,68 @@
+To plan the trajectory for the double lane change maneuver, we need to ensure that the vehicle safely changes to the left lane, overtakes the obstacle, and then returns to the right lane while maintaining a speed above 60 km/h. Here¡¯s a step-by-step plan for the next 10 seconds:
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h (20 m/s).
+2. **Lane width**: Right lane at \( Y = 0 \), left lane at \( Y = -5 \).
+3. **Obstacle position**: \( (100, 0) \).
+4. **Time step**: 1 second intervals.
+
+---
+
+### Trajectory Plan:
+1. **Change to the left lane**:
+   - Start the lane change at \( T = 0 \) and complete it by \( T = 3 \) seconds.
+   - Move laterally from \( Y = 0 \) to \( Y = -5 \) smoothly.
+
+2. **Overtake the obstacle**:
+   - Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).
+
+3. **Return to the right lane**:
+   - Start returning to the right lane after passing the obstacle and complete the maneuver by \( T = 10 \) seconds.
+   - Move laterally from \( Y = -5 \) back to \( Y = 0 \).
+
+---
+
+### Position at Each Timepoint:
+Here¡¯s the vehicle¡¯s position \( (X, Y) \) at each second:
+
+1. **\( T = 1 \)**: \( (20, -1.67) \)  
+   - Moving toward the left lane.
+
+2. **\( T = 2 \)**: \( (40, -3.33) \)  
+   - Continuing the lane change.
+
+3. **\( T = 3 \)**: \( (60, -5) \)  
+   - Fully in the left lane.
+
+4. **\( T = 4 \)**: \( (80, -5) \)  
+   - Approaching the obstacle.
+
+5. **\( T = 5 \)**: \( (100, -5) \)  
+   - Passing the obstacle in the left lane.
+
+6. **\( T = 6 \)**: \( (120, -5) \)  
+   - Continuing in the left lane.
+
+7. **\( T = 7 \)**: \( (140, -3.33) \)  
+   - Starting to return to the right lane.
+
+8. **\( T = 8 \)**: \( (160, -1.67) \)  
+   - Moving back toward the right lane.
+
+9. **\( T = 9 \)**: \( (180, 0) \)  
+   - Fully in the right lane.
+
+10. **\( T = 10 \)**: \( (200, 0) \)  
+    - Continuing in the right lane.
+
+---
+
+### Explanation:
+- **Lane change**: The lateral movement is distributed over 3 seconds to ensure smoothness.
+- **Overtaking**: The vehicle stays in the left lane while passing the obstacle at \( X = 100 \).
+- **Returning**: The vehicle returns to the right lane over the next 3 seconds.
+- **Speed**: The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+
+This trajectory ensures a safe and smooth double lane change maneuver while adhering to highway speed limits.

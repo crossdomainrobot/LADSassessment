@@ -1,0 +1,54 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to break the problem into phases: **changing to the left lane**, **passing the obstacle**, and **returning to the right lane**. Here¡¯s a step-by-step plan for the vehicle¡¯s position over 10 seconds:
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h (20 m/s).
+2. **Left lane Y coordinate**: \( Y = -5 \).
+3. **Obstacle position**: \( (100, 0) \).
+4. **Minimum speed**: 60 km/h (16.67 m/s).
+5. **Time steps**: We¡¯ll provide positions at \( T = 1, 2, 3, \dots, 10 \) seconds.
+
+---
+
+### Trajectory Plan:
+
+#### Phase 1: Changing to the Left Lane (\( T = 0 \) to \( T = 3 \) seconds)
+- **Goal**: Move from \( Y = 0 \) to \( Y = -5 \) smoothly.
+- **X Position**: Distance covered at 20 m/s: \( X = 20 \cdot T \).
+- **Y Position**: Linear transition from \( Y = 0 \) to \( Y = -5 \).
+
+#### Phase 2: Passing the Obstacle (\( T = 3 \) to \( T = 7 \) seconds)
+- **Goal**: Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).
+- **X Position**: Continue at 20 m/s.
+
+#### Phase 3: Returning to the Right Lane (\( T = 7 \) to \( T = 10 \) seconds)
+- **Goal**: Move from \( Y = -5 \) back to \( Y = 0 \) smoothly.
+- **X Position**: Continue at 20 m/s.
+- **Y Position**: Linear transition from \( Y = -5 \) to \( Y = 0 \).
+
+---
+
+### Vehicle Positions at Each Timepoint:
+
+| Time \( T \) (s) | X Position (m) | Y Position (m) |
+|------------------|----------------|----------------|
+| 1                | 20             | -1.67          |
+| 2                | 40             | -3.33          |
+| 3                | 60             | -5             |
+| 4                | 80             | -5             |
+| 5                | 100            | -5             |
+| 6                | 120            | -5             |
+| 7                | 140            | -5             |
+| 8                | 160            | -3.33          |
+| 9                | 180            | -1.67          |
+| 10               | 200            | 0              |
+
+---
+
+### Explanation:
+1. **Phase 1 (\( T = 1 \) to \( T = 3 \))**: The vehicle transitions from the right lane (\( Y = 0 \)) to the left lane (\( Y = -5 \)) over 3 seconds.
+2. **Phase 2 (\( T = 3 \) to \( T = 7 \))**: The vehicle stays in the left lane while passing the obstacle at \( X = 100 \).
+3. **Phase 3 (\( T = 7 \) to \( T = 10 \))**: The vehicle transitions back to the right lane (\( Y = 0 \)) over 3 seconds.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h and completes the lane change maneuver safely.

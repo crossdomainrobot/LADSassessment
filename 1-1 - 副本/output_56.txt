@@ -1,0 +1,38 @@
+To safely plan the trajectory for the double lane change maneuver, we¨ll break it into phases:  
+1. **Lane change to the left lane (Y = -5)**  
+2. **Overtaking the obstacle (X = 100)**  
+3. **Lane change back to the right lane (Y = 0)**  
+
+We assume a constant speed of **72 km/h (20 m/s)** for simplicity. The obstacle is at **X = 100**, and the left lane is at **Y = -5**.  
+
+Here¨s the trajectory plan for the next 10 seconds:
+
+---
+
+### **Trajectory:**
+1. **T = 0 s**: (0, 0) ！ Starting position.  
+2. **T = 1 s**: (20, -1) ！ Begin lane change to the left.  
+3. **T = 2 s**: (40, -2) ！ Continue lane change.  
+4. **T = 3 s**: (60, -3) ！ Continue lane change.  
+5. **T = 4 s**: (80, -4) ！ Continue lane change.  
+6. **T = 5 s**: (100, -5) ！ Fully in the left lane, passing the obstacle.  
+7. **T = 6 s**: (120, -4) ！ Begin lane change back to the right.  
+8. **T = 7 s**: (140, -3) ！ Continue lane change.  
+9. **T = 8 s**: (160, -2) ！ Continue lane change.  
+10. **T = 9 s**: (180, -1) ！ Continue lane change.  
+11. **T = 10 s**: (200, 0) ！ Fully back in the right lane.
+
+---
+
+### **Explanation:**
+1. **Lane Change (T = 0 to 5 s):**  
+   - The vehicle smoothly transitions from Y = 0 to Y = -5 over 5 seconds while maintaining a constant speed of 20 m/s.  
+   - At T = 5 s, the vehicle is at X = 100 (obstacle position) and fully in the left lane (Y = -5).  
+
+2. **Overtaking (T = 5 s):**  
+   - The vehicle passes the obstacle at X = 100 while staying in the left lane.  
+
+3. **Lane Change Back (T = 6 to 10 s):**  
+   - The vehicle transitions back to the right lane (Y = 0) over 5 seconds while continuing at 20 m/s.  
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstacle.

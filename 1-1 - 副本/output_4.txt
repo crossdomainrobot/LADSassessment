@@ -1,0 +1,80 @@
+To plan a safe and smooth double lane change maneuver, we'll break down the trajectory into phases: **acceleration**, **lane change to the left**, **passing the obstacle**, **lane change back to the right**, and **maintaining speed**. Here¡¯s the step-by-step plan:
+
+---
+
+### **Assumptions and Parameters:**
+1. **Initial position**: (0, 0).
+2. **Obstacle position**: (100, 0).
+3. **Left lane Y-coordinate**: -5.
+4. **Initial speed**: 72 km/h = 20 m/s.
+5. **Minimum speed**: 60 km/h = 16.67 m/s.
+6. **Time interval**: 0.1 seconds (for smooth trajectory calculation).
+
+---
+
+### **Phases of the Maneuver:**
+
+1. **Acceleration (T = 0 to T = 2 seconds)**:
+   - Increase speed slightly to ensure safe lane change.
+   - Speed increases from 20 m/s to 22 m/s.
+
+2. **Lane Change to the Left (T = 2 to T = 4 seconds)**:
+   - Shift laterally from Y = 0 to Y = -5.
+   - Maintain speed at 22 m/s.
+
+3. **Passing the Obstacle (T = 4 to T = 6 seconds)**:
+   - Drive in the left lane (Y = -5) past the obstacle at X = 100.
+   - Maintain speed at 22 m/s.
+
+4. **Lane Change Back to the Right (T = 6 to T = 8 seconds)**:
+   - Shift laterally from Y = -5 back to Y = 0.
+   - Maintain speed at 22 m/s.
+
+5. **Maintaining Speed (T = 8 to T = 10 seconds)**:
+   - Continue driving in the right lane at 22 m/s.
+
+---
+
+### **Trajectory Calculation:**
+
+Here¡¯s the vehicle¡¯s position (X, Y) at key timepoints:
+
+- **T = 0 seconds**: (0, 0)  
+- **T = 1 second**: (20, 0)  
+- **T = 2 seconds**: (44, 0)  
+- **T = 3 seconds**: (66, -2.5)  
+- **T = 4 seconds**: (88, -5)  
+- **T = 5 seconds**: (110, -5)  
+- **T = 6 seconds**: (132, -5)  
+- **T = 7 seconds**: (154, -2.5)  
+- **T = 8 seconds**: (176, 0)  
+- **T = 9 seconds**: (198, 0)  
+- **T = 10 seconds**: (220, 0)  
+
+---
+
+### **Explanation of the Trajectory:**
+
+1. **Acceleration (T = 0 to T = 2 seconds)**:
+   - X increases linearly from 0 to 44 meters.
+   - Y remains at 0.
+
+2. **Lane Change to the Left (T = 2 to T = 4 seconds)**:
+   - X increases linearly from 44 to 88 meters.
+   - Y transitions smoothly from 0 to -5 meters.
+
+3. **Passing the Obstacle (T = 4 to T = 6 seconds)**:
+   - X increases linearly from 88 to 132 meters.
+   - Y remains at -5 meters.
+
+4. **Lane Change Back to the Right (T = 6 to T = 8 seconds)**:
+   - X increases linearly from 132 to 176 meters.
+   - Y transitions smoothly from -5 to 0 meters.
+
+5. **Maintaining Speed (T = 8 to T = 10 seconds)**:
+   - X increases linearly from 176 to 220 meters.
+   - Y remains at 0 meters.
+
+---
+
+This trajectory ensures that the vehicle safely passes the obstacle while maintaining a speed above 60 km/h. Let me know if you'd like further refinements!

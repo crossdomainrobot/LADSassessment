@@ -1,0 +1,58 @@
+To plan the trajectory for the double lane change maneuver, we need to consider the following:
+
+1. **Initial Conditions**:
+   - Initial position: (0, 0)
+   - Initial speed: 72 km/h (20 m/s)
+   - Obstacle position: (100, 0)
+   - Left lane Y-coordinate: -5
+   - Speed must remain above 60 km/h (16.67 m/s) at all times.
+
+2. **Maneuver Plan**:
+   - **Phase 1**: Change to the left lane (Y = -5) while maintaining speed.
+   - **Phase 2**: Pass the obstacle at (100, 0).
+   - **Phase 3**: Change back to the right lane (Y = 0).
+
+3. **Assumptions**:
+   - The vehicle accelerates or decelerates smoothly to maintain speed.
+   - The lane change is completed within a reasonable distance, ensuring safety.
+
+### Trajectory Calculation:
+
+We'll break the maneuver into three phases:
+
+#### Phase 1: Lane Change to the Left (Y = -5)
+- **Time**: 0 to 2.5 seconds
+- **Distance Covered**: 20 m/s * 2.5 s = 50 meters
+- **Lateral Movement**: Smooth transition from Y = 0 to Y = -5
+
+#### Phase 2: Pass the Obstacle at (100, 0)
+- **Time**: 2.5 to 5 seconds
+- **Distance Covered**: 20 m/s * 2.5 s = 50 meters
+- **Position**: (100, -5)
+
+#### Phase 3: Lane Change Back to the Right (Y = 0)
+- **Time**: 5 to 7.5 seconds
+- **Distance Covered**: 20 m/s * 2.5 s = 50 meters
+- **Lateral Movement**: Smooth transition from Y = -5 to Y = 0
+
+### Trajectory Points:
+
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -1)
+- **T = 2 s**: (40, -3)
+- **T = 3 s**: (60, -5)
+- **T = 4 s**: (80, -5)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -3)
+- **T = 7 s**: (140, -1)
+- **T = 8 s**: (160, 0)
+- **T = 9 s**: (180, 0)
+- **T = 10 s**: (200, 0)
+
+### Explanation:
+- **Phase 1 (0-2.5 s)**: The vehicle moves from Y = 0 to Y = -5 in a smooth curve while covering 50 meters.
+- **Phase 2 (2.5-5 s)**: The vehicle continues straight in the left lane, passing the obstacle at (100, -5).
+- **Phase 3 (5-7.5 s)**: The vehicle moves back to the right lane (Y = 0) while covering another 50 meters.
+- **Post-Manuever (7.5-10 s)**: The vehicle continues straight in the right lane.
+
+This trajectory ensures the vehicle remains above 60 km/h and safely navigates around the obstacle.

@@ -1,0 +1,53 @@
+To plan the trajectory for the double lane change maneuver, we need to consider the vehicle's speed, the distance to the obstacle, and the time required to safely change lanes, pass the obstacle, and return to the original lane.
+
+### Given:
+- Initial position: (0, 0)
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: Y = -5
+- Initial speed: 72 km/h (which is 20 m/s)
+- Minimum speed: 60 km/h (which is 16.67 m/s)
+
+### Assumptions:
+1. The vehicle maintains a constant speed of 20 m/s.
+2. The lane change is smooth and takes 2 seconds to complete (1 second to move to the left lane and 1 second to return to the right lane).
+3. The vehicle starts changing lanes at T = 3 seconds and returns to the right lane at T = 7 seconds.
+4. The vehicle passes the obstacle (X = 100) between T = 4 and T = 6 seconds.
+
+### Trajectory:
+Here is the vehicle's position (X, Y) at each second:
+
+- **T = 0 s**: (0, 0)  
+  The vehicle is in the right lane at the starting position.
+
+- **T = 1 s**: (20, 0)  
+  The vehicle continues in the right lane.
+
+- **T = 2 s**: (40, 0)  
+  The vehicle continues in the right lane.
+
+- **T = 3 s**: (60, -1.25)  
+  The vehicle begins changing lanes to the left. The Y-coordinate changes linearly over 2 seconds from 0 to -5.
+
+- **T = 4 s**: (80, -2.5)  
+  The vehicle is halfway through the lane change.
+
+- **T = 5 s**: (100, -5)  
+  The vehicle is fully in the left lane and passes the obstacle at X = 100.
+
+- **T = 6 s**: (120, -2.5)  
+  The vehicle begins returning to the right lane. The Y-coordinate changes linearly over 2 seconds from -5 to 0.
+
+- **T = 7 s**: (140, -1.25)  
+  The vehicle is halfway back to the right lane.
+
+- **T = 8 s**: (160, 0)  
+  The vehicle is fully back in the right lane.
+
+- **T = 9 s**: (180, 0)  
+  The vehicle continues in the right lane.
+
+- **T = 10 s**: (200, 0)  
+  The vehicle continues in the right lane.
+
+### Summary:
+The vehicle starts in the right lane, smoothly changes to the left lane between T = 3 s and T = 5 s, passes the obstacle at T = 5 s, and returns to the right lane between T = 6 s and T = 8 s. The maneuver is completed by T = 8 s, and the vehicle continues driving in the right lane.

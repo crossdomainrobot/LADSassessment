@@ -1,0 +1,51 @@
+To plan the trajectory, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane**: Transition from the right lane (Y = 0) to the left lane (Y = -3.5 meters, assuming a standard lane width of 3.5 meters).
+2. **Passing the Obstacle**: Maintain the left lane while driving past the obstacle at (100, 0).
+3. **Lane Change Back to the Right Lane**: Transition back to the right lane (Y = 0).
+
+We¡¯ll assume a constant speed of **72 km/h (20 m/s)** for simplicity. Here¡¯s the trajectory in (X, Y) coordinates at 1-second intervals:
+
+---
+
+### Phase 1: Lane Change to the Left Lane (T = 0 to T = 2 seconds)
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, -1.75) (beginning lane change)  
+- **T = 2**: (40, -3.5) (fully in the left lane)  
+
+---
+
+### Phase 2: Passing the Obstacle (T = 2 to T = 6 seconds)
+- **T = 3**: (60, -3.5)  
+- **T = 4**: (80, -3.5)  
+- **T = 5**: (100, -3.5) (passing the obstacle at X = 100)  
+- **T = 6**: (120, -3.5)  
+
+---
+
+### Phase 3: Lane Change Back to the Right Lane (T = 6 to T = 8 seconds)
+- **T = 7**: (140, -1.75) (beginning lane change back)  
+- **T = 8**: (160, 0) (fully in the right lane)  
+
+---
+
+### Final Positions (T = 9 to T = 10 seconds)
+- **T = 9**: (180, 0)  
+- **T = 10**: (200, 0)  
+
+---
+
+### Summary of Positions (Time, X, Y):
+- T = 0: (0, 0)  
+- T = 1: (20, -1.75)  
+- T = 2: (40, -3.5)  
+- T = 3: (60, -3.5)  
+- T = 4: (80, -3.5)  
+- T = 5: (100, -3.5)  
+- T = 6: (120, -3.5)  
+- T = 7: (140, -1.75)  
+- T = 8: (160, 0)  
+- T = 9: (180, 0)  
+- T = 10: (200, 0)  
+
+This trajectory ensures the obstacle is safely passed while maintaining a speed of 72 km/h and completing the lane-changing maneuver within 10 seconds.

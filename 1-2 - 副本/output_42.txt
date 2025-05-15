@@ -1,0 +1,51 @@
+To describe the trajectory of the vehicle, we¡¯ll break it down into three phases:  
+1. **Lane Change to the Left Lane** (from right lane to left lane).  
+2. **Passing the Obstacle** (staying in the left lane).  
+3. **Lane Change Back to the Right Lane** (from left lane to right lane).  
+
+We¡¯ll assume the following:  
+- The vehicle maintains a speed of **72 km/h (20 m/s)**.  
+- Each lane change takes **3 seconds** to complete.  
+- The left lane is **3.5 meters** to the left of the right lane (Y = 0).  
+- The obstacle is at (100, 0), and we start at (0, 0).  
+
+### Trajectory Plan:  
+1. **Lane Change to the Left Lane (T = 0 to T = 3):**  
+   - Move from Y = 0 to Y = -3.5 (left lane).  
+   - X increases linearly at 20 m/s.  
+
+2. **Passing the Obstacle (T = 3 to T = 7):**  
+   - Stay in the left lane (Y = -3.5).  
+   - X increases linearly at 20 m/s.  
+
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10):**  
+   - Move from Y = -3.5 to Y = 0 (right lane).  
+   - X increases linearly at 20 m/s.  
+
+### Trajectory (X, Y) at Each Second:  
+- **T = 0:** (0, 0)  
+- **T = 1:** (20, -1.17)  
+- **T = 2:** (40, -2.33)  
+- **T = 3:** (60, -3.5)  
+- **T = 4:** (80, -3.5)  
+- **T = 5:** (100, -3.5)  
+- **T = 6:** (120, -3.5)  
+- **T = 7:** (140, -3.5)  
+- **T = 8:** (160, -2.33)  
+- **T = 9:** (180, -1.17)  
+- **T = 10:** (200, 0)  
+
+### Explanation:  
+- **Lane Change (T = 0 to T = 3):**  
+  - Y changes linearly from 0 to -3.5 over 3 seconds.  
+  - X increases by 20 meters each second.  
+
+- **Passing the Obstacle (T = 3 to T = 7):**  
+  - Y remains constant at -3.5 (left lane).  
+  - X increases by 20 meters each second.  
+
+- **Lane Change Back (T = 7 to T = 10):**  
+  - Y changes linearly from -3.5 to 0 over 3 seconds.  
+  - X increases by 20 meters each second.  
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, stays in the left lane while passing the obstacle, and safely returns to the right lane.

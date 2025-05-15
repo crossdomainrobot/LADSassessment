@@ -1,0 +1,38 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed above 60 km/h. Here¡¯s a step-by-step breakdown of the vehicle¡¯s position at each second (T = 1, 2, 3, etc.) until the maneuver is completed.
+
+### Assumptions:
+1. **Initial speed:** 72 km/h (20 m/s).
+2. **Lane width:** Assume the lateral distance between the center of the right lane and the center of the left lane is 3.5 meters.
+3. **Lane change duration:** Assume it takes 3 seconds to complete the lane change.
+4. **Obstacle position:** (100, 0).
+5. **Passing distance:** The vehicle will pass the obstacle and switch back to the right lane after ensuring a safe distance.
+
+### Trajectory:
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at each second (T = 1, 2, 3, ...).
+
+1. **T = 0:** Initial position (0, 0).
+2. **T = 1:** Vehicle continues in the right lane. Position: (20, 0).
+3. **T = 2:** Vehicle continues in the right lane. Position: (40, 0).
+4. **T = 3:** Vehicle begins lane change to the left. Position: (60, 1.75) (halfway through the lane change).
+5. **T = 4:** Vehicle completes lane change to the left. Position: (80, 3.5) (fully in the left lane).
+6. **T = 5:** Vehicle continues in the left lane. Position: (100, 3.5) (now passing the obstacle).
+7. **T = 6:** Vehicle continues in the left lane. Position: (120, 3.5).
+8. **T = 7:** Vehicle begins lane change back to the right. Position: (140, 1.75) (halfway through the lane change).
+9. **T = 8:** Vehicle completes lane change back to the right. Position: (160, 0) (fully in the right lane).
+10. **T = 9:** Vehicle continues in the right lane. Position: (180, 0).
+11. **T = 10:** Vehicle continues in the right lane. Position: (200, 0).
+
+### Summary of Positions:
+- **T = 0:** (0, 0)
+- **T = 1:** (20, 0)
+- **T = 2:** (40, 0)
+- **T = 3:** (60, 1.75)
+- **T = 4:** (80, 3.5)
+- **T = 5:** (100, 3.5)
+- **T = 6:** (120, 3.5)
+- **T = 7:** (140, 1.75)
+- **T = 8:** (160, 0)
+- **T = 9:** (180, 0)
+- **T = 10:** (200, 0)
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

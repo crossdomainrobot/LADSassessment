@@ -1,0 +1,49 @@
+To plan a safe trajectory for the double lane change maneuver, we need to ensure smooth transitions while maintaining a speed above 60 km/h. Here¡¯s the step-by-step plan:
+
+### Assumptions:
+1. **Initial Position**: (0, 0) at \( T = 0 \).
+2. **Obstacle Position**: (100, 0).
+3. **Left Lane Position**: \( Y = -5 \).
+4. **Initial Speed**: 72 km/h (20 m/s).
+5. **Minimum Speed**: 60 km/h (16.67 m/s).
+
+### Maneuver Steps:
+1. **Lane Change to the Left**: Begin changing lanes to the left at \( T = 0 \), reaching \( Y = -5 \) by \( T = 3 \) seconds.
+2. **Pass the Obstacle**: Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).
+3. **Lane Change Back to the Right**: Begin changing lanes back to the right at \( T = 7 \), reaching \( Y = 0 \) by \( T = 10 \) seconds.
+
+### Trajectory:
+We¡¯ll use smooth transitions for \( Y \) and constant speed for \( X \). The \( Y \) position will follow a sinusoidal curve for smooth lane changes.
+
+#### Equations:
+- **X Position**: \( X(T) = 20 \cdot T \) (constant speed of 20 m/s).
+- **Y Position**:
+  - For \( T \in [0, 3] \): \( Y(T) = -5 \cdot \sin\left(\frac{\pi \cdot T}{6}\right) \) (lane change to the left).
+  - For \( T \in [3, 7] \): \( Y(T) = -5 \) (stay in the left lane).
+  - For \( T \in [7, 10] \): \( Y(T) = -5 \cdot \sin\left(\frac{\pi \cdot (T - 4)}{6}\right) \) (lane change back to the right).
+
+#### Positions at Key Timepoints:
+1. \( T = 1 \): \( X = 20 \), \( Y = -5 \cdot \sin\left(\frac{\pi \cdot 1}{6}\right) \approx -2.5 \). Position: (20, -2.5).
+2. \( T = 2 \): \( X = 40 \), \( Y = -5 \cdot \sin\left(\frac{\pi \cdot 2}{6}\right) \approx -4.33 \). Position: (40, -4.33).
+3. \( T = 3 \): \( X = 60 \), \( Y = -5 \). Position: (60, -5).
+4. \( T = 4 \): \( X = 80 \), \( Y = -5 \). Position: (80, -5).
+5. \( T = 5 \): \( X = 100 \), \( Y = -5 \). Position: (100, -5).
+6. \( T = 6 \): \( X = 120 \), \( Y = -5 \). Position: (120, -5).
+7. \( T = 7 \): \( X = 140 \), \( Y = -5 \). Position: (140, -5).
+8. \( T = 8 \): \( X = 160 \), \( Y = -5 \cdot \sin\left(\frac{\pi \cdot (8 - 4)}{6}\right) \approx -4.33 \). Position: (160, -4.33).
+9. \( T = 9 \): \( X = 180 \), \( Y = -5 \cdot \sin\left(\frac{\pi \cdot (9 - 4)}{6}\right) \approx -2.5 \). Position: (180, -2.5).
+10. \( T = 10 \): \( X = 200 \), \( Y = 0 \). Position: (200, 0).
+
+### Summary of Positions:
+- \( T = 1 \): (20, -2.5)
+- \( T = 2 \): (40, -4.33)
+- \( T = 3 \): (60, -5)
+- \( T = 4 \): (80, -5)
+- \( T = 5 \): (100, -5)
+- \( T = 6 \): (120, -5)
+- \( T = 7 \): (140, -5)
+- \( T = 8 \): (160, -4.33)
+- \( T = 9 \): (180, -2.5)
+- \( T = 10 \): (200, 0)
+
+This trajectory ensures a smooth and safe double lane change maneuver while maintaining a speed above 60 km/h.

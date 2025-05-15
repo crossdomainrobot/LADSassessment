@@ -1,0 +1,65 @@
+To plan the trajectory for the double lane change maneuver, we need to ensure smooth and safe transitions while maintaining a speed above 60 km/h. Here¡¯s a step-by-step plan for the next 10 seconds:
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h (20 m/s).
+2. **Lane width**: Right lane at \( Y = 0 \), left lane at \( Y = -5 \).
+3. **Obstacle position**: \( (100, 0) \).
+4. **Time step**: 1 second for simplicity.
+5. **Acceleration/deceleration**: Smooth and gradual to ensure safety.
+
+---
+
+### Trajectory Plan:
+1. **Lane change to the left**: Start at \( T = 0 \) and complete by \( T = 3 \).
+2. **Pass the obstacle**: Stay in the left lane until \( X > 100 \).
+3. **Lane change back to the right**: Start at \( T = 6 \) and complete by \( T = 9 \).
+4. **Continue in the right lane**: By \( T = 10 \), the vehicle is back in the right lane.
+
+---
+
+### Position at Each Timepoint:
+Here¡¯s the vehicle¡¯s position \( (X, Y) \) at each timepoint:
+
+- **\( T = 0 \)**: \( (0, 0) \)  
+  Vehicle starts in the right lane.
+
+- **\( T = 1 \)**: \( (20, -1.25) \)  
+  Begin lane change to the left.
+
+- **\( T = 2 \)**: \( (40, -2.5) \)  
+  Continue lane change.
+
+- **\( T = 3 \)**: \( (60, -5) \)  
+  Complete lane change, now in the left lane.
+
+- **\( T = 4 \)**: \( (80, -5) \)  
+  Continue in the left lane, approaching the obstacle.
+
+- **\( T = 5 \)**: \( (100, -5) \)  
+  Pass the obstacle in the left lane.
+
+- **\( T = 6 \)**: \( (120, -3.75) \)  
+  Begin lane change back to the right.
+
+- **\( T = 7 \)**: \( (140, -2.5) \)  
+  Continue lane change.
+
+- **\( T = 8 \)**: \( (160, -1.25) \)  
+  Continue lane change.
+
+- **\( T = 9 \)**: \( (180, 0) \)  
+  Complete lane change, now in the right lane.
+
+- **\( T = 10 \)**: \( (200, 0) \)  
+  Continue in the right lane.
+
+---
+
+### Notes:
+1. The lane changes are modeled as linear transitions in \( Y \) over 3 seconds.
+2. The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+3. The obstacle is safely passed by staying in the left lane at \( X = 100 \).
+
+This trajectory ensures the vehicle avoids the obstacle while maintaining safe driving practices.

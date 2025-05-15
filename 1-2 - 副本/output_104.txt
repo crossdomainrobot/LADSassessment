@@ -1,0 +1,40 @@
+To plan the trajectory, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane**: Accelerate slightly, switch to the left lane, and stabilize in the left lane.
+2. **Passing the Obstacle**: Maintain speed in the left lane while passing the obstacle.
+3. **Lane Change Back to the Right Lane**: Switch back to the right lane after passing the obstacle.
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s).
+- Maintain speed above 60 km/h (16.67 m/s).
+- Lane width: 3.5 meters (standard for highways).
+- Time for lane change: 3 seconds (smooth transition).
+- Obstacle is at (100, 0).
+
+### Trajectory Calculation:
+
+#### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3)
+- At T = 0: (0, 0)  
+- At T = 1: (20, 1.17)  
+- At T = 2: (40, 2.33)  
+- At T = 3: (60, 3.5)  
+
+#### Phase 2: Passing the Obstacle (T = 3 to T = 6)
+- At T = 4: (80, 3.5)  
+- At T = 5: (100, 3.5)  
+- At T = 6: (120, 3.5)  
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 6 to T = 9)
+- At T = 7: (140, 2.33)  
+- At T = 8: (160, 1.17)  
+- At T = 9: (180, 0)  
+
+#### Final Position (T = 10)
+- At T = 10: (200, 0)  
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 3)**: The vehicle moves laterally to the left lane while maintaining a speed of 20 m/s. The Y-coordinate increases linearly to 3.5 meters (left lane).
+2. **Passing the Obstacle (T = 3 to T = 6)**: The vehicle stays in the left lane, passing the obstacle at (100, 0) while maintaining a constant speed.
+3. **Lane Change Back (T = 6 to T = 9)**: The vehicle smoothly transitions back to the right lane, with the Y-coordinate decreasing linearly to 0 meters.
+
+This trajectory ensures the vehicle maintains a safe speed and completes the maneuver efficiently.

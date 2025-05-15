@@ -1,0 +1,37 @@
+To plan a safe trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Initial Lane Change to the Left Lane**: The vehicle needs to move from the right lane (Y = 0) to the left lane (Y = -5) smoothly.
+2. **Pass the Obstacle**: The vehicle needs to stay in the left lane while passing the obstacle at X = 100.
+3. **Return to the Right Lane**: After passing the obstacle, the vehicle needs to return to the right lane (Y = 0).
+
+We will assume a constant speed of 72 km/h (which is 20 m/s) and a smooth lane change over a distance of 50 meters (2.5 seconds) for each lane change.
+
+### Trajectory Planning:
+
+- **Time T = 0 seconds**: Initial position (X, Y) = (0, 0)
+- **Time T = 1 second**: The vehicle starts moving towards the left lane. Position = (20, -1)
+- **Time T = 2 seconds**: Continue moving towards the left lane. Position = (40, -2)
+- **Time T = 3 seconds**: Continue moving towards the left lane. Position = (60, -3)
+- **Time T = 4 seconds**: Continue moving towards the left lane. Position = (80, -4)
+- **Time T = 5 seconds**: Complete the lane change to the left lane. Position = (100, -5)
+- **Time T = 6 seconds**: The vehicle is in the left lane and continues to pass the obstacle. Position = (120, -5)
+- **Time T = 7 seconds**: The vehicle starts moving back towards the right lane. Position = (140, -4)
+- **Time T = 8 seconds**: Continue moving towards the right lane. Position = (160, -3)
+- **Time T = 9 seconds**: Continue moving towards the right lane. Position = (180, -2)
+- **Time T = 10 seconds**: Complete the lane change back to the right lane. Position = (200, 0)
+
+### Summary of Positions:
+
+- **T = 0s**: (0, 0)
+- **T = 1s**: (20, -1)
+- **T = 2s**: (40, -2)
+- **T = 3s**: (60, -3)
+- **T = 4s**: (80, -4)
+- **T = 5s**: (100, -5)
+- **T = 6s**: (120, -5)
+- **T = 7s**: (140, -4)
+- **T = 8s**: (160, -3)
+- **T = 9s**: (180, -2)
+- **T = 10s**: (200, 0)
+
+This trajectory ensures that the vehicle smoothly changes lanes, passes the obstacle safely, and returns to the right lane while maintaining a speed of 72 km/h.

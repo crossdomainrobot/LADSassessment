@@ -1,0 +1,65 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we'll break the maneuver into phases: **acceleration to the left lane**, **passing the obstacle**, and **returning to the right lane**. The vehicle's initial speed is **72 km/h (20 m/s)**, and we'll maintain a speed of at least **60 km/h (16.67 m/s)** during the maneuver.
+
+### Assumptions:
+1. The vehicle starts at \((0, 0)\) at \(T = 0\).
+2. The obstacle is at \((100, 0)\).
+3. The left lane is at \(Y = -3.5 \, \text{m}\) (assuming a standard lane width).
+4. The vehicle accelerates smoothly to the left lane, maintains speed while passing, and then returns to the right lane.
+
+### Trajectory Plan:
+1. **Lane Change to the Left (\(T = 0\) to \(T = 3\))**:
+   - The vehicle moves laterally to the left lane while maintaining speed.
+2. **Passing the Obstacle (\(T = 3\) to \(T = 6\))**:
+   - The vehicle stays in the left lane and passes the obstacle.
+3. **Lane Change Back to the Right (\(T = 6\) to \(T = 9\))**:
+   - The vehicle moves laterally back to the right lane.
+
+### Trajectory Calculation:
+We'll calculate the position \((X, Y)\) at each second.
+
+#### Phase 1: Lane Change to the Left (\(T = 0\) to \(T = 3\)):
+- **Lateral Motion**: The vehicle moves from \(Y = 0\) to \(Y = -3.5 \, \text{m}\) linearly over 3 seconds.
+- **Longitudinal Motion**: The vehicle maintains a speed of \(20 \, \text{m/s}\).
+
+| Time (s) | \(X\) (m) | \(Y\) (m) |
+|----------|-----------|-----------|
+| 0        | 0         | 0         |
+| 1        | 20        | -1.17     |
+| 2        | 40        | -2.33     |
+| 3        | 60        | -3.5      |
+
+#### Phase 2: Passing the Obstacle (\(T = 3\) to \(T = 6\)):
+- **Lateral Motion**: The vehicle stays at \(Y = -3.5 \, \text{m}\).
+- **Longitudinal Motion**: The vehicle continues at \(20 \, \text{m/s}\).
+
+| Time (s) | \(X\) (m) | \(Y\) (m) |
+|----------|-----------|-----------|
+| 4        | 80        | -3.5      |
+| 5        | 100       | -3.5      |
+| 6        | 120       | -3.5      |
+
+#### Phase 3: Lane Change Back to the Right (\(T = 6\) to \(T = 9\)):
+- **Lateral Motion**: The vehicle moves from \(Y = -3.5 \, \text{m}\) to \(Y = 0\) linearly over 3 seconds.
+- **Longitudinal Motion**: The vehicle continues at \(20 \, \text{m/s}\).
+
+| Time (s) | \(X\) (m) | \(Y\) (m) |
+|----------|-----------|-----------|
+| 7        | 140       | -2.33     |
+| 8        | 160       | -1.17     |
+| 9        | 180       | 0         |
+
+### Final Trajectory:
+| Time (s) | \(X\) (m) | \(Y\) (m) |
+|----------|-----------|-----------|
+| 0        | 0         | 0         |
+| 1        | 20        | -1.17     |
+| 2        | 40        | -2.33     |
+| 3        | 60        | -3.5      |
+| 4        | 80        | -3.5      |
+| 5        | 100       | -3.5      |
+| 6        | 120       | -3.5      |
+| 7        | 140       | -2.33     |
+| 8        | 160       | -1.17     |
+| 9        | 180       | 0         |
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above \(60 \, \text{km/h}\).

@@ -1,0 +1,85 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we¡¯ll break the process into phases: **lane change to the left**, **overtaking the obstacle**, and **lane change back to the right**. We¡¯ll calculate the vehicle¡¯s position every second for the next 10 seconds, assuming a constant speed of **72 km/h (20 m/s)**.
+
+### Key Assumptions:
+1. **Initial Position (T = 0):** (0, 0)
+2. **Obstacle Position:** (100, 0)
+3. **Left Lane Y-coordinate:** -5
+4. **Speed:** 20 m/s (constant)
+5. **Lane Change Duration:** 3 seconds (smooth transition)
+
+---
+
+### Trajectory Plan:
+#### Phase 1: Lane Change to the Left (T = 0 to T = 3)
+- Move from Y = 0 to Y = -5 over 3 seconds.
+- X increases linearly at 20 m/s.
+
+#### Phase 2: Overtaking the Obstacle (T = 3 to T = 7)
+- Stay in the left lane (Y = -5).
+- X continues to increase at 20 m/s.
+
+#### Phase 3: Lane Change Back to the Right (T = 7 to T = 10)
+- Move from Y = -5 to Y = 0 over 3 seconds.
+- X continues to increase at 20 m/s.
+
+---
+
+### Vehicle Positions (X, Y) at Each Second:
+
+- **T = 1:** (20, -1.67)  
+  - X = 20 m/s ¡Á 1 s = 20 m  
+  - Y = -5 ¡Á (1/3) = -1.67 m  
+
+- **T = 2:** (40, -3.33)  
+  - X = 20 m/s ¡Á 2 s = 40 m  
+  - Y = -5 ¡Á (2/3) = -3.33 m  
+
+- **T = 3:** (60, -5)  
+  - X = 20 m/s ¡Á 3 s = 60 m  
+  - Y = -5 m (fully in the left lane)  
+
+- **T = 4:** (80, -5)  
+  - X = 20 m/s ¡Á 4 s = 80 m  
+  - Y = -5 m (staying in the left lane)  
+
+- **T = 5:** (100, -5)  
+  - X = 20 m/s ¡Á 5 s = 100 m  
+  - Y = -5 m (overtaking the obstacle)  
+
+- **T = 6:** (120, -5)  
+  - X = 20 m/s ¡Á 6 s = 120 m  
+  - Y = -5 m (staying in the left lane)  
+
+- **T = 7:** (140, -5)  
+  - X = 20 m/s ¡Á 7 s = 140 m  
+  - Y = -5 m (beginning lane change back to the right)  
+
+- **T = 8:** (160, -3.33)  
+  - X = 20 m/s ¡Á 8 s = 160 m  
+  - Y = -5 ¡Á (2/3) = -3.33 m  
+
+- **T = 9:** (180, -1.67)  
+  - X = 20 m/s ¡Á 9 s = 180 m  
+  - Y = -5 ¡Á (1/3) = -1.67 m  
+
+- **T = 10:** (200, 0)  
+  - X = 20 m/s ¡Á 10 s = 200 m  
+  - Y = 0 m (fully back in the right lane)  
+
+---
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|------------------|
+| 1        | (20, -1.67)      |
+| 2        | (40, -3.33)      |
+| 3        | (60, -5)         |
+| 4        | (80, -5)         |
+| 5        | (100, -5)        |
+| 6        | (120, -5)        |
+| 7        | (140, -5)        |
+| 8        | (160, -3.33)     |
+| 9        | (180, -1.67)     |
+| 10       | (200, 0)         |
+
+This trajectory ensures a smooth and safe lane change maneuver while maintaining a speed of 72 km/h.

@@ -1,0 +1,59 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into the following steps:
+
+1. **Maintain speed and approach the obstacle** (initial phase).  
+2. **Initiate the lane change** (move from the right lane to the left lane).  
+3. **Pass the obstacle** while staying in the left lane.  
+4. **Return to the right lane** after passing the obstacle.
+
+### Assumptions:
+- The vehicle's initial speed is 72 km/h (20 m/s).  
+- The left lane is at a lateral position of Y = -3.5 meters (assuming a standard lane width of 3.5 meters).  
+- The lane change takes approximately 3 seconds to complete.  
+- The obstacle is at (100, 0), and we aim to pass it safely.
+
+### Trajectory Calculation:
+
+#### Initial Phase (T = 0 to T = 2 seconds):
+- The vehicle maintains its speed of 20 m/s and stays in the right lane (Y = 0).  
+- Positions:  
+  - T = 0: (0, 0)  
+  - T = 1: (20, 0)  
+  - T = 2: (40, 0)  
+
+#### Lane Change (T = 2 to T = 5 seconds):
+- The vehicle gradually moves to the left lane (Y = -3.5 meters).  
+- Lateral movement is assumed to be linear over 3 seconds.  
+- Positions:  
+  - T = 3: (60, -1.17)  
+  - T = 4: (80, -2.33)  
+  - T = 5: (100, -3.5)  
+
+#### Passing the Obstacle (T = 5 to T = 7 seconds):
+- The vehicle continues in the left lane (Y = -3.5 meters) and passes the obstacle at (100, 0).  
+- Positions:  
+  - T = 6: (120, -3.5)  
+  - T = 7: (140, -3.5)  
+
+#### Returning to the Right Lane (T = 7 to T = 10 seconds):
+- The vehicle gradually moves back to the right lane (Y = 0).  
+- Lateral movement is assumed to be linear over 3 seconds.  
+- Positions:  
+  - T = 8: (160, -2.33)  
+  - T = 9: (180, -1.17)  
+  - T = 10: (200, 0)  
+
+### Final Trajectory:
+Here are the positions at each second:  
+- T = 0: (0, 0)  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, -1.17)  
+- T = 4: (80, -2.33)  
+- T = 5: (100, -3.5)  
+- T = 6: (120, -3.5)  
+- T = 7: (140, -3.5)  
+- T = 8: (160, -2.33)  
+- T = 9: (180, -1.17)  
+- T = 10: (200, 0)  
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

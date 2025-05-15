@@ -1,0 +1,45 @@
+To safely perform the double lane change maneuver, we need to plan a smooth trajectory that ensures the vehicle changes to the left lane, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h. Here¡¯s a step-by-step plan for the vehicle's position over the next 10 seconds:
+
+---
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Left Lane Position**: \( Y = -5 \).
+3. **Obstacle Position**: \( (100, 0) \).
+4. **Maneuver Duration**: 10 seconds.
+5. **Smooth Lane Change**: The lane change will be performed gradually over 4 seconds (2 seconds to move to the left lane and 2 seconds to return to the right lane).
+
+---
+
+### Trajectory Plan:
+1. **From \( T = 0 \) to \( T = 2 \)**: Move from \( Y = 0 \) to \( Y = -5 \) (change to the left lane).
+2. **From \( T = 2 \) to \( T = 8 \)**: Drive in the left lane (\( Y = -5 \)) to pass the obstacle.
+3. **From \( T = 8 \) to \( T = 10 \)**: Move from \( Y = -5 \) back to \( Y = 0 \) (return to the right lane).
+
+---
+
+### Position at Each Time Point:
+The vehicle¡¯s position \( (X, Y) \) is calculated based on the initial speed (20 m/s) and the lane change trajectory.
+
+| Time \( T \) (s) | \( X \) (m)        | \( Y \) (m)       |
+|------------------|--------------------|-------------------|
+| 0                | 0                  | 0                 |
+| 1                | 20                 | -1.25             |
+| 2                | 40                 | -5                |
+| 3                | 60                 | -5                |
+| 4                | 80                 | -5                |
+| 5                | 100                | -5                |
+| 6                | 120                | -5                |
+| 7                | 140                | -5                |
+| 8                | 160                | -2.5              |
+| 9                | 180                | -1.25             |
+| 10               | 200                | 0                 |
+
+---
+
+### Explanation:
+1. **Lane Change (\( T = 0 \) to \( T = 2 \))**: The vehicle moves laterally from \( Y = 0 \) to \( Y = -5 \) while continuing to move forward at 20 m/s.
+2. **Passing the Obstacle (\( T = 2 \) to \( T = 8 \))**: The vehicle remains in the left lane (\( Y = -5 \)) and passes the obstacle at \( X = 100 \).
+3. **Returning to the Right Lane (\( T = 8 \) to \( T = 10 \))**: The vehicle moves laterally back to \( Y = 0 \) while continuing to move forward.
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

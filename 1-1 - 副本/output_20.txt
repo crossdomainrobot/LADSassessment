@@ -1,0 +1,53 @@
+To plan the trajectory for the double lane change maneuver, we¡¯ll break it into phases:  
+1. **Lane change to the left lane (Y = -5)**  
+2. **Overtaking the obstacle at X = 100 while staying in the left lane**  
+3. **Lane change back to the right lane (Y = 0)**  
+
+### Assumptions:  
+- Initial speed: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the left lane)  
+- Smooth lane changes with constant acceleration/deceleration  
+
+### Phase 1: Lane Change to the Left Lane (Y = -5)  
+- Start at (0, 0) and end at (X, -5).  
+- Assume the lane change takes 3 seconds (smooth transition).  
+- During this phase, the vehicle maintains a speed of 20 m/s.  
+- Distance covered: \( 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m} \).  
+- Final position: (60, -5).  
+
+### Phase 2: Overtaking the Obstacle (X = 100)  
+- Continue driving in the left lane (Y = -5) at 20 m/s.  
+- Distance to obstacle: \( 100 - 60 = 40 \, \text{m} \).  
+- Time to reach obstacle: \( 40 \, \text{m} / 20 \, \text{m/s} = 2 \, \text{s} \).  
+- Final position: (100, -5).  
+
+### Phase 3: Lane Change Back to the Right Lane (Y = 0)  
+- Start at (100, -5) and end at (X, 0).  
+- Assume the lane change takes 3 seconds (smooth transition).  
+- During this phase, the vehicle maintains a speed of 20 m/s.  
+- Distance covered: \( 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m} \).  
+- Final position: (160, 0).  
+
+### Trajectory Table:  
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.67 |  
+| 2        | 40    | -3.33 |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -3.33 |  
+| 7        | 140   | -1.67 |  
+| 8        | 160   | 0     |  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+### Explanation:  
+- **T = 0 to 3 s**: Smooth lane change to the left lane.  
+- **T = 3 to 5 s**: Driving in the left lane to overtake the obstacle.  
+- **T = 5 to 8 s**: Smooth lane change back to the right lane.  
+- **T = 8 to 10 s**: Continuing in the right lane after the maneuver.  
+
+This trajectory ensures the vehicle stays above 60 km/h and safely navigates around the obstacle.

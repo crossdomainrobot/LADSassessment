@@ -1,0 +1,47 @@
+To plan the trajectory for the double lane change maneuver, we need to ensure smooth and safe transitions while maintaining a speed above 60 km/h. Here¡¯s a step-by-step plan:
+
+1. **Initial State**:  
+   - Position: \( (X, Y) = (0, 0) \)  
+   - Speed: 72 km/h (20 m/s)  
+   - Time: \( T = 0 \)  
+
+2. **Lane Change to the Left Lane**:  
+   - Start changing lanes at \( T = 1 \) second.  
+   - Assume a smooth lateral transition to \( Y = -5 \) over 3 seconds.  
+   - At \( T = 4 \) seconds, the vehicle is fully in the left lane at \( Y = -5 \).  
+
+3. **Overtaking the Obstacle**:  
+   - Continue driving in the left lane until the obstacle at \( X = 100 \) is passed.  
+   - At \( T = 5 \) seconds, the vehicle reaches \( X = 100 \) (since 20 m/s ¡Á 5 s = 100 m).  
+
+4. **Lane Change Back to the Right Lane**:  
+   - Start changing lanes back to \( Y = 0 \) at \( T = 6 \) seconds.  
+   - Assume a smooth lateral transition to \( Y = 0 \) over 3 seconds.  
+   - At \( T = 9 \) seconds, the vehicle is fully back in the right lane at \( Y = 0 \).  
+
+5. **Final State**:  
+   - Continue driving in the right lane at \( Y = 0 \).  
+
+### Trajectory in 10 Seconds:
+Here are the positions at each second:
+
+| Time \( T \) (s) | Position \( (X, Y) \) (m) |
+|------------------|--------------------------|
+| 0                | \( (0, 0) \)             |
+| 1                | \( (20, -1.25) \)        |
+| 2                | \( (40, -2.5) \)         |
+| 3                | \( (60, -3.75) \)        |
+| 4                | \( (80, -5) \)           |
+| 5                | \( (100, -5) \)          |
+| 6                | \( (120, -3.75) \)       |
+| 7                | \( (140, -2.5) \)        |
+| 8                | \( (160, -1.25) \)       |
+| 9                | \( (180, 0) \)           |
+| 10               | \( (200, 0) \)           |
+
+### Explanation:
+- The lane changes are modeled as linear transitions in the \( Y \)-direction over 3 seconds.  
+- The \( X \)-position increases linearly at 20 m/s (72 km/h).  
+- The maneuver is completed by \( T = 9 \) seconds, and the vehicle continues driving in the right lane.  
+
+This trajectory ensures the vehicle safely overtakes the obstacle while maintaining a speed above 60 km/h.

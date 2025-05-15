@@ -1,0 +1,65 @@
+To describe the trajectory, we'll assume the vehicle moves at a constant speed of 72 km/h (20 m/s) and completes the lane-changing maneuver smoothly. The obstacle is at (100, 0), and the left lane is at \( Y = -3.5 \) meters (assuming a standard lane width of 3.5 meters). Here's the trajectory:
+
+---
+
+### **Initial Conditions:**
+- Speed: 72 km/h (20 m/s)
+- Initial position: (0, 0)
+- Obstacle position: (100, 0)
+- Left lane: \( Y = -3.5 \) meters
+
+---
+
+### **Trajectory:**
+
+1. **T = 0 s**:  
+   Position: (0, 0)  
+   Action: Start moving forward in the right lane.
+
+2. **T = 1 s**:  
+   Position: (20, 0)  
+   Action: Continue in the right lane.
+
+3. **T = 2 s**:  
+   Position: (40, 0)  
+   Action: Continue in the right lane.
+
+4. **T = 3 s**:  
+   Position: (60, 0)  
+   Action: Begin transitioning to the left lane.
+
+5. **T = 4 s**:  
+   Position: (80, -1.75)  
+   Action: Continue transitioning to the left lane.
+
+6. **T = 5 s**:  
+   Position: (100, -3.5)  
+   Action: Fully in the left lane, passing the obstacle.
+
+7. **T = 6 s**:  
+   Position: (120, -3.5)  
+   Action: Continue in the left lane.
+
+8. **T = 7 s**:  
+   Position: (140, -3.5)  
+   Action: Begin transitioning back to the right lane.
+
+9. **T = 8 s**:  
+   Position: (160, -1.75)  
+   Action: Continue transitioning to the right lane.
+
+10. **T = 9 s**:  
+    Position: (180, 0)  
+    Action: Fully back in the right lane.
+
+11. **T = 10 s**:  
+    Position: (200, 0)  
+    Action: Continue in the right lane.
+
+---
+
+### **Explanation:**
+- The vehicle moves forward at 20 m/s along the X-axis.
+- Between T = 3 s and T = 5 s, the vehicle transitions to the left lane to avoid the obstacle at (100, 0).
+- Between T = 7 s and T = 9 s, the vehicle transitions back to the right lane.
+- The Y-coordinate changes smoothly to simulate a realistic lane change.

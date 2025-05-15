@@ -1,0 +1,53 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into three phases: **acceleration to the left lane**, **passing the obstacle**, and **returning to the right lane**. Here's the step-by-step plan with positions at each second (T = 0, 1, 2, ..., 10):
+
+---
+
+### Assumptions:
+1. **Speed**: Initial speed is 72 km/h (20 m/s). Maintain speed above 60 km/h (16.67 m/s).
+2. **Lane width**: Assume each lane is 3.5 meters wide. So, the left lane is at Y = -3.5 m.
+3. **Obstacle**: Located at (100, 0).
+4. **Lane change duration**: The lane change takes about 2 seconds in each direction.
+
+---
+
+### Trajectory:
+
+#### **Phase 1: Lane Change to the Left (T = 0 to T = 2)**
+- At T = 0: Start at (0, 0). Begin moving left.
+- At T = 1: Move halfway to the left lane. Position: (20, -1.75).
+- At T = 2: Complete the lane change. Position: (40, -3.5). Now fully in the left lane.
+
+#### **Phase 2: Passing the Obstacle (T = 2 to T = 6)**
+- At T = 3: Continue straight in the left lane. Position: (60, -3.5).
+- At T = 4: Position: (80, -3.5).
+- At T = 5: Position: (100, -3.5). Now aligned with the obstacle.
+- At T = 6: Position: (120, -3.5). Fully past the obstacle.
+
+#### **Phase 3: Lane Change Back to the Right (T = 6 to T = 8)**
+- At T = 7: Begin moving right. Position: (140, -1.75).
+- At T = 8: Complete the lane change. Position: (160, 0). Now fully in the right lane.
+
+#### **Phase 4: Continue Driving Straight (T = 8 to T = 10)**
+- At T = 9: Position: (180, 0).
+- At T = 10: Position: (200, 0).
+
+---
+
+### Summary of Positions (X, Y) at Each Second:
+| Time (T) | Position (X, Y)  |
+|----------|------------------|
+| 0        | (0, 0)           |
+| 1        | (20, -1.75)      |
+| 2        | (40, -3.5)       |
+| 3        | (60, -3.5)       |
+| 4        | (80, -3.5)       |
+| 5        | (100, -3.5)      |
+| 6        | (120, -3.5)      |
+| 7        | (140, -1.75)     |
+| 8        | (160, 0)         |
+| 9        | (180, 0)         |
+| 10       | (200, 0)         |
+
+---
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining speed and staying in the correct lanes.

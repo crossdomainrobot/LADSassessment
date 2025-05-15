@@ -1,0 +1,77 @@
+To plan the trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Initial Lane Change to the Left Lane**: The vehicle needs to move from the right lane (Y = 0) to the left lane (Y = -5).
+2. **Passing the Obstacle**: The vehicle should stay in the left lane while passing the obstacle at X = 100.
+3. **Returning to the Right Lane**: After passing the obstacle, the vehicle should return to the right lane (Y = 0).
+
+Let¡¯s assume the vehicle maintains a constant speed of 72 km/h (20 m/s) during the maneuver. We¡¯ll calculate the positions at 1-second intervals.
+
+### Trajectory Planning:
+
+1. **Time T = 0 s**:  
+   - Initial position: (X, Y) = (0, 0)
+
+2. **Time T = 1 s**:  
+   - X = 20 m (20 m/s * 1 s)  
+   - Y = 0 m (still in the right lane)  
+   - Position: (20, 0)
+
+3. **Time T = 2 s**:  
+   - X = 40 m  
+   - Y = -1.25 m (starting to change lanes)  
+   - Position: (40, -1.25)
+
+4. **Time T = 3 s**:  
+   - X = 60 m  
+   - Y = -2.5 m (continuing lane change)  
+   - Position: (60, -2.5)
+
+5. **Time T = 4 s**:  
+   - X = 80 m  
+   - Y = -3.75 m (almost in the left lane)  
+   - Position: (80, -3.75)
+
+6. **Time T = 5 s**:  
+   - X = 100 m  
+   - Y = -5 m (fully in the left lane, passing the obstacle)  
+   - Position: (100, -5)
+
+7. **Time T = 6 s**:  
+   - X = 120 m  
+   - Y = -5 m (staying in the left lane)  
+   - Position: (120, -5)
+
+8. **Time T = 7 s**:  
+   - X = 140 m  
+   - Y = -3.75 m (starting to return to the right lane)  
+   - Position: (140, -3.75)
+
+9. **Time T = 8 s**:  
+   - X = 160 m  
+   - Y = -2.5 m (continuing to return to the right lane)  
+   - Position: (160, -2.5)
+
+10. **Time T = 9 s**:  
+    - X = 180 m  
+    - Y = -1.25 m (almost back in the right lane)  
+    - Position: (180, -1.25)
+
+11. **Time T = 10 s**:  
+    - X = 200 m  
+    - Y = 0 m (fully back in the right lane)  
+    - Position: (200, 0)
+
+### Summary of Positions:
+- T = 0 s: (0, 0)
+- T = 1 s: (20, 0)
+- T = 2 s: (40, -1.25)
+- T = 3 s: (60, -2.5)
+- T = 4 s: (80, -3.75)
+- T = 5 s: (100, -5)
+- T = 6 s: (120, -5)
+- T = 7 s: (140, -3.75)
+- T = 8 s: (160, -2.5)
+- T = 9 s: (180, -1.25)
+- T = 10 s: (200, 0)
+
+This trajectory ensures that the vehicle safely changes lanes, passes the obstacle, and returns to the original lane while maintaining a speed of 72 km/h.

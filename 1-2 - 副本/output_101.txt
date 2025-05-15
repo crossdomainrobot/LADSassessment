@@ -1,0 +1,22 @@
+Here¨s a trajectory for the lane-changing maneuver based on the given scenario. The vehicle starts at (0, 0) and needs to switch to the left lane, pass the obstacle at (100, 0), and return to the right lane. The speed is maintained at approximately 72 km/h (20 m/s). The left lane is assumed to be 3.5 meters to the left (Y = -3.5).
+
+### Trajectory:
+1. **T = 0 s**: Initial position (0, 0).  
+2. **T = 1 s**: (20, 0) ！ Continue in the right lane.  
+3. **T = 2 s**: (40, 0) ！ Start signaling and prepare to change lanes.  
+4. **T = 3 s**: (60, -1.2) ！ Begin moving into the left lane.  
+5. **T = 4 s**: (80, -2.3) ！ Continue transitioning into the left lane.  
+6. **T = 5 s**: (100, -3.5) ！ Fully in the left lane, passing the obstacle.  
+7. **T = 6 s**: (120, -3.5) ！ Maintain the left lane after passing.  
+8. **T = 7 s**: (140, -3.5) ！ Prepare to return to the right lane.  
+9. **T = 8 s**: (160, -2.3) ！ Start transitioning back to the right lane.  
+10. **T = 9 s**: (180, -1.2) ！ Continue transitioning into the right lane.  
+11. **T = 10 s**: (200, 0) ！ Fully back in the right lane.
+
+### Explanation:
+- The vehicle moves forward at 20 m/s (72 km/h).  
+- Lane change starts at T = 3 s and ends at T = 5 s, ensuring the obstacle is passed safely.  
+- The return to the right lane starts at T = 7 s and is completed by T = 10 s.  
+- The lateral position (Y) changes smoothly to simulate a safe lane change.  
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h, avoids the obstacle, and completes the maneuver safely.

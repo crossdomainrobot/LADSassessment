@@ -1,0 +1,61 @@
+To plan a safe trajectory for the double lane change maneuver, we¡¯ll break the process into three phases:
+
+1. **Changing to the left lane (Y = -5)**  
+2. **Passing the obstacle (X = 100)**  
+3. **Returning to the right lane (Y = 0)**  
+
+Here¡¯s the step-by-step trajectory:
+
+---
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the left lane)  
+- Smooth lane change over 3 seconds (to ensure safety and comfort)  
+- Obstacle at (100, 0)  
+
+---
+
+### Trajectory:
+
+#### **Phase 1: Changing to the left lane (T = 0 to T = 3)**  
+- At T = 0: (0, 0)  
+- At T = 1: (20, -1.67)  
+- At T = 2: (40, -3.33)  
+- At T = 3: (60, -5)  
+
+#### **Phase 2: Passing the obstacle (T = 3 to T = 7)**  
+- At T = 4: (80, -5)  
+- At T = 5: (100, -5)  
+- At T = 6: (120, -5)  
+- At T = 7: (140, -5)  
+
+#### **Phase 3: Returning to the right lane (T = 7 to T = 10)**  
+- At T = 8: (160, -3.33)  
+- At T = 9: (180, -1.67)  
+- At T = 10: (200, 0)  
+
+---
+
+### Detailed Positions:
+- T = 0: (0, 0)  
+- T = 1: (20, -1.67)  
+- T = 2: (40, -3.33)  
+- T = 3: (60, -5)  
+- T = 4: (80, -5)  
+- T = 5: (100, -5)  
+- T = 6: (120, -5)  
+- T = 7: (140, -5)  
+- T = 8: (160, -3.33)  
+- T = 9: (180, -1.67)  
+- T = 10: (200, 0)  
+
+---
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 3):** The vehicle smoothly transitions to the left lane over 3 seconds while maintaining a speed of 20 m/s.  
+2. **Passing the Obstacle (T = 3 to T = 7):** The vehicle stays in the left lane and passes the obstacle at X = 100.  
+3. **Returning to the Right Lane (T = 7 to T = 10):** The vehicle smoothly transitions back to the right lane over 3 seconds.  
+
+This trajectory ensures the vehicle maintains a safe speed, avoids the obstacle, and completes the maneuver smoothly.

@@ -1,0 +1,55 @@
+To safely pass the obstacle, we need to plan a smooth trajectory that involves changing lanes to the left, overtaking the obstacle, and then returning to the right lane. Here¡¯s a step-by-step plan for the next 10 seconds, with positions provided at 1-second intervals:
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Left Lane Position**: Y = -5 meters.
+3. **Obstacle Position**: (100, 0).
+4. **Minimum Speed**: 60 km/h (16.67 m/s).
+
+### Plan:
+1. **Lane Change to the Left**: Begin the lane change at T = 0 and complete it by T = 3 seconds.
+2. **Overtake the Obstacle**: Maintain the left lane until passing the obstacle at X = 100 meters.
+3. **Lane Change Back to the Right**: Begin returning to the right lane after passing the obstacle and complete it by T = 10 seconds.
+
+### Trajectory:
+Here are the positions (X, Y) at each second:
+
+- **T = 0s**: (0, 0)  
+  Initial position.
+
+- **T = 1s**: (20, -1.67)  
+  Start moving toward the left lane.
+
+- **T = 2s**: (40, -3.33)  
+  Continue lane change.
+
+- **T = 3s**: (60, -5)  
+  Fully in the left lane.
+
+- **T = 4s**: (80, -5)  
+  Continue driving in the left lane.
+
+- **T = 5s**: (100, -5)  
+  Pass the obstacle at X = 100 meters.
+
+- **T = 6s**: (120, -3.33)  
+  Begin returning to the right lane.
+
+- **T = 7s**: (140, -1.67)  
+  Continue lane change.
+
+- **T = 8s**: (160, 0)  
+  Fully back in the right lane.
+
+- **T = 9s**: (180, 0)  
+  Continue driving in the right lane.
+
+- **T = 10s**: (200, 0)  
+  Continue driving in the right lane.
+
+### Explanation:
+1. **Lane Change**: The lane change is completed smoothly over 3 seconds, moving laterally from Y = 0 to Y = -5 meters.
+2. **Overtaking**: The vehicle stays in the left lane (Y = -5) while passing the obstacle at X = 100 meters.
+3. **Return to Right Lane**: The vehicle begins returning to the right lane after passing the obstacle and completes the maneuver by T = 8 seconds.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h, safely overtakes the obstacle, and returns to the right lane.

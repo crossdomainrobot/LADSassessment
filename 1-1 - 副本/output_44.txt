@@ -1,0 +1,53 @@
+To safely plan the trajectory for the double lane change maneuver, we'll break the process into phases: **lane change to the left**, **overtaking the obstacle**, and **lane change back to the right**. The vehicle's initial speed is \(72 \, \text{km/h} = 20 \, \text{m/s}\). We'll assume the lane change takes about 2 seconds, and the overtaking phase will take about 5 seconds. Here¡¯s the trajectory step-by-step:
+
+---
+
+### **Phase 1: Lane Change to the Left (Y = -5)**  
+Time: \(T = 0 \, \text{s}\) to \(T = 2 \, \text{s}\)  
+The vehicle moves from \(Y = 0\) to \(Y = -5\) over 2 seconds while maintaining a speed of \(20 \, \text{m/s}\).  
+- At \(T = 0 \, \text{s}\): \((X, Y) = (0, 0)\)  
+- At \(T = 1 \, \text{s}\): \((X, Y) = (20, -2.5)\)  
+- At \(T = 2 \, \text{s}\): \((X, Y) = (40, -5)\)  
+
+---
+
+### **Phase 2: Overtaking the Obstacle (Y = -5)**  
+Time: \(T = 2 \, \text{s}\) to \(T = 7 \, \text{s}\)  
+The vehicle continues in the left lane at \(Y = -5\) and overtakes the obstacle at \(X = 100\).  
+- At \(T = 3 \, \text{s}\): \((X, Y) = (60, -5)\)  
+- At \(T = 4 \, \text{s}\): \((X, Y) = (80, -5)\)  
+- At \(T = 5 \, \text{s}\): \((X, Y) = (100, -5)\)  
+- At \(T = 6 \, \text{s}\): \((X, Y) = (120, -5)\)  
+- At \(T = 7 \, \text{s}\): \((X, Y) = (140, -5)\)  
+
+---
+
+### **Phase 3: Lane Change Back to the Right (Y = 0)**  
+Time: \(T = 7 \, \text{s}\) to \(T = 9 \, \text{s}\)  
+The vehicle moves from \(Y = -5\) to \(Y = 0\) over 2 seconds.  
+- At \(T = 8 \, \text{s}\): \((X, Y) = (160, -2.5)\)  
+- At \(T = 9 \, \text{s}\): \((X, Y) = (180, 0)\)  
+
+---
+
+### **Phase 4: Continue Driving in the Right Lane (Y = 0)**  
+Time: \(T = 9 \, \text{s}\) to \(T = 10 \, \text{s}\)  
+The vehicle continues in the right lane at \(Y = 0\).  
+- At \(T = 10 \, \text{s}\): \((X, Y) = (200, 0)\)  
+
+---
+
+### **Summary of Positions at Each Timepoint**  
+- \(T = 0 \, \text{s}\): \((0, 0)\)  
+- \(T = 1 \, \text{s}\): \((20, -2.5)\)  
+- \(T = 2 \, \text{s}\): \((40, -5)\)  
+- \(T = 3 \, \text{s}\): \((60, -5)\)  
+- \(T = 4 \, \text{s}\): \((80, -5)\)  
+- \(T = 5 \, \text{s}\): \((100, -5)\)  
+- \(T = 6 \, \text{s}\): \((120, -5)\)  
+- \(T = 7 \, \text{s}\): \((140, -5)\)  
+- \(T = 8 \, \text{s}\): \((160, -2.5)\)  
+- \(T = 9 \, \text{s}\): \((180, 0)\)  
+- \(T = 10 \, \text{s}\): \((200, 0)\)  
+
+This trajectory ensures the vehicle safely overtakes the obstacle while maintaining a speed above \(60 \, \text{km/h}\).

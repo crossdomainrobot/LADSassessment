@@ -1,0 +1,58 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Accelerate to ensure the speed is above 60 km/h** (if necessary, though the initial speed is already 72 km/h, which is sufficient).
+2. **Change lanes to the left lane (Y = -5)** before reaching the obstacle at X = 100.
+3. **Pass the obstacle** while staying in the left lane.
+4. **Return to the right lane (Y = 0)** after passing the obstacle.
+
+We will assume the vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver. The lane change will be modeled as a smooth lateral movement over a specific distance. Let¡¯s break this down step by step.
+
+---
+
+### Trajectory Plan:
+1. **Time to reach the obstacle**:  
+   The obstacle is at X = 100 m, and the vehicle is moving at 20 m/s.  
+   Time to reach the obstacle: \( T = \frac{100}{20} = 5 \) seconds.
+
+2. **Lane change timing**:  
+   To ensure safety, we will start the lane change at T = 2 seconds and complete it by T = 4 seconds. This gives us 2 seconds to move laterally from Y = 0 to Y = -5.
+
+3. **Return to the right lane**:  
+   After passing the obstacle, we will start returning to the right lane at T = 6 seconds and complete it by T = 8 seconds.
+
+---
+
+### Trajectory Calculation:
+We will use linear interpolation for the lateral (Y) movement during the lane changes. The X position increases linearly at 20 m/s.
+
+#### Positions at each time step:
+- **T = 0 s**: (0, 0)  
+- **T = 1 s**: (20, 0)  
+- **T = 2 s**: (40, 0)  
+- **T = 3 s**: (60, -2.5) (midway in lane change)  
+- **T = 4 s**: (80, -5) (fully in left lane)  
+- **T = 5 s**: (100, -5) (passing the obstacle)  
+- **T = 6 s**: (120, -5)  
+- **T = 7 s**: (140, -2.5) (midway in returning to right lane)  
+- **T = 8 s**: (160, 0) (fully in right lane)  
+- **T = 9 s**: (180, 0)  
+- **T = 10 s**: (200, 0)  
+
+---
+
+### Final Trajectory:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -2.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -2.5)     |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed of 72 km/h.

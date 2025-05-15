@@ -1,0 +1,63 @@
+To describe the trajectory of the vehicle as it switches lanes to pass the obstacle and then switches back, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane**  
+2. **Passing the Obstacle**  
+3. **Lane Change Back to the Right Lane**
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s).  
+- Lane width: 3.5 meters (typical for highways).  
+- Lane change takes approximately 3 seconds.  
+- The vehicle maintains a speed of 20 m/s throughout the maneuver.  
+
+### Coordinates:
+- X: Position along the lane (in meters).  
+- Y: Lateral position (in meters). Y = 0 for the right lane, Y = 3.5 for the left lane.  
+
+### Trajectory:
+
+#### **Phase 1: Lane Change to the Left Lane (T = 0 to T = 3)**
+- The vehicle moves from Y = 0 to Y = 3.5 over 3 seconds.  
+- X increases linearly at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | 1.17  |
+| 2        | 40    | 2.33  |
+| 3        | 60    | 3.5   |
+
+#### **Phase 2: Passing the Obstacle (T = 3 to T = 7)**
+- The vehicle stays in the left lane (Y = 3.5) and continues moving forward at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 4        | 80    | 3.5   |
+| 5        | 100   | 3.5   |
+| 6        | 120   | 3.5   |
+| 7        | 140   | 3.5   |
+
+#### **Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10)**
+- The vehicle moves from Y = 3.5 to Y = 0 over 3 seconds.  
+- X continues to increase at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 8        | 160   | 2.33  |
+| 9        | 180   | 1.17  |
+| 10       | 200   | 0     |
+
+### Summary of Positions:
+- T = 0: (0, 0)  
+- T = 1: (20, 1.17)  
+- T = 2: (40, 2.33)  
+- T = 3: (60, 3.5)  
+- T = 4: (80, 3.5)  
+- T = 5: (100, 3.5)  
+- T = 6: (120, 3.5)  
+- T = 7: (140, 3.5)  
+- T = 8: (160, 2.33)  
+- T = 9: (180, 1.17)  
+- T = 10: (200, 0)  
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed of 72 km/h.

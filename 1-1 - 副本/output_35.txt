@@ -1,0 +1,57 @@
+To plan a safe and smooth double lane change maneuver, we need to consider the following steps:
+
+1. **Change to the left lane (Y = -5) before reaching the obstacle.**
+2. **Maintain a safe speed (above 60 km/h) while passing the obstacle.**
+3. **Change back to the right lane (Y = 0) after passing the obstacle.**
+
+Let＊s break down the trajectory step by step:
+
+---
+
+### Vehicle Specifications:
+- **Initial position:** (0, 0)
+- **Obstacle position:** (100, 0)
+- **Left lane Y-coordinate:** Y = -5
+- **Initial speed:** 72 km/h (20 m/s)
+- **Minimum speed:** 60 km/h (16.67 m/s)
+
+---
+
+### Assumptions:
+1. The vehicle accelerates or decelerates smoothly.
+2. The lane change is executed over a reasonable distance to ensure safety.
+3. The maneuver is completed within 10 seconds.
+
+---
+
+### Trajectory Plan:
+1. **T = 0 s:** Start at (0, 0).
+2. **T = 2 s:** Begin lane change to the left lane (Y = -5).
+3. **T = 4 s:** Complete lane change and reach Y = -5.
+4. **T = 6 s:** Pass the obstacle at X = 100 while maintaining Y = -5.
+5. **T = 8 s:** Begin lane change back to the right lane (Y = 0).
+6. **T = 10 s:** Complete lane change and reach Y = 0.
+
+---
+
+### Detailed Position at Each Timepoint:
+1. **T = 0 s:** (0, 0)
+2. **T = 1 s:** (20, 0)
+3. **T = 2 s:** (40, -1.25) 每 Start lane change.
+4. **T = 3 s:** (60, -2.5)
+5. **T = 4 s:** (80, -5) 每 Complete lane change.
+6. **T = 5 s:** (100, -5) 每 Pass the obstacle.
+7. **T = 6 s:** (120, -5)
+8. **T = 7 s:** (140, -3.75) 每 Start lane change back.
+9. **T = 8 s:** (160, -2.5)
+10. **T = 9 s:** (180, -1.25)
+11. **T = 10 s:** (200, 0) 每 Complete lane change.
+
+---
+
+### Explanation:
+- The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+- The lane change is executed smoothly over 2 seconds (T = 2 s to T = 4 s and T = 8 s to T = 10 s).
+- The vehicle passes the obstacle at T = 5 s, ensuring a safe distance.
+
+This trajectory ensures the vehicle stays above the minimum speed of 60 km/h and safely navigates around the obstacle.

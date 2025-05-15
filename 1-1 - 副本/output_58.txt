@@ -1,0 +1,49 @@
+To plan a safe double lane change maneuver, we need to ensure that the vehicle changes lanes smoothly, maintains a speed above 60 km/h, and avoids the obstacle at \(X = 100\). Here's a step-by-step trajectory for the vehicle over the next 10 seconds:
+
+### Assumptions:
+1. **Initial Position**: \((X, Y) = (0, 0)\)
+2. **Initial Speed**: 72 km/h (20 m/s)
+3. **Left Lane Position**: \(Y = -5\)
+4. **Obstacle Position**: \((100, 0)\)
+5. **Time Step**: 1 second
+
+### Trajectory Calculation:
+1. **Lane Change to the Left Lane**:
+   - The vehicle needs to move from \(Y = 0\) to \(Y = -5\) smoothly.
+   - Assume the lane change takes 3 seconds (from \(T = 0\) to \(T = 3\)).
+   - At \(T = 3\), the vehicle should be fully in the left lane (\(Y = -5\)).
+
+2. **Passing the Obstacle**:
+   - The vehicle will pass the obstacle at \(X = 100\) while staying in the left lane.
+   - Assume the vehicle reaches \(X = 100\) at \(T = 5\).
+
+3. **Lane Change Back to the Right Lane**:
+   - After passing the obstacle, the vehicle will return to the right lane (\(Y = 0\)).
+   - Assume the lane change back takes 3 seconds (from \(T = 5\) to \(T = 8\)).
+
+4. **Continue in the Right Lane**:
+   - After \(T = 8\), the vehicle will continue in the right lane.
+
+### Trajectory Table:
+
+| Time (T) | X Position (m) | Y Position (m) | Description |
+|----------|----------------|----------------|-------------|
+| 0        | 0              | 0              | Start       |
+| 1        | 20             | -1.67          | Lane change |
+| 2        | 40             | -3.33          | Lane change |
+| 3        | 60             | -5             | Left lane   |
+| 4        | 80             | -5             | Left lane   |
+| 5        | 100            | -5             | Pass obstacle |
+| 6        | 120            | -3.33          | Lane change |
+| 7        | 140            | -1.67          | Lane change |
+| 8        | 160            | 0              | Right lane  |
+| 9        | 180            | 0              | Right lane  |
+| 10       | 200            | 0              | Right lane  |
+
+### Explanation:
+- **Lane Change**: The Y position changes linearly from 0 to -5 over 3 seconds.
+- **Passing the Obstacle**: The vehicle stays in the left lane (\(Y = -5\)) while passing the obstacle at \(X = 100\).
+- **Return to Right Lane**: The Y position changes linearly from -5 to 0 over 3 seconds.
+- **Speed**: The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+
+This trajectory ensures a smooth and safe double lane change maneuver while maintaining the required speed.

@@ -1,0 +1,55 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:
+
+1. **Accelerating and preparing to switch lanes (T = 0 to T = 3 seconds)**  
+2. **Switching to the left lane and passing the obstacle (T = 4 to T = 7 seconds)**  
+3. **Switching back to the right lane after passing the obstacle (T = 8 to T = 10 seconds)**
+
+### Assumptions:
+- The vehicle¡¯s initial speed is 72 km/h (20 m/s).  
+- The vehicle accelerates slightly to ensure smooth lane changes and maintains a speed above 60 km/h (16.67 m/s).  
+- The lane width is approximately 3.5 meters, so the lateral shift (Y) will be 3.5 meters to the left.  
+- The obstacle is at (100, 0), and the vehicle needs to pass it safely.
+
+### Trajectory:
+Here¡¯s the vehicle¡¯s position (X, Y) at each second:
+
+- **T = 0 seconds**: (0, 0)  
+  Initial position, right lane.
+
+- **T = 1 second**: (20, 0)  
+  Moving forward at 20 m/s.
+
+- **T = 2 seconds**: (40, 0)  
+  Continuing in the right lane.
+
+- **T = 3 seconds**: (60, 0)  
+  Preparing to switch lanes.
+
+- **T = 4 seconds**: (80, 1.75)  
+  Starting to move into the left lane (halfway across).
+
+- **T = 5 seconds**: (100, 3.5)  
+  Fully in the left lane, passing the obstacle.
+
+- **T = 6 seconds**: (120, 3.5)  
+  Moving forward in the left lane.
+
+- **T = 7 seconds**: (140, 3.5)  
+  Continuing in the left lane.
+
+- **T = 8 seconds**: (160, 1.75)  
+  Starting to move back into the right lane (halfway across).
+
+- **T = 9 seconds**: (180, 0)  
+  Fully back in the right lane.
+
+- **T = 10 seconds**: (200, 0)  
+  Continuing in the right lane.
+
+### Explanation:
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.  
+- The lane change is smooth, taking 1 second to shift 3.5 meters laterally.  
+- The obstacle is safely passed in the left lane between T = 4 and T = 7 seconds.  
+- The vehicle returns to the right lane by T = 10 seconds.
+
+This trajectory ensures the vehicle stays above 60 km/h and completes the maneuver safely.

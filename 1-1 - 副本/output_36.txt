@@ -1,0 +1,40 @@
+To safely execute the double lane change maneuver, we need to plan a smooth trajectory that allows the vehicle to change lanes, pass the obstacle, and return to the original lane while maintaining a speed above 60 km/h. Here¨s a step-by-step plan for the vehicle¨s position over the next 10 seconds:
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lane Width**: Right lane is at \( Y = 0 \), left lane is at \( Y = -5 \).
+3. **Obstacle Position**: \( (100, 0) \).
+4. **Time Steps**: \( T = 0, 1, 2, \dots, 10 \) seconds.
+
+### Trajectory Plan:
+1. **Lane Change to the Left Lane (T = 0 to T = 3 seconds)**:
+   - Smoothly transition from \( Y = 0 \) to \( Y = -5 \).
+   - Maintain speed at 72 km/h.
+
+2. **Pass the Obstacle (T = 3 to T = 7 seconds)**:
+   - Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).
+   - Maintain speed at 72 km/h.
+
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**:
+   - Smoothly transition from \( Y = -5 \) back to \( Y = 0 \).
+   - Maintain speed at 72 km/h.
+
+### Vehicle Position at Each Time Step:
+- **T = 0 sec**: \( (0, 0) \) ！ Starting position.
+- **T = 1 sec**: \( (20, -1.67) \) ！ Begin lane change.
+- **T = 2 sec**: \( (40, -3.33) \) ！ Continue lane change.
+- **T = 3 sec**: \( (60, -5) \) ！ Fully in the left lane.
+- **T = 4 sec**: \( (80, -5) \) ！ Approaching the obstacle.
+- **T = 5 sec**: \( (100, -5) \) ！ Passing the obstacle.
+- **T = 6 sec**: \( (120, -5) \) ！ Continue in the left lane.
+- **T = 7 sec**: \( (140, -3.33) \) ！ Begin returning to the right lane.
+- **T = 8 sec**: \( (160, -1.67) \) ！ Continue returning.
+- **T = 9 sec**: \( (180, 0) \) ！ Fully back in the right lane.
+- **T = 10 sec**: \( (200, 0) \) ！ Continue straight.
+
+### Explanation:
+- **Lane Change**: The lane change is completed linearly over 3 seconds to ensure smoothness and safety.
+- **Obstacle Passing**: The vehicle stays in the left lane for 4 seconds to ensure safe clearance of the obstacle.
+- **Return to Right Lane**: The vehicle returns to the right lane over 3 seconds, maintaining a steady speed.
+
+This trajectory ensures the vehicle stays above 60 km/h, avoids the obstacle, and smoothly returns to the original lane.

@@ -1,0 +1,92 @@
+To plan the trajectory for the double lane change maneuver, we'll break the maneuver into phases: **lane change to the left lane**, **overtaking the obstacle**, and **lane change back to the right lane**. We'll use the following assumptions:
+
+1. The vehicle's initial speed is **72 km/h (20 m/s)**.
+2. The vehicle must maintain a speed above **60 km/h (16.67 m/s)**.
+3. The lane width is **5 meters**, so the left lane is at \( Y = -5 \).
+4. The obstacle is at \( (100, 0) \).
+5. The lane changes will be smooth and take approximately **3 seconds** each.
+
+### Trajectory Plan:
+
+#### Phase 1: Lane Change to the Left Lane (0s ¡Ü T ¡Ü 3s)
+- The vehicle moves from \( Y = 0 \) to \( Y = -5 \) linearly over 3 seconds.
+- \( Y \) decreases linearly: \( Y(T) = -\frac{5}{3} \cdot T \).
+- \( X \) increases at 20 m/s: \( X(T) = 20 \cdot T \).
+
+#### Phase 2: Overtaking the Obstacle (3s < T ¡Ü 7s)
+- The vehicle stays in the left lane (\( Y = -5 \)) and continues moving at 20 m/s.
+- \( Y(T) = -5 \).
+- \( X(T) = 20 \cdot T \).
+
+#### Phase 3: Lane Change Back to the Right Lane (7s < T ¡Ü 10s)
+- The vehicle moves from \( Y = -5 \) to \( Y = 0 \) linearly over 3 seconds.
+- \( Y \) increases linearly: \( Y(T) = -5 + \frac{5}{3} \cdot (T - 7) \).
+- \( X \) increases at 20 m/s: \( X(T) = 20 \cdot T \).
+
+### Positions at Each Timepoint:
+
+1. **T = 1s**:
+   - \( X = 20 \cdot 1 = 20 \, \text{m} \)
+   - \( Y = -\frac{5}{3} \cdot 1 = -1.67 \, \text{m} \)
+   - Position: \( (20, -1.67) \)
+
+2. **T = 2s**:
+   - \( X = 20 \cdot 2 = 40 \, \text{m} \)
+   - \( Y = -\frac{5}{3} \cdot 2 = -3.33 \, \text{m} \)
+   - Position: \( (40, -3.33) \)
+
+3. **T = 3s**:
+   - \( X = 20 \cdot 3 = 60 \, \text{m} \)
+   - \( Y = -\frac{5}{3} \cdot 3 = -5 \, \text{m} \)
+   - Position: \( (60, -5) \)
+
+4. **T = 4s**:
+   - \( X = 20 \cdot 4 = 80 \, \text{m} \)
+   - \( Y = -5 \, \text{m} \)
+   - Position: \( (80, -5) \)
+
+5. **T = 5s**:
+   - \( X = 20 \cdot 5 = 100 \, \text{m} \)
+   - \( Y = -5 \, \text{m} \)
+   - Position: \( (100, -5) \)
+
+6. **T = 6s**:
+   - \( X = 20 \cdot 6 = 120 \, \text{m} \)
+   - \( Y = -5 \, \text{m} \)
+   - Position: \( (120, -5) \)
+
+7. **T = 7s**:
+   - \( X = 20 \cdot 7 = 140 \, \text{m} \)
+   - \( Y = -5 \, \text{m} \)
+   - Position: \( (140, -5) \)
+
+8. **T = 8s**:
+   - \( X = 20 \cdot 8 = 160 \, \text{m} \)
+   - \( Y = -5 + \frac{5}{3} \cdot (8 - 7) = -3.33 \, \text{m} \)
+   - Position: \( (160, -3.33) \)
+
+9. **T = 9s**:
+   - \( X = 20 \cdot 9 = 180 \, \text{m} \)
+   - \( Y = -5 + \frac{5}{3} \cdot (9 - 7) = -1.67 \, \text{m} \)
+   - Position: \( (180, -1.67) \)
+
+10. **T = 10s**:
+    - \( X = 20 \cdot 10 = 200 \, \text{m} \)
+    - \( Y = -5 + \frac{5}{3} \cdot (10 - 7) = 0 \, \text{m} \)
+    - Position: \( (200, 0) \)
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|------------------|
+| 1        | (20, -1.67)      |
+| 2        | (40, -3.33)      |
+| 3        | (60, -5)         |
+| 4        | (80, -5)         |
+| 5        | (100, -5)        |
+| 6        | (120, -5)        |
+| 7        | (140, -5)        |
+| 8        | (160, -3.33)     |
+| 9        | (180, -1.67)     |
+| 10       | (200, 0)         |
+
+This trajectory ensures the vehicle safely overtakes the obstacle while maintaining speed and lane discipline.

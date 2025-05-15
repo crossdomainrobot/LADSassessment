@@ -1,0 +1,35 @@
+To plan a safe trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Accelerate or maintain speed**: Ensure the vehicle stays above 60 km/h.
+2. **Change to the left lane**: Move from \(Y = 0\) to \(Y = -5\).
+3. **Pass the obstacle**: Stay in the left lane while passing \(X = 100\).
+4. **Return to the right lane**: Move from \(Y = -5\) back to \(Y = 0\).
+
+Let¡¯s break this down step-by-step over the next 10 seconds. Assume the vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+
+### Trajectory Plan:
+- **T = 0 s**: Initial position \((X, Y) = (0, 0)\).
+- **T = 0 to T = 2 s**: Begin changing lanes to the left. Move from \(Y = 0\) to \(Y = -5\).
+- **T = 2 to T = 6 s**: Stay in the left lane (\(Y = -5\)) while passing the obstacle at \(X = 100\).
+- **T = 6 to T = 8 s**: Begin changing lanes back to the right. Move from \(Y = -5\) to \(Y = 0\).
+- **T = 8 to T = 10 s**: Continue driving in the right lane (\(Y = 0\)).
+
+### Position at Each Timepoint:
+1. **T = 0 s**: \((0, 0)\)
+2. **T = 1 s**: \((20, -1.25)\) (transitioning to the left lane)
+3. **T = 2 s**: \((40, -5)\) (fully in the left lane)
+4. **T = 3 s**: \((60, -5)\) (passing the obstacle)
+5. **T = 4 s**: \((80, -5)\) (passing the obstacle)
+6. **T = 5 s**: \((100, -5)\) (passing the obstacle)
+7. **T = 6 s**: \((120, -5)\) (still in the left lane)
+8. **T = 7 s**: \((140, -2.5)\) (transitioning back to the right lane)
+9. **T = 8 s**: \((160, 0)\) (fully in the right lane)
+10. **T = 9 s**: \((180, 0)\) (continuing in the right lane)
+11. **T = 10 s**: \((200, 0)\) (continuing in the right lane)
+
+### Explanation:
+- **Lane Change Timing**: The lane change takes 2 seconds in each direction, ensuring smooth and safe transitions.
+- **Obstacle Clearance**: The vehicle stays in the left lane (\(Y = -5\)) from \(T = 2\) s to \(T = 6\) s, safely passing the obstacle at \(X = 100\).
+- **Speed**: The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+
+This trajectory ensures the vehicle safely passes the obstacle while adhering to highway speed requirements.

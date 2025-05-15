@@ -1,0 +1,38 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into three phases:
+
+1. **Initial Approach (T = 0 to T = 3 seconds):**  
+   - The vehicle continues in the right lane at a constant speed of 72 km/h (20 m/s).  
+   - The position at each second is calculated as \( X = 20 \times T \), \( Y = 0 \).
+
+2. **Lane Change (T = 4 to T = 6 seconds):**  
+   - The vehicle smoothly transitions to the left lane over 3 seconds.  
+   - The lateral position \( Y \) changes linearly from 0 to -3.5 meters (assuming a standard lane width of 3.5 meters).  
+   - The forward position \( X \) continues to increase at 20 m/s.
+
+3. **Passing the Obstacle and Returning to the Right Lane (T = 7 to T = 10 seconds):**  
+   - The vehicle remains in the left lane while passing the obstacle.  
+   - After passing the obstacle, the vehicle smoothly transitions back to the right lane.  
+   - The lateral position \( Y \) changes linearly from -3.5 meters back to 0 meters.  
+   - The forward position \( X \) continues to increase at 20 m/s.
+
+Here¡¯s the trajectory in (X, Y) coordinates at each second:
+
+- **T = 0:** (0, 0)  
+- **T = 1:** (20, 0)  
+- **T = 2:** (40, 0)  
+- **T = 3:** (60, 0)  
+- **T = 4:** (80, -1.17)  
+- **T = 5:** (100, -2.33)  
+- **T = 6:** (120, -3.5)  
+- **T = 7:** (140, -3.5)  
+- **T = 8:** (160, -2.33)  
+- **T = 9:** (180, -1.17)  
+- **T = 10:** (200, 0)  
+
+### Explanation:
+- **Forward Position (X):** Increases linearly at 20 m/s (72 km/h).  
+- **Lateral Position (Y):** Changes smoothly during lane changes, assuming a linear transition over 3 seconds.  
+- The obstacle at (100, 0) is safely passed while staying in the left lane.  
+- The vehicle returns to the right lane after completing the maneuver.  
+
+This ensures the vehicle maintains a speed of over 60 km/h and safely navigates around the obstacle.

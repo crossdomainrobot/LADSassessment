@@ -1,0 +1,76 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into phases: acceleration, lane change, passing the obstacle, and returning to the original lane. Here's the step-by-step trajectory:
+
+---
+
+### Assumptions:
+1. Initial speed: 72 km/h = 20 m/s.
+2. Maintain a speed of at least 60 km/h = 16.67 m/s.
+3. Lane width: 3.5 meters (standard lane width).
+4. Lane change duration: 3 seconds (smooth transition).
+5. Passing distance: 20 meters ahead of the obstacle (safe clearance).
+
+---
+
+### Trajectory:
+
+#### **Phase 1: Approaching the obstacle (T = 0 to T = 3 seconds)**  
+- Continue in the right lane, maintaining speed.  
+- At T = 3 seconds, initiate the lane change.  
+
+Positions:  
+- T = 0: (0, 0)  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, 0)  
+
+---
+
+#### **Phase 2: Lane change (T = 3 to T = 6 seconds)**  
+- Move laterally to the left lane while maintaining speed.  
+- Complete the lane change by T = 6 seconds.  
+
+Positions:  
+- T = 4: (80, 1.17)  
+- T = 5: (100, 2.33)  
+- T = 6: (120, 3.5)  
+
+---
+
+#### **Phase 3: Passing the obstacle (T = 6 to T = 9 seconds)**  
+- Stay in the left lane and pass the obstacle at (100, 0).  
+- Ensure safe clearance by T = 9 seconds.  
+
+Positions:  
+- T = 7: (140, 3.5)  
+- T = 8: (160, 3.5)  
+- T = 9: (180, 3.5)  
+
+---
+
+#### **Phase 4: Returning to the right lane (T = 9 to T = 12 seconds)**  
+- Initiate the lane change back to the right lane.  
+- Complete the lane change by T = 12 seconds.  
+
+Positions:  
+- T = 10: (200, 2.33)  
+- T = 11: (220, 1.17)  
+- T = 12: (240, 0)  
+
+---
+
+### Summary of Positions:
+- T = 0: (0, 0)  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, 0)  
+- T = 4: (80, 1.17)  
+- T = 5: (100, 2.33)  
+- T = 6: (120, 3.5)  
+- T = 7: (140, 3.5)  
+- T = 8: (160, 3.5)  
+- T = 9: (180, 3.5)  
+- T = 10: (200, 2.33)  
+- T = 11: (220, 1.17)  
+- T = 12: (240, 0)  
+
+This trajectory ensures a smooth and safe lane-changing maneuver while maintaining highway speed.

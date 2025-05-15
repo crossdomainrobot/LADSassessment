@@ -1,0 +1,83 @@
+To plan a safe trajectory for the double lane change maneuver, we need to calculate the vehicle's position over time while ensuring the following:
+
+1. The vehicle changes to the left lane (Y = -5) before reaching the obstacle at X = 100.
+2. The vehicle maintains a speed of at least 60 km/h (16.67 m/s) during the maneuver.
+3. The vehicle returns to the right lane (Y = 0) after passing the obstacle.
+
+Given:
+- Initial speed: 72 km/h = 20 m/s
+- Lane width: 5 meters (Y = -5 for the left lane)
+- Obstacle position: (100, 0)
+
+### Step 1: Change to the Left Lane
+We need to transition from Y = 0 to Y = -5 before reaching X = 100. Assume a constant lateral acceleration for smooth lane change.
+
+Let¨s assume the lane change takes 3 seconds (a reasonable time for a smooth maneuver).
+
+Lateral velocity (Vy) = ΔY / ΔT = -5 / 3 「 -1.67 m/s
+
+### Step 2: Pass the Obstacle
+After the lane change, the vehicle will stay in the left lane (Y = -5) until it passes the obstacle at X = 100.
+
+### Step 3: Return to the Right Lane
+After passing the obstacle, the vehicle will transition back to the right lane (Y = 0) over another 3 seconds.
+
+### Trajectory Calculation
+We can now calculate the vehicle's position at each time point.
+
+#### Time T = 0 s:
+- Position: (0, 0)
+- Speed: 20 m/s
+
+#### Time T = 1 s:
+- X = 0 + 20 * 1 = 20 m
+- Y = 0 + (-1.67) * 1 「 -1.67 m
+- Position: (20, -1.67)
+
+#### Time T = 2 s:
+- X = 0 + 20 * 2 = 40 m
+- Y = 0 + (-1.67) * 2 「 -3.33 m
+- Position: (40, -3.33)
+
+#### Time T = 3 s:
+- X = 0 + 20 * 3 = 60 m
+- Y = 0 + (-1.67) * 3 「 -5 m
+- Position: (60, -5)
+
+#### Time T = 4 s:
+- X = 0 + 20 * 4 = 80 m
+- Y = -5 m
+- Position: (80, -5)
+
+#### Time T = 5 s:
+- X = 0 + 20 * 5 = 100 m
+- Y = -5 m
+- Position: (100, -5)
+
+#### Time T = 6 s:
+- X = 0 + 20 * 6 = 120 m
+- Y = -5 + 1.67 * 1 「 -3.33 m
+- Position: (120, -3.33)
+
+#### Time T = 7 s:
+- X = 0 + 20 * 7 = 140 m
+- Y = -5 + 1.67 * 2 「 -1.67 m
+- Position: (140, -1.67)
+
+#### Time T = 8 s:
+- X = 0 + 20 * 8 = 160 m
+- Y = -5 + 1.67 * 3 「 0 m
+- Position: (160, 0)
+
+### Summary of Positions:
+- T = 0 s: (0, 0)
+- T = 1 s: (20, -1.67)
+- T = 2 s: (40, -3.33)
+- T = 3 s: (60, -5)
+- T = 4 s: (80, -5)
+- T = 5 s: (100, -5)
+- T = 6 s: (120, -3.33)
+- T = 7 s: (140, -1.67)
+- T = 8 s: (160, 0)
+
+By T = 8 s, the vehicle has successfully completed the double lane change maneuver and returned to the right lane.

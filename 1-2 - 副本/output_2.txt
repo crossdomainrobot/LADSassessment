@@ -1,0 +1,28 @@
+To describe the trajectory of the vehicle, we¡¯ll break it down into phases: **approaching the obstacle**, **changing lanes to the left**, **passing the obstacle**, and **changing back to the right lane**. The initial speed is 72 km/h (20 m/s), and we¡¯ll assume smooth lane changes take about 2 seconds each.
+
+### Assumptions:
+1. Lane width: 3.5 meters (standard lane width).
+2. Lane change duration: 2 seconds (smooth transition).
+3. Obstacle position: (100, 0).
+4. Time steps: 1-second intervals.
+
+### Trajectory:
+- **T = 0 s**: Initial position (0, 0). Speed = 20 m/s.
+- **T = 1 s**: (20, 0). Continue in the right lane.
+- **T = 2 s**: (40, 0). Continue in the right lane.
+- **T = 3 s**: (60, 0). Start lane change to the left.
+- **T = 4 s**: (80, 1.75). Midway through the lane change.
+- **T = 5 s**: (100, 3.5). Fully in the left lane, passing the obstacle.
+- **T = 6 s**: (120, 3.5). Continue in the left lane.
+- **T = 7 s**: (140, 3.5). Continue in the left lane.
+- **T = 8 s**: (160, 3.5). Start lane change back to the right.
+- **T = 9 s**: (180, 1.75). Midway through the lane change.
+- **T = 10 s**: (200, 0). Fully in the right lane.
+
+### Explanation:
+1. **Approaching the obstacle (T = 0 to T = 3)**: The vehicle moves straight in the right lane at 20 m/s.
+2. **Lane change to the left (T = 3 to T = 5)**: The vehicle transitions to the left lane over 2 seconds, reaching the left lane (Y = 3.5) at T = 5.
+3. **Passing the obstacle (T = 5 to T = 7)**: The vehicle continues in the left lane, maintaining a speed of 20 m/s.
+4. **Lane change back to the right (T = 8 to T = 10)**: The vehicle transitions back to the right lane over 2 seconds, reaching the right lane (Y = 0) at T = 10.
+
+This trajectory ensures the vehicle stays above 60 km/h, avoids the obstacle, and completes the maneuver smoothly.

@@ -1,0 +1,26 @@
+To describe the trajectory, we＊ll assume the vehicle is moving at a constant speed of **72 km/h (20 m/s)** and perform the lane change smoothly. Here＊s the plan:
+
+1. **Initial position**: (0, 0) at T = 0.
+2. **Lane change**: Start moving to the left lane at T = 3 seconds, reaching the left lane by T = 5 seconds.
+3. **Pass the obstacle**: Stay in the left lane until passing the obstacle at X = 100 meters.
+4. **Return to the right lane**: Start moving back to the right lane at T = 7 seconds, fully returning by T = 9 seconds.
+
+### Trajectory:
+- **T = 0 s**: (0, 0) 每 Starting in the right lane.
+- **T = 1 s**: (20, 0) 每 Moving straight.
+- **T = 2 s**: (40, 0) 每 Moving straight.
+- **T = 3 s**: (60, -1) 每 Begin lane change to the left.
+- **T = 4 s**: (80, -2) 每 Continue lane change.
+- **T = 5 s**: (100, -3) 每 Fully in the left lane, passing the obstacle.
+- **T = 6 s**: (120, -3) 每 Continue in the left lane.
+- **T = 7 s**: (140, -2) 每 Begin returning to the right lane.
+- **T = 8 s**: (160, -1) 每 Continue returning.
+- **T = 9 s**: (180, 0) 每 Fully back in the right lane.
+- **T = 10 s**: (200, 0) 每 Continue straight.
+
+### Explanation:
+- **Lane change**: The lateral position (Y) changes smoothly from 0 to -3 meters (left lane) and back to 0 (right lane).
+- **Speed**: Maintained at 20 m/s (72 km/h) throughout.
+- **Obstacle passed**: The obstacle at X = 100 meters is passed while in the left lane (Y = -3).
+
+This trajectory ensures safe lane changes and adherence to highway speed limits.

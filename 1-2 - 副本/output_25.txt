@@ -1,0 +1,43 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into steps and calculate the vehicle's position at each second (T = 1, 2, 3, etc.). Here's the plan:
+
+### Assumptions:
+1. **Initial speed**: 72 km/h = 20 m/s.
+2. **Lane width**: Assume each lane is 3.5 meters wide. The left lane is at \( Y = -3.5 \) meters (since the right lane is at \( Y = 0 \)).
+3. **Obstacle position**: (100, 0).
+4. **Lane change duration**: Assume it takes 3 seconds to complete the lane change (gradual transition).
+5. **Acceleration/deceleration**: Maintain a constant speed of 72 km/h (20 m/s).
+
+### Trajectory:
+#### Step 1: Approach the obstacle (T = 0 to T = 2)
+- At T = 0: Position = (0, 0).
+- At T = 1: Position = (20, 0).
+- At T = 2: Position = (40, 0).
+
+#### Step 2: Begin lane change (T = 3 to T = 5)
+- At T = 3: Start moving left. Position = (60, -0.58).
+- At T = 4: Continue lane change. Position = (80, -1.75).
+- At T = 5: Complete lane change. Position = (100, -3.5).
+
+#### Step 3: Pass the obstacle (T = 6 to T = 7)
+- At T = 6: Position = (120, -3.5).
+- At T = 7: Position = (140, -3.5).
+
+#### Step 4: Begin returning to the right lane (T = 8 to T = 10)
+- At T = 8: Start moving right. Position = (160, -2.33).
+- At T = 9: Continue returning. Position = (180, -1.17).
+- At T = 10: Complete return. Position = (200, 0).
+
+### Summary of Positions:
+- T = 0: (0, 0)
+- T = 1: (20, 0)
+- T = 2: (40, 0)
+- T = 3: (60, -0.58)
+- T = 4: (80, -1.75)
+- T = 5: (100, -3.5)
+- T = 6: (120, -3.5)
+- T = 7: (140, -3.5)
+- T = 8: (160, -2.33)
+- T = 9: (180, -1.17)
+- T = 10: (200, 0)
+
+This trajectory ensures the vehicle passes the obstacle safely while maintaining a speed of 72 km/h.

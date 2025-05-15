@@ -1,0 +1,39 @@
+To describe the trajectory of the vehicle, we'll break the maneuver into phases: **initial driving**, **lane change to the left**, **passing the obstacle**, and **lane change back to the right**. We'll assume the vehicle moves smoothly and maintains a speed of around 72 km/h (20 m/s). The left lane is at \( Y = -3 \) meters (assuming a lane width of 3 meters), and the right lane is at \( Y = 0 \).
+
+### Step-by-Step Trajectory:
+1. **Initial Driving (T = 0 to T = 3 seconds)**:
+   - The vehicle continues in the right lane at \( Y = 0 \).
+   - Position at each second: \( (X, Y) = (20 \cdot T, 0) \).
+
+2. **Lane Change to the Left (T = 3 to T = 5 seconds)**:
+   - The vehicle smoothly transitions to the left lane over 2 seconds.
+   - \( Y \) changes linearly from 0 to -3 meters.
+   - Position at each second: \( (X, Y) = (20 \cdot T, -3 \cdot (T - 3)/2) \).
+
+3. **Passing the Obstacle (T = 5 to T = 7 seconds)**:
+   - The vehicle stays in the left lane (\( Y = -3 \)) while passing the obstacle.
+   - Position at each second: \( (X, Y) = (20 \cdot T, -3) \).
+
+4. **Lane Change Back to the Right (T = 7 to T = 9 seconds)**:
+   - The vehicle smoothly transitions back to the right lane over 2 seconds.
+   - \( Y \) changes linearly from -3 to 0 meters.
+   - Position at each second: \( (X, Y) = (20 \cdot T, -3 + 3 \cdot (T - 7)/2) \).
+
+5. **Continue in the Right Lane (T = 9 to T = 10 seconds)**:
+   - The vehicle continues in the right lane at \( Y = 0 \).
+   - Position at each second: \( (X, Y) = (20 \cdot T, 0) \).
+
+### Position at Each Time Point:
+- \( T = 0 \): \( (0, 0) \)
+- \( T = 1 \): \( (20, 0) \)
+- \( T = 2 \): \( (40, 0) \)
+- \( T = 3 \): \( (60, 0) \)
+- \( T = 4 \): \( (80, -1.5) \)
+- \( T = 5 \): \( (100, -3) \)
+- \( T = 6 \): \( (120, -3) \)
+- \( T = 7 \): \( (140, -3) \)
+- \( T = 8 \): \( (160, -1.5) \)
+- \( T = 9 \): \( (180, 0) \)
+- \( T = 10 \): \( (200, 0) \)
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, safely passes the obstacle, and returns to the right lane.

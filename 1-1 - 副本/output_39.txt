@@ -1,0 +1,53 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we¡¯ll break the process into phases: **lane changing, passing the obstacle, and returning to the original lane**. The vehicle¡¯s initial speed is **72 km/h (20 m/s)**, and it must maintain a speed above **60 km/h (16.67 m/s)**. Here¡¯s the planned trajectory for the next 10 seconds:
+
+---
+
+### Assumptions:
+1. **Lane change duration**: 3 seconds (smooth transition to the left lane and back).
+2. **Passing distance**: Ensure a safe distance from the obstacle at \( X = 100 \).
+3. **Constant speed**: Maintain a speed of 20 m/s (72 km/h) throughout the maneuver.
+
+---
+
+### Trajectory Plan:
+1. **Lane Change to the Left Lane (T = 0 to T = 3)**:
+   - Gradually move from \( Y = 0 \) (right lane) to \( Y = -5 \) (left lane).
+   - Linear change in \( Y \): \( Y = -\frac{5}{3} \cdot T \).
+
+2. **Passing the Obstacle (T = 3 to T = 7)**:
+   - Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).
+
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10)**:
+   - Gradually move from \( Y = -5 \) (left lane) to \( Y = 0 \) (right lane).
+   - Linear change in \( Y \): \( Y = -5 + \frac{5}{3} \cdot (T - 7) \).
+
+---
+
+### Vehicle Positions (X, Y) at Each Timepoint:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, -1.67)
+- **T = 2**: (40, -3.33)
+- **T = 3**: (60, -5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5)
+- **T = 6**: (120, -5)
+- **T = 7**: (140, -5)
+- **T = 8**: (160, -3.33)
+- **T = 9**: (180, -1.67)
+- **T = 10**: (200, 0)
+
+---
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 3)**:
+   - The vehicle transitions smoothly to the left lane while maintaining a constant speed of 20 m/s.
+
+2. **Passing the Obstacle (T = 3 to T = 7)**:
+   - The vehicle stays in the left lane (\( Y = -5 \)) and passes the obstacle at \( X = 100 \).
+
+3. **Returning to the Right Lane (T = 7 to T = 10)**:
+   - The vehicle transitions back to the right lane (\( Y = 0 \)) while maintaining speed.
+
+---
+
+This trajectory ensures the vehicle safely passes the obstacle while adhering to highway speed limits and lane change dynamics.

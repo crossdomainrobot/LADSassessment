@@ -1,0 +1,50 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Initial Conditions:**
+   - Initial position: \( (X_0, Y_0) = (0, 0) \)
+   - Initial speed: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+   - Obstacle position: \( (100, 0) \)
+   - Left lane Y-coordinate: \( Y = -5 \)
+
+2. **Assumptions:**
+   - The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) during the maneuver.
+   - The lane change is smooth and takes a certain amount of time to complete.
+   - The vehicle starts the lane change at \( X = 50 \) meters and completes the lane change to the left lane by \( X = 70 \) meters.
+   - The vehicle stays in the left lane until it passes the obstacle and then starts changing back to the right lane at \( X = 130 \) meters, completing the lane change by \( X = 150 \) meters.
+
+3. **Trajectory Planning:**
+   - **From \( T = 0 \) to \( T = 2.5 \) seconds (0 to 50 meters):**
+     - The vehicle continues in the right lane.
+     - Position: \( (X, Y) = (20T, 0) \)
+   
+   - **From \( T = 2.5 \) to \( T = 3.5 \) seconds (50 to 70 meters):**
+     - The vehicle changes lanes to the left lane.
+     - The lateral position \( Y \) changes linearly from 0 to -5.
+     - Position: \( (X, Y) = (20T, -5 + 5(T - 2.5)) \)
+   
+   - **From \( T = 3.5 \) to \( T = 6.5 \) seconds (70 to 130 meters):**
+     - The vehicle continues in the left lane.
+     - Position: \( (X, Y) = (20T, -5) \)
+   
+   - **From \( T = 6.5 \) to \( T = 7.5 \) seconds (130 to 150 meters):**
+     - The vehicle changes lanes back to the right lane.
+     - The lateral position \( Y \) changes linearly from -5 to 0.
+     - Position: \( (X, Y) = (20T, -5 + 5(T - 6.5)) \)
+   
+   - **From \( T = 7.5 \) seconds onwards:**
+     - The vehicle continues in the right lane.
+     - Position: \( (X, Y) = (20T, 0) \)
+
+4. **Positions at Specific Time Points:**
+   - \( T = 1 \) second: \( (20, 0) \)
+   - \( T = 2 \) seconds: \( (40, 0) \)
+   - \( T = 3 \) seconds: \( (60, -2.5) \)
+   - \( T = 4 \) seconds: \( (80, -5) \)
+   - \( T = 5 \) seconds: \( (100, -5) \)
+   - \( T = 6 \) seconds: \( (120, -5) \)
+   - \( T = 7 \) seconds: \( (140, -2.5) \)
+   - \( T = 8 \) seconds: \( (160, 0) \)
+   - \( T = 9 \) seconds: \( (180, 0) \)
+   - \( T = 10 \) seconds: \( (200, 0) \)
+
+This trajectory ensures that the vehicle safely changes lanes to avoid the obstacle, stays in the left lane while passing the obstacle, and then returns to the right lane, all while maintaining a speed of 72 km/h.

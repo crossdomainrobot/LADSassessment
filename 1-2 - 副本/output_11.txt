@@ -1,0 +1,49 @@
+To describe the trajectory of the vehicle, we¡¯ll calculate its position (X, Y) at each second (T = 1, 2, 3, etc.) while performing the lane-changing maneuver. Here¡¯s the step-by-step plan:
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lane Width**: Assume each lane is 3.5 meters wide, so switching to the left lane means moving laterally from Y = 0 to Y = -3.5 meters.
+3. **Obstacle Position**: (100, 0).
+4. **Maneuver Time**: We¡¯ll perform the lane change over 3 seconds (T = 1 to T = 3), pass the obstacle, and switch back to the right lane over another 3 seconds (T = 6 to T = 8).
+
+---
+
+### Trajectory Calculation:
+- **T = 0**: Initial position = (0, 0).
+- **T = 1**: Start moving left. Lateral position changes linearly: Y = -1.17 m. X = 20 m.
+- **T = 2**: Continue moving left: Y = -2.33 m. X = 40 m.
+- **T = 3**: Complete lane change: Y = -3.5 m. X = 60 m.
+- **T = 4**: Continue in the left lane: Y = -3.5 m. X = 80 m.
+- **T = 5**: Pass the obstacle: Y = -3.5 m. X = 100 m.
+- **T = 6**: Start moving back to the right lane: Y = -2.33 m. X = 120 m.
+- **T = 7**: Continue moving right: Y = -1.17 m. X = 140 m.
+- **T = 8**: Complete lane change: Y = 0 m. X = 160 m.
+- **T = 9**: Continue in the right lane: Y = 0 m. X = 180 m.
+- **T = 10**: Continue in the right lane: Y = 0 m. X = 200 m.
+
+---
+
+### Trajectory Summary:
+| Time (T) | Position (X, Y)   |
+|----------|-------------------|
+| 0        | (0, 0)            |
+| 1        | (20, -1.17)       |
+| 2        | (40, -2.33)       |
+| 3        | (60, -3.5)        |
+| 4        | (80, -3.5)        |
+| 5        | (100, -3.5)       |
+| 6        | (120, -2.33)      |
+| 7        | (140, -1.17)      |
+| 8        | (160, 0)          |
+| 9        | (180, 0)          |
+| 10       | (200, 0)          |
+
+---
+
+### Explanation:
+1. **Lane Change**: The vehicle smoothly transitions to the left lane over 3 seconds (T = 1 to T = 3).
+2. **Passing the Obstacle**: The vehicle stays in the left lane while passing the obstacle at T = 5.
+3. **Returning to the Right Lane**: The vehicle transitions back to the right lane over 3 seconds (T = 6 to T = 8).
+4. **Maintaining Speed**: The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+
+This trajectory ensures a safe and smooth lane-changing maneuver while maintaining highway speed.

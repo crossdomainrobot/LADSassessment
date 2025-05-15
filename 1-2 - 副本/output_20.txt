@@ -1,0 +1,35 @@
+To describe the trajectory of the vehicle while performing the lane-changing maneuver, we'll break it down into three phases:
+
+1. **Initial Phase (T = 0 to T = 3 seconds):**  
+   - The vehicle continues in the right lane at a constant speed of 72 km/h (20 m/s).  
+   - Position at T = 1: (20, 0)  
+   - Position at T = 2: (40, 0)  
+   - Position at T = 3: (60, 0)  
+
+2. **Lane-Changing Phase (T = 4 to T = 7 seconds):**  
+   - The vehicle begins to shift to the left lane. Assume the lane width is 3 meters, and the maneuver is smooth and linear over 3 seconds.  
+   - Position at T = 4: (80, 0)  
+   - Position at T = 5: (100, 1)  
+   - Position at T = 6: (120, 2)  
+   - Position at T = 7: (140, 3)  
+
+3. **Passing and Returning Phase (T = 8 to T = 10 seconds):**  
+   - The vehicle continues in the left lane to pass the obstacle and then begins to return to the right lane. Assume the return maneuver is smooth and linear over 3 seconds.  
+   - Position at T = 8: (160, 3)  
+   - Position at T = 9: (180, 2)  
+   - Position at T = 10: (200, 1)  
+
+### Summary of Positions:
+- T = 0: (0, 0)  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, 0)  
+- T = 4: (80, 0)  
+- T = 5: (100, 1)  
+- T = 6: (120, 2)  
+- T = 7: (140, 3)  
+- T = 8: (160, 3)  
+- T = 9: (180, 2)  
+- T = 10: (200, 1)  
+
+The vehicle completes the lane-changing maneuver and returns to the right lane by T = 10 seconds, maintaining a speed above 60 km/h throughout the process.

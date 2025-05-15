@@ -1,0 +1,72 @@
+To plan a safe and smooth double lane change maneuver, we need to consider the following steps:
+
+1. **Accelerate slightly to ensure a safe overtaking speed.**
+2. **Change lanes to the left lane (Y = -5) well before reaching the obstacle.**
+3. **Maintain the left lane while passing the obstacle.**
+4. **Change back to the right lane (Y = 0) after passing the obstacle.**
+
+Let¡¯s break this down step by step with the position (X, Y) at each second (T = 0 to 10).
+
+---
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s).
+- Target speed during overtaking: 80 km/h (~22.22 m/s).
+- Lane change duration: 2 seconds (smooth transition).
+- Total maneuver time: 10 seconds.
+
+---
+
+### Trajectory Plan:
+
+#### **T = 0 to T = 2: Accelerate and initiate lane change**
+- **Speed:** Increase from 20 m/s to 22.22 m/s.
+- **Lane change:** Transition from Y = 0 to Y = -5.
+- **Positions:**
+  - T = 0: (0, 0)
+  - T = 1: (22.22, -1.25)
+  - T = 2: (44.44, -5)
+
+#### **T = 3 to T = 6: Maintain left lane and pass the obstacle**
+- **Speed:** Maintain 22.22 m/s.
+- **Lane:** Stay in the left lane (Y = -5).
+- **Positions:**
+  - T = 3: (66.66, -5)
+  - T = 4: (88.88, -5)
+  - T = 5: (111.10, -5)
+  - T = 6: (133.32, -5)
+
+#### **T = 7 to T = 9: Change back to the right lane**
+- **Speed:** Maintain 22.22 m/s.
+- **Lane change:** Transition from Y = -5 to Y = 0.
+- **Positions:**
+  - T = 7: (155.54, -3.75)
+  - T = 8: (177.76, -1.25)
+  - T = 9: (199.98, 0)
+
+#### **T = 10: Resume normal driving in the right lane**
+- **Speed:** Maintain 22.22 m/s.
+- **Lane:** Stay in the right lane (Y = 0).
+- **Position:**
+  - T = 10: (222.20, 0)
+
+---
+
+### Summary of Positions (X, Y) at Each Second:
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (22.22, -1.25)  |
+| 2        | (44.44, -5)     |
+| 3        | (66.66, -5)     |
+| 4        | (88.88, -5)     |
+| 5        | (111.10, -5)    |
+| 6        | (133.32, -5)    |
+| 7        | (155.54, -3.75) |
+| 8        | (177.76, -1.25) |
+| 9        | (199.98, 0)     |
+| 10       | (222.20, 0)     |
+
+---
+
+This trajectory ensures a smooth and safe overtaking maneuver while maintaining a speed above 60 km/h.

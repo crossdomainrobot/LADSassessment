@@ -1,0 +1,34 @@
+To plan the trajectory for the double lane change maneuver, we need to ensure that the vehicle safely changes to the left lane, passes the obstacle, and returns to the right lane. The vehicle's initial speed is **72 km/h (20 m/s)**, and it must maintain a speed above **60 km/h (16.67 m/s)**. The obstacle is located at **(100, 0)**.
+
+### Assumptions:
+1. The vehicle takes **2 seconds** to complete each lane change (right to left and left to right).
+2. The vehicle maintains a constant speed of **20 m/s** during the maneuver.
+3. The lane width is **5 meters**, so the left lane is at **Y = -5**.
+
+### Trajectory Plan:
+1. **Initial Position (T = 0):** (0, 0)
+2. **Lane Change to Left (T = 0 to T = 2):** Move from (0, 0) to (40, -5).
+3. **Passing the Obstacle (T = 2 to T = 6):** Drive in the left lane from (40, -5) to (120, -5).
+4. **Lane Change to Right (T = 6 to T = 8):** Move from (120, -5) to (160, 0).
+5. **Continue in Right Lane (T = 8 to T = 10):** Drive in the right lane from (160, 0) to (200, 0).
+
+### Detailed Positions:
+- **T = 0:** (0, 0) - Initial position.
+- **T = 1:** (20, -2.5) - Midway during the lane change to the left.
+- **T = 2:** (40, -5) - Fully in the left lane.
+- **T = 3:** (60, -5) - Passing the obstacle in the left lane.
+- **T = 4:** (80, -5) - Passing the obstacle in the left lane.
+- **T = 5:** (100, -5) - Passing the obstacle in the left lane.
+- **T = 6:** (120, -5) - Fully in the left lane, ready to change back.
+- **T = 7:** (140, -2.5) - Midway during the lane change to the right.
+- **T = 8:** (160, 0) - Fully in the right lane.
+- **T = 9:** (180, 0) - Continuing in the right lane.
+- **T = 10:** (200, 0) - Continuing in the right lane.
+
+### Explanation:
+- The vehicle accelerates to **20 m/s** and maintains this speed throughout the maneuver.
+- Each lane change takes **2 seconds**, during which the vehicle moves laterally from one lane to the other.
+- The vehicle stays in the left lane while passing the obstacle at **X = 100**.
+- After passing the obstacle, the vehicle changes back to the right lane and continues driving.
+
+This trajectory ensures the vehicle safely navigates around the obstacle while maintaining the required speed.

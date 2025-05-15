@@ -1,0 +1,53 @@
+To plan the trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Initial Deceleration (if necessary)**: Ensure the speed is above 60 km/h but safe for maneuvering.
+2. **Lane Change to the Left**: Transition from the right lane (Y = 0) to the left lane (Y = -5).
+3. **Passing the Obstacle**: Maintain the left lane while passing the obstacle at X = 100.
+4. **Lane Change Back to the Right**: Transition back to the right lane (Y = 0) after passing the obstacle.
+
+Let¡¯s break this down into a trajectory over 10 seconds, assuming the vehicle maintains a speed of 72 km/h (20 m/s) unless deceleration is necessary.
+
+---
+
+### **Trajectory Plan:**
+
+- **T = 0 s**: Initial position at (0, 0), speed = 72 km/h (20 m/s).
+- **T = 1 s**: Move to (20, 0) (still in the right lane).
+- **T = 2 s**: Move to (40, 0) (still in the right lane).
+- **T = 3 s**: Begin lane change to the left. Move to (60, -1.25) (transitioning to the left lane).
+- **T = 4 s**: Continue lane change. Move to (80, -2.5) (nearing the left lane).
+- **T = 5 s**: Complete lane change. Move to (100, -5) (fully in the left lane, passing the obstacle).
+- **T = 6 s**: Continue in the left lane. Move to (120, -5) (past the obstacle).
+- **T = 7 s**: Begin lane change back to the right. Move to (140, -3.75) (transitioning to the right lane).
+- **T = 8 s**: Continue lane change. Move to (160, -2.5) (nearing the right lane).
+- **T = 9 s**: Complete lane change. Move to (180, 0) (fully in the right lane).
+- **T = 10 s**: Continue in the right lane. Move to (200, 0).
+
+---
+
+### **Positions at Each Timepoint:**
+
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -1.25)     |
+| 4        | (80, -2.5)      |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -3.75)    |
+| 8        | (160, -2.5)     |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Explanation:**
+
+1. **Lane Change Timing**: The lane change to the left starts at T = 3 s and is completed by T = 5 s, ensuring the vehicle is in the left lane when passing the obstacle at X = 100.
+2. **Passing the Obstacle**: From T = 5 s to T = 6 s, the vehicle remains in the left lane to safely pass the obstacle.
+3. **Returning to the Right Lane**: The lane change back to the right starts at T = 7 s and is completed by T = 9 s.
+4. **Speed Assumption**: The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+
+This trajectory ensures the vehicle stays above 60 km/h, avoids the obstacle, and returns safely to the right lane.

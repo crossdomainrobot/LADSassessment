@@ -1,0 +1,39 @@
+To create a trajectory for the lane-changing maneuver, we'll break the process into phases: **acceleration**, **lane change**, **passing the obstacle**, and **lane change back**. We'll assume the vehicle accelerates slightly to ensure it maintains a speed above 60 km/h (16.67 m/s) and completes the maneuver smoothly.
+
+### Assumptions:
+- Initial speed: 72 km/h = 20 m/s.
+- Target speed: 72 km/h (constant during the maneuver).
+- Lane width: 3.5 meters (standard lane width).
+- Lane change duration: 4 seconds (smooth transition).
+- Obstacle position: (100, 0).
+- Time steps: 1 second.
+
+### Trajectory:
+1. **T = 0 s**: Initial position = (0, 0).
+2. **T = 1 s**: Continue in the right lane = (20, 0).
+3. **T = 2 s**: Start lane change to the left lane = (40, 0.875).
+4. **T = 3 s**: Continue lane change = (60, 1.75).
+5. **T = 4 s**: Complete lane change, now in the left lane = (80, 2.625).
+6. **T = 5 s**: Maintain speed and position in the left lane = (100, 3.5).
+7. **T = 6 s**: Pass the obstacle, still in the left lane = (120, 3.5).
+8. **T = 7 s**: Start lane change back to the right lane = (140, 2.625).
+9. **T = 8 s**: Continue lane change = (160, 1.75).
+10. **T = 9 s**: Complete lane change, now in the right lane = (180, 0.875).
+11. **T = 10 s**: Fully return to the right lane = (200, 0).
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0.875)     |
+| 3        | (60, 1.75)      |
+| 4        | (80, 2.625)     |
+| 5        | (100, 3.5)      |
+| 6        | (120, 3.5)      |
+| 7        | (140, 2.625)    |
+| 8        | (160, 1.75)     |
+| 9        | (180, 0.875)    |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle smoothly changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h.

@@ -1,0 +1,51 @@
+To plan a safe trajectory for the double lane change maneuver, we need to ensure that the vehicle changes lanes smoothly, overtakes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h. Here¡¯s the step-by-step plan and the vehicle¡¯s position at each time point:
+
+---
+
+### **Assumptions:**
+1. The vehicle starts at position (0, 0) at \( T = 0 \) with a speed of 72 km/h (20 m/s).
+2. The obstacle is at (100, 0).
+3. The left lane is at \( Y = -5 \).
+4. The lane change is performed smoothly, taking approximately 2 seconds to transition from one lane to another.
+5. The vehicle accelerates slightly to ensure a safe overtaking maneuver.
+
+---
+
+### **Trajectory Plan:**
+1. **Initial Phase (0 ¡Ü T < 5):**  
+   - Continue driving in the right lane at 72 km/h (20 m/s).  
+   - Position at \( T = 5 \): \( X = 20 \times 5 = 100 \), \( Y = 0 \).  
+   - At \( T = 5 \), the vehicle reaches the obstacle and begins the lane change.
+
+2. **Lane Change to Left Lane (5 ¡Ü T < 7):**  
+   - Transition from \( Y = 0 \) to \( Y = -5 \) over 2 seconds.  
+   - Continue moving forward at 72 km/h (20 m/s).  
+   - Position at \( T = 7 \): \( X = 100 + 20 \times 2 = 140 \), \( Y = -5 \).
+
+3. **Overtaking Phase (7 ¡Ü T < 9):**  
+   - Stay in the left lane at \( Y = -5 \).  
+   - Continue moving forward at 72 km/h (20 m/s).  
+   - Position at \( T = 9 \): \( X = 140 + 20 \times 2 = 180 \), \( Y = -5 \).
+
+4. **Lane Change Back to Right Lane (9 ¡Ü T < 11):**  
+   - Transition from \( Y = -5 \) to \( Y = 0 \) over 2 seconds.  
+   - Continue moving forward at 72 km/h (20 m/s).  
+   - Position at \( T = 11 \): \( X = 180 + 20 \times 2 = 220 \), \( Y = 0 \).
+
+---
+
+### **Vehicle Positions at Key Time Points:**
+- \( T = 0 \): \( (0, 0) \)  
+- \( T = 5 \): \( (100, 0) \)  
+- \( T = 7 \): \( (140, -5) \)  
+- \( T = 9 \): \( (180, -5) \)  
+- \( T = 11 \): \( (220, 0) \)  
+
+---
+
+### **Notes:**
+- The vehicle maintains a speed of 72 km/h throughout the maneuver.  
+- The lane changes are performed smoothly over 2 seconds each.  
+- The obstacle is safely passed by staying in the left lane between \( X = 100 \) and \( X = 180 \).  
+
+This trajectory ensures a safe and efficient double lane change maneuver while adhering to highway speed limits.

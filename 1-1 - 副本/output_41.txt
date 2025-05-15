@@ -1,0 +1,37 @@
+To plan a safe trajectory for the double lane change maneuver, we need to ensure that the vehicle changes lanes smoothly, maintains a speed above 60 km/h, and avoids the obstacle at (100, 0). Here's a step-by-step plan for the next 10 seconds:
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Lane Width**: Each lane is 5 meters wide, so the left lane is at \( Y = -5 \).
+3. **Lane Change Duration**: Assume it takes 3 seconds to complete a lane change.
+4. **Time Intervals**: We'll provide positions at 1-second intervals.
+
+### Trajectory Plan:
+1. **T = 0s**: Initial position \( (0, 0) \).
+2. **T = 1s**: Begin lane change to the left. Move toward \( Y = -5 \).
+3. **T = 2s**: Continue lane change.
+4. **T = 3s**: Complete lane change, now in the left lane \( Y = -5 \).
+5. **T = 4s to T = 7s**: Continue driving in the left lane, passing the obstacle at \( X = 100 \).
+6. **T = 8s**: Begin lane change back to the right lane.
+7. **T = 9s**: Continue lane change.
+8. **T = 10s**: Complete lane change, back in the right lane \( Y = 0 \).
+
+### Detailed Positions:
+- **T = 0s**: \( (0, 0) \)
+- **T = 1s**: \( (20, -1.67) \) (1/3 of the lane change)
+- **T = 2s**: \( (40, -3.33) \) (2/3 of the lane change)
+- **T = 3s**: \( (60, -5) \) (fully in the left lane)
+- **T = 4s**: \( (80, -5) \)
+- **T = 5s**: \( (100, -5) \) (passing the obstacle)
+- **T = 6s**: \( (120, -5) \)
+- **T = 7s**: \( (140, -5) \)
+- **T = 8s**: \( (160, -3.33) \) (1/3 of the lane change back)
+- **T = 9s**: \( (180, -1.67) \) (2/3 of the lane change back)
+- **T = 10s**: \( (200, 0) \) (fully back in the right lane)
+
+### Explanation:
+- **Lane Change**: The lane change is modeled as a linear transition over 3 seconds. The Y-coordinate changes from 0 to -5 in 3 seconds.
+- **Speed**: The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+- **Obstacle Avoidance**: The vehicle stays in the left lane \( (Y = -5) \) while passing the obstacle at \( X = 100 \).
+
+This trajectory ensures the vehicle safely overtakes the obstacle while maintaining a speed above 60 km/h and returns to the original lane.

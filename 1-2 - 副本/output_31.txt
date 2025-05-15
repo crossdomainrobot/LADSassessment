@@ -1,0 +1,37 @@
+To describe the trajectory of the vehicle switching lanes, passing the obstacle, and switching back, we¡¯ll break the maneuver into phases:
+
+1. **Initial phase (T = 0 to T = 3 seconds)**: The vehicle accelerates slightly to prepare for the lane change.
+2. **Lane change phase (T = 3 to T = 6 seconds)**: The vehicle moves from the right lane (Y = 0) to the left lane (Y = -4 meters, assuming a lane width of 4 meters).
+3. **Passing phase (T = 6 to T = 9 seconds)**: The vehicle maintains its speed and passes the obstacle in the left lane.
+4. **Lane return phase (T = 9 to T = 12 seconds)**: The vehicle moves back to the right lane (Y = 0).
+
+### Assumptions:
+- Speed: Initial speed is 72 km/h (20 m/s). We¡¯ll maintain a speed of 20 m/s throughout the maneuver.
+- Lane width: 4 meters.
+- Obstacle position: (100, 0).
+- Lane change duration: 3 seconds (smooth transition).
+
+### Trajectory:
+Here are the positions (X, Y) at each second:
+
+- **T = 0**: (0, 0) - Starting position in the right lane.
+- **T = 1**: (20, 0) - Continuing in the right lane.
+- **T = 2**: (40, 0) - Continuing in the right lane.
+- **T = 3**: (60, 0) - Preparing to change lanes.
+- **T = 4**: (80, -1.33) - Transitioning to the left lane (Y = -1.33).
+- **T = 5**: (100, -2.67) - Continuing lane change (Y = -2.67).
+- **T = 6**: (120, -4) - Fully in the left lane (Y = -4).
+- **T = 7**: (140, -4) - Passing the obstacle in the left lane.
+- **T = 8**: (160, -4) - Passing the obstacle in the left lane.
+- **T = 9**: (180, -4) - Preparing to return to the right lane.
+- **T = 10**: (200, -2.67) - Transitioning back to the right lane (Y = -2.67).
+- **T = 11**: (220, -1.33) - Continuing lane return (Y = -1.33).
+- **T = 12**: (240, 0) - Fully back in the right lane (Y = 0).
+
+### Explanation:
+- The vehicle moves at a constant speed of 20 m/s along the X-axis.
+- The lane change is modeled as a smooth lateral transition over 3 seconds.
+- The vehicle stays in the left lane (Y = -4) while passing the obstacle at X = 100.
+- After passing, it transitions back to the right lane over another 3 seconds.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h (16.67 m/s) and completes the maneuver safely.

@@ -1,0 +1,50 @@
+To plan a safe trajectory for the double lane change maneuver, we need to ensure the vehicle smoothly transitions to the left lane, overtakes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h. Here's the step-by-step plan:
+
+---
+
+### **Assumptions:**
+1. **Initial position:** (0, 0) at \( T = 0 \).
+2. **Obstacle position:** (100, 0).
+3. **Left lane position:** \( Y = -5 \).
+4. **Initial speed:** 72 km/h (20 m/s).
+5. **Minimum speed:** 60 km/h (16.67 m/s).
+6. **Acceleration/Deceleration:** Smooth and safe for highway driving.
+7. **Time interval:** 1 second.
+
+---
+
+### **Trajectory Plan:**
+1. **Lane change to the left:** Begin transitioning to the left lane at \( T = 1 \) and complete by \( T = 3 \).
+2. **Overtake the obstacle:** Stay in the left lane until \( X > 100 \).
+3. **Lane change back to the right:** Begin transitioning back to the right lane at \( T = 7 \) and complete by \( T = 9 \).
+4. **Continue driving in the right lane:** Maintain position in the right lane after \( T = 9 \).
+
+---
+
+### **Trajectory in (X, Y) Coordinates:**
+
+| Time (s) | X Position (m) | Y Position (m) | Notes |
+|----------|----------------|----------------|-------|
+| 0        | 0              | 0              | Initial position |
+| 1        | 20             | -1             | Begin lane change |
+| 2        | 40             | -3             | Continue lane change |
+| 3        | 60             | -5             | Fully in left lane |
+| 4        | 80             | -5             | Maintain left lane |
+| 5        | 100            | -5             | Overtake obstacle |
+| 6        | 120            | -5             | Maintain left lane |
+| 7        | 140            | -3             | Begin lane change back |
+| 8        | 160            | -1             | Continue lane change back |
+| 9        | 180            | 0              | Fully in right lane |
+| 10       | 200            | 0              | Continue in right lane |
+
+---
+
+### **Explanation:**
+1. **From \( T = 0 \) to \( T = 3 \):** The vehicle smoothly transitions from \( Y = 0 \) to \( Y = -5 \) (left lane) while maintaining a speed of 72 km/h.
+2. **From \( T = 3 \) to \( T = 6 \):** The vehicle stays in the left lane to safely overtake the obstacle at \( X = 100 \).
+3. **From \( T = 7 \) to \( T = 9 \):** The vehicle transitions back to the right lane (\( Y = 0 \)) while maintaining speed.
+4. **After \( T = 9 \):** The vehicle continues driving in the right lane.
+
+---
+
+This trajectory ensures the vehicle safely overtakes the obstacle while maintaining a speed above 60 km/h and adheres to highway driving norms.

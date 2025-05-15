@@ -1,0 +1,54 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to ensure that the vehicle transitions to the left lane, overtakes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h. Here's the step-by-step trajectory for the next 10 seconds:
+
+---
+
+### **Assumptions:**
+1. The vehicle's initial speed is **72 km/h (20 m/s)**.
+2. The left lane is at **Y = -5 meters**.
+3. The obstacle is at **(100, 0)**.
+4. The vehicle must stay in the left lane when passing the obstacle (X = 100).
+5. The maneuver should be completed within 10 seconds.
+
+---
+
+### **Trajectory Plan:**
+
+1. **Lane Change to the Left Lane (T = 0 to T = 3 seconds):**
+   - At T = 0, the vehicle is at **(0, 0)**.
+   - Gradually transition to the left lane (Y = -5) over 3 seconds.
+   - Position at T = 3: **(60, -5)**.
+
+2. **Overtaking the Obstacle (T = 3 to T = 7 seconds):**
+   - Continue driving in the left lane (Y = -5) at 72 km/h.
+   - Position at T = 7: **(140, -5)**.
+
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10 seconds):**
+   - Gradually transition back to the right lane (Y = 0) over 3 seconds.
+   - Position at T = 10: **(200, 0)**.
+
+---
+
+### **Trajectory Table:**
+
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -3.33)    |
+| 9        | (180, -1.67)    |
+| 10       | (200, 0)        |
+
+---
+
+### **Explanation:**
+1. The lane changes are smooth and take 3 seconds each to ensure safety and comfort.
+2. The vehicle maintains a speed of 72 km/h (20 m/s) throughout the maneuver.
+3. The vehicle stays in the left lane (Y = -5) while passing the obstacle at X = 100.
+
+This trajectory ensures a safe and efficient double lane change maneuver.

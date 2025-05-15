@@ -1,0 +1,38 @@
+To safely execute the double lane change maneuver, we'll break the trajectory into phases: **lane change to the left**, **overtaking the obstacle**, and **lane change back to the right**. We'll calculate the vehicle's position at each second from \( T = 0 \) to \( T = 10 \), ensuring the vehicle stays above 60 km/h and completes the maneuver safely.
+
+### Assumptions:
+1. **Initial speed**: 72 km/h (20 m/s).
+2. **Lane width**: The left lane is at \( Y = -5 \) meters.
+3. **Obstacle position**: \( (100, 0) \).
+4. **Safe distance**: Maintain a safe distance from the obstacle while overtaking.
+
+### Trajectory Plan:
+1. **Lane change to the left (\( T = 0 \) to \( T = 2 \))**: Transition from \( Y = 0 \) to \( Y = -5 \).
+2. **Overtaking the obstacle (\( T = 2 \) to \( T = 6 \))**: Drive in the left lane (\( Y = -5 \)) past the obstacle.
+3. **Lane change back to the right (\( T = 6 \) to \( T = 10 \))**: Transition from \( Y = -5 \) back to \( Y = 0 \).
+
+### Calculations:
+- The vehicle moves at 20 m/s along the \( X \)-axis.
+- Lane changes are assumed to take 2 seconds each, with smooth lateral movement.
+
+### Vehicle Positions:
+| Time \( T \) (s) | \( X \) (m) | \( Y \) (m) |
+|------------------|-------------|-------------|
+| 0                | 0           | 0           |
+| 1                | 20          | -2.5        |
+| 2                | 40          | -5          |
+| 3                | 60          | -5          |
+| 4                | 80          | -5          |
+| 5                | 100         | -5          |
+| 6                | 120         | -5          |
+| 7                | 140         | -2.5        |
+| 8                | 160         | 0           |
+| 9                | 180         | 0           |
+| 10               | 200         | 0           |
+
+### Explanation:
+1. **\( T = 0 \) to \( T = 2 \)**: Lane change to the left. \( Y \) transitions linearly from 0 to -5.
+2. **\( T = 2 \) to \( T = 6 \)**: Drive in the left lane. The vehicle passes the obstacle at \( X = 100 \), \( Y = -5 \).
+3. **\( T = 6 \) to \( T = 10 \)**: Lane change back to the right. \( Y \) transitions linearly from -5 to 0.
+
+This trajectory ensures the vehicle stays above 60 km/h, maintains a safe distance, and completes the maneuver smoothly.

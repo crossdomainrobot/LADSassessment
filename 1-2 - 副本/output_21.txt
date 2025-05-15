@@ -1,0 +1,59 @@
+To describe the trajectory, we need to break the maneuver into phases: **1) Lane change to the left, 2) Passing the obstacle, and 3) Lane change back to the right**. Here¡¯s a step-by-step plan:
+
+---
+
+### **Assumptions**:
+- **Initial speed**: 72 km/h = 20 m/s (constant speed assumed for simplicity).
+- **Lane width**: Assume each lane is 3.5 meters wide, so the lateral shift from right to left lane is 3.5 meters.
+- **Lane change time**: Assume 2 seconds for each lane change (smooth and safe).
+- **Passing time**: Assume it takes 4 seconds to pass the obstacle completely.
+
+---
+
+### **Trajectory Calculation**:
+
+#### **1. Lane Change to the Left (T = 0 to T = 2)**:
+- **Lateral motion**: Move from Y = 0 (right lane) to Y = 3.5 (left lane) over 2 seconds.
+- **Longitudinal motion**: Continue moving forward at 20 m/s.
+- **Positions**:
+  - T = 0: (0, 0)
+  - T = 1: (20, 1.75)
+  - T = 2: (40, 3.5)
+
+#### **2. Passing the Obstacle (T = 2 to T = 6)**:
+- **Lateral motion**: Stay in the left lane (Y = 3.5).
+- **Longitudinal motion**: Continue moving forward at 20 m/s.
+- **Positions**:
+  - T = 3: (60, 3.5)
+  - T = 4: (80, 3.5)
+  - T = 5: (100, 3.5)
+  - T = 6: (120, 3.5)
+
+#### **3. Lane Change Back to the Right (T = 6 to T = 8)**:
+- **Lateral motion**: Move from Y = 3.5 (left lane) to Y = 0 (right lane) over 2 seconds.
+- **Longitudinal motion**: Continue moving forward at 20 m/s.
+- **Positions**:
+  - T = 7: (140, 1.75)
+  - T = 8: (160, 0)
+
+---
+
+### **Final Trajectory**:
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 1.75)      |
+| 2        | (40, 3.5)       |
+| 3        | (60, 3.5)       |
+| 4        | (80, 3.5)       |
+| 5        | (100, 3.5)      |
+| 6        | (120, 3.5)      |
+| 7        | (140, 1.75)     |
+| 8        | (160, 0)        |
+
+---
+
+### **Notes**:
+- The vehicle completes the maneuver in 8 seconds.
+- The speed remains constant at 20 m/s (72 km/h).
+- The trajectory ensures the obstacle is safely passed while maintaining highway speed.

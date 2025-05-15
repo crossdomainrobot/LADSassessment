@@ -1,0 +1,61 @@
+To safely perform the double lane change maneuver, we need to plan a smooth trajectory that allows the vehicle to change to the left lane, pass the obstacle, and return to the right lane. The vehicle's initial speed is 72 km/h (20 m/s), and it needs to maintain a speed above 60 km/h (16.67 m/s). Here¡¯s a step-by-step trajectory plan:
+
+### Assumptions:
+1. The vehicle starts at position (0, 0) at time \( T = 0 \).
+2. The obstacle is at position (100, 0).
+3. The left lane is at \( Y = -5 \).
+4. The vehicle accelerates or decelerates smoothly to maintain speed above 60 km/h.
+5. The lane change takes approximately 2 seconds each (left and right).
+
+### Trajectory Plan:
+1. **Lane Change to the Left Lane (0 ¡Ü T ¡Ü 2):**
+   - The vehicle moves from \( Y = 0 \) to \( Y = -5 \) smoothly.
+   - The X position increases linearly with time: \( X = 20 \cdot T \).
+
+2. **Passing the Obstacle (2 < T ¡Ü 6):**
+   - The vehicle stays in the left lane (\( Y = -5 \)).
+   - The X position continues to increase: \( X = 20 \cdot T \).
+
+3. **Lane Change Back to the Right Lane (6 < T ¡Ü 8):**
+   - The vehicle moves from \( Y = -5 \) back to \( Y = 0 \) smoothly.
+   - The X position continues to increase: \( X = 20 \cdot T \).
+
+4. **Continue in the Right Lane (T > 8):**
+   - The vehicle stays in the right lane (\( Y = 0 \)).
+   - The X position continues to increase: \( X = 20 \cdot T \).
+
+### Positions at Key Timepoints:
+- **T = 1:** \( X = 20 \cdot 1 = 20 \), \( Y = -2.5 \) (midway to left lane)
+  - Position: (20, -2.5)
+- **T = 2:** \( X = 20 \cdot 2 = 40 \), \( Y = -5 \) (fully in left lane)
+  - Position: (40, -5)
+- **T = 3:** \( X = 20 \cdot 3 = 60 \), \( Y = -5 \) (passing obstacle)
+  - Position: (60, -5)
+- **T = 4:** \( X = 20 \cdot 4 = 80 \), \( Y = -5 \) (passing obstacle)
+  - Position: (80, -5)
+- **T = 5:** \( X = 20 \cdot 5 = 100 \), \( Y = -5 \) (passing obstacle)
+  - Position: (100, -5)
+- **T = 6:** \( X = 20 \cdot 6 = 120 \), \( Y = -5 \) (passing obstacle)
+  - Position: (120, -5)
+- **T = 7:** \( X = 20 \cdot 7 = 140 \), \( Y = -2.5 \) (midway to right lane)
+  - Position: (140, -2.5)
+- **T = 8:** \( X = 20 \cdot 8 = 160 \), \( Y = 0 \) (fully in right lane)
+  - Position: (160, 0)
+- **T = 9:** \( X = 20 \cdot 9 = 180 \), \( Y = 0 \) (continuing in right lane)
+  - Position: (180, 0)
+- **T = 10:** \( X = 20 \cdot 10 = 200 \), \( Y = 0 \) (continuing in right lane)
+  - Position: (200, 0)
+
+### Summary of Positions:
+- **T = 1:** (20, -2.5)
+- **T = 2:** (40, -5)
+- **T = 3:** (60, -5)
+- **T = 4:** (80, -5)
+- **T = 5:** (100, -5)
+- **T = 6:** (120, -5)
+- **T = 7:** (140, -2.5)
+- **T = 8:** (160, 0)
+- **T = 9:** (180, 0)
+- **T = 10:** (200, 0)
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h.

@@ -1,0 +1,45 @@
+To plan the trajectory for the double lane change maneuver, we need to consider the following steps:
+
+1. **Initial Lane Change to the Left Lane**: Move from the right lane (Y = 0) to the left lane (Y = -5).
+2. **Pass the Obstacle**: Stay in the left lane while passing the obstacle at X = 100.
+3. **Return to the Right Lane**: Move back to the right lane (Y = 0) after passing the obstacle.
+
+Given the initial speed of 72 km/h (20 m/s), we need to ensure that the vehicle's speed remains above 60 km/h (16.67 m/s) throughout the maneuver.
+
+### Assumptions:
+- The vehicle accelerates or decelerates smoothly.
+- The lane change takes approximately 2 seconds to complete (1 second to move to the left lane and 1 second to return to the right lane).
+- The vehicle maintains a constant speed of 72 km/h (20 m/s) during the lane change.
+
+### Trajectory Calculation:
+
+#### Time Points:
+- **T = 0 s**: Initial position (0, 0).
+- **T = 1 s**: Start moving to the left lane.
+- **T = 2 s**: Fully in the left lane (Y = -5).
+- **T = 3 s to T = 5 s**: Continue driving in the left lane, passing the obstacle at X = 100.
+- **T = 6 s**: Start moving back to the right lane.
+- **T = 7 s**: Fully back in the right lane (Y = 0).
+
+#### Position at Each Time Point:
+
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -2.5)  // Midway to the left lane
+- **T = 2 s**: (40, -5)    // Fully in the left lane
+- **T = 3 s**: (60, -5)    // Continuing in the left lane
+- **T = 4 s**: (80, -5)    // Continuing in the left lane
+- **T = 5 s**: (100, -5)   // Passing the obstacle
+- **T = 6 s**: (120, -2.5) // Midway back to the right lane
+- **T = 7 s**: (140, 0)    // Fully back in the right lane
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -2.5)
+- **T = 2 s**: (40, -5)
+- **T = 3 s**: (60, -5)
+- **T = 4 s**: (80, -5)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -2.5)
+- **T = 7 s**: (140, 0)
+
+This trajectory ensures that the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h.

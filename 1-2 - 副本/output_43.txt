@@ -1,0 +1,31 @@
+To plan the trajectory, we'll break the maneuver into three phases: (1) lane change to the left, (2) passing the obstacle, and (3) lane change back to the right. We'll assume a smooth and safe lane change takes about 3 seconds each, and the vehicle maintains a speed of 72 km/h (20 m/s). Here¨s the trajectory:
+
+### Phase 1: Lane Change to the Left (T = 0 to T = 3 seconds)
+- The vehicle moves laterally to the left lane while continuing to move forward.
+- Lateral movement is assumed to be linear over 3 seconds.
+
+### Phase 2: Pass the Obstacle (T = 3 to T = 7 seconds)
+- The vehicle continues in the left lane, passing the obstacle at (100, 0).
+
+### Phase 3: Lane Change Back to the Right (T = 7 to T = 10 seconds)
+- The vehicle moves laterally back to the right lane while continuing to move forward.
+
+### Trajectory:
+- **T = 0**: (0, 0) ！ Starting position.
+- **T = 1**: (20, -1.67) ！ Moving forward and starting to shift left.
+- **T = 2**: (40, -3.33) ！ Continuing forward and shifting left.
+- **T = 3**: (60, -5) ！ Fully in the left lane.
+- **T = 4**: (80, -5) ！ Passing the obstacle in the left lane.
+- **T = 5**: (100, -5) ！ Passing the obstacle in the left lane.
+- **T = 6**: (120, -5) ！ Passing the obstacle in the left lane.
+- **T = 7**: (140, -3.33) ！ Starting to shift back to the right lane.
+- **T = 8**: (160, -1.67) ！ Continuing to shift right.
+- **T = 9**: (180, 0) ！ Fully back in the right lane.
+- **T = 10**: (200, 0) ！ Continuing in the right lane.
+
+### Explanation:
+1. **Lateral Movement**: The lane width is assumed to be 5 meters. The vehicle moves laterally at a rate of 5/3 「 1.67 m/s during lane changes.
+2. **Longitudinal Movement**: The vehicle moves forward at 20 m/s (72 km/h).
+3. **Obstacle Avoidance**: The vehicle stays in the left lane from T = 3 to T = 7 seconds to safely pass the obstacle.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h while safely completing the maneuver.

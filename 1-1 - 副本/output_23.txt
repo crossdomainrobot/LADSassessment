@@ -1,0 +1,51 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we¡¯ll break the process into three phases:
+
+1. **Lane Change to the Left Lane**: Move from the right lane (Y = 0) to the left lane (Y = -5).
+2. **Passing the Obstacle**: Stay in the left lane while passing the obstacle at X = 100.
+3. **Lane Change Back to the Right Lane**: Move from the left lane (Y = -5) back to the right lane (Y = 0).
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s).
+- Minimum speed: 60 km/h (16.67 m/s).
+- Vehicle acceleration/deceleration is smooth and safe.
+- Lane change takes approximately 3 seconds to complete.
+- The obstacle is at X = 100, Y = 0.
+
+### Trajectory Plan:
+
+#### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3 seconds)
+- **Time (T) = 0 s**: Position = (0, 0).
+- **Time (T) = 1 s**: Position = (20, -1.67).
+- **Time (T) = 2 s**: Position = (40, -3.33).
+- **Time (T) = 3 s**: Position = (60, -5).
+
+#### Phase 2: Passing the Obstacle (T = 3 to T = 7 seconds)
+- **Time (T) = 4 s**: Position = (80, -5).
+- **Time (T) = 5 s**: Position = (100, -5).
+- **Time (T) = 6 s**: Position = (120, -5).
+- **Time (T) = 7 s**: Position = (140, -5).
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)
+- **Time (T) = 8 s**: Position = (160, -3.33).
+- **Time (T) = 9 s**: Position = (180, -1.67).
+- **Time (T) = 10 s**: Position = (200, 0).
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -1.67)
+- **T = 2 s**: (40, -3.33)
+- **T = 3 s**: (60, -5)
+- **T = 4 s**: (80, -5)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -5)
+- **T = 7 s**: (140, -5)
+- **T = 8 s**: (160, -3.33)
+- **T = 9 s**: (180, -1.67)
+- **T = 10 s**: (200, 0)
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 3 s)**: The vehicle smoothly transitions from Y = 0 to Y = -5 while maintaining a speed of 20 m/s.
+2. **Passing the Obstacle (T = 3 to T = 7 s)**: The vehicle stays in the left lane (Y = -5) and passes the obstacle at X = 100 at T = 5 s.
+3. **Lane Change Back (T = 7 to T = 10 s)**: The vehicle smoothly transitions back to the right lane (Y = 0) while maintaining speed.
+
+This trajectory ensures the vehicle safely passes the obstacle while adhering to speed limits and maintaining smooth motion.

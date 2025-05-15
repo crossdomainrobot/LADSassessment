@@ -1,0 +1,44 @@
+To safely execute the double lane change maneuver, we need to plan a smooth trajectory that ensures the vehicle changes to the left lane, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h. Here's a step-by-step plan with the vehicle's position (X, Y) at each second:
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s).
+- Left lane Y-coordinate: \( Y = -5 \).
+- Obstacle position: \( (100, 0) \).
+- The maneuver should be completed within 10 seconds.
+- Smooth acceleration/deceleration is applied for lane changes.
+
+### Trajectory Plan:
+1. **Lane Change to the Left Lane (T = 0 to T = 3):**
+   - Gradually move from \( Y = 0 \) to \( Y = -5 \) over 3 seconds.
+   - Maintain speed at 72 km/h (20 m/s).
+
+2. **Pass the Obstacle in the Left Lane (T = 3 to T = 6):**
+   - Continue driving in the left lane (\( Y = -5 \)) until the vehicle has passed the obstacle at \( X = 100 \).
+
+3. **Lane Change Back to the Right Lane (T = 6 to T = 9):**
+   - Gradually move from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.
+   - Maintain speed at 72 km/h (20 m/s).
+
+4. **Continue Driving in the Right Lane (T = 9 to T = 10):**
+   - Stay in the right lane (\( Y = 0 \)) and continue driving.
+
+### Vehicle Position at Each Second:
+- **T = 0:** \( (0, 0) \)  
+- **T = 1:** \( (20, -1.67) \)  
+- **T = 2:** \( (40, -3.33) \)  
+- **T = 3:** \( (60, -5) \)  
+- **T = 4:** \( (80, -5) \)  
+- **T = 5:** \( (100, -5) \)  
+- **T = 6:** \( (120, -5) \)  
+- **T = 7:** \( (140, -3.33) \)  
+- **T = 8:** \( (160, -1.67) \)  
+- **T = 9:** \( (180, 0) \)  
+- **T = 10:** \( (200, 0) \)  
+
+### Explanation:
+- The lane change is executed smoothly over 3 seconds, ensuring safety and comfort.
+- The vehicle passes the obstacle at \( X = 100 \) while in the left lane.
+- The speed is maintained at 72 km/h throughout the maneuver, ensuring compliance with highway speed requirements.
+- The total distance covered in 10 seconds is 200 meters, consistent with the initial speed of 72 km/h.
+
+This trajectory ensures the vehicle safely navigates around the obstacle while adhering to traffic rules.

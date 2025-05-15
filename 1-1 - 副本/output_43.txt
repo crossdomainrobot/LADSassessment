@@ -1,0 +1,49 @@
+To plan a safe trajectory for the double lane change maneuver, we need to calculate the vehicle's position over time, ensuring it stays above 60 km/h and safely switches lanes to avoid the obstacle. Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Calculations**
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Minimum Speed**: 60 km/h = 16.67 m/s.
+3. **Lane Width**: Right lane is at Y = 0, left lane is at Y = -5.
+4. **Obstacle Position**: (100, 0).
+5. **Time Interval**: We will calculate positions every second for 10 seconds (T = 0 to T = 10).
+
+---
+
+### **Trajectory Plan**
+1. **Lane Change to the Left (Y = -5)**:
+   - Start at T = 0, position (0, 0).
+   - Gradually shift to the left lane by T = 3, reaching Y = -5.
+2. **Pass the Obstacle**:
+   - Stay in the left lane (Y = -5) while passing the obstacle at X = 100.
+3. **Lane Change Back to the Right (Y = 0)**:
+   - Gradually shift back to the right lane by T = 7, reaching Y = 0.
+4. **Continue Driving**:
+   - Maintain speed and stay in the right lane.
+
+---
+
+### **Trajectory Table**
+| Time (T) | X Position (m) | Y Position (m) | Notes                          |
+|----------|----------------|----------------|--------------------------------|
+| 0        | 0              | 0              | Start in the right lane.       |
+| 1        | 20             | -1.67          | Begin lane change.             |
+| 2        | 40             | -3.33          | Continue lane change.          |
+| 3        | 60             | -5             | Fully in the left lane.        |
+| 4        | 80             | -5             | Approaching the obstacle.      |
+| 5        | 100            | -5             | Passing the obstacle.          |
+| 6        | 120            | -3.33          | Begin lane change back.        |
+| 7        | 140            | -1.67          | Continue lane change back.     |
+| 8        | 160            | 0              | Fully in the right lane.       |
+| 9        | 180            | 0              | Continue driving.              |
+| 10       | 200            | 0              | Maneuver complete.             |
+
+---
+
+### **Explanation**
+1. **X Position**: Calculated as \( X = \text{Initial Speed} \times T \).
+2. **Y Position**: Smoothly transitions from 0 to -5 and back to 0 over 7 seconds for safety.
+3. **Speed**: Maintained above 60 km/h (16.67 m/s) throughout the maneuver.
+
+This trajectory ensures the vehicle safely avoids the obstacle while adhering to highway speed limits.

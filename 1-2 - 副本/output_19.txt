@@ -1,0 +1,41 @@
+To plan the trajectory for the lane-changing maneuver, we¡¯ll assume the following:
+
+1. The vehicle is moving at a constant speed of **72 km/h (20 m/s)**.
+2. The left lane is at **Y = -3.5 meters** (assuming a standard lane width of 3.5 meters).
+3. The obstacle is at **(100, 0)**.
+4. The lane change takes about **3 seconds** to complete, with smooth lateral movement.
+
+Here is the trajectory in **(X, Y)** coordinates at each second (T = 1, 2, 3, etc.):
+
+### Trajectory Plan:
+- **T = 0**: Start at **(0, 0)**.
+- **T = 1**: Move forward to **(20, 0)**. Begin preparing for the lane change.
+- **T = 2**: Move forward to **(40, -1)**. Start transitioning to the left lane.
+- **T = 3**: Move forward to **(60, -3.5)**. Complete the lane change and stay in the left lane.
+- **T = 4**: Move forward to **(80, -3.5)**. Continue in the left lane, approaching the obstacle.
+- **T = 5**: Move forward to **(100, -3.5)**. Pass the obstacle in the left lane.
+- **T = 6**: Move forward to **(120, -3.5)**. Continue in the left lane, ensuring safe clearance.
+- **T = 7**: Move forward to **(140, -2)**. Begin transitioning back to the right lane.
+- **T = 8**: Move forward to **(160, -0.5)**. Continue transitioning to the right lane.
+- **T = 9**: Move forward to **(180, 0)**. Complete the lane change and return to the right lane.
+- **T = 10**: Move forward to **(200, 0)**. Continue in the right lane.
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) in meters |
+|----------|--------------------------|
+| T = 0    | (0, 0)                   |
+| T = 1    | (20, 0)                  |
+| T = 2    | (40, -1)                 |
+| T = 3    | (60, -3.5)               |
+| T = 4    | (80, -3.5)               |
+| T = 5    | (100, -3.5)              |
+| T = 6    | (120, -3.5)              |
+| T = 7    | (140, -2)                |
+| T = 8    | (160, -0.5)              |
+| T = 9    | (180, 0)                 |
+| T = 10   | (200, 0)                 |
+
+### Notes:
+- The lane change is smooth and takes **3 seconds** to complete in each direction.
+- The vehicle maintains a speed of **72 km/h (20 m/s)** throughout the maneuver.
+- The obstacle at **(100, 0)** is safely passed in the left lane.

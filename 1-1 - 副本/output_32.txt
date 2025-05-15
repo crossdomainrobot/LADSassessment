@@ -1,0 +1,79 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we'll follow these steps:
+
+1. **Initial Setup**:  
+   - Initial position: (0, 0)  
+   - Initial speed: 72 km/h (20 m/s)  
+   - Obstacle position: (100, 0)  
+   - Left lane Y-coordinate: -5  
+
+2. **Lane Change to the Left Lane**:  
+   - Start the lane change at \( T = 0 \) and complete it by \( T = 3 \) seconds.  
+   - Move laterally from \( Y = 0 \) to \( Y = -5 \) over 3 seconds.  
+   - During this time, the vehicle continues moving forward at 20 m/s.  
+
+3. **Passing the Obstacle**:  
+   - Stay in the left lane (\( Y = -5 \)) while passing the obstacle at \( X = 100 \).  
+   - Ensure the vehicle is in the left lane by \( T = 3 \) seconds and remains there until \( T = 7 \) seconds.  
+
+4. **Lane Change Back to the Right Lane**:  
+   - Start returning to the right lane at \( T = 7 \) seconds and complete it by \( T = 10 \) seconds.  
+   - Move laterally from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.  
+
+5. **Trajectory Calculation**:  
+   - The vehicle moves forward at 20 m/s, so \( X = 20 \times T \).  
+   - \( Y \) changes linearly during lane changes.  
+
+### Trajectory Positions:  
+Here are the positions at each time point:  
+
+- \( T = 1 \) second:  
+  \( X = 20 \times 1 = 20 \)  
+  \( Y = -\frac{5}{3} \times 1 \approx -1.67 \)  
+  Position: (20, -1.67)  
+
+- \( T = 2 \) seconds:  
+  \( X = 20 \times 2 = 40 \)  
+  \( Y = -\frac{5}{3} \times 2 \approx -3.33 \)  
+  Position: (40, -3.33)  
+
+- \( T = 3 \) seconds:  
+  \( X = 20 \times 3 = 60 \)  
+  \( Y = -5 \)  
+  Position: (60, -5)  
+
+- \( T = 4 \) seconds:  
+  \( X = 20 \times 4 = 80 \)  
+  \( Y = -5 \)  
+  Position: (80, -5)  
+
+- \( T = 5 \) seconds:  
+  \( X = 20 \times 5 = 100 \)  
+  \( Y = -5 \)  
+  Position: (100, -5)  
+
+- \( T = 6 \) seconds:  
+  \( X = 20 \times 6 = 120 \)  
+  \( Y = -5 \)  
+  Position: (120, -5)  
+
+- \( T = 7 \) seconds:  
+  \( X = 20 \times 7 = 140 \)  
+  \( Y = -5 \)  
+  Position: (140, -5)  
+
+- \( T = 8 \) seconds:  
+  \( X = 20 \times 8 = 160 \)  
+  \( Y = -\frac{5}{3} \times (10-8) \approx -3.33 \)  
+  Position: (160, -3.33)  
+
+- \( T = 9 \) seconds:  
+  \( X = 20 \times 9 = 180 \)  
+  \( Y = -\frac{5}{3} \times (10-9) \approx -1.67 \)  
+  Position: (180, -1.67)  
+
+- \( T = 10 \) seconds:  
+  \( X = 20 \times 10 = 200 \)  
+  \( Y = 0 \)  
+  Position: (200, 0)  
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed of 72 km/h.

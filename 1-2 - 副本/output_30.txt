@@ -1,0 +1,44 @@
+To describe the trajectory of the vehicle, we¡¯ll assume the following:
+- The vehicle moves at a constant speed of **72 km/h (20 m/s)**.
+- Lane width is approximately **3.5 meters**.
+- The lane change maneuver takes **3 seconds** to complete (smooth transition).
+- The obstacle is at **(100, 0)** and the vehicle needs to switch to the left lane (Y = -3.5 m) to pass it.
+
+### Trajectory Plan:
+1. **T = 0 to T = 3 seconds**: Lane change to the left lane.
+2. **T = 3 to T = 7 seconds**: Continue in the left lane, passing the obstacle.
+3. **T = 7 to T = 10 seconds**: Lane change back to the right lane.
+
+### Position Calculations:
+- **X-coordinate**: Moves at 20 m/s, so \( X = 20 \times T \).
+- **Y-coordinate**: Smooth transition during lane changes.
+
+#### Detailed Positions:
+1. **T = 0**: (0, 0) - Starting position in the right lane.
+2. **T = 1**: (20, -1.17) - Smooth transition to the left lane.
+3. **T = 2**: (40, -2.33) - Continuing lane change.
+4. **T = 3**: (60, -3.5) - Fully in the left lane.
+5. **T = 4**: (80, -3.5) - Passing the obstacle.
+6. **T = 5**: (100, -3.5) - Passing the obstacle.
+7. **T = 6**: (120, -3.5) - Passing the obstacle.
+8. **T = 7**: (140, -3.5) - Preparing to switch back.
+9. **T = 8**: (160, -2.33) - Smooth transition to the right lane.
+10. **T = 9**: (180, -1.17) - Continuing lane change.
+11. **T = 10**: (200, 0) - Fully back in the right lane.
+
+### Summary Table:
+| Time (s) | Position (X, Y) (meters) |
+|----------|--------------------------|
+| 0        | (0, 0)                   |
+| 1        | (20, -1.17)              |
+| 2        | (40, -2.33)              |
+| 3        | (60, -3.5)               |
+| 4        | (80, -3.5)               |
+| 5        | (100, -3.5)              |
+| 6        | (120, -3.5)              |
+| 7        | (140, -3.5)              |
+| 8        | (160, -2.33)             |
+| 9        | (180, -1.17)             |
+| 10       | (200, 0)                 |
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, safely passes the obstacle, and returns to the right lane.

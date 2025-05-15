@@ -1,0 +1,39 @@
+To describe the trajectory of the vehicle, we'll break down the maneuver into three phases:
+
+1. **Lane Change to the Left Lane**:  
+   - The vehicle starts at (0, 0) and needs to move to the left lane. We'll assume the lane width is 3.5 meters (standard for highways).  
+   - The lane change should take about 2-3 seconds for safety and smoothness.  
+
+2. **Passing the Obstacle**:  
+   - Once in the left lane, the vehicle continues moving forward at a speed of 72 km/h (20 m/s).  
+   - The obstacle is at (100, 0), so the vehicle will pass it while staying in the left lane.  
+
+3. **Lane Change Back to the Right Lane**:  
+   - After passing the obstacle, the vehicle moves back to the right lane. This should also take about 2-3 seconds.  
+
+Here¨s the trajectory in (X, Y) coordinates at 1-second intervals:  
+
+### Assumptions:  
+- Lane width = 3.5 meters.  
+- Speed = 72 km/h (20 m/s).  
+- Lane change duration = 3 seconds.  
+
+### Trajectory:  
+- **T = 0s**: (0, 0) ！ Starting position.  
+- **T = 1s**: (20, 1.17) ！ Begin lane change to the left.  
+- **T = 2s**: (40, 2.33) ！ Continue lane change.  
+- **T = 3s**: (60, 3.5) ！ Fully in the left lane.  
+- **T = 4s**: (80, 3.5) ！ Approaching the obstacle.  
+- **T = 5s**: (100, 3.5) ！ Passing the obstacle in the left lane.  
+- **T = 6s**: (120, 3.5) ！ Continue in the left lane.  
+- **T = 7s**: (140, 2.33) ！ Begin lane change back to the right.  
+- **T = 8s**: (160, 1.17) ！ Continue lane change.  
+- **T = 9s**: (180, 0) ！ Fully back in the right lane.  
+- **T = 10s**: (200, 0) ！ Continue driving in the right lane.  
+
+### Explanation:  
+- The **Y-coordinate** changes smoothly from 0 to 3.5 meters during the lane change to the left and back to 0 during the return to the right lane.  
+- The **X-coordinate** increases linearly at 20 m/s (72 km/h) since the speed is constant.  
+- The obstacle is passed safely in the left lane at T = 5s.  
+
+This trajectory ensures the maneuver is smooth, safe, and maintains the speed above 60 km/h.

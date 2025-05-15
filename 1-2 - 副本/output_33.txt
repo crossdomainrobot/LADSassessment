@@ -1,0 +1,63 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed above 60 km/h (which is approximately 16.67 m/s). Here's the step-by-step trajectory:
+
+### Initial Conditions:
+- Initial position: \( (0, 0) \)
+- Speed: 72 km/h (20 m/s)
+- Obstacle position: \( (100, 0) \)
+- Left lane is at \( Y = -3.5 \) meters (assuming standard lane width).
+
+### Trajectory:
+The vehicle will:
+1. Maintain its speed in the right lane until it is close to the obstacle.
+2. Gradually switch to the left lane.
+3. Pass the obstacle while staying in the left lane.
+4. Gradually switch back to the right lane.
+
+Here¡¯s the position \( (X, Y) \) at each second:
+
+#### T = 0 s:
+- Position: \( (0, 0) \)
+- Action: Moving straight in the right lane.
+
+#### T = 1 s:
+- Position: \( (20, 0) \)
+- Action: Moving straight in the right lane.
+
+#### T = 2 s:
+- Position: \( (40, 0) \)
+- Action: Moving straight in the right lane.
+
+#### T = 3 s:
+- Position: \( (60, 0) \)
+- Action: Moving straight in the right lane.
+
+#### T = 4 s:
+- Position: \( (80, 0) \)
+- Action: Begin transitioning to the left lane.
+
+#### T = 5 s:
+- Position: \( (100, -1.75) \)
+- Action: Halfway into the left lane.
+
+#### T = 6 s:
+- Position: \( (120, -3.5) \)
+- Action: Fully in the left lane, passing the obstacle.
+
+#### T = 7 s:
+- Position: \( (140, -3.5) \)
+- Action: Continuing in the left lane.
+
+#### T = 8 s:
+- Position: \( (160, -3.5) \)
+- Action: Continuing in the left lane.
+
+#### T = 9 s:
+- Position: \( (180, -1.75) \)
+- Action: Begin transitioning back to the right lane.
+
+#### T = 10 s:
+- Position: \( (200, 0) \)
+- Action: Fully back in the right lane.
+
+### Summary:
+The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver. It switches to the left lane between \( T = 4 \) s and \( T = 6 \) s, stays in the left lane until \( T = 9 \) s, and then transitions back to the right lane by \( T = 10 \) s. This ensures a smooth and safe lane-changing maneuver while avoiding the obstacle.
