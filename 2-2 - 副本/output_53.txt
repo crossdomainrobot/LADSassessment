@@ -1,0 +1,47 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed of over 60 km/h (approximately 16.67 m/s). Let¨s break this down step by step:
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Left Lane Width**: Assume the left lane is 3.5 meters to the left of the right lane (Y = -3.5).
+3. **Lane Change Duration**: Assume it takes 2 seconds to smoothly change lanes.
+4. **Obstacle Position**: The obstacle is at (100, 0).
+5. **Trajectory Smoothing**: The lane change is modeled as a smooth lateral movement.
+
+### Trajectory Calculation:
+#### Time Steps:
+- **T = 0**: Initial position (0, 0).
+- **T = 1**: Continue in the right lane, approaching the obstacle.
+- **T = 2**: Begin lane change to the left.
+- **T = 3**: Complete lane change and stay in the left lane.
+- **T = 4**: Continue in the left lane, passing the obstacle.
+- **T = 5**: Continue in the left lane.
+- **T = 6**: Begin lane change back to the right.
+- **T = 7**: Complete lane change and return to the right lane.
+
+#### Positions:
+- **T = 0**: (0, 0) ！ Starting position.
+- **T = 1**: (20, 0) ！ Moving straight ahead.
+- **T = 2**: (40, -1.75) ！ Begin lane change (halfway to the left lane).
+- **T = 3**: (60, -3.5) ！ Fully in the left lane.
+- **T = 4**: (80, -3.5) ！ Passing the obstacle.
+- **T = 5**: (100, -3.5) ！ Continue in the left lane.
+- **T = 6**: (120, -1.75) ！ Begin lane change back to the right lane.
+- **T = 7**: (140, 0) ！ Fully back in the right lane.
+
+### Detailed Positions (X, Y) at Each Second:
+1. **T = 0**: (0, 0)
+2. **T = 1**: (20, 0)
+3. **T = 2**: (40, -1.75)
+4. **T = 3**: (60, -3.5)
+5. **T = 4**: (80, -3.5)
+6. **T = 5**: (100, -3.5)
+7. **T = 6**: (120, -1.75)
+8. **T = 7**: (140, 0)
+
+### Explanation:
+- **T = 0 to T = 1**: The vehicle moves straight ahead in the right lane at 20 m/s.
+- **T = 1 to T = 3**: The vehicle smoothly transitions to the left lane over 2 seconds.
+- **T = 3 to T = 5**: The vehicle remains in the left lane, passing the obstacle at T = 4.
+- **T = 5 to T = 7**: The vehicle smoothly transitions back to the right lane over 2 seconds.
+
+This trajectory ensures the vehicle maintains a speed of over 60 km/h, safely passes the obstacle, and returns to the right lane.

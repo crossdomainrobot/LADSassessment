@@ -1,0 +1,49 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we can break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane (T = 0 to T = 3 seconds)**  
+2. **Passing the Obstacle (T = 3 to T = 7 seconds)**  
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**  
+
+### Assumptions:
+- The vehicle moves at a constant speed of **72 km/h (20 m/s)**.  
+- The lane width is approximately **3.5 meters**.  
+- The lane change is smooth and takes about **3 seconds** to complete.  
+- The obstacle is at **X = 100 meters**, and the vehicle starts at **X = 0 meters**.  
+
+### Trajectory:
+#### **Phase 1: Lane Change to the Left Lane (T = 0 to T = 3 seconds)**  
+During this phase, the vehicle moves laterally from the right lane (Y = 0) to the left lane (Y = 3.5).  
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, 1.17)  
+- **T = 2**: (40, 2.33)  
+- **T = 3**: (60, 3.5)  
+
+#### **Phase 2: Passing the Obstacle (T = 3 to T = 7 seconds)**  
+The vehicle continues in the left lane, maintaining its speed, and passes the obstacle at X = 100 meters.  
+- **T = 4**: (80, 3.5)  
+- **T = 5**: (100, 3.5)  
+- **T = 6**: (120, 3.5)  
+- **T = 7**: (140, 3.5)  
+
+#### **Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**  
+The vehicle moves laterally back to the right lane (Y = 0).  
+- **T = 8**: (160, 2.33)  
+- **T = 9**: (180, 1.17)  
+- **T = 10**: (200, 0)  
+
+### Final Trajectory:
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, 1.17)      |  
+| 2        | (40, 2.33)      |  
+| 3        | (60, 3.5)       |  
+| 4        | (80, 3.5)       |  
+| 5        | (100, 3.5)      |  
+| 6        | (120, 3.5)      |  
+| 7        | (140, 3.5)      |  
+| 8        | (160, 2.33)     |  
+| 9        | (180, 1.17)     |  
+| 10       | (200, 0)        |  
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, safely changes lanes, passes the obstacle, and returns to the right lane.

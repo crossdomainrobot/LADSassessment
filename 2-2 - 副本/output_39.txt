@@ -1,0 +1,47 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is \( 72 \, \text{km/h} \) (or \( 20 \, \text{m/s} \)).  
+- The lane change takes approximately 3 seconds (a smooth, safe maneuver).  
+- The obstacle is at \( X = 100 \, \text{meters} \), and the vehicle starts at \( X = 0 \).  
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout the maneuver.  
+
+### Trajectory:  
+We¡¯ll provide the position \((X, Y)\) at each second \( T = 0, 1, 2, \dots, 10 \).  
+
+1. **Lane change to the left lane (T = 0 to T = 3):**  
+   - \( Y \) changes linearly from \( 0 \) to \( -3.5 \) meters over 3 seconds.  
+   - \( X \) increases at \( 20 \, \text{m/s} \).  
+
+2. **Passing the obstacle (T = 3 to T = 7):**  
+   - \( Y \) remains at \( -3.5 \) meters.  
+   - \( X \) continues to increase at \( 20 \, \text{m/s} \).  
+
+3. **Lane change back to the right lane (T = 7 to T = 10):**  
+   - \( Y \) changes linearly from \( -3.5 \) meters to \( 0 \) over 3 seconds.  
+   - \( X \) continues to increase at \( 20 \, \text{m/s} \).  
+
+### Positions:  
+- \( T = 0 \): \( (0, 0) \)  
+- \( T = 1 \): \( (20, -1.17) \)  
+- \( T = 2 \): \( (40, -2.33) \)  
+- \( T = 3 \): \( (60, -3.5) \)  
+- \( T = 4 \): \( (80, -3.5) \)  
+- \( T = 5 \): \( (100, -3.5) \)  
+- \( T = 6 \): \( (120, -3.5) \)  
+- \( T = 7 \): \( (140, -3.5) \)  
+- \( T = 8 \): \( (160, -2.33) \)  
+- \( T = 9 \): \( (180, -1.17) \)  
+- \( T = 10 \): \( (200, 0) \)  
+
+### Explanation:  
+- The vehicle starts at \( (0, 0) \) and begins changing lanes at \( T = 0 \).  
+- By \( T = 3 \), it is fully in the left lane at \( Y = -3.5 \) meters.  
+- It passes the obstacle at \( X = 100 \) meters around \( T = 5 \).  
+- At \( T = 7 \), it begins changing back to the right lane.  
+- By \( T = 10 \), it is fully back in the right lane at \( Y = 0 \).  
+
+This trajectory ensures the vehicle maintains a speed of \( 20 \, \text{m/s} \) (72 km/h) and safely navigates around the obstacle.

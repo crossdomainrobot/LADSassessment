@@ -1,0 +1,79 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we need to break the maneuver into phases: accelerating, lane change, passing, and returning to the original lane. Here¡¯s a step-by-step description of the vehicle¡¯s position (X, Y) over time (T in seconds):
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h = 20 m/s.
+2. **Maintain speed**: Above 60 km/h (~16.67 m/s).
+3. **Lane width**: Assume a standard lane width of 3.5 meters. The left lane is at Y = -3.5 meters.
+4. **Lane change duration**: Assume a smooth lane change takes 3 seconds.
+5. **Passing distance**: The obstacle is at X = 100 meters, and the vehicle passes it safely in the left lane.
+
+---
+
+### Trajectory:
+
+#### **T = 0 s**:  
+- **Position**: (0, 0)  
+- **Action**: Vehicle is in the right lane, moving at 20 m/s.
+
+#### **T = 1 s**:  
+- **Position**: (20, 0)  
+- **Action**: Vehicle continues in the right lane.
+
+#### **T = 2 s**:  
+- **Position**: (40, 0)  
+- **Action**: Vehicle begins preparing for the lane change.
+
+#### **T = 3 s**:  
+- **Position**: (60, -1.17)  
+- **Action**: Vehicle starts moving into the left lane (Y changes gradually).
+
+#### **T = 4 s**:  
+- **Position**: (80, -2.33)  
+- **Action**: Vehicle continues lane change.
+
+#### **T = 5 s**:  
+- **Position**: (100, -3.5)  
+- **Action**: Vehicle completes the lane change and is now fully in the left lane.
+
+#### **T = 6 s**:  
+- **Position**: (120, -3.5)  
+- **Action**: Vehicle passes the obstacle in the left lane.
+
+#### **T = 7 s**:  
+- **Position**: (140, -3.5)  
+- **Action**: Vehicle continues in the left lane.
+
+#### **T = 8 s**:  
+- **Position**: (160, -2.33)  
+- **Action**: Vehicle begins returning to the right lane.
+
+#### **T = 9 s**:  
+- **Position**: (180, -1.17)  
+- **Action**: Vehicle continues returning to the right lane.
+
+#### **T = 10 s**:  
+- **Position**: (200, 0)  
+- **Action**: Vehicle completes the maneuver and is back in the right lane.
+
+---
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) in meters |
+|----------|--------------------------|
+| 0        | (0, 0)                   |
+| 1        | (20, 0)                  |
+| 2        | (40, 0)                  |
+| 3        | (60, -1.17)              |
+| 4        | (80, -2.33)              |
+| 5        | (100, -3.5)              |
+| 6        | (120, -3.5)              |
+| 7        | (140, -3.5)              |
+| 8        | (160, -2.33)             |
+| 9        | (180, -1.17)             |
+| 10       | (200, 0)                 |
+
+---
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h, safely passes the obstacle, and returns to the original lane.

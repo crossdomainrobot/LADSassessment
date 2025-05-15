@@ -1,0 +1,43 @@
+To create a trajectory for the lane-changing maneuver, we'll break it down into phases: **acceleration**, **lane change**, **passing the obstacle**, and **returning to the right lane**. Here's the step-by-step description of the vehicle's position over time:
+
+---
+
+### Assumptions:
+1. Initial speed: 72 km/h (20 m/s).
+2. Target speed: Maintain above 60 km/h (16.67 m/s).
+3. Lane width: 3.5 meters (standard lane width).
+4. Lane change duration: 3 seconds.
+5. Total maneuver duration: ~10 seconds.
+
+---
+
+### Trajectory Plan:
+1. **T = 0 to T = 2 seconds**: Accelerate slightly to ensure smooth lane change.
+2. **T = 2 to T = 5 seconds**: Perform the lane change to the left lane.
+3. **T = 5 to T = 8 seconds**: Pass the obstacle in the left lane.
+4. **T = 8 to T = 10 seconds**: Return to the right lane.
+
+---
+
+### Position at Each Time Point:
+1. **T = 0**: (0, 0) ！ Initial position.
+2. **T = 1**: (20, 0) ！ Moving straight in the right lane.
+3. **T = 2**: (40, 0) ！ Continue straight, preparing for lane change.
+4. **T = 3**: (60, -1.17) ！ Begin lane change to the left (Y decreases as we move left).
+5. **T = 4**: (80, -2.33) ！ Continue lane change.
+6. **T = 5**: (100, -3.5) ！ Fully in the left lane, passing the obstacle.
+7. **T = 6**: (120, -3.5) ！ Continue in the left lane.
+8. **T = 7**: (140, -3.5) ！ Continue in the left lane.
+9. **T = 8**: (160, -2.33) ！ Begin returning to the right lane.
+10. **T = 9**: (180, -1.17) ！ Continue returning.
+11. **T = 10**: (200, 0) ！ Fully back in the right lane.
+
+---
+
+### Notes:
+- The lane change is smooth and takes 3 seconds to complete.
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.
+- The obstacle is passed safely in the left lane between T = 5 and T = 8 seconds.
+- The vehicle returns to the right lane by T = 10 seconds.
+
+Let me know if you'd like further adjustments!

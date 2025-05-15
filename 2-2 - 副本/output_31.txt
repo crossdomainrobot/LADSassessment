@@ -1,0 +1,42 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** (maintaining \( Y = -3.5 \) meters).  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+### Assumptions:  
+- Initial speed: \( 72 \, \text{km/h} = 20 \, \text{m/s} \).  
+- Maintain speed above \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \).  
+- Lane width: \( 3.5 \, \text{meters} \).  
+- Obstacle is at \( (100, 0) \).  
+- Lane change takes approximately 3 seconds (smooth transition).  
+
+### Trajectory:  
+#### Phase 1: Lane change to the left lane (T = 0 to T = 3 seconds)  
+- At \( T = 0 \): \( (0, 0) \).  
+- At \( T = 1 \): \( (20, -1.17) \).  
+- At \( T = 2 \): \( (40, -2.33) \).  
+- At \( T = 3 \): \( (60, -3.5) \).  
+
+#### Phase 2: Passing the obstacle (T = 3 to T = 6 seconds)  
+- At \( T = 4 \): \( (80, -3.5) \).  
+- At \( T = 5 \): \( (100, -3.5) \).  
+- At \( T = 6 \): \( (120, -3.5) \).  
+
+#### Phase 3: Lane change back to the right lane (T = 6 to T = 9 seconds)  
+- At \( T = 7 \): \( (140, -2.33) \).  
+- At \( T = 8 \): \( (160, -1.17) \).  
+- At \( T = 9 \): \( (180, 0) \).  
+
+### Summary of Positions:  
+- \( T = 0 \): \( (0, 0) \).  
+- \( T = 1 \): \( (20, -1.17) \).  
+- \( T = 2 \): \( (40, -2.33) \).  
+- \( T = 3 \): \( (60, -3.5) \).  
+- \( T = 4 \): \( (80, -3.5) \).  
+- \( T = 5 \): \( (100, -3.5) \).  
+- \( T = 6 \): \( (120, -3.5) \).  
+- \( T = 7 \): \( (140, -2.33) \).  
+- \( T = 8 \): \( (160, -1.17) \).  
+- \( T = 9 \): \( (180, 0) \).  
+
+This trajectory ensures the vehicle maintains a speed of \( 20 \, \text{m/s} \) (72 km/h), stays in the left lane while passing the obstacle, and smoothly transitions back to the right lane.

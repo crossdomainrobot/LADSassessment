@@ -1,0 +1,49 @@
+To describe the trajectory of the vehicle, we¡¯ll break it down into three phases:  
+1. **Lane change to the left lane** (from the right lane to the left lane).  
+2. **Passing the obstacle** (driving past the obstacle in the left lane).  
+3. **Lane change back to the right lane** (returning to the right lane after passing the obstacle).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is **72 km/h (20 m/s)**.  
+- The obstacle is at **(100, 0)**.  
+- The left lane is at **Y = -3.5 meters** (assuming a standard lane width of 3.5 meters).  
+- The lane change takes **3 seconds** to complete.  
+- The vehicle maintains a speed of **20 m/s** throughout the maneuver.  
+
+### Trajectory:  
+We¡¯ll calculate the position **(X, Y)** at each second (T = 1, 2, 3, etc.).  
+
+#### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3)  
+- The vehicle moves laterally from **Y = 0** to **Y = -3.5** over 3 seconds.  
+- The lateral position changes linearly: **Y = -3.5 * (T / 3)**.  
+- The longitudinal position increases at 20 m/s: **X = 20 * T**.  
+
+#### Phase 2: Passing the Obstacle (T = 3 to T = 7)  
+- The vehicle stays in the left lane (**Y = -3.5**).  
+- The longitudinal position increases at 20 m/s: **X = 20 * T**.  
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10)  
+- The vehicle moves laterally from **Y = -3.5** to **Y = 0** over 3 seconds.  
+- The lateral position changes linearly: **Y = -3.5 + 3.5 * ((T - 7) / 3)**.  
+- The longitudinal position increases at 20 m/s: **X = 20 * T**.  
+
+### Positions at Each Second:  
+| Time (T) | X (m) | Y (m)       | Description                     |  
+|----------|-------|-------------|---------------------------------|  
+| 0        | 0     | 0           | Initial position                |  
+| 1        | 20    | -1.17       | Lane change to left lane        |  
+| 2        | 40    | -2.33       | Lane change to left lane        |  
+| 3        | 60    | -3.5        | Fully in left lane              |  
+| 4        | 80    | -3.5        | Passing obstacle                |  
+| 5        | 100   | -3.5        | Passing obstacle                |  
+| 6        | 120   | -3.5        | Passing obstacle                |  
+| 7        | 140   | -3.5        | Start lane change back          |  
+| 8        | 160   | -2.33       | Lane change back to right lane  |  
+| 9        | 180   | -1.17       | Lane change back to right lane  |  
+| 10       | 200   | 0           | Fully in right lane             |  
+
+### Summary:  
+- The vehicle completes the lane change to the left lane by **T = 3**.  
+- It passes the obstacle between **T = 3** and **T = 7**.  
+- It returns to the right lane by **T = 10**.  
+- The speed is maintained at **20 m/s (72 km/h)** throughout the maneuver.

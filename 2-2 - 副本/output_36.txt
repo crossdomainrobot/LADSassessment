@@ -1,0 +1,48 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is 72 km/h (20 m/s).  
+- The lane change takes approximately 3 seconds (smooth and safe maneuver).  
+- The obstacle is at \( X = 100 \) meters, and the vehicle starts at \( X = 0 \).  
+- The vehicle maintains a speed of 20 m/s throughout the maneuver.  
+
+### Trajectory:  
+We¡¯ll calculate the position \((X, Y)\) at each second.  
+
+#### Phase 1: Lane change to the left lane (T = 0 to T = 3 seconds)  
+- \( Y \) changes linearly from 0 to -3.5 meters over 3 seconds.  
+- \( X \) increases at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.17 |  
+| 2        | 40    | -2.33 |  
+| 3        | 60    | -3.5  |  
+
+#### Phase 2: Passing the obstacle (T = 3 to T = 7 seconds)  
+- The vehicle stays in the left lane (\( Y = -3.5 \) meters).  
+- \( X \) continues to increase at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 4        | 80    | -3.5  |  
+| 5        | 100   | -3.5  |  
+| 6        | 120   | -3.5  |  
+| 7        | 140   | -3.5  |  
+
+#### Phase 3: Lane change back to the right lane (T = 7 to T = 10 seconds)  
+- \( Y \) changes linearly from -3.5 meters to 0 over 3 seconds.  
+- \( X \) continues to increase at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 8        | 160   | -2.33 |  
+| 9        | 180   | -1.17 |  
+| 10       | 200   | 0     |  
+
+### Summary:  
+The vehicle completes the lane-changing maneuver and passes the obstacle by \( T = 10 \) seconds, returning to the right lane at \( X = 200 \) meters.

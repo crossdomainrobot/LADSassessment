@@ -1,0 +1,54 @@
+To describe the trajectory of the vehicle, we'll break it down into phases: **approaching the obstacle**, **lane change to the left**, **passing the obstacle**, and **lane change back to the right**. The vehicle's speed is 72 km/h (20 m/s), and we'll ensure it stays above 60 km/h (16.67 m/s) during the maneuver.
+
+### Assumptions:
+1. The obstacle is at (100, 0).
+2. The left lane is at \( Y = -3.5 \) meters (assuming a standard lane width of 3.5 meters).
+3. The lane change takes about 2 seconds to complete smoothly.
+4. The vehicle maintains a constant speed of 20 m/s.
+
+### Trajectory:
+
+#### **Phase 1: Approaching the obstacle (T = 0 to T = 4 seconds)**
+The vehicle moves straight in the right lane (\( Y = 0 \)) toward the obstacle.
+
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, 0)
+- **T = 4 s**: (80, 0)
+
+#### **Phase 2: Lane change to the left (T = 4 to T = 6 seconds)**
+The vehicle begins to move into the left lane, reaching \( Y = -3.5 \) meters by T = 6 seconds.
+
+- **T = 4 s**: (80, 0)
+- **T = 5 s**: (100, -1.75) (midway in the lane change)
+- **T = 6 s**: (120, -3.5) (fully in the left lane)
+
+#### **Phase 3: Passing the obstacle (T = 6 to T = 8 seconds)**
+The vehicle continues in the left lane, passing the obstacle at (100, 0).
+
+- **T = 6 s**: (120, -3.5)
+- **T = 7 s**: (140, -3.5)
+- **T = 8 s**: (160, -3.5)
+
+#### **Phase 4: Lane change back to the right (T = 8 to T = 10 seconds)**
+The vehicle moves back to the right lane, reaching \( Y = 0 \) by T = 10 seconds.
+
+- **T = 8 s**: (160, -3.5)
+- **T = 9 s**: (180, -1.75) (midway in the lane change)
+- **T = 10 s**: (200, 0) (fully in the right lane)
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, 0)
+- **T = 4 s**: (80, 0)
+- **T = 5 s**: (100, -1.75)
+- **T = 6 s**: (120, -3.5)
+- **T = 7 s**: (140, -3.5)
+- **T = 8 s**: (160, -3.5)
+- **T = 9 s**: (180, -1.75)
+- **T = 10 s**: (200, 0)
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

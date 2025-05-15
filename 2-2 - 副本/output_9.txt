@@ -1,0 +1,61 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we'll break the maneuver into phases: **acceleration**, **lane change**, **passing**, **lane change back**, and **stabilization**. The initial speed is 72 km/h (20 m/s), and we'll assume a smooth lane change takes about 3 seconds each way. Here¡¯s the trajectory:
+
+---
+
+### **Phase 1: Initial Approach (T = 0 to T = 2 seconds)**
+- The vehicle maintains its speed and stays in the right lane.
+- Position at:
+  - T = 0: (0, 0)
+  - T = 1: (20, 0)
+  - T = 2: (40, 0)
+
+---
+
+### **Phase 2: Lane Change to the Left (T = 2 to T = 5 seconds)**
+- The vehicle begins moving laterally to the left lane over 3 seconds.
+- Lateral position (Y) changes linearly from 0 to -3 meters (assuming lane width is 3 meters).
+- Longitudinal position (X) continues at 20 m/s.
+- Position at:
+  - T = 3: (60, -1)
+  - T = 4: (80, -2)
+  - T = 5: (100, -3)
+
+---
+
+### **Phase 3: Passing the Obstacle (T = 5 to T = 7 seconds)**
+- The vehicle stays in the left lane and passes the obstacle at (100, 0).
+- Position at:
+  - T = 6: (120, -3)
+  - T = 7: (140, -3)
+
+---
+
+### **Phase 4: Lane Change Back to the Right (T = 7 to T = 10 seconds)**
+- The vehicle begins moving laterally back to the right lane over 3 seconds.
+- Lateral position (Y) changes linearly from -3 to 0 meters.
+- Longitudinal position (X) continues at 20 m/s.
+- Position at:
+  - T = 8: (160, -2)
+  - T = 9: (180, -1)
+  - T = 10: (200, 0)
+
+---
+
+### **Summary of Positions (X, Y) at Each Second**
+| Time (T) | Position (X, Y)  |
+|----------|------------------|
+| 0        | (0, 0)           |
+| 1        | (20, 0)          |
+| 2        | (40, 0)          |
+| 3        | (60, -1)         |
+| 4        | (80, -2)         |
+| 5        | (100, -3)        |
+| 6        | (120, -3)        |
+| 7        | (140, -3)        |
+| 8        | (160, -2)        |
+| 9        | (180, -1)        |
+| 10       | (200, 0)         |
+
+---
+
+This trajectory ensures the vehicle stays in the left lane while passing the obstacle and smoothly returns to the right lane afterward. The speed is maintained at 72 km/h (20 m/s) throughout the maneuver.

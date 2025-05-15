@@ -1,0 +1,54 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we¡¯ll break the maneuver into three phases: **lane change to the left**, **passing the obstacle**, and **lane change back to the right**. We¡¯ll assume the vehicle moves smoothly and maintains a speed of approximately 72 km/h (20 m/s). Here¡¯s the trajectory:
+
+---
+
+### **Phase 1: Lane Change to the Left (T = 0 to T = 3 seconds)**  
+- The vehicle starts at (0, 0) and moves to the left lane over 3 seconds.  
+- Assume the lateral movement (Y) is linear, so the vehicle moves from Y = 0 to Y = 3.5 meters (typical lane width).  
+- The longitudinal movement (X) continues at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | 1.17  |  
+| 2        | 40    | 2.33  |  
+| 3        | 60    | 3.5   |  
+
+---
+
+### **Phase 2: Passing the Obstacle (T = 3 to T = 6 seconds)**  
+- The vehicle stays in the left lane (Y = 3.5 m) and continues moving forward at 20 m/s.  
+- At T = 5 seconds, the vehicle passes the obstacle at X = 100 m.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 4        | 80    | 3.5   |  
+| 5        | 100   | 3.5   |  
+| 6        | 120   | 3.5   |  
+
+---
+
+### **Phase 3: Lane Change Back to the Right (T = 6 to T = 9 seconds)**  
+- The vehicle moves back to the right lane over 3 seconds.  
+- Lateral movement (Y) decreases linearly from 3.5 m to 0 m.  
+- Longitudinal movement (X) continues at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 7        | 140   | 2.33  |  
+| 8        | 160   | 1.17  |  
+| 9        | 180   | 0     |  
+
+---
+
+### **Final Position (T = 10 seconds)**  
+- The vehicle continues in the right lane at 20 m/s.  
+
+| Time (T) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 10       | 200   | 0     |  
+
+---
+
+### **Summary of Trajectory**  
+The vehicle completes the maneuver in 9 seconds, passing the obstacle at T = 5 seconds and returning to the right lane by T = 9 seconds. The trajectory ensures smooth lane changes and maintains a speed of 72 km/h.

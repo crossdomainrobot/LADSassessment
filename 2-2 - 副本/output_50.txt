@@ -1,0 +1,55 @@
+To describe the trajectory of the vehicle while performing the lane-changing maneuver, we¡¯ll break it down into phases: **acceleration**, **lane change**, **passing the obstacle**, and **lane change back**. The vehicle starts at (0, 0) with an initial speed of 72 km/h (20 m/s). We¡¯ll assume smooth transitions and a constant speed of 72 km/h during the maneuver.
+
+---
+
+### Key Assumptions:
+1. **Lane width**: Assume each lane is 3.5 meters wide, so moving to the left lane requires a lateral displacement of 3.5 meters.
+2. **Lane change duration**: Assume the lane change takes 3 seconds.
+3. **Passing the obstacle**: The obstacle is at (100, 0), and we¡¯ll pass it safely in the left lane.
+4. **Time step**: We¡¯ll provide positions at 1-second intervals.
+
+---
+
+### Trajectory:
+
+#### **Phase 1: Initial Movement (T = 0 to T = 3)**
+- The vehicle moves straight in the right lane while preparing to change lanes.
+- At T = 3, the vehicle starts the lane change.
+
+#### **Phase 2: Lane Change to the Left (T = 3 to T = 6)**
+- The vehicle transitions smoothly to the left lane over 3 seconds.
+- Lateral displacement increases linearly from Y = 0 to Y = 3.5.
+
+#### **Phase 3: Passing the Obstacle (T = 6 to T = 9)**
+- The vehicle continues in the left lane, passing the obstacle at (100, 0).
+
+#### **Phase 4: Lane Change Back to the Right (T = 9 to T = 12)**
+- The vehicle transitions back to the right lane over 3 seconds.
+- Lateral displacement decreases linearly from Y = 3.5 to Y = 0.
+
+---
+
+### Positions at 1-second intervals:
+
+| Time (s) | X (m)       | Y (m)       | Description                     |
+|----------|-------------|-------------|---------------------------------|
+| T = 0    | 0           | 0           | Start in the right lane.        |
+| T = 1    | 20          | 0           | Moving straight.                |
+| T = 2    | 40          | 0           | Moving straight.                |
+| T = 3    | 60          | 0           | Start lane change to the left.  |
+| T = 4    | 80          | 1.17        | In the process of lane change.  |
+| T = 5    | 100         | 2.33        | In the process of lane change.  |
+| T = 6    | 120         | 3.5         | Fully in the left lane.         |
+| T = 7    | 140         | 3.5         | Passing the obstacle.           |
+| T = 8    | 160         | 3.5         | Passing the obstacle.           |
+| T = 9    | 180         | 3.5         | Start lane change back to right.|
+| T = 10   | 200         | 2.33        | In the process of lane change.  |
+| T = 11   | 220         | 1.17        | In the process of lane change.  |
+| T = 12   | 240         | 0           | Fully back in the right lane.   |
+
+---
+
+### Notes:
+- The X position increases linearly at 20 m/s (72 km/h).
+- The Y position changes smoothly during the lane changes, ensuring a safe and comfortable maneuver.
+- The obstacle is passed safely in the left lane between T = 6 and T = 9.

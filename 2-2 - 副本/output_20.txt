@@ -1,0 +1,31 @@
+To describe the trajectory of the vehicle, we need to plan the lane-changing maneuver while maintaining a speed above 60 km/h (16.67 m/s). Here＊s a step-by-step breakdown of the positions (X, Y) at each second:
+
+### Assumptions:
+- The vehicle moves at a constant speed of 72 km/h (20 m/s) during the maneuver.
+- The lane width is approximately 3.5 meters.
+- The lane change takes about 2 seconds to complete (a smooth lateral transition).
+
+### Initial Conditions:
+- Initial position: (0, 0) at T = 0.
+- Obstacle position: (100, 0).
+
+### Trajectory:
+1. **T = 0 s**: (0, 0) 每 Starting position in the right lane.
+2. **T = 1 s**: (20, 0) 每 Continue in the right lane.
+3. **T = 2 s**: (40, 0) 每 Begin lane change to the left.
+4. **T = 3 s**: (60, 1.75) 每 Midway through the lane change.
+5. **T = 4 s**: (80, 3.5) 每 Complete lane change into the left lane.
+6. **T = 5 s**: (100, 3.5) 每 Pass the obstacle in the left lane.
+7. **T = 6 s**: (120, 3.5) 每 Continue in the left lane.
+8. **T = 7 s**: (140, 3.5) 每 Begin lane change back to the right.
+9. **T = 8 s**: (160, 1.75) 每 Midway through the lane change.
+10. **T = 9 s**: (180, 0) 每 Complete lane change back into the right lane.
+11. **T = 10 s**: (200, 0) 每 Continue in the right lane.
+
+### Explanation:
+- The vehicle travels 20 meters per second along the X-axis.
+- The lane change is modeled as a smooth lateral transition over 2 seconds, moving from Y = 0 to Y = 3.5 meters.
+- The obstacle is passed safely in the left lane between T = 4 s and T = 6 s.
+- The vehicle returns to the right lane by T = 9 s and continues forward.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstacle.

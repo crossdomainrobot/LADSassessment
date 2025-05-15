@@ -1,0 +1,48 @@
+To describe the trajectory of the vehicle, we¡¯ll break it into three phases:  
+1. **Lane Change to the Left Lane** (from T = 0 to T = 3 seconds).  
+2. **Passing the Obstacle** (from T = 3 to T = 7 seconds).  
+3. **Lane Change Back to the Right Lane** (from T = 7 to T = 10 seconds).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is **72 km/h (20 m/s)**.  
+- The vehicle maintains a speed of **20 m/s** throughout the maneuver.  
+- The lane width is **3.5 meters**, so the lateral shift (Y) will be ¡À3.5 meters.  
+- The obstacle is at (100, 0), and the vehicle starts at (0, 0).  
+
+### Trajectory:  
+The vehicle¡¯s position (X, Y) at each time step is calculated as follows:  
+
+#### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3 seconds)  
+- **X**: Increases linearly at 20 m/s.  
+- **Y**: Transitions smoothly from 0 to -3.5 meters (to the left lane).  
+
+| Time (s) | X (m)   | Y (m)   |  
+|----------|---------|---------|  
+| 0        | 0       | 0       |  
+| 1        | 20      | -1.17   |  
+| 2        | 40      | -2.33   |  
+| 3        | 60      | -3.5    |  
+
+#### Phase 2: Passing the Obstacle (T = 3 to T = 7 seconds)  
+- **X**: Continues to increase linearly at 20 m/s.  
+- **Y**: Remains at -3.5 meters (staying in the left lane).  
+
+| Time (s) | X (m)   | Y (m)   |  
+|----------|---------|---------|  
+| 4        | 80      | -3.5    |  
+| 5        | 100     | -3.5    |  
+| 6        | 120     | -3.5    |  
+| 7        | 140     | -3.5    |  
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)  
+- **X**: Continues to increase linearly at 20 m/s.  
+- **Y**: Transitions smoothly from -3.5 meters back to 0 meters (returning to the right lane).  
+
+| Time (s) | X (m)   | Y (m)   |  
+|----------|---------|---------|  
+| 8        | 160     | -2.33   |  
+| 9        | 180     | -1.17   |  
+| 10       | 200     | 0       |  
+
+### Summary:  
+The vehicle completes the lane-changing maneuver and passes the obstacle while maintaining a speed of 72 km/h. By T = 10 seconds, the vehicle has returned to the right lane and is at position (200, 0).

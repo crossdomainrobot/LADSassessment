@@ -1,0 +1,42 @@
+To describe the trajectory of the vehicle, we¡¯ll break it down into three phases:  
+1. **Approach the obstacle and initiate the lane change.**  
+2. **Pass the obstacle in the left lane.**  
+3. **Return to the right lane after passing the obstacle.**
+
+### Assumptions:
+- The vehicle¡¯s initial speed is **72 km/h (20 m/s)**.  
+- The obstacle is at **(100, 0)**.  
+- The left lane is at **Y = -3.5 meters** (assuming a standard lane width).  
+- The lane-changing maneuver takes approximately **3 seconds** to complete.  
+
+### Trajectory Description:
+1. **Approach the obstacle (T = 0 to T = 3):**  
+   - The vehicle continues in the right lane at **Y = 0** while approaching the obstacle.  
+   - At **T = 3 seconds**, the vehicle is at **(60, 0)** and begins the lane change to the left.  
+
+2. **Pass the obstacle in the left lane (T = 3 to T = 6):**  
+   - The vehicle transitions to the left lane, reaching **Y = -3.5 meters** by **T = 6 seconds**.  
+   - During this time, the vehicle continues moving forward, passing the obstacle at **X = 100 meters**.  
+
+3. **Return to the right lane (T = 6 to T = 9):**  
+   - After passing the obstacle, the vehicle transitions back to the right lane, returning to **Y = 0** by **T = 9 seconds**.  
+
+### Position at Each Second:
+Here¡¯s the vehicle¡¯s position **(X, Y)** at each second:  
+- **T = 0:** (0, 0)  
+- **T = 1:** (20, 0)  
+- **T = 2:** (40, 0)  
+- **T = 3:** (60, 0)  
+- **T = 4:** (80, -1.17)  
+- **T = 5:** (100, -2.33)  
+- **T = 6:** (120, -3.5)  
+- **T = 7:** (140, -2.33)  
+- **T = 8:** (160, -1.17)  
+- **T = 9:** (180, 0)  
+
+### Notes:
+- The lane change is modeled as a smooth transition, with the lateral position changing linearly over 3 seconds.  
+- The vehicle maintains a constant speed of **20 m/s (72 km/h)** throughout the maneuver.  
+- The obstacle is passed safely in the left lane between **T = 5** and **T = 6**.  
+
+This trajectory ensures the vehicle stays in the left lane while passing the obstacle and returns to the right lane afterward.

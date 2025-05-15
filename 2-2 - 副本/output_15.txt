@@ -1,0 +1,45 @@
+Here¡¯s a step-by-step trajectory for your lane-changing maneuver. The vehicle starts at (0, 0) with a speed of **72 km/h (20 m/s)**. The obstacle is at (100, 0), and the left lane is to the left (assume Y = -3 meters for the left lane). The maneuver involves:
+
+1. **Accelerate to ensure speed stays above 60 km/h (16.67 m/s)**.
+2. **Gradually change lanes to the left (Y = -3 meters) before reaching the obstacle**.
+3. **Pass the obstacle in the left lane**.
+4. **Gradually return to the right lane (Y = 0 meters)**.
+
+### Trajectory:
+- **T = 0 s**: (0, 0)  
+  Initial position.
+
+- **T = 1 s**: (20, -0.6)  
+  Start moving left at a lateral speed of ~0.6 m/s.
+
+- **T = 2 s**: (40, -1.2)  
+  Continue moving left.
+
+- **T = 3 s**: (60, -1.8)  
+  Almost fully in the left lane.
+
+- **T = 4 s**: (80, -3)  
+  Fully in the left lane, passing the obstacle.
+
+- **T = 5 s**: (100, -3)  
+  Pass the obstacle at (100, 0).
+
+- **T = 6 s**: (120, -2.4)  
+  Begin moving back to the right lane.
+
+- **T = 7 s**: (140, -1.8)  
+  Continue returning to the right lane.
+
+- **T = 8 s**: (160, -1.2)  
+  Almost fully in the right lane.
+
+- **T = 9 s**: (180, -0.6)  
+  Nearly back in the right lane.
+
+- **T = 10 s**: (200, 0)  
+  Fully back in the right lane.
+
+### Notes:
+- The lane change is smooth and gradual, taking about **3 seconds to change lanes** and **3 seconds to return**.
+- The vehicle maintains a speed of **20 m/s (72 km/h)** throughout the maneuver.
+- The obstacle is passed safely in the left lane.

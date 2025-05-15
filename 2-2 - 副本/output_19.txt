@@ -1,0 +1,49 @@
+To describe the trajectory, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left** (from the right lane to the left lane).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right** (from the left lane to the right lane).  
+
+### Assumptions:  
+- The vehicle¡¯s speed is constant at **72 km/h** (20 m/s).  
+- The lane width is **3.5 meters** (standard lane width).  
+- The lane change takes **3 seconds** to complete smoothly.  
+- The obstacle is at **(100, 0)**.  
+
+### Trajectory:  
+At **T = 0**, the vehicle is at **(0, 0)**.  
+
+#### Phase 1: Lane change to the left (T = 0 to T = 3)  
+The vehicle moves from the right lane (Y = 0) to the left lane (Y = -3.5) over 3 seconds.  
+- **T = 1**: (20, -1.17)  
+- **T = 2**: (40, -2.33)  
+- **T = 3**: (60, -3.5)  
+
+#### Phase 2: Passing the obstacle (T = 3 to T = 8)  
+The vehicle continues in the left lane, passing the obstacle at **(100, 0)**.  
+- **T = 4**: (80, -3.5)  
+- **T = 5**: (100, -3.5)  
+- **T = 6**: (120, -3.5)  
+- **T = 7**: (140, -3.5)  
+- **T = 8**: (160, -3.5)  
+
+#### Phase 3: Lane change back to the right (T = 8 to T = 11)  
+The vehicle moves from the left lane (Y = -3.5) to the right lane (Y = 0) over 3 seconds.  
+- **T = 9**: (180, -2.33)  
+- **T = 10**: (200, -1.17)  
+- **T = 11**: (220, 0)  
+
+### Summary of Positions:  
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, -1.17)  
+- **T = 2**: (40, -2.33)  
+- **T = 3**: (60, -3.5)  
+- **T = 4**: (80, -3.5)  
+- **T = 5**: (100, -3.5)  
+- **T = 6**: (120, -3.5)  
+- **T = 7**: (140, -3.5)  
+- **T = 8**: (160, -3.5)  
+- **T = 9**: (180, -2.33)  
+- **T = 10**: (200, -1.17)  
+- **T = 11**: (220, 0)  
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed of 72 km/h and adheres to lane-changing conventions.

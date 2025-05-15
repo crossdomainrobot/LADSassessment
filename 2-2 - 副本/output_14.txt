@@ -1,0 +1,44 @@
+To describe the vehicle¡¯s trajectory for the lane-changing maneuver, we¡¯ll assume the following:
+
+1. **Initial Conditions**:
+   - Initial position: (0, 0) at T = 0.
+   - Initial speed: 72 km/h (20 m/s).
+   - Obstacle position: (100, 0).
+   - Lane width: 3.5 meters (standard lane width).
+
+2. **Plan**:
+   - Accelerate slightly to ensure speed stays above 60 km/h.
+   - Begin lane change to the left at T = 2 seconds.
+   - Complete lane change by T = 4 seconds.
+   - Pass the obstacle while staying in the left lane.
+   - Begin lane change back to the right at T = 6 seconds.
+   - Complete lane change back to the right by T = 8 seconds.
+   - Continue driving in the right lane.
+
+3. **Trajectory**:
+   - From T = 0 to T = 2: Drive straight in the right lane.
+   - From T = 2 to T = 4: Smoothly transition to the left lane.
+   - From T = 4 to T = 6: Drive straight in the left lane, passing the obstacle.
+   - From T = 6 to T = 8: Smoothly transition back to the right lane.
+   - From T = 8 onward: Drive straight in the right lane.
+
+### Position at Each Time Point:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, 0)
+- **T = 2**: (40, 0)
+- **T = 3**: (60, 1.75) (beginning lane change to the left)
+- **T = 4**: (80, 3.5) (fully in the left lane)
+- **T = 5**: (100, 3.5) (passing the obstacle)
+- **T = 6**: (120, 3.5)
+- **T = 7**: (140, 1.75) (beginning lane change back to the right)
+- **T = 8**: (160, 0) (fully in the right lane)
+- **T = 9**: (180, 0)
+- **T = 10**: (200, 0)
+
+### Explanation:
+- The vehicle moves at 20 m/s in the X-direction.
+- The lane change is modeled as a smooth lateral transition over 2 seconds, moving 3.5 meters to the left and then back to the right.
+- The obstacle at (100, 0) is passed while the vehicle is in the left lane (Y = 3.5).
+- After passing, the vehicle returns to the right lane and continues driving.
+
+This trajectory ensures the vehicle maintains speed above 60 km/h and safely completes the lane-changing maneuver.

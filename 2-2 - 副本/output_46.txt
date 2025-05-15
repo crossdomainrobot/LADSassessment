@@ -1,0 +1,60 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we¡¯ll break the maneuver into phases and calculate the vehicle's position at each second. We¡¯ll assume the vehicle maintains a constant speed of **72 km/h (20 m/s)** for simplicity, and the lane width is **3.5 meters**.
+
+---
+
+### **Phase 1: Initial Approach (T = 0 to T = 3)**
+- The vehicle is in the right lane (Y = 0) and approaches the obstacle.
+- Position at T = 0: (0, 0)  
+- Position at T = 1: (20, 0)  
+- Position at T = 2: (40, 0)  
+- Position at T = 3: (60, 0)  
+
+---
+
+### **Phase 2: Lane Change to the Left (T = 4 to T = 5)**
+- The vehicle begins moving laterally to the left lane.
+- Assume the lane change takes **2 seconds** and the lateral movement is smooth.
+- Position at T = 4: (80, 0) ¡ú (80, 1.75)  
+- Position at T = 5: (100, 3.5)  
+
+---
+
+### **Phase 3: Passing the Obstacle (T = 6 to T = 7)**
+- The vehicle is fully in the left lane (Y = 3.5) and passes the obstacle at X = 100.
+- Position at T = 6: (120, 3.5)  
+- Position at T = 7: (140, 3.5)  
+
+---
+
+### **Phase 4: Lane Change Back to the Right (T = 8 to T = 9)**
+- The vehicle begins moving laterally back to the right lane.
+- Assume the lane change takes **2 seconds** and the lateral movement is smooth.
+- Position at T = 8: (160, 3.5) ¡ú (160, 1.75)  
+- Position at T = 9: (180, 0)  
+
+---
+
+### **Phase 5: Continue in the Right Lane (T = 10)**
+- The vehicle is back in the right lane (Y = 0) and continues driving.
+- Position at T = 10: (200, 0)  
+
+---
+
+### **Summary of Positions (X, Y) at Each Second:**
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, 0)         |  
+| 2        | (40, 0)         |  
+| 3        | (60, 0)         |  
+| 4        | (80, 1.75)      |  
+| 5        | (100, 3.5)      |  
+| 6        | (120, 3.5)      |  
+| 7        | (140, 3.5)      |  
+| 8        | (160, 1.75)     |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+---
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed of 72 km/h and staying in the left lane during the maneuver.

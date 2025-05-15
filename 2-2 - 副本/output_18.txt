@@ -1,0 +1,36 @@
+To describe the trajectory of the vehicle, we¡¯ll break down the maneuver into three phases:  
+1. **Lane change to the left lane** (from T = 0 to T = 3 seconds).  
+2. **Passing the obstacle** (from T = 3 to T = 7 seconds).  
+3. **Lane change back to the right lane** (from T = 7 to T = 10 seconds).  
+
+The initial speed is 72 km/h, which is 20 m/s. We¡¯ll assume the vehicle maintains this speed throughout the maneuver. The obstacle is at (100, 0), and the left lane is at Y = -3.5 meters (assuming a standard lane width of 3.5 meters).
+
+### Trajectory:
+- **T = 0 s**: Initial position (0, 0).  
+- **T = 1 s**: Vehicle starts moving left. Position (20, -0.5).  
+- **T = 2 s**: Vehicle continues moving left. Position (40, -1.5).  
+- **T = 3 s**: Vehicle completes lane change to the left lane. Position (60, -3.5).  
+- **T = 4 s**: Vehicle continues in the left lane, passing the obstacle. Position (80, -3.5).  
+- **T = 5 s**: Vehicle continues in the left lane. Position (100, -3.5).  
+- **T = 6 s**: Vehicle continues in the left lane. Position (120, -3.5).  
+- **T = 7 s**: Vehicle starts moving right to return to the right lane. Position (140, -2.5).  
+- **T = 8 s**: Vehicle continues moving right. Position (160, -1.5).  
+- **T = 9 s**: Vehicle continues moving right. Position (180, -0.5).  
+- **T = 10 s**: Vehicle completes lane change back to the right lane. Position (200, 0).  
+
+### Summary:
+| Time (s) | Position (X, Y) in meters |
+|----------|---------------------------|
+| 0        | (0, 0)                    |
+| 1        | (20, -0.5)                |
+| 2        | (40, -1.5)                |
+| 3        | (60, -3.5)                |
+| 4        | (80, -3.5)                |
+| 5        | (100, -3.5)               |
+| 6        | (120, -3.5)               |
+| 7        | (140, -2.5)               |
+| 8        | (160, -1.5)               |
+| 9        | (180, -0.5)               |
+| 10       | (200, 0)                  |
+
+This trajectory ensures the vehicle stays in the left lane while passing the obstacle and smoothly returns to the right lane afterward, all while maintaining a speed of 72 km/h.

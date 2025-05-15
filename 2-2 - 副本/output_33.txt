@@ -1,0 +1,52 @@
+To describe the vehicle¡¯s trajectory, we¡¯ll break it down into three phases:  
+1. **Lane change to the left lane** (from the right lane to the left lane).  
+2. **Passing the obstacle** (driving past the obstacle in the left lane).  
+3. **Lane change back to the right lane** (from the left lane to the right lane).  
+
+### Assumptions:
+- The vehicle is initially at (0, 0) in the right lane.  
+- The obstacle is at (100, 0).  
+- The left lane is at \( Y = 3.5 \) meters (typical lane width).  
+- The vehicle speed is 72 km/h (20 m/s).  
+- The lane change takes approximately 3 seconds.  
+- The total maneuver is completed in 10 seconds.  
+
+### Trajectory Description:
+#### Phase 1: Lane Change to the Left Lane (T = 0 to T = 3 seconds)  
+- The vehicle moves laterally from \( Y = 0 \) to \( Y = 3.5 \) meters while continuing to move forward at 20 m/s.  
+- Positions:  
+  - T = 1: (20, 1.17)  
+  - T = 2: (40, 2.33)  
+  - T = 3: (60, 3.5)  
+
+#### Phase 2: Passing the Obstacle (T = 3 to T = 7 seconds)  
+- The vehicle continues straight in the left lane at 20 m/s.  
+- Positions:  
+  - T = 4: (80, 3.5)  
+  - T = 5: (100, 3.5)  
+  - T = 6: (120, 3.5)  
+  - T = 7: (140, 3.5)  
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)  
+- The vehicle moves laterally from \( Y = 3.5 \) to \( Y = 0 \) meters while continuing to move forward at 20 m/s.  
+- Positions:  
+  - T = 8: (160, 2.33)  
+  - T = 9: (180, 1.17)  
+  - T = 10: (200, 0)  
+
+### Full Trajectory Table:
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, 1.17)      |  
+| 2        | (40, 2.33)      |  
+| 3        | (60, 3.5)       |  
+| 4        | (80, 3.5)       |  
+| 5        | (100, 3.5)      |  
+| 6        | (120, 3.5)      |  
+| 7        | (140, 3.5)      |  
+| 8        | (160, 2.33)     |  
+| 9        | (180, 1.17)     |  
+| 10       | (200, 0)        |  
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, avoids the obstacle, and completes the lane-changing maneuver safely within 10 seconds.

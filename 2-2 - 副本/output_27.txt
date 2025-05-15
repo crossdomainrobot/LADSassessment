@@ -1,0 +1,56 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we'll break the maneuver into phases: accelerating, lane change, passing, and lane change back. The initial speed is 72 km/h (20 m/s), and we'll assume the vehicle accelerates slightly to 75 km/h (20.83 m/s) for the maneuver. Here¡¯s the trajectory:
+
+---
+
+### **Phase 1: Acceleration (T = 0 to T = 2 seconds)**
+The vehicle accelerates slightly to 75 km/h (20.83 m/s) while staying in the right lane.  
+- **T = 0 s:** (0, 0)  
+- **T = 1 s:** (20, 0)  
+- **T = 2 s:** (41.66, 0)  
+
+---
+
+### **Phase 2: Lane Change (T = 2 to T = 4 seconds)**
+The vehicle moves laterally to the left lane over 2 seconds. Assume the lane width is 3.7 meters.  
+- **T = 3 s:** (62.5, 1.85)  
+- **T = 4 s:** (83.33, 3.7)  
+
+---
+
+### **Phase 3: Passing the Obstacle (T = 4 to T = 6 seconds)**
+The vehicle continues in the left lane, maintaining 75 km/h (20.83 m/s).  
+- **T = 5 s:** (104.17, 3.7)  
+- **T = 6 s:** (125, 3.7)  
+
+---
+
+### **Phase 4: Lane Change Back (T = 6 to T = 8 seconds)**
+The vehicle moves laterally back to the right lane over 2 seconds.  
+- **T = 7 s:** (145.83, 1.85)  
+- **T = 8 s:** (166.66, 0)  
+
+---
+
+### **Phase 5: Continue in the Right Lane (T = 8 to T = 10 seconds)**
+The vehicle continues in the right lane at 75 km/h (20.83 m/s).  
+- **T = 9 s:** (187.5, 0)  
+- **T = 10 s:** (208.33, 0)  
+
+---
+
+### **Summary of Positions (X, Y) at Each Second:**
+- **T = 0 s:** (0, 0)  
+- **T = 1 s:** (20, 0)  
+- **T = 2 s:** (41.66, 0)  
+- **T = 3 s:** (62.5, 1.85)  
+- **T = 4 s:** (83.33, 3.7)  
+- **T = 5 s:** (104.17, 3.7)  
+- **T = 6 s:** (125, 3.7)  
+- **T = 7 s:** (145.83, 1.85)  
+- **T = 8 s:** (166.66, 0)  
+- **T = 9 s:** (187.5, 0)  
+- **T = 10 s:** (208.33, 0)  
+
+---
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h, smoothly changes lanes, passes the obstacle, and returns to the right lane.

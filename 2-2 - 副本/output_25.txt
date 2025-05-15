@@ -1,0 +1,65 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( T = 0 \) to \( T = 3 \)).  
+2. **Passing the obstacle** (from \( T = 3 \) to \( T = 7 \)).  
+3. **Lane change back to the right lane** (from \( T = 7 \) to \( T = 10 \)).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is 72 km/h (20 m/s).  
+- The left lane is 3.5 meters to the left of the right lane (\( Y = -3.5 \)).  
+- The obstacle is at \( (100, 0) \).  
+- The lane change takes 3 seconds, and the vehicle moves laterally at a constant rate.  
+- The vehicle maintains a speed of 20 m/s during the maneuver.  
+
+### Trajectory:  
+At each second, the vehicle¡¯s position \( (X, Y) \) is calculated as follows:  
+
+#### Phase 1: Lane change to the left lane (\( T = 0 \) to \( T = 3 \))  
+- \( X \) increases linearly: \( X = 20 \cdot T \).  
+- \( Y \) decreases linearly from 0 to -3.5: \( Y = -\frac{3.5}{3} \cdot T \).  
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |  
+|----------|-------------|-------------|  
+| 0        | 0           | 0           |  
+| 1        | 20          | -1.17       |  
+| 2        | 40          | -2.33       |  
+| 3        | 60          | -3.5        |  
+
+#### Phase 2: Passing the obstacle (\( T = 3 \) to \( T = 7 \))  
+- \( X \) continues to increase linearly: \( X = 60 + 20 \cdot (T - 3) \).  
+- \( Y \) remains constant at -3.5.  
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |  
+|----------|-------------|-------------|  
+| 3        | 60          | -3.5        |  
+| 4        | 80          | -3.5        |  
+| 5        | 100         | -3.5        |  
+| 6        | 120         | -3.5        |  
+| 7        | 140         | -3.5        |  
+
+#### Phase 3: Lane change back to the right lane (\( T = 7 \) to \( T = 10 \))  
+- \( X \) continues to increase linearly: \( X = 140 + 20 \cdot (T - 7) \).  
+- \( Y \) increases linearly from -3.5 to 0: \( Y = -3.5 + \frac{3.5}{3} \cdot (T - 7) \).  
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |  
+|----------|-------------|-------------|  
+| 7        | 140         | -3.5        |  
+| 8        | 160         | -2.33       |  
+| 9        | 180         | -1.17       |  
+| 10       | 200         | 0           |  
+
+### Summary of Positions:  
+| Time (s) | \( X \) (m) | \( Y \) (m) |  
+|----------|-------------|-------------|  
+| 0        | 0           | 0           |  
+| 1        | 20          | -1.17       |  
+| 2        | 40          | -2.33       |  
+| 3        | 60          | -3.5        |  
+| 4        | 80          | -3.5        |  
+| 5        | 100         | -3.5        |  
+| 6        | 120         | -3.5        |  
+| 7        | 140         | -3.5        |  
+| 8        | 160         | -2.33       |  
+| 9        | 180         | -1.17       |  
+| 10       | 200         | 0           |  
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed of 72 km/h.

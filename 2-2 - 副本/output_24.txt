@@ -1,0 +1,34 @@
+Here¡¯s a trajectory for the lane-changing maneuver, assuming a smooth transition and maintaining a speed of approximately 72 km/h (20 m/s). The obstacle is at (100, 0), and the left lane is to the left (negative Y direction). The maneuver will take about 10 seconds to complete.
+
+### Assumptions:
+- The vehicle moves at a constant speed of 20 m/s along the X-axis.
+- The lane width is 3.5 meters (standard lane width).
+- The lane change takes about 4 seconds to complete (smooth transition).
+
+### Trajectory:
+1. **T = 0 s**: Initial position (0, 0). Begin accelerating slightly to maintain speed.
+2. **T = 1 s**: (20, 0). Continue in the right lane.
+3. **T = 2 s**: (40, 0). Start signaling and preparing to change lanes.
+4. **T = 3 s**: (60, -0.5). Begin moving into the left lane.
+5. **T = 4 s**: (80, -1.75). Fully in the left lane, passing the obstacle.
+6. **T = 5 s**: (100, -3.5). Continue in the left lane, passing the obstacle.
+7. **T = 6 s**: (120, -3.5). Prepare to return to the right lane.
+8. **T = 7 s**: (140, -2.5). Begin moving back into the right lane.
+9. **T = 8 s**: (160, -1.0). Continue transitioning to the right lane.
+10. **T = 9 s**: (180, 0). Fully back in the right lane.
+11. **T = 10 s**: (200, 0). Continue driving in the right lane.
+
+### Summary of Positions:
+- T = 0 s: (0, 0)
+- T = 1 s: (20, 0)
+- T = 2 s: (40, 0)
+- T = 3 s: (60, -0.5)
+- T = 4 s: (80, -1.75)
+- T = 5 s: (100, -3.5)
+- T = 6 s: (120, -3.5)
+- T = 7 s: (140, -2.5)
+- T = 8 s: (160, -1.0)
+- T = 9 s: (180, 0)
+- T = 10 s: (200, 0)
+
+This trajectory ensures a smooth lane change, avoids the obstacle, and maintains a speed above 60 km/h.

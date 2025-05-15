@@ -1,0 +1,37 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane (T = 0 to T = 3 seconds)**  
+   - The vehicle moves from the right lane (Y = 0) to the left lane (Y = -3.5 meters, assuming a standard lane width of 3.5 meters).  
+   - The vehicle continues moving forward at a constant speed of 72 km/h (20 m/s).  
+
+2. **Passing the Obstacle (T = 3 to T = 7 seconds)**  
+   - The vehicle stays in the left lane (Y = -3.5 meters) while passing the obstacle at (100, 0).  
+
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**  
+   - The vehicle moves back to the right lane (Y = 0) while continuing forward.  
+
+Here¡¯s the trajectory in (X, Y) coordinates at each second:
+
+- **T = 0 s**: (0, 0)  
+- **T = 1 s**: (20, -1.17)  
+- **T = 2 s**: (40, -2.33)  
+- **T = 3 s**: (60, -3.5)  
+- **T = 4 s**: (80, -3.5)  
+- **T = 5 s**: (100, -3.5)  
+- **T = 6 s**: (120, -3.5)  
+- **T = 7 s**: (140, -2.33)  
+- **T = 8 s**: (160, -1.17)  
+- **T = 9 s**: (180, 0)  
+- **T = 10 s**: (200, 0)  
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 3)**:  
+   - The vehicle moves laterally at a rate of ~1.17 m/s to transition to the left lane.  
+
+2. **Passing the Obstacle (T = 3 to T = 7)**:  
+   - The vehicle stays in the left lane while passing the obstacle at X = 100 meters.  
+
+3. **Lane Change Back (T = 7 to T = 10)**:  
+   - The vehicle moves back to the right lane at the same lateral rate of ~1.17 m/s.  
+
+The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.

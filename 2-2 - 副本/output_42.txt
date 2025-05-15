@@ -1,0 +1,43 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is \( 72 \, \text{km/h} = 20 \, \text{m/s} \).  
+- The obstacle is at \( X = 100 \, \text{meters} \).  
+- The lane change takes approximately 3 seconds (a smooth, safe maneuver).  
+- The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) during the maneuver.  
+
+### Trajectory:  
+#### Phase 1: Lane change to the left lane (T = 0 to T = 3 seconds)  
+- At \( T = 0 \): \( (X, Y) = (0, 0) \).  
+- At \( T = 1 \): \( (X, Y) = (20, -1.17) \).  
+- At \( T = 2 \): \( (X, Y) = (40, -2.33) \).  
+- At \( T = 3 \): \( (X, Y) = (60, -3.5) \).  
+
+#### Phase 2: Passing the obstacle (T = 3 to T = 7 seconds)  
+- At \( T = 4 \): \( (X, Y) = (80, -3.5) \).  
+- At \( T = 5 \): \( (X, Y) = (100, -3.5) \).  
+- At \( T = 6 \): \( (X, Y) = (120, -3.5) \).  
+- At \( T = 7 \): \( (X, Y) = (140, -3.5) \).  
+
+#### Phase 3: Lane change back to the right lane (T = 7 to T = 10 seconds)  
+- At \( T = 8 \): \( (X, Y) = (160, -2.33) \).  
+- At \( T = 9 \): \( (X, Y) = (180, -1.17) \).  
+- At \( T = 10 \): \( (X, Y) = (200, 0) \).  
+
+### Summary of Positions:  
+- \( T = 0 \): \( (0, 0) \)  
+- \( T = 1 \): \( (20, -1.17) \)  
+- \( T = 2 \): \( (40, -2.33) \)  
+- \( T = 3 \): \( (60, -3.5) \)  
+- \( T = 4 \): \( (80, -3.5) \)  
+- \( T = 5 \): \( (100, -3.5) \)  
+- \( T = 6 \): \( (120, -3.5) \)  
+- \( T = 7 \): \( (140, -3.5) \)  
+- \( T = 8 \): \( (160, -2.33) \)  
+- \( T = 9 \): \( (180, -1.17) \)  
+- \( T = 10 \): \( (200, 0) \)  
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed of \( 72 \, \text{km/h} \).

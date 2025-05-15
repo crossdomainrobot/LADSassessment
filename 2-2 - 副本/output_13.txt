@@ -1,0 +1,66 @@
+To describe the trajectory, we need to plan the lane-changing maneuver while maintaining a speed of over 60 km/h (approximately 16.67 m/s). Here¡¯s a step-by-step breakdown of the maneuver:
+
+---
+
+### Assumptions:
+1. **Initial Conditions**:
+   - Initial position: \( (0, 0) \)
+   - Initial speed: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+   - Obstacle position: \( (100, 0) \)
+
+2. **Lane Width**: Assume each lane is 3.5 meters wide, so switching to the left lane requires a lateral shift of \( +3.5 \, \text{m} \).
+
+3. **Lane Change Duration**: Assume the lane change takes 3 seconds (a smooth maneuver).
+
+4. **Passing the Obstacle**: After switching to the left lane, maintain the left lane until the obstacle is safely passed.
+
+5. **Returning to the Right Lane**: Switch back to the right lane after passing the obstacle.
+
+---
+
+### Trajectory Plan:
+1. **First Phase (Lane Change)**:
+   - From \( T = 0 \) to \( T = 3 \), smoothly transition from \( Y = 0 \) to \( Y = 3.5 \).
+   - Maintain a constant speed of \( 20 \, \text{m/s} \).
+
+2. **Second Phase (Passing the Obstacle)**:
+   - From \( T = 3 \) to \( T = 6 \), continue in the left lane (\( Y = 3.5 \)).
+   - Maintain a constant speed of \( 20 \, \text{m/s} \).
+
+3. **Third Phase (Returning to the Right Lane)**:
+   - From \( T = 6 \) to \( T = 9 \), smoothly transition from \( Y = 3.5 \) back to \( Y = 0 \).
+   - Maintain a constant speed of \( 20 \, \text{m/s} \).
+
+---
+
+### Position at Each Time Point:
+- \( T = 0 \): \( (0, 0) \)
+- \( T = 1 \): \( (20, 1.17) \) (Lane change starts, \( Y \) increases linearly)
+- \( T = 2 \): \( (40, 2.33) \)
+- \( T = 3 \): \( (60, 3.5) \) (Lane change completed)
+- \( T = 4 \): \( (80, 3.5) \) (Passing the obstacle)
+- \( T = 5 \): \( (100, 3.5) \)
+- \( T = 6 \): \( (120, 3.5) \) (Obstacle passed, returning to right lane)
+- \( T = 7 \): \( (140, 2.33) \)
+- \( T = 8 \): \( (160, 1.17) \)
+- \( T = 9 \): \( (180, 0) \) (Back in the right lane)
+
+---
+
+### Summary of Positions:
+| Time (s) | Position \( (X, Y) \) (m) |
+|----------|---------------------------|
+| 0        | (0, 0)                    |
+| 1        | (20, 1.17)                |
+| 2        | (40, 2.33)                |
+| 3        | (60, 3.5)                 |
+| 4        | (80, 3.5)                 |
+| 5        | (100, 3.5)                |
+| 6        | (120, 3.5)                |
+| 7        | (140, 2.33)               |
+| 8        | (160, 1.17)               |
+| 9        | (180, 0)                  |
+
+---
+
+This trajectory ensures a smooth lane change, safe passing of the obstacle, and a return to the right lane while maintaining a speed of over 60 km/h.

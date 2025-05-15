@@ -1,0 +1,43 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+### Assumptions:  
+- The vehicle¡¯s initial speed is \( 72 \, \text{km/h} = 20 \, \text{m/s} \).  
+- The obstacle is at \( X = 100 \, \text{meters} \).  
+- The lane change takes approximately 3 seconds (a smooth transition).  
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout the maneuver.  
+
+### Trajectory:  
+#### Phase 1: Lane change to the left lane (T = 0 to T = 3 seconds)  
+- The vehicle moves laterally from \( Y = 0 \) to \( Y = -3.5 \) meters while continuing to move forward at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.17 |  
+| 2        | 40    | -2.33 |  
+| 3        | 60    | -3.5  |  
+
+#### Phase 2: Passing the obstacle (T = 3 to T = 7 seconds)  
+- The vehicle continues in the left lane (\( Y = -3.5 \) meters) and passes the obstacle at \( X = 100 \) meters.  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 4        | 80    | -3.5  |  
+| 5        | 100   | -3.5  |  
+| 6        | 120   | -3.5  |  
+| 7        | 140   | -3.5  |  
+
+#### Phase 3: Lane change back to the right lane (T = 7 to T = 10 seconds)  
+- The vehicle moves laterally from \( Y = -3.5 \) meters to \( Y = 0 \) while continuing to move forward at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 8        | 160   | -2.33 |  
+| 9        | 180   | -1.17 |  
+| 10       | 200   | 0     |  
+
+### Summary:  
+The vehicle completes the lane-changing maneuver and passes the obstacle while maintaining a speed of \( 20 \, \text{m/s} \). The final position at \( T = 10 \) seconds is \( (200, 0) \).
