@@ -1,0 +1,195 @@
+### Understanding the Problem
+
+First, let's break down the scenario:
+
+- **Road Layout**: There are two parallel lanes. I'm currently in the outer lane, which we'll consider as the starting position (0.0, 0).
+  
+- **Obstacle**: There's an obstruction directly ahead at (100, 0), which is 100 meters from my starting point.
+
+- **Lane Transition**: To avoid the obstacle, I need to move to the adjacent lane, which has a Y-coordinate of -5. After bypassing the obstacle, I should return to my original lane.
+
+- **Speed Constraints**: My initial speed is 72.0 km/h, and I must maintain a speed above 60 km/h throughout the maneuver.
+
+- **Time Frame**: I need to plan my route over the next 10 seconds, estimating my vehicle's position at each second.
+
+### Converting Speed to Meters per Second
+
+Since the distances are in meters and time in seconds, it's practical to convert the speed from km/h to m/s.
+
+\[ \text{Speed in m/s} = \text{Speed in km/h} \times \frac{1000 \text{ meters}}{3600 \text{ seconds}} \]
+
+\[ 72.0 \text{ km/h} = 72.0 \times \frac{1000}{3600} = 20 \text{ m/s} \]
+
+\[ 60.0 \text{ km/h} = 60.0 \times \frac{1000}{3600} \approx 16.67 \text{ m/s} \]
+
+So, I must maintain a speed above 16.67 m/s.
+
+### Planning the Lane Change
+
+To navigate around the obstacle, I'll need to:
+
+1. **Change to the adjacent lane (Y = -5)** before reaching the obstacle at X = 100.
+2. **Bypass the obstacle** while staying in the adjacent lane.
+3. **Return to the original lane (Y = 0)** after passing the obstacle.
+
+### Calculating Time to Reach the Obstacle
+
+At a constant speed of 20 m/s, the time to reach the obstacle is:
+
+\[ \text{Time} = \frac{\text{Distance}}{\text{Speed}} = \frac{100 \text{ meters}}{20 \text{ m/s}} = 5 \text{ seconds} \]
+
+This means I have 5 seconds to change lanes before I reach the obstacle.
+
+### Determining Lane Change Duration
+
+Changing lanes smoothly typically takes about 3-4 seconds. For this plan, I'll allocate 3 seconds for the lane change to ensure I'm in the adjacent lane before reaching the obstacle.
+
+### Estimating Positions Over Time
+
+Let's outline the vehicle's position (X, Y) at each second from T = 0 to T = 10.
+
+#### T = 0 seconds
+
+- **Position**: (0, 0)
+  
+  Starting point in the outer lane.
+
+#### T = 1 second
+
+- **Distance Traveled**: \( 20 \text{ m/s} \times 1 \text{ s} = 20 \text{ meters} \)
+  
+- **Lateral Movement**: Begin transitioning to the adjacent lane. Assuming a linear transition over 3 seconds, at T = 1, I would have moved 1/3 of the way to Y = -5.
+
+  \[ Y = 0 + \left( \frac{1}{3} \times (-5 - 0) \right) \approx -1.67 \]
+
+- **Position**: (20, -1.67)
+
+#### T = 2 seconds
+
+- **Distance Traveled**: \( 20 \times 2 = 40 \text{ meters} \)
+  
+- **Lateral Movement**: 2/3 of the way to Y = -5.
+
+  \[ Y = 0 + \left( \frac{2}{3} \times (-5) \right) \approx -3.33 \]
+
+- **Position**: (40, -3.33)
+
+#### T = 3 seconds
+
+- **Distance Traveled**: \( 20 \times 3 = 60 \text{ meters} \)
+  
+- **Lateral Movement**: Fully transitioned to Y = -5.
+
+  \[ Y = -5 \]
+
+- **Position**: (60, -5)
+
+#### T = 4 seconds
+
+- **Distance Traveled**: \( 20 \times 4 = 80 \text{ meters} \)
+  
+- **Lateral Movement**: Remain in the adjacent lane.
+
+  \[ Y = -5 \]
+
+- **Position**: (80, -5)
+
+#### T = 5 seconds
+
+- **Distance Traveled**: \( 20 \times 5 = 100 \text{ meters} \)
+  
+- **Lateral Movement**: Continue in the adjacent lane, bypassing the obstacle.
+
+  \[ Y = -5 \]
+
+- **Position**: (100, -5)
+
+#### T = 6 seconds
+
+- **Distance Traveled**: \( 20 \times 6 = 120 \text{ meters} \)
+  
+- **Lateral Movement**: Begin transitioning back to the original lane. Allocate 3 seconds for the return lane change.
+
+  At T = 6, 1/3 of the way back to Y = 0.
+
+  \[ Y = -5 + \left( \frac{1}{3} \times (0 - (-5)) \right) \approx -3.33 \]
+
+- **Position**: (120, -3.33)
+
+#### T = 7 seconds
+
+- **Distance Traveled**: \( 20 \times 7 = 140 \text{ meters} \)
+  
+- **Lateral Movement**: 2/3 of the way back to Y = 0.
+
+  \[ Y = -5 + \left( \frac{2}{3} \times 5 \right) \approx -1.67 \]
+
+- **Position**: (140, -1.67)
+
+#### T = 8 seconds
+
+- **Distance Traveled**: \( 20 \times 8 = 160 \text{ meters} \)
+  
+- **Lateral Movement**: Fully transitioned back to Y = 0.
+
+  \[ Y = 0 \]
+
+- **Position**: (160, 0)
+
+#### T = 9 seconds
+
+- **Distance Traveled**: \( 20 \times 9 = 180 \text{ meters} \)
+  
+- **Lateral Movement**: Remain in the original lane.
+
+  \[ Y = 0 \]
+
+- **Position**: (180, 0)
+
+#### T = 10 seconds
+
+- **Distance Traveled**: \( 20 \times 10 = 200 \text{ meters} \)
+  
+- **Lateral Movement**: Continue in the original lane.
+
+  \[ Y = 0 \]
+
+- **Position**: (200, 0)
+
+### Summary of Positions Over Time
+
+| Time (s) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 0        | 0              | 0              |
+| 1        | 20             | -1.67          |
+| 2        | 40             | -3.33          |
+| 3        | 60             | -5             |
+| 4        | 80             | -5             |
+| 5        | 100            | -5             |
+| 6        | 120            | -3.33          |
+| 7        | 140            | -1.67          |
+| 8        | 160            | 0              |
+| 9        | 180            | 0              |
+| 10       | 200            | 0              |
+
+### Verifying Speed Constraints
+
+Throughout the maneuver, the speed remains constant at 20 m/s, which is above the required minimum of 16.67 m/s. Therefore, the speed constraint is satisfied.
+
+### Final Route Plan
+
+Based on the calculations, here's the step-by-step route plan:
+
+1. **T = 0s**: Start at (0, 0) in the outer lane.
+2. **T = 1s**: Move to (20, -1.67), beginning the lane change.
+3. **T = 2s**: Position at (40, -3.33), continuing the lane change.
+4. **T = 3s**: Complete the lane change to (60, -5).
+5. **T = 4s**: Continue straight in the adjacent lane at (80, -5).
+6. **T = 5s**: Bypass the obstacle at (100, -5).
+7. **T = 6s**: Start returning to the original lane, moving to (120, -3.33).
+8. **T = 7s**: Position at (140, -1.67), nearing the original lane.
+9. **T = 8s**: Complete the return to the original lane at (160, 0).
+10. **T = 9s**: Continue straight in the original lane at (180, 0).
+11. **T = 10s**: Final position at (200, 0), maintaining the original lane.
+
+This plan ensures a smooth and safe navigation around the obstacle while adhering to the speed constraints.

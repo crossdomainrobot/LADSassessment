@@ -1,0 +1,35 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals. The vehicle starts at (0, 0) with an initial velocity of 72.0 km/h (which is 20 m/s). We'll ensure the speed remains above 60 km/h (16.67 m/s) throughout the maneuver.
+
+### Assumptions:
+1. The vehicle moves at a constant speed of 20 m/s.
+2. The lane change takes 2 seconds (1 second to transition to the adjacent lane and 1 second to return to the original lane).
+3. The obstruction is at (100, 0), and the adjacent lane is at Y = -5.
+
+### Critical Intervals:
+1. **T = 0 s**: Starting point at (0, 0).
+2. **T = 1 s**: Begin transitioning to the adjacent lane.
+3. **T = 2 s**: Fully in the adjacent lane at Y = -5.
+4. **T = 3 s**: Continue in the adjacent lane, bypassing the obstruction.
+5. **T = 4 s**: Begin transitioning back to the original lane.
+6. **T = 5 s**: Fully back in the original lane at Y = 0.
+7. **T = 6 s**: Continue in the original lane.
+
+### Position Estimates:
+1. **T = 0 s**: (0, 0)
+2. **T = 1 s**: (20, -2.5) - Halfway through the lane change.
+3. **T = 2 s**: (40, -5) - Fully in the adjacent lane.
+4. **T = 3 s**: (60, -5) - Continuing in the adjacent lane.
+5. **T = 4 s**: (80, -2.5) - Beginning to return to the original lane.
+6. **T = 5 s**: (100, 0) - Fully back in the original lane, bypassing the obstruction.
+7. **T = 6 s**: (120, 0) - Continuing in the original lane.
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -2.5)
+- **T = 2 s**: (40, -5)
+- **T = 3 s**: (60, -5)
+- **T = 4 s**: (80, -2.5)
+- **T = 5 s**: (100, 0)
+- **T = 6 s**: (120, 0)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and completes the lane transitions smoothly.

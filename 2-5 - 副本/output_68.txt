@@ -1,0 +1,60 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the process into key phases:  
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:  
+- Initial position: \( (X, Y) = (0, 0) \)  
+- Obstruction position: \( (100, 0) \)  
+- Adjacent lane: \( Y = -5 \)  
+- Initial velocity: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Time steps: \( T = 1 \, \text{second} \) intervals  
+
+### Steps:  
+1. **Lane Change to Adjacent Lane (Y = -5):**  
+   - Assume the lane change takes 2 seconds.  
+   - Lateral movement: \( Y \) transitions from \( 0 \) to \( -5 \) linearly over 2 seconds.  
+
+2. **Bypassing the Obstruction (X = 100):**  
+   - Maintain \( Y = -5 \) while passing \( X = 100 \).  
+
+3. **Lane Change Back to Original Lane (Y = 0):**  
+   - Assume the lane change takes 2 seconds.  
+   - Lateral movement: \( Y \) transitions from \( -5 \) to \( 0 \) linearly over 2 seconds.  
+
+### Position Estimates:  
+We calculate \( X \) and \( Y \) at each second:  
+
+#### \( X \)-Coordinate:  
+- \( X(t) = X(0) + v \cdot t = 0 + 20 \cdot t \)  
+
+#### \( Y \)-Coordinate:  
+- \( T = 0 \, \text{s}: Y = 0 \)  
+- \( T = 1 \, \text{s}: Y = -2.5 \) (halfway through lane change)  
+- \( T = 2 \, \text{s}: Y = -5 \) (completed lane change)  
+- \( T = 3 \, \text{s} \) to \( T = 7 \, \text{s}: Y = -5 \) (bypassing obstruction)  
+- \( T = 8 \, \text{s}: Y = -2.5 \) (halfway back to original lane)  
+- \( T = 9 \, \text{s}: Y = 0 \) (completed lane change)  
+
+#### Positions at Each Second:  
+| \( T \) (s) | \( X \) (m) | \( Y \) (m) |  
+|-------------|------------|------------|  
+| 0           | 0          | 0          |  
+| 1           | 20         | -2.5       |  
+| 2           | 40         | -5         |  
+| 3           | 60         | -5         |  
+| 4           | 80         | -5         |  
+| 5           | 100        | -5         |  
+| 6           | 120        | -5         |  
+| 7           | 140        | -5         |  
+| 8           | 160        | -2.5       |  
+| 9           | 180        | 0          |  
+| 10          | 200        | 0          |  
+
+### Notes:  
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout.  
+- The lane changes are smooth and linear over 2 seconds each.  
+- The obstruction is bypassed at \( X = 100 \) while in the adjacent lane.  
+
+This plan ensures the vehicle stays above the minimum speed and safely navigates around the obstruction.

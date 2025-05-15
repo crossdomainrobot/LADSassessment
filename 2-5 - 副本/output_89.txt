@@ -1,0 +1,37 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we need to plan the lane transition carefully. Here's a step-by-step route planning with estimated positions at critical intervals:
+
+### Key Details:
+- **Initial position**: (0.0, 0)
+- **Obstruction**: (100, 0)
+- **Adjacent lane**: Y = -5
+- **Initial speed**: 72 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+- **Time interval**: 1 second
+
+### Assumptions:
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+2. The lane transition is smooth and takes 2 seconds to complete (1 second to move into the adjacent lane and 1 second to return to the original lane).
+3. The vehicle starts transitioning to the adjacent lane at **X = 80 meters** and returns to the original lane after passing the obstruction at **X = 120 meters**.
+
+### Route Plan:
+| Time (s) | X (m) | Y (m) | Description |
+|----------|-------|-------|-------------|
+| T = 0    | 0.0   | 0     | Starting position |
+| T = 1    | 20    | 0     | Moving straight |
+| T = 2    | 40    | 0     | Moving straight |
+| T = 3    | 60    | 0     | Moving straight |
+| T = 4    | 80    | 0     | Start transitioning to adjacent lane |
+| T = 5    | 100   | -2.5  | Midway in lane transition |
+| T = 6    | 120   | -5    | Fully in adjacent lane, bypassing obstruction |
+| T = 7    | 140   | -5    | Moving straight in adjacent lane |
+| T = 8    | 160   | -5    | Start transitioning back to original lane |
+| T = 9    | 180   | -2.5  | Midway in lane transition |
+| T = 10   | 200   | 0     | Fully back in original lane |
+
+### Explanation:
+1. **T = 0 to T = 4**: The vehicle moves straight in the outer lane, covering 20 meters per second.
+2. **T = 4 to T = 6**: The vehicle transitions to the adjacent lane (Y = -5) over 2 seconds while continuing to move forward.
+3. **T = 6 to T = 8**: The vehicle moves straight in the adjacent lane, bypassing the obstruction at X = 100.
+4. **T = 8 to T = 10**: The vehicle transitions back to the original lane (Y = 0) over 2 seconds.
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

@@ -1,0 +1,46 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals. We'll calculate the vehicle's position (X, Y) at each second (T = 1, 2, 3, ..., 10) while ensuring the speed remains above 60 km/h and the lane transitions are smooth.
+
+### Given:
+- **Initial position**: (X, Y) = (0.0, 0)
+- **Obstruction position**: (X, Y) = (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72.0 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+
+### Assumptions:
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+2. The lane change is instantaneous at specific points in time.
+3. The vehicle moves in a straight line along the X-axis and transitions laterally along the Y-axis.
+
+### Route Planning:
+1. **T = 0 s**: Starting position (0, 0)
+2. **T = 1 s**: (20, 0)
+3. **T = 2 s**: (40, 0)
+4. **T = 3 s**: (60, 0)
+5. **T = 4 s**: (80, 0)
+6. **T = 5 s**: (100, 0) ！ At this point, the vehicle begins the lane change to avoid the obstruction.
+7. **T = 6 s**: (120, -5) ！ Vehicle is now in the adjacent lane (Y = -5).
+8. **T = 7 s**: (140, -5)
+9. **T = 8 s**: (160, -5)
+10. **T = 9 s**: (180, -5)
+11. **T = 10 s**: (200, -5) ！ Vehicle remains in the adjacent lane after bypassing the obstruction.
+
+### Detailed Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, 0)
+- **T = 4 s**: (80, 0)
+- **T = 5 s**: (100, 0) ！ Begin lane change.
+- **T = 6 s**: (120, -5) ！ Complete lane change.
+- **T = 7 s**: (140, -5)
+- **T = 8 s**: (160, -5)
+- **T = 9 s**: (180, -5)
+- **T = 10 s**: (200, -5)
+
+### Summary:
+- The vehicle travels straight along the X-axis until T = 5 s, reaching the obstruction at (100, 0).
+- At T = 5 s, the vehicle begins the lane change and completes it by T = 6 s, moving to the adjacent lane (Y = -5).
+- From T = 6 s to T = 10 s, the vehicle continues in the adjacent lane, bypassing the obstruction.
+
+This plan ensures the vehicle maintains a speed above 60 km/h and successfully navigates around the obstruction.

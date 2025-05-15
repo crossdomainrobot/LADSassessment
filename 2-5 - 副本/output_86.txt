@@ -1,0 +1,90 @@
+To navigate around the obstruction while maintaining a speed exceeding 60 km/h, we need to plan the lane transitions carefully. Here¡¯s a step-by-step route plan, assuming a constant speed of 72 km/h (20 m/s) and a smooth lane change process.
+
+### Step 1: Initial Position and Parameters
+- **Initial Position**: \( (X, Y) = (0.0, 0) \)
+- **Speed**: 72 km/h = 20 m/s
+- **Obstruction Position**: \( (100, 0) \)
+- **Adjacent Lane Y-coordinate**: \( Y = -5 \)
+
+### Step 2: Lane Change to Adjacent Lane
+- **Time to Start Lane Change**: Assume the lane change starts at \( T = 1 \) second and ends at \( T = 3 \) seconds.
+- **Lane Change Duration**: 2 seconds
+
+### Step 3: Bypass the Obstruction
+- **Bypass the Obstruction**: Stay in the adjacent lane until \( X > 100 \) meters.
+
+### Step 4: Lane Change Back to Original Lane
+- **Time to Start Lane Change Back**: Assume the lane change back starts at \( T = 7 \) seconds and ends at \( T = 9 \) seconds.
+- **Lane Change Duration**: 2 seconds
+
+### Step 5: Route Planning
+Let¡¯s calculate the vehicle¡¯s position at 1-second intervals from \( T = 0 \) to \( T = 10 \) seconds.
+
+#### \( T = 0 \) seconds
+- **Position**: \( (0.0, 0) \)
+
+#### \( T = 1 \) seconds
+- **Distance Traveled**: \( 20 \) meters
+- **Position**: \( (20, 0) \)
+- **Action**: Start lane change to adjacent lane.
+
+#### \( T = 2 \) seconds
+- **Distance Traveled**: \( 40 \) meters
+- **Position**: \( (40, -2.5) \)
+- **Action**: Lane change in progress.
+
+#### \( T = 3 \) seconds
+- **Distance Traveled**: \( 60 \) meters
+- **Position**: \( (60, -5) \)
+- **Action**: Lane change to adjacent lane complete.
+
+#### \( T = 4 \) seconds
+- **Distance Traveled**: \( 80 \) meters
+- **Position**: \( (80, -5) \)
+- **Action**: Continue in adjacent lane.
+
+#### \( T = 5 \) seconds
+- **Distance Traveled**: \( 100 \) meters
+- **Position**: \( (100, -5) \)
+- **Action**: Bypass the obstruction.
+
+#### \( T = 6 \) seconds
+- **Distance Traveled**: \( 120 \) meters
+- **Position**: \( (120, -5) \)
+- **Action**: Continue in adjacent lane.
+
+#### \( T = 7 \) seconds
+- **Distance Traveled**: \( 140 \) meters
+- **Position**: \( (140, -5) \)
+- **Action**: Start lane change back to original lane.
+
+#### \( T = 8 \) seconds
+- **Distance Traveled**: \( 160 \) meters
+- **Position**: \( (160, -2.5) \)
+- **Action**: Lane change back in progress.
+
+#### \( T = 9 \) seconds
+- **Distance Traveled**: \( 180 \) meters
+- **Position**: \( (180, 0) \)
+- **Action**: Lane change back to original lane complete.
+
+#### \( T = 10 \) seconds
+- **Distance Traveled**: \( 200 \) meters
+- **Position**: \( (200, 0) \)
+
+### Summary of Vehicle Positions
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0.0, 0)        |
+| 1        | (20, 0)         |
+| 2        | (40, -2.5)      |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -2.5)     |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and smoothly transitions between lanes.

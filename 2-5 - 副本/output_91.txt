@@ -1,0 +1,75 @@
+To construct a route plan for navigating around the obstruction while maintaining speed and transitioning lanes, we¨ll break the process into steps and calculate the vehicle¨s position at critical intervals. Here's the plan:
+
+---
+
+### **Assumptions and Parameters:**
+1. **Starting Position**: (X, Y) = (0.0, 0)
+2. **Obstruction Position**: (X, Y) = (100, 0)
+3. **Adjacent Lane Y-coordinate**: Y = -5
+4. **Initial Velocity**: 72.0 km/h = 20 m/s (converted for ease of calculation)
+5. **Minimum Speed**: 60 km/h = 16.67 m/s
+6. **Time Intervals**: 1-second increments for simplicity
+7. **Lane Transition Time**: Assume it takes 2 seconds to transition into the adjacent lane and 2 seconds to return to the original lane.
+
+---
+
+### **Route Plan:**
+
+#### **1. Approach the Obstruction (T = 0 to T = 4 seconds):**
+- **Objective**: Move from the outer lane (Y = 0) to the adjacent lane (Y = -5) to bypass the obstruction.
+- **Lane Transition**: Start transitioning at T = 1 and complete by T = 3.
+- **Position Calculations**:
+  - **T = 0**: (X, Y) = (0, 0)
+  - **T = 1**: (X, Y) = (20, -1.25) ！ Begin lane transition.
+  - **T = 2**: (X, Y) = (40, -2.5) ！ Continue lane transition.
+  - **T = 3**: (X, Y) = (60, -5) ！ Complete lane transition.
+  - **T = 4**: (X, Y) = (80, -5) ！ Continue in the adjacent lane.
+
+---
+
+#### **2. Bypass the Obstruction (T = 4 to T = 6 seconds):**
+- **Objective**: Stay in the adjacent lane while passing the obstruction at X = 100.
+- **Position Calculations**:
+  - **T = 5**: (X, Y) = (100, -5) ！ Reach the obstruction.
+  - **T = 6**: (X, Y) = (120, -5) ！ Continue in the adjacent lane.
+
+---
+
+#### **3. Return to the Original Lane (T = 6 to T = 8 seconds):**
+- **Objective**: Transition back to the original lane (Y = 0).
+- **Lane Transition**: Start transitioning at T = 6 and complete by T = 8.
+- **Position Calculations**:
+  - **T = 7**: (X, Y) = (140, -2.5) ！ Begin returning to the original lane.
+  - **T = 8**: (X, Y) = (160, 0) ！ Complete lane transition.
+
+---
+
+#### **4. Continue in the Original Lane (T = 8 to T = 10 seconds):**
+- **Objective**: Resume travel in the original lane.
+- **Position Calculations**:
+  - **T = 9**: (X, Y) = (180, 0)
+  - **T = 10**: (X, Y) = (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.25 |
+| 2        | 40    | -2.5  |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -2.5  |
+| 8        | 160   | 0     |
+| 9        | 180   | 0     |
+| 10       | 200   | 0     |
+
+---
+
+### **Key Notes:**
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.
+- Lane transitions are smooth and completed within 2 seconds each.
+- The obstruction is bypassed safely while ensuring the vehicle remains in the adjacent lane during the critical period.

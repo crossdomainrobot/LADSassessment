@@ -1,0 +1,44 @@
+To plan the route and estimate the vehicle's position at critical intervals, we need to consider the following:
+
+1. **Initial Velocity**: 72.0 km/h (convert to m/s for calculations: \( 72.0 \times \frac{1000}{3600} = 20 \, \text{m/s} \)).
+2. **Minimum Speed**: Must exceed 60 km/h (\( 16.67 \, \text{m/s} \)) throughout.
+3. **Obstruction**: Located at \( (100, 0) \).
+4. **Lane Transition**: Move from \( Y = 0 \) (outer lane) to \( Y = -5 \) (adjacent lane), bypass the obstruction, and return to \( Y = 0 \).
+
+### Assumptions:
+- The lane change is smooth and takes a finite amount of time.
+- The vehicle maintains a constant speed of 20 m/s during the maneuver.
+- The lane change is completed symmetrically before and after the obstruction.
+
+### Route Planning:
+1. **Time to Reach Obstruction**: Distance to obstruction is 100 meters at 20 m/s, so \( T_{\text{obstruction}} = \frac{100}{20} = 5 \, \text{seconds} \).
+2. **Lane Change Duration**: Assume the lane change takes 2 seconds (1 second to move from \( Y = 0 \) to \( Y = -5 \), and 1 second to return).
+3. **Timing of Lane Change**: Start the lane change at \( T = 3 \) seconds and complete it by \( T = 5 \) seconds. Return to the original lane by \( T = 7 \) seconds.
+
+### Position Estimates:
+- **T = 0 seconds**: \( (0, 0) \) 每 Starting point.
+- **T = 1 second**: \( (20, 0) \) 每 Moving straight.
+- **T = 2 seconds**: \( (40, 0) \) 每 Moving straight.
+- **T = 3 seconds**: \( (60, 0) \) 每 Begin lane change.
+- **T = 4 seconds**: \( (80, -2.5) \) 每 Midway in lane change.
+- **T = 5 seconds**: \( (100, -5) \) 每 Complete lane change, bypass obstruction.
+- **T = 6 seconds**: \( (120, -2.5) \) 每 Begin returning to original lane.
+- **T = 7 seconds**: \( (140, 0) \) 每 Complete return to original lane.
+- **T = 8 seconds**: \( (160, 0) \) 每 Moving straight.
+- **T = 9 seconds**: \( (180, 0) \) 每 Moving straight.
+- **T = 10 seconds**: \( (200, 0) \) 每 Moving straight.
+
+### Summary of Positions:
+- \( T = 0 \): \( (0, 0) \)
+- \( T = 1 \): \( (20, 0) \)
+- \( T = 2 \): \( (40, 0) \)
+- \( T = 3 \): \( (60, 0) \)
+- \( T = 4 \): \( (80, -2.5) \)
+- \( T = 5 \): \( (100, -5) \)
+- \( T = 6 \): \( (120, -2.5) \)
+- \( T = 7 \): \( (140, 0) \)
+- \( T = 8 \): \( (160, 0) \)
+- \( T = 9 \): \( (180, 0) \)
+- \( T = 10 \): \( (200, 0) \)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and smoothly transitions between lanes.

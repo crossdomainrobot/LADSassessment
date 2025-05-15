@@ -1,0 +1,70 @@
+To plan the route for navigating around the obstruction, we'll break down the maneuver into key phases: **lane change**, **bypassing the obstruction**, and **returning to the original lane**. We'll calculate the vehicle's position at 1-second intervals, ensuring the speed remains above 60 km/h throughout.
+
+---
+
+### **Given:**
+- **Initial position:** (X, Y) = (0, 0)
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial velocity:** 72.0 km/h = 20 m/s
+- **Minimum speed:** 60 km/h = 16.67 m/s
+
+---
+
+### **Assumptions:**
+1. The lane change takes **3 seconds** (smooth transition).
+2. The bypassing phase lasts until the vehicle clears the obstruction (X > 100).
+3. The return to the original lane takes **3 seconds**.
+4. The vehicle maintains a constant speed of **20 m/s** during the maneuver.
+
+---
+
+### **Route Plan:**
+
+#### **Phase 1: Lane Change (T = 0 to T = 3)**
+- **Lateral movement:** Transition from Y = 0 to Y = -5 over 3 seconds.
+- **Lateral velocity:** ¦¤Y = -5 / 3 ¡Ö -1.67 m/s
+- **Positions:**
+  - T = 1: (20, -1.67)
+  - T = 2: (40, -3.33)
+  - T = 3: (60, -5)
+
+#### **Phase 2: Bypassing Obstruction (T = 3 to T = 7)**
+- **Lateral position:** Y = -5 (stay in adjacent lane)
+- **Positions:**
+  - T = 4: (80, -5)
+  - T = 5: (100, -5)
+  - T = 6: (120, -5)
+  - T = 7: (140, -5)
+
+#### **Phase 3: Return to Original Lane (T = 7 to T = 10)**
+- **Lateral movement:** Transition from Y = -5 to Y = 0 over 3 seconds.
+- **Lateral velocity:** ¦¤Y = 5 / 3 ¡Ö 1.67 m/s
+- **Positions:**
+  - T = 8: (160, -3.33)
+  - T = 9: (180, -1.67)
+  - T = 10: (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -3.33)    |
+| 9        | (180, -1.67)    |
+| 10       | (200, 0)        |
+
+---
+
+### **Key Points:**
+1. The vehicle clears the obstruction at T = 5 (X = 100).
+2. The speed remains constant at 20 m/s (72 km/h), satisfying the minimum speed requirement.
+3. The maneuver is completed by T = 10, with the vehicle back in the original lane.

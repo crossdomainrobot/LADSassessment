@@ -1,0 +1,94 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals. We'll calculate the vehicle's position (X, Y) at each second, ensuring the speed remains above 60 km/h and the lane transitions are smooth.
+
+### Given:
+- **Initial position**: (0.0, 0)
+- **Obstruction position**: (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72.0 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+
+### Assumptions:
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+2. The lane change is instantaneous at the specified times.
+3. The vehicle moves in a straight line along the X-axis unless changing lanes.
+
+### Route Planning:
+
+1. **T = 0 s**:  
+   - **Position**: (0.0, 0)  
+   - **Action**: Start in the outer lane.
+
+2. **T = 1 s**:  
+   - **X**: 0 + (20 m/s * 1 s) = 20 m  
+   - **Y**: 0  
+   - **Position**: (20, 0)  
+   - **Action**: Continue in the outer lane.
+
+3. **T = 2 s**:  
+   - **X**: 20 + (20 * 1) = 40 m  
+   - **Y**: 0  
+   - **Position**: (40, 0)  
+   - **Action**: Continue in the outer lane.
+
+4. **T = 3 s**:  
+   - **X**: 40 + (20 * 1) = 60 m  
+   - **Y**: 0  
+   - **Position**: (60, 0)  
+   - **Action**: Continue in the outer lane.
+
+5. **T = 4 s**:  
+   - **X**: 60 + (20 * 1) = 80 m  
+   - **Y**: 0  
+   - **Position**: (80, 0)  
+   - **Action**: Begin transitioning to the adjacent lane.
+
+6. **T = 5 s**:  
+   - **X**: 80 + (20 * 1) = 100 m  
+   - **Y**: -5  
+   - **Position**: (100, -5)  
+   - **Action**: Complete the lane change. Now in the adjacent lane, bypassing the obstruction.
+
+7. **T = 6 s**:  
+   - **X**: 100 + (20 * 1) = 120 m  
+   - **Y**: -5  
+   - **Position**: (120, -5)  
+   - **Action**: Continue in the adjacent lane.
+
+8. **T = 7 s**:  
+   - **X**: 120 + (20 * 1) = 140 m  
+   - **Y**: -5  
+   - **Position**: (140, -5)  
+   - **Action**: Continue in the adjacent lane.
+
+9. **T = 8 s**:  
+   - **X**: 140 + (20 * 1) = 160 m  
+   - **Y**: -5  
+   - **Position**: (160, -5)  
+   - **Action**: Begin transitioning back to the original lane.
+
+10. **T = 9 s**:  
+    - **X**: 160 + (20 * 1) = 180 m  
+    - **Y**: 0  
+    - **Position**: (180, 0)  
+    - **Action**: Complete the lane change. Now back in the original lane.
+
+11. **T = 10 s**:  
+    - **X**: 180 + (20 * 1) = 200 m  
+    - **Y**: 0  
+    - **Position**: (200, 0)  
+    - **Action**: Continue in the original lane.
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, 0)
+- **T = 4 s**: (80, 0)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -5)
+- **T = 7 s**: (140, -5)
+- **T = 8 s**: (160, -5)
+- **T = 9 s**: (180, 0)
+- **T = 10 s**: (200, 0)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and smoothly transitions between lanes.

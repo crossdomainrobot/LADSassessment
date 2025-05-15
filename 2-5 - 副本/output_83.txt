@@ -1,0 +1,65 @@
+To plan the route for navigating around the obstruction, we'll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Time step: \( 1 \, \text{second} \)  
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+- Duration: \( 3 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions from \( 0 \) to \( -5 \) linearly over \( 3 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.67 |
+| 2        | 40    | -3.33 |
+| 3        | 60    | -5    |
+
+### Phase 2: Bypassing the Obstruction (X = 100)
+- Duration: \( 2 \, \text{seconds} \)  
+- Lateral position: \( Y = -5 \) (remain in the adjacent lane).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+- Duration: \( 3 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions from \( -5 \) to \( 0 \) linearly over \( 3 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 6        | 120   | -3.33 |
+| 7        | 140   | -1.67 |
+| 8        | 160   | 0     |
+
+### Summary of Positions Over 10 Seconds:
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.67 |
+| 2        | 40    | -3.33 |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -3.33 |
+| 7        | 140   | -1.67 |
+| 8        | 160   | 0     |
+| 9        | 180   | 0     |
+| 10       | 200   | 0     |
+
+### Key Points:
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout.  
+- The lane changes are smooth and linear, ensuring safety and stability.  
+- The obstruction is bypassed successfully by staying in the adjacent lane from \( X = 60 \, \text{m} \) to \( X = 100 \, \text{m} \).

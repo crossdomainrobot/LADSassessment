@@ -1,0 +1,89 @@
+To plan the route for navigating around the obstruction, we need to break down the movement into three phases:
+
+1. **Transition to the adjacent lane (from Y = 0 to Y = -5)**
+2. **Bypass the obstruction while staying in the adjacent lane (from X = 0 to X = 100)**
+3. **Return to the original lane (from Y = -5 to Y = 0)**
+
+Given the vehicle's initial speed of **72 km/h**, we can convert this to meters per second (m/s) for easier calculations:
+
+\[
+72 \text{ km/h} = \frac{72 \times 1000}{3600} = 20 \text{ m/s}
+\]
+
+We must maintain a speed above **60 km/h**, which is approximately **16.67 m/s**.
+
+### Assumptions for Lane Transition:
+- The lane change takes **2 seconds** to complete (from Y = 0 to Y = -5).
+- The return to the original lane also takes **2 seconds** (from Y = -5 to Y = 0).
+- During the lane change, the vehicle's speed remains constant at **20 m/s**.
+
+### Critical Intervals:
+We will calculate the vehicle's position at **T = 1, 2, 3, ..., 10 seconds**.
+
+---
+
+### Phase 1: Transition to the Adjacent Lane (T = 0 to T = 2 seconds)
+During this phase, the vehicle moves laterally from Y = 0 to Y = -5 while moving forward at 20 m/s.
+
+- **T = 1 second**:
+  - X-coordinate: \( 20 \times 1 = 20 \text{ m} \)
+  - Y-coordinate: \( -2.5 \text{ m} \) (halfway through the lane change)
+  - Position: (20, -2.5)
+
+- **T = 2 seconds**:
+  - X-coordinate: \( 20 \times 2 = 40 \text{ m} \)
+  - Y-coordinate: \( -5 \text{ m} \) (fully in the adjacent lane)
+  - Position: (40, -5)
+
+---
+
+### Phase 2: Bypass the Obstruction (T = 2 to T = 8 seconds)
+During this phase, the vehicle remains in the adjacent lane (Y = -5) and continues moving forward at 20 m/s.
+
+- **T = 3 seconds**:
+  - X-coordinate: \( 20 \times 3 = 60 \text{ m} \)
+  - Y-coordinate: \( -5 \text{ m} \)
+  - Position: (60, -5)
+
+- **T = 4 seconds**:
+  - X-coordinate: \( 20 \times 4 = 80 \text{ m} \)
+  - Y-coordinate: \( -5 \text{ m} \)
+  - Position: (80, -5)
+
+- **T = 5 seconds**:
+  - X-coordinate: \( 20 \times 5 = 100 \text{ m} \)
+  - Y-coordinate: \( -5 \text{ m} \)
+  - Position: (100, -5)
+
+---
+
+### Phase 3: Return to the Original Lane (T = 8 to T = 10 seconds)
+During this phase, the vehicle moves laterally from Y = -5 to Y = 0 while continuing to move forward at 20 m/s.
+
+- **T = 9 seconds**:
+  - X-coordinate: \( 20 \times 9 = 180 \text{ m} \)
+  - Y-coordinate: \( -2.5 \text{ m} \) (halfway through the lane change)
+  - Position: (180, -2.5)
+
+- **T = 10 seconds**:
+  - X-coordinate: \( 20 \times 10 = 200 \text{ m} \)
+  - Y-coordinate: \( 0 \text{ m} \) (fully in the original lane)
+  - Position: (200, 0)
+
+---
+
+### Summary of Positions:
+| Time (s) | X-coordinate (m) | Y-coordinate (m) |
+|----------|------------------|------------------|
+| 1        | 20               | -2.5             |
+| 2        | 40               | -5               |
+| 3        | 60               | -5               |
+| 4        | 80               | -5               |
+| 5        | 100              | -5               |
+| 6        | 120              | -5               |
+| 7        | 140              | -5               |
+| 8        | 160              | -5               |
+| 9        | 180              | -2.5             |
+| 10       | 200              | 0                |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

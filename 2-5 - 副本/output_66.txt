@@ -1,0 +1,81 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we need to plan the lane transitions carefully. Here¡¯s a step-by-step route planning based on the given spatial reference system and constraints:
+
+---
+
+### **Given:**
+- **Initial Position:** (X, Y) = (0.0, 0)  
+- **Obstruction Position:** (X, Y) = (100, 0)  
+- **Adjacent Lane:** Y = -5  
+- **Initial Velocity:** 72.0 km/h (20 m/s)  
+- **Minimum Speed:** 60 km/h (16.67 m/s)  
+- **Time Interval:** 10 seconds  
+
+---
+
+### **Assumptions:**
+1. The vehicle moves at a constant speed of 20 m/s (72 km/h).  
+2. Lane transitions are smooth and take 2 seconds each (1 second to move from Y = 0 to Y = -5 and 1 second to return).  
+3. The vehicle remains in the adjacent lane (Y = -5) while bypassing the obstruction (X = 100).  
+
+---
+
+### **Route Plan:**
+
+#### **1. Initial Movement (T = 0 to T = 4 seconds):**
+   - The vehicle continues in the outer lane (Y = 0) until it approaches the obstruction.  
+   - At T = 4 seconds, the vehicle starts transitioning to the adjacent lane.  
+
+   **Positions:**  
+   - T = 0: (0, 0)  
+   - T = 1: (20, 0)  
+   - T = 2: (40, 0)  
+   - T = 3: (60, 0)  
+   - T = 4: (80, 0)  
+
+#### **2. Lane Transition (T = 4 to T = 6 seconds):**
+   - The vehicle moves from Y = 0 to Y = -5 over 2 seconds.  
+   - During this time, it continues moving forward at 20 m/s.  
+
+   **Positions:**  
+   - T = 5: (100, -2.5)  
+   - T = 6: (120, -5)  
+
+#### **3. Bypassing the Obstruction (T = 6 to T = 8 seconds):**
+   - The vehicle remains in the adjacent lane (Y = -5) while bypassing the obstruction.  
+   - It continues moving forward at 20 m/s.  
+
+   **Positions:**  
+   - T = 7: (140, -5)  
+   - T = 8: (160, -5)  
+
+#### **4. Lane Return (T = 8 to T = 10 seconds):**
+   - The vehicle transitions back to the outer lane (Y = 0) over 2 seconds.  
+   - It continues moving forward at 20 m/s.  
+
+   **Positions:**  
+   - T = 9: (180, -2.5)  
+   - T = 10: (200, 0)  
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, 0)         |  
+| 2        | (40, 0)         |  
+| 3        | (60, 0)         |  
+| 4        | (80, 0)         |  
+| 5        | (100, -2.5)     |  
+| 6        | (120, -5)       |  
+| 7        | (140, -5)       |  
+| 8        | (160, -5)       |  
+| 9        | (180, -2.5)     |  
+| 10       | (200, 0)        |  
+
+---
+
+### **Key Points:**
+1. The vehicle bypasses the obstruction by transitioning to the adjacent lane (Y = -5) and remains there while passing X = 100.  
+2. The speed remains constant at 20 m/s (72 km/h), ensuring it stays above the minimum speed of 16.67 m/s (60 km/h).  
+3. The lane transitions are smooth and take 2 seconds each.

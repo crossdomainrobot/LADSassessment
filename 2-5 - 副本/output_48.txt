@@ -1,0 +1,99 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane**  
+2. **Bypassing the Obstruction**  
+3. **Returning to the Original Lane**
+
+### Assumptions:
+- **Initial Position**: (0.0, 0)  
+- **Obstruction Position**: (100, 0)  
+- **Adjacent Lane Y-coordinate**: Y = -5  
+- **Initial Velocity**: 72.0 km/h (20 m/s)  
+- **Minimum Speed**: 60 km/h (16.67 m/s)  
+- **Time Intervals**: 1 second  
+
+### Step 1: Lane Change to the Adjacent Lane (Y = -5)
+We¡¯ll assume the lane change takes 3 seconds. During this time, the vehicle moves laterally while maintaining speed.
+
+#### Calculations:
+- **Lateral Speed**: Change from Y = 0 to Y = -5 in 3 seconds ¡ú Lateral velocity = -5/3 ¡Ö -1.67 m/s  
+- **Longitudinal Speed**: Maintain 20 m/s  
+
+#### Positions:
+- **T = 1s**:  
+  X = 20 * 1 = 20 m  
+  Y = 0 + (-1.67 * 1) = -1.67 m  
+  Position: (20, -1.67)  
+
+- **T = 2s**:  
+  X = 20 * 2 = 40 m  
+  Y = 0 + (-1.67 * 2) = -3.33 m  
+  Position: (40, -3.33)  
+
+- **T = 3s**:  
+  X = 20 * 3 = 60 m  
+  Y = 0 + (-1.67 * 3) = -5 m  
+  Position: (60, -5)  
+
+---
+
+### Step 2: Bypassing the Obstruction (Y = -5)
+The vehicle stays in the adjacent lane while bypassing the obstruction at X = 100 m.
+
+#### Calculations:
+- **Time to Reach X = 100 m**:  
+  Distance remaining = 100 - 60 = 40 m  
+  Time = 40 / 20 = 2 seconds  
+
+#### Positions:
+- **T = 4s**:  
+  X = 60 + (20 * 1) = 80 m  
+  Y = -5 m  
+  Position: (80, -5)  
+
+- **T = 5s**:  
+  X = 60 + (20 * 2) = 100 m  
+  Y = -5 m  
+  Position: (100, -5)  
+
+---
+
+### Step 3: Returning to the Original Lane (Y = 0)
+We¡¯ll assume the return to the original lane takes 3 seconds.
+
+#### Calculations:
+- **Lateral Speed**: Change from Y = -5 to Y = 0 in 3 seconds ¡ú Lateral velocity = 5/3 ¡Ö 1.67 m/s  
+- **Longitudinal Speed**: Maintain 20 m/s  
+
+#### Positions:
+- **T = 6s**:  
+  X = 100 + (20 * 1) = 120 m  
+  Y = -5 + (1.67 * 1) = -3.33 m  
+  Position: (120, -3.33)  
+
+- **T = 7s**:  
+  X = 100 + (20 * 2) = 140 m  
+  Y = -5 + (1.67 * 2) = -1.67 m  
+  Position: (140, -1.67)  
+
+- **T = 8s**:  
+  X = 100 + (20 * 3) = 160 m  
+  Y = -5 + (1.67 * 3) = 0 m  
+  Position: (160, 0)  
+
+---
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -1.67)     |  
+| 2        | (40, -3.33)     |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -3.33)    |  
+| 7        | (140, -1.67)    |  
+| 8        | (160, 0)        |  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

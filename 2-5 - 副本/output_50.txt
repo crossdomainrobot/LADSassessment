@@ -1,0 +1,40 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals. We'll calculate the vehicle's position (X, Y) at each second, ensuring the speed remains above 60 km/h and the lane transitions are smooth.
+
+### Given:
+- **Initial position**: (0.0, 0)
+- **Obstruction position**: (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72.0 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+
+### Assumptions:
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h) throughout the maneuver.
+2. The lane change is instantaneous at the specified times.
+
+### Route Planning:
+1. **T = 0 s**: Start at (0, 0).
+2. **T = 1 s**: Move forward 20 meters. Position: (20, 0).
+3. **T = 2 s**: Move forward another 20 meters. Position: (40, 0).
+4. **T = 3 s**: Move forward another 20 meters. Position: (60, 0).
+5. **T = 4 s**: Move forward another 20 meters. Position: (80, 0).
+6. **T = 5 s**: Move forward another 20 meters. Position: (100, 0). At this point, the vehicle is at the obstruction. To avoid it, the vehicle changes lanes to Y = -5. Position: (100, -5).
+7. **T = 6 s**: Move forward another 20 meters. Position: (120, -5).
+8. **T = 7 s**: Move forward another 20 meters. Position: (140, -5).
+9. **T = 8 s**: Move forward another 20 meters. Position: (160, -5).
+10. **T = 9 s**: Move forward another 20 meters. Position: (180, -5).
+11. **T = 10 s**: Move forward another 20 meters. Position: (200, -5). The vehicle has now bypassed the obstruction and remains in the adjacent lane.
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, 0)
+- **T = 4 s**: (80, 0)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -5)
+- **T = 7 s**: (140, -5)
+- **T = 8 s**: (160, -5)
+- **T = 9 s**: (180, -5)
+- **T = 10 s**: (200, -5)
+
+This plan ensures the vehicle maintains a speed above 60 km/h and successfully navigates around the obstruction by transitioning to the adjacent lane at the appropriate time.
