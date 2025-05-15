@@ -1,0 +1,93 @@
+To plan the route and estimate the vehicle's position at critical intervals, we need to consider the following steps:
+
+1. **Initial Conditions:**
+   - Starting position: (0.0, 0)
+   - Initial velocity: 72.0 km/h (20 m/s)
+   - Obstruction position: (100, 0)
+   - Adjacent lane Y-coordinate: Y = -5
+   - Speed must exceed 60 km/h (16.67 m/s) throughout
+
+2. **Assumptions:**
+   - The vehicle maintains a constant speed of 72.0 km/h (20 m/s) throughout the maneuver.
+   - The lane change is smooth and takes a certain amount of time.
+   - The vehicle transitions to the adjacent lane, bypasses the obstruction, and then returns to the original lane.
+
+3. **Lane Change Timing:**
+   - Let¡¯s assume the lane change takes 2 seconds in total (1 second to move to the adjacent lane and 1 second to return to the original lane).
+   - The vehicle will start the lane change at T = 4 seconds and complete it by T = 6 seconds.
+
+4. **Position Estimation:**
+   - The vehicle¡¯s position along the X-axis (distance traveled) can be calculated as \( X(t) = v \times t \), where \( v = 20 \) m/s.
+   - The vehicle¡¯s position along the Y-axis (lateral positioning) changes during the lane transition.
+
+Let¡¯s calculate the positions at 1-second intervals from T = 0 to T = 10 seconds:
+
+- **T = 0 s:**
+  - \( X(0) = 20 \times 0 = 0 \) m
+  - \( Y(0) = 0 \)
+  - Position: (0, 0)
+
+- **T = 1 s:**
+  - \( X(1) = 20 \times 1 = 20 \) m
+  - \( Y(1) = 0 \)
+  - Position: (20, 0)
+
+- **T = 2 s:**
+  - \( X(2) = 20 \times 2 = 40 \) m
+  - \( Y(2) = 0 \)
+  - Position: (40, 0)
+
+- **T = 3 s:**
+  - \( X(3) = 20 \times 3 = 60 \) m
+  - \( Y(3) = 0 \)
+  - Position: (60, 0)
+
+- **T = 4 s:**
+  - \( X(4) = 20 \times 4 = 80 \) m
+  - \( Y(4) = -2.5 \) (starting lane change)
+  - Position: (80, -2.5)
+
+- **T = 5 s:**
+  - \( X(5) = 20 \times 5 = 100 \) m
+  - \( Y(5) = -5 \) (fully in adjacent lane)
+  - Position: (100, -5)
+
+- **T = 6 s:**
+  - \( X(6) = 20 \times 6 = 120 \) m
+  - \( Y(6) = -2.5 \) (starting to return to original lane)
+  - Position: (120, -2.5)
+
+- **T = 7 s:**
+  - \( X(7) = 20 \times 7 = 140 \) m
+  - \( Y(7) = 0 \) (back in original lane)
+  - Position: (140, 0)
+
+- **T = 8 s:**
+  - \( X(8) = 20 \times 8 = 160 \) m
+  - \( Y(8) = 0 \)
+  - Position: (160, 0)
+
+- **T = 9 s:**
+  - \( X(9) = 20 \times 9 = 180 \) m
+  - \( Y(9) = 0 \)
+  - Position: (180, 0)
+
+- **T = 10 s:**
+  - \( X(10) = 20 \times 10 = 200 \) m
+  - \( Y(10) = 0 \)
+  - Position: (200, 0)
+
+### Summary of Positions:
+- T = 0 s: (0, 0)
+- T = 1 s: (20, 0)
+- T = 2 s: (40, 0)
+- T = 3 s: (60, 0)
+- T = 4 s: (80, -2.5)
+- T = 5 s: (100, -5)
+- T = 6 s: (120, -2.5)
+- T = 7 s: (140, 0)
+- T = 8 s: (160, 0)
+- T = 9 s: (180, 0)
+- T = 10 s: (200, 0)
+
+This route ensures that the vehicle bypasses the obstruction at X = 100 m by transitioning to the adjacent lane and then returns to the original lane while maintaining a speed above 60 km/h.

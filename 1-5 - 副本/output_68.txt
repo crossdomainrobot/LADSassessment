@@ -1,0 +1,65 @@
+To plan the route for navigating around the obstruction, we¡¯ll break down the vehicle¡¯s motion into critical intervals. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Parameters**
+1. **Initial Position**: (X, Y) = (0.0, 0)
+2. **Obstruction Position**: (100, 0)
+3. **Adjacent Lane Position**: Y = -5
+4. **Initial Velocity**: 72.0 km/h = 20 m/s
+5. **Minimum Speed Constraint**: > 60 km/h = 16.67 m/s
+
+---
+
+### **Assumptions**
+1. The vehicle transitions smoothly between lanes.
+2. The lane change takes approximately 2 seconds (1 second to move laterally and 1 second to stabilize).
+3. The vehicle maintains a constant speed of 20 m/s during the maneuver.
+
+---
+
+### **Route Plan**
+#### **Phase 1: Lane Change to Adjacent Lane (T = 0 to T = 2)**
+- At T = 0: (0, 0)
+- At T = 1: (20, -2.5) (midway through lane change)
+- At T = 2: (40, -5) (fully in adjacent lane)
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6)**
+- At T = 3: (60, -5)
+- At T = 4: (80, -5)
+- At T = 5: (100, -5) (bypassing the obstruction)
+- At T = 6: (120, -5)
+
+#### **Phase 3: Lane Change Back to Original Lane (T = 6 to T = 8)**
+- At T = 7: (140, -2.5) (midway through lane change)
+- At T = 8: (160, 0) (fully back in original lane)
+
+#### **Phase 4: Continuing in Original Lane (T = 8 to T = 10)**
+- At T = 9: (180, 0)
+- At T = 10: (200, 0)
+
+---
+
+### **Summary of Positions at Critical Intervals**
+| Time (s) | Position (X, Y)     |
+|----------|---------------------|
+| T = 0    | (0, 0)             |
+| T = 1    | (20, -2.5)         |
+| T = 2    | (40, -5)           |
+| T = 3    | (60, -5)           |
+| T = 4    | (80, -5)           |
+| T = 5    | (100, -5)          |
+| T = 6    | (120, -5)          |
+| T = 7    | (140, -2.5)        |
+| T = 8    | (160, 0)           |
+| T = 9    | (180, 0)           |
+| T = 10   | (200, 0)           |
+
+---
+
+### **Explanation**
+1. The lane change is modeled as a gradual lateral movement over 2 seconds.
+2. The vehicle bypasses the obstruction while maintaining a constant speed of 20 m/s.
+3. The minimum speed constraint (> 16.67 m/s) is satisfied throughout the maneuver.
+
+This plan ensures a smooth and safe transition around the obstruction.

@@ -1,0 +1,50 @@
+To plan the route, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Transition (from Y = 0 to Y = -5)**: Move from the outer lane to the adjacent lane.
+2. **Bypassing the Obstruction (X = 100)**: Stay in the adjacent lane while passing the obstruction.
+3. **Return to Original Lane (from Y = -5 to Y = 0)**: Move back to the outer lane.
+
+### Assumptions:
+- Initial velocity: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \).
+- Maintain speed above \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \).
+- Obstruction is at \( X = 100 \, \text{m} \).
+- Lane width: \( Y = -5 \, \text{m} \) (adjacent lane).
+
+### Phase 1: Lane Transition (T = 0 to T = 2 seconds)
+- Duration: 2 seconds (assume smooth lateral movement).
+- Lateral movement: From \( Y = 0 \) to \( Y = -5 \) at a constant rate.
+- Longitudinal movement: \( X = v \cdot T = 20 \, \text{m/s} \cdot T \).
+
+### Phase 2: Bypassing the Obstruction (T = 2 to T = 8 seconds)
+- Duration: 6 seconds (to ensure the obstruction is fully bypassed).
+- Lateral position: \( Y = -5 \) (remain in the adjacent lane).
+- Longitudinal movement: \( X = v \cdot T = 20 \, \text{m/s} \cdot T \).
+
+### Phase 3: Return to Original Lane (T = 8 to T = 10 seconds)
+- Duration: 2 seconds (smooth lateral movement back).
+- Lateral movement: From \( Y = -5 \) to \( Y = 0 \) at a constant rate.
+- Longitudinal movement: \( X = v \cdot T = 20 \, \text{m/s} \cdot T \).
+
+### Route Planning:
+Here¡¯s the vehicle¡¯s position at critical intervals:
+
+| Time (T) | X (m)       | Y (m)       | Phase                     |
+|----------|-------------|-------------|---------------------------|
+| 0        | 0           | 0           | Start                     |
+| 1        | 20          | -2.5        | Transitioning to adjacent lane |
+| 2        | 40          | -5          | Fully in adjacent lane    |
+| 3        | 60          | -5          | Bypassing obstruction     |
+| 4        | 80          | -5          | Bypassing obstruction     |
+| 5        | 100         | -5          | Passing obstruction       |
+| 6        | 120         | -5          | Bypassing obstruction     |
+| 7        | 140         | -5          | Bypassing obstruction     |
+| 8        | 160         | -5          | Preparing to return       |
+| 9        | 180         | -2.5        | Transitioning back        |
+| 10       | 200         | 0           | Fully in original lane    |
+
+### Key Points:
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout.
+- The obstruction is bypassed safely by staying in the adjacent lane from \( T = 2 \) to \( T = 8 \).
+- The maneuver is completed in 10 seconds.
+
+Let me know if you need further refinements!

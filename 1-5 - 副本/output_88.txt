@@ -1,0 +1,44 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals over the next 10 seconds. We'll calculate the vehicle's position (X, Y) at each second, ensuring the speed remains above 60 km/h and the lane transitions are smooth.
+
+### Given:
+- **Initial Position**: (0.0, 0)
+- **Obstruction Position**: (100, 0)
+- **Adjacent Lane Y-coordinate**: Y = -5
+- **Initial Velocity**: 72.0 km/h (20 m/s)
+- **Minimum Speed**: 60 km/h (16.67 m/s)
+
+### Assumptions:
+- The vehicle maintains a constant speed of 72.0 km/h (20 m/s) throughout the maneuver.
+- The lane change is instantaneous at the specified times.
+
+### Steps:
+1. **Calculate the distance traveled each second**:  
+   Distance per second = Speed ¡Á Time = 20 m/s ¡Á 1 s = 20 meters.
+
+2. **Plan the lane transitions**:
+   - **Time T = 0 to T = 3 seconds**: Stay in the outer lane (Y = 0).
+   - **Time T = 3 to T = 7 seconds**: Transition to the adjacent lane (Y = -5).
+   - **Time T = 7 to T = 10 seconds**: Return to the outer lane (Y = 0).
+
+3. **Calculate positions at each second**:
+
+   | Time (s) | X-coordinate (m) | Y-coordinate (m) | Position (X, Y)     |
+   |----------|------------------|------------------|---------------------|
+   | 0        | 0                | 0                | (0, 0)              |
+   | 1        | 20               | 0                | (20, 0)             |
+   | 2        | 40               | 0                | (40, 0)             |
+   | 3        | 60               | 0                | (60, 0)             |
+   | 4        | 80               | -5               | (80, -5)            |
+   | 5        | 100              | -5               | (100, -5)           |
+   | 6        | 120              | -5               | (120, -5)           |
+   | 7        | 140              | -5               | (140, -5)           |
+   | 8        | 160              | 0                | (160, 0)            |
+   | 9        | 180              | 0                | (180, 0)            |
+   | 10       | 200              | 0                | (200, 0)            |
+
+### Explanation:
+- **T = 0 to T = 3 seconds**: The vehicle travels in the outer lane (Y = 0), moving 20 meters each second.
+- **T = 3 to T = 7 seconds**: The vehicle transitions to the adjacent lane (Y = -5) and continues to move forward at 20 meters per second.
+- **T = 7 to T = 10 seconds**: The vehicle returns to the outer lane (Y = 0) and continues to move forward at 20 meters per second.
+
+This plan ensures the vehicle bypasses the obstruction at X = 100 meters while maintaining a speed above 60 km/h and completes the lane transitions within 10 seconds.

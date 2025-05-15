@@ -1,0 +1,63 @@
+To plan the route for navigating around the obstruction, we need to model the vehicle's position over time, considering its speed and the lane transitions. Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Initial Conditions**
+1. **Initial Position**: (X, Y) = (0.0, 0)  
+2. **Obstruction Position**: (100, 0)  
+3. **Adjacent Lane Y-Coordinate**: Y = -5  
+4. **Initial Speed**: 72.0 km/h = 20 m/s  
+5. **Speed Constraint**: Must exceed 60 km/h = 16.67 m/s  
+6. **Time Interval**: T = 0 to T = 10 seconds  
+
+---
+
+### **Route Planning**
+#### **Step 1: Lane Transition (T = 0 to T = 3 seconds)**
+- **Objective**: Move from the outer lane (Y = 0) to the adjacent lane (Y = -5).  
+- **Assumption**: The lane change takes 3 seconds (smooth transition).  
+- **Lateral Movement**: Y decreases linearly from 0 to -5 over 3 seconds.  
+- **Longitudinal Movement**: X increases at 20 m/s.  
+
+#### **Step 2: Bypassing the Obstruction (T = 3 to T = 7 seconds)**
+- **Objective**: Stay in the adjacent lane (Y = -5) while bypassing the obstruction at X = 100.  
+- **Longitudinal Movement**: X increases at 20 m/s.  
+
+#### **Step 3: Lane Transition Back (T = 7 to T = 10 seconds)**
+- **Objective**: Return from the adjacent lane (Y = -5) to the outer lane (Y = 0).  
+- **Assumption**: The lane change takes 3 seconds (smooth transition).  
+- **Lateral Movement**: Y increases linearly from -5 to 0 over 3 seconds.  
+- **Longitudinal Movement**: X increases at 20 m/s.  
+
+---
+
+### **Position Estimates at Critical Intervals**
+Here are the estimated positions (X, Y) at each second:
+
+| **Time (T)** | **X (m)**         | **Y (m)** |
+|--------------|-------------------|-----------|
+| T = 0        | 0.0               | 0         |
+| T = 1        | 20.0              | -1.67     |
+| T = 2        | 40.0              | -3.33     |
+| T = 3        | 60.0              | -5        |
+| T = 4        | 80.0              | -5        |
+| T = 5        | 100.0             | -5        |
+| T = 6        | 120.0             | -5        |
+| T = 7        | 140.0             | -5        |
+| T = 8        | 160.0             | -3.33     |
+| T = 9        | 180.0             | -1.67     |
+| T = 10       | 200.0             | 0         |
+
+---
+
+### **Explanation**
+1. **Lane Transition (T = 0 to T = 3)**: The vehicle moves laterally to Y = -5 while traveling forward at 20 m/s.  
+2. **Bypassing Obstruction (T = 3 to T = 7)**: The vehicle stays in the adjacent lane (Y = -5) and bypasses the obstruction at X = 100.  
+3. **Lane Transition Back (T = 7 to T = 10)**: The vehicle returns to the outer lane (Y = 0) while continuing to move forward at 20 m/s.  
+
+---
+
+### **Speed Constraint**
+The vehicle's speed remains at 20 m/s (72 km/h) throughout, which exceeds the minimum requirement of 16.67 m/s (60 km/h).  
+
+This plan ensures a smooth and safe navigation around the obstruction.

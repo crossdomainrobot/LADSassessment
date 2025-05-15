@@ -1,0 +1,91 @@
+Alright, let's tackle this problem systematically. I'm trying to plan a route for my vehicle to navigate around an unexpected obstacle on the road. Here's how I'm approaching it:
+
+### Understanding the Scenario
+
+1. **Road Layout**: There are two parallel lanes. I'm currently in the outer lane, which we'll consider as the starting point with coordinates (0, 0).
+   
+2. **Obstacle Position**: There's an obstacle directly in my path at (100, 0). This means it's 100 meters ahead in the same lane I'm currently in.
+
+3. **Adjacent Lane**: The adjacent lane is at Y = -5. To bypass the obstacle, I need to transition to this lane, go past the obstacle, and then return to my original lane.
+
+4. **Vehicle Speed**: My initial speed is 72.0 km/h, and I must maintain a speed exceeding 60 km/h throughout the maneuver.
+
+### Converting Speed to Meters per Second
+
+First, it's easier to work with speed in meters per second (m/s) since our distances are in meters.
+
+- **Initial Speed**: 72.0 km/h = 72,000 meters / 3,600 seconds = 20 m/s
+- **Minimum Speed**: 60 km/h = 60,000 meters / 3,600 seconds ¡Ö 16.67 m/s
+
+### Planning the Lane Change
+
+To avoid the obstacle, I need to:
+
+1. **Change to the Adjacent Lane**: Move from Y = 0 to Y = -5.
+2. **Bypass the Obstacle**: Ensure that at X = 100, I'm in the adjacent lane.
+3. **Return to the Original Lane**: Move back from Y = -5 to Y = 0.
+
+### Estimating Positions Over Time
+
+We'll estimate the vehicle's position at each second (T = 1, 2, 3, ..., 10) while ensuring the speed remains above 16.67 m/s.
+
+#### Assumptions:
+
+- **Lane Change Duration**: Let's assume it takes 2 seconds to change lanes (both to the adjacent lane and back).
+  
+- **Constant Speed During Lane Change**: For simplicity, I'll assume the speed remains at 20 m/s during lane changes.
+
+#### Calculations:
+
+1. **From T = 0 to T = 2**: Changing to the adjacent lane.
+   - **X-coordinate**: Since speed is 20 m/s, in 2 seconds, the vehicle moves 40 meters.
+     - At T = 1: X = 20, Y = 0 (starting lane change)
+     - At T = 2: X = 40, Y = -5 (completed lane change)
+   
+2. **From T = 2 to T = 6**: Driving in the adjacent lane.
+   - **X-coordinate**: At 20 m/s, from T = 2 to T = 6 is 4 seconds, so 80 meters.
+     - At T = 3: X = 60, Y = -5
+     - At T = 4: X = 80, Y = -5
+     - At T = 5: X = 100, Y = -5 (bypassing the obstacle)
+     - At T = 6: X = 120, Y = -5
+
+3. **From T = 6 to T = 8**: Changing back to the original lane.
+   - **X-coordinate**: At 20 m/s, from T = 6 to T = 8 is 2 seconds, so 40 meters.
+     - At T = 7: X = 140, Y = -5 (starting lane change)
+     - At T = 8: X = 160, Y = 0 (completed lane change)
+   
+4. **From T = 8 to T = 10**: Continuing in the original lane.
+   - **X-coordinate**: At 20 m/s, from T = 8 to T = 10 is 2 seconds, so 40 meters.
+     - At T = 9: X = 180, Y = 0
+     - At T = 10: X = 200, Y = 0
+
+### Verifying Speed
+
+Throughout the maneuver, the speed was maintained at 20 m/s, which is above the required minimum of 16.67 m/s.
+
+### Summary of Positions
+
+Here's a table summarizing the vehicle's position at each second:
+
+| Time (T) | X-coordinate | Y-coordinate |
+|----------|--------------|--------------|
+| 0        | 0            | 0            |
+| 1        | 20           | 0            |
+| 2        | 40           | -5           |
+| 3        | 60           | -5           |
+| 4        | 80           | -5           |
+| 5        | 100          | -5           |
+| 6        | 120          | -5           |
+| 7        | 140          | -5           |
+| 8        | 160          | 0            |
+| 9        | 180          | 0            |
+| 10       | 200          | 0            |
+
+### Final Route Plan
+
+- **T = 0 to T = 2**: Transition from outer lane to adjacent lane.
+- **T = 2 to T = 6**: Drive in the adjacent lane, bypassing the obstacle at X = 100.
+- **T = 6 to T = 8**: Transition back to the outer lane.
+- **T = 8 to T = 10**: Continue driving in the outer lane.
+
+This plan ensures that the vehicle successfully navigates around the obstacle while maintaining the required speed.

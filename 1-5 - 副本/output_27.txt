@@ -1,0 +1,61 @@
+To plan the route and estimate the vehicle¡¯s position at critical intervals, we can break the maneuver into three phases:
+
+1. **Transition to the adjacent lane (Y = -5)**  
+2. **Bypass the obstruction (X = 100)**  
+3. **Return to the original lane (Y = 0)**
+
+### Assumptions:
+- Initial velocity: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Smooth lane transitions with constant acceleration/deceleration.  
+
+---
+
+### Phase 1: Transition to the Adjacent Lane (Y = -5)
+- Assume the lane change takes **2 seconds**.  
+- Lateral speed: \( v_y = \frac{-5 \, \text{m}}{2 \, \text{s}} = -2.5 \, \text{m/s} \)  
+- During this phase, the vehicle continues moving forward at \( 20 \, \text{m/s} \).  
+
+**Positions:**
+- \( T = 0 \, \text{s} \): \( (0, 0) \)  
+- \( T = 1 \, \text{s} \): \( (20, -2.5) \)  
+- \( T = 2 \, \text{s} \): \( (40, -5) \)  
+
+---
+
+### Phase 2: Bypass the Obstruction (X = 100)
+- The vehicle remains in the adjacent lane (Y = -5) while bypassing the obstruction.  
+- The vehicle travels from \( X = 40 \, \text{m} \) to \( X = 100 \, \text{m} \) at \( 20 \, \text{m/s} \).  
+- Time taken: \( \frac{100 - 40}{20} = 3 \, \text{s} \).  
+
+**Positions:**
+- \( T = 3 \, \text{s} \): \( (60, -5) \)  
+- \( T = 4 \, \text{s} \): \( (80, -5) \)  
+- \( T = 5 \, \text{s} \): \( (100, -5) \)  
+
+---
+
+### Phase 3: Return to the Original Lane (Y = 0)
+- Assume the lane change takes **2 seconds**.  
+- Lateral speed: \( v_y = \frac{5 \, \text{m}}{2 \, \text{s}} = 2.5 \, \text{m/s} \)  
+- During this phase, the vehicle continues moving forward at \( 20 \, \text{m/s} \).  
+
+**Positions:**
+- \( T = 6 \, \text{s} \): \( (120, -2.5) \)  
+- \( T = 7 \, \text{s} \): \( (140, 0) \)  
+
+---
+
+### Summary of Positions:
+- \( T = 0 \, \text{s} \): \( (0, 0) \)  
+- \( T = 1 \, \text{s} \): \( (20, -2.5) \)  
+- \( T = 2 \, \text{s} \): \( (40, -5) \)  
+- \( T = 3 \, \text{s} \): \( (60, -5) \)  
+- \( T = 4 \, \text{s} \): \( (80, -5) \)  
+- \( T = 5 \, \text{s} \): \( (100, -5) \)  
+- \( T = 6 \, \text{s} \): \( (120, -2.5) \)  
+- \( T = 7 \, \text{s} \): \( (140, 0) \)  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above \( 60 \, \text{km/h} \).

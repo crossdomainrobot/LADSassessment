@@ -1,0 +1,71 @@
+To plan the route and estimate the vehicle¡¯s position at critical intervals, we¡¯ll break the task into phases:  
+1. **Lane Transition (Outer Lane to Adjacent Lane)**  
+2. **Bypassing the Obstruction**  
+3. **Lane Transition (Adjacent Lane Back to Outer Lane)**  
+
+### Assumptions:
+- **Initial Velocity**: 72.0 km/h = **20 m/s**  
+- **Minimum Speed**: 60 km/h = **16.67 m/s**  
+- **Lane Width**: 5 meters (Y = -5 for the adjacent lane)  
+- **Obstruction Position**: (100, 0)  
+- **Time Interval**: 1 second (T = 0, 1, 2, ..., 10)  
+
+### Strategy:
+1. **Lane Transition**: Move from (0, 0) to (X, -5) over 3 seconds.  
+2. **Bypass Obstruction**: Stay in the adjacent lane (Y = -5) until X > 100.  
+3. **Return to Original Lane**: Move from (X, -5) back to (X, 0) over 3 seconds.  
+
+### Position Estimates:
+
+#### Phase 1: Lane Transition (T = 0 to T = 3)
+- **Lateral Movement**: Smooth transition from Y = 0 to Y = -5 over 3 seconds.  
+- **Longitudinal Movement**: Constant speed of 20 m/s.  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 0     | 0     | 0     |  
+| 1     | 20    | -1.67 |  
+| 2     | 40    | -3.33 |  
+| 3     | 60    | -5    |  
+
+#### Phase 2: Bypass Obstruction (T = 4 to T = 7)
+- **Lateral Position**: Stay at Y = -5.  
+- **Longitudinal Movement**: Constant speed of 20 m/s.  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 4     | 80    | -5    |  
+| 5     | 100   | -5    |  
+| 6     | 120   | -5    |  
+| 7     | 140   | -5    |  
+
+#### Phase 3: Return to Original Lane (T = 8 to T = 10)
+- **Lateral Movement**: Smooth transition from Y = -5 to Y = 0 over 3 seconds.  
+- **Longitudinal Movement**: Constant speed of 20 m/s.  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 8     | 160   | -3.33 |  
+| 9     | 180   | -1.67 |  
+| 10    | 200   | 0     |  
+
+### Summary:
+- The vehicle transitions to the adjacent lane by T = 3.  
+- It bypasses the obstruction at T = 5 (X = 100) while staying in the adjacent lane.  
+- It returns to the original lane by T = 10.  
+- Speed remains above 60 km/h throughout.  
+
+### Final Positions:
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 0     | 0     | 0     |  
+| 1     | 20    | -1.67 |  
+| 2     | 40    | -3.33 |  
+| 3     | 60    | -5    |  
+| 4     | 80    | -5    |  
+| 5     | 100   | -5    |  
+| 6     | 120   | -5    |  
+| 7     | 140   | -5    |  
+| 8     | 160   | -3.33 |  
+| 9     | 180   | -1.67 |  
+| 10    | 200   | 0     |

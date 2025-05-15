@@ -1,0 +1,66 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the maneuver into key phases: **lane change to the adjacent lane**, **bypassing the obstruction**, and **lane change back to the original lane**. We¡¯ll estimate the vehicle¡¯s position at 1-second intervals, ensuring the speed remains above 60 km/h (16.67 m/s) throughout.
+
+---
+
+### **Given:**
+- **Starting position**: (X, Y) = (0, 0)
+- **Obstruction position**: (X, Y) = (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72 km/h = 20 m/s
+- **Minimum speed**: 60 km/h = 16.67 m/s (for safety, assume constant speed of 20 m/s)
+- **Time interval**: 1-second increments for 10 seconds
+
+---
+
+### **Assumptions:**
+1. **Lane change duration**: 3 seconds (smooth transition to adjacent lane and back).
+2. **Bypassing the obstruction**: The vehicle must stay in the adjacent lane (Y = -5) while X is near 100 m.
+3. **Speed**: Constant at 20 m/s (no acceleration or deceleration).
+
+---
+
+### **Route Plan:**
+
+#### **Phase 1: Lane Change to Adjacent Lane (T = 0 to 3 seconds)**
+- At T = 0: (X, Y) = (0, 0)
+- At T = 1: (X, Y) = (20, -1.67)  // Moving toward adjacent lane
+- At T = 2: (X, Y) = (40, -3.33)  // Continuing lane change
+- At T = 3: (X, Y) = (60, -5)    // Fully in adjacent lane
+
+#### **Phase 2: Bypassing the Obstruction (T = 3 to 7 seconds)**
+- At T = 4: (X, Y) = (80, -5)    // Approaching obstruction
+- At T = 5: (X, Y) = (100, -5)   // Passing obstruction
+- At T = 6: (X, Y) = (120, -5)   // Clear of obstruction
+- At T = 7: (X, Y) = (140, -5)   // Still in adjacent lane
+
+#### **Phase 3: Lane Change Back to Original Lane (T = 7 to 10 seconds)**
+- At T = 8: (X, Y) = (160, -3.33) // Starting to return to original lane
+- At T = 9: (X, Y) = (180, -1.67) // Continuing lane change
+- At T = 10: (X, Y) = (200, 0)   // Fully back in original lane
+
+---
+
+### **Summary of Positions:**
+
+| Time (s) | X (m) | Y (m)       |
+|----------|-------|-------------|
+| 0        | 0     | 0           |
+| 1        | 20    | -1.67       |
+| 2        | 40    | -3.33       |
+| 3        | 60    | -5          |
+| 4        | 80    | -5          |
+| 5        | 100   | -5          |
+| 6        | 120   | -5          |
+| 7        | 140   | -5          |
+| 8        | 160   | -3.33       |
+| 9        | 180   | -1.67       |
+| 10       | 200   | 0           |
+
+---
+
+### **Key Points:**
+1. The lane change is smooth, taking 3 seconds to transition fully to the adjacent lane and another 3 seconds to return to the original lane.
+2. The vehicle remains in the adjacent lane (Y = -5) from T = 3 to T = 7 to bypass the obstruction.
+3. The speed is maintained at 20 m/s (72 km/h) throughout the maneuver, ensuring compliance with the minimum speed requirement.
+
+This plan ensures safe and efficient navigation around the obstruction.

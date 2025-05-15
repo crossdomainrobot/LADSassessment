@@ -1,0 +1,66 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we'll break the process into phases: transitioning to the adjacent lane, bypassing the obstruction, and transitioning back to the original lane. We'll estimate the vehicle's position at 1-second intervals.
+
+---
+
+### **Given Data**
+- Initial position: \( (X, Y) = (0, 0) \)
+- Obstruction: \( (100, 0) \)
+- Adjacent lane: \( Y = -5 \)
+- Initial velocity: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)
+- Speed constraint: \( > 60 \, \text{km/h} \) (\( \approx 16.67 \, \text{m/s} \))
+
+---
+
+### **Assumptions**
+1. The lane transition takes **2 seconds** (smooth lateral movement).
+2. The bypassing phase takes **3 seconds** (traveling past the obstruction in the adjacent lane).
+3. The return transition takes **2 seconds** (smooth lateral movement back to the original lane).
+4. The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) throughout.
+
+---
+
+### **Route Plan**
+We¡¯ll calculate the vehicle¡¯s position at \( T = 0, 1, 2, \dots, 10 \) seconds.
+
+#### **Phase 1: Transition to Adjacent Lane (T = 0 to T = 2)**
+- Lateral movement: From \( Y = 0 \) to \( Y = -5 \) over 2 seconds.
+- \( Y \) changes linearly: \( Y = -2.5 \times T \).
+- \( X \) increases linearly: \( X = 20 \times T \).
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 5)**
+- Lateral position: \( Y = -5 \) (constant).
+- \( X \) increases linearly: \( X = 20 \times T \).
+
+#### **Phase 3: Transition Back to Original Lane (T = 5 to T = 7)**
+- Lateral movement: From \( Y = -5 \) to \( Y = 0 \) over 2 seconds.
+- \( Y \) changes linearly: \( Y = -5 + 2.5 \times (T - 5) \).
+- \( X \) increases linearly: \( X = 20 \times T \).
+
+#### **Phase 4: Continue in Original Lane (T = 7 to T = 10)**
+- Lateral position: \( Y = 0 \) (constant).
+- \( X \) increases linearly: \( X = 20 \times T \).
+
+---
+
+### **Position Estimates**
+| Time (s) | \( X \) (m) | \( Y \) (m) | Description                             |
+|----------|-------------|-------------|-----------------------------------------|
+| 0        | 0           | 0           | Starting position                       |
+| 1        | 20          | -2.5        | Transitioning to adjacent lane          |
+| 2        | 40          | -5          | Fully in adjacent lane                  |
+| 3        | 60          | -5          | Bypassing obstruction                   |
+| 4        | 80          | -5          | Bypassing obstruction                   |
+| 5        | 100         | -5          | Obstruction bypassed                    |
+| 6        | 120         | -2.5        | Transitioning back to original lane     |
+| 7        | 140         | 0           | Fully back in original lane             |
+| 8        | 160         | 0           | Continuing in original lane             |
+| 9        | 180         | 0           | Continuing in original lane             |
+| 10       | 200         | 0           | Continuing in original lane             |
+
+---
+
+### **Summary**
+- The vehicle transitions to the adjacent lane by \( T = 2 \) seconds.
+- It bypasses the obstruction at \( T = 5 \) seconds.
+- It transitions back to the original lane by \( T = 7 \) seconds.
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) (\( 72 \, \text{km/h} \)) throughout, satisfying the speed constraint.

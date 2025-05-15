@@ -1,0 +1,75 @@
+To plan the route for navigating around the obstruction, we need to calculate the vehicle's position at critical intervals. Here's a step-by-step breakdown:
+
+### Initial Conditions:
+- **Starting Position:** (0.0, 0)
+- **Obstruction Position:** (100, 0)
+- **Adjacent Lane Y-coordinate:** -5
+- **Initial Velocity:** 72.0 km/h (20 m/s)
+- **Minimum Speed:** 60 km/h (16.67 m/s)
+
+### Assumptions:
+- The vehicle maintains a constant speed of 72.0 km/h (20 m/s) throughout the maneuver.
+- The lane change is instantaneous at the moment of transition.
+
+### Critical Intervals:
+We will calculate the vehicle's position every second for the next 10 seconds.
+
+### Calculations:
+1. **At T = 0s:**
+   - Position: (0.0, 0)
+
+2. **At T = 1s:**
+   - Distance traveled: 20 m/s * 1s = 20 m
+   - Position: (20, 0)
+
+3. **At T = 2s:**
+   - Distance traveled: 20 m/s * 2s = 40 m
+   - Position: (40, 0)
+
+4. **At T = 3s:**
+   - Distance traveled: 20 m/s * 3s = 60 m
+   - Position: (60, 0)
+
+5. **At T = 4s:**
+   - Distance traveled: 20 m/s * 4s = 80 m
+   - Position: (80, 0)
+
+6. **At T = 5s:**
+   - Distance traveled: 20 m/s * 5s = 100 m
+   - Position: (100, -5)  (Lane change to bypass obstruction)
+
+7. **At T = 6s:**
+   - Distance traveled: 20 m/s * 6s = 120 m
+   - Position: (120, -5)
+
+8. **At T = 7s:**
+   - Distance traveled: 20 m/s * 7s = 140 m
+   - Position: (140, -5)
+
+9. **At T = 8s:**
+   - Distance traveled: 20 m/s * 8s = 160 m
+   - Position: (160, -5)
+
+10. **At T = 9s:**
+    - Distance traveled: 20 m/s * 9s = 180 m
+    - Position: (180, -5)
+
+11. **At T = 10s:**
+    - Distance traveled: 20 m/s * 10s = 200 m
+    - Position: (200, 0)  (Return to original lane)
+
+### Summary of Positions:
+- **T = 0s:** (0.0, 0)
+- **T = 1s:** (20, 0)
+- **T = 2s:** (40, 0)
+- **T = 3s:** (60, 0)
+- **T = 4s:** (80, 0)
+- **T = 5s:** (100, -5)
+- **T = 6s:** (120, -5)
+- **T = 7s:** (140, -5)
+- **T = 8s:** (160, -5)
+- **T = 9s:** (180, -5)
+- **T = 10s:** (200, 0)
+
+### Conclusion:
+By following this route plan, the vehicle successfully navigates around the obstruction at X = 100 meters by transitioning to the adjacent lane at T = 5s and returning to the original lane at T = 10s, all while maintaining a speed above 60 km/h.

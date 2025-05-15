@@ -1,0 +1,46 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the process into key phases:
+
+1. **Initial Phase (T = 0 to T = 3 seconds): Transition to the adjacent lane (Y = -5).**
+2. **Bypass Phase (T = 3 to T = 7 seconds): Maintain the adjacent lane while passing the obstruction at X = 100.**
+3. **Return Phase (T = 7 to T = 10 seconds): Transition back to the original lane (Y = 0).**
+
+### Assumptions:
+- Initial speed: 72 km/h = 20 m/s.
+- Lane width: 5 meters (Y = -5 for the adjacent lane).
+- Obstruction is at X = 100 meters.
+- Smooth lane transitions take approximately 3 seconds each.
+- Speed remains constant at 20 m/s (72 km/h) throughout.
+
+### Route Plan:
+
+#### 1. **Initial Phase (T = 0 to T = 3 seconds):**
+   - **T = 0 seconds:** Starting position: (0, 0).
+   - **T = 1 second:** Move linearly toward the adjacent lane. Position: (20, -1.67).
+   - **T = 2 seconds:** Continue transitioning. Position: (40, -3.33).
+   - **T = 3 seconds:** Fully in the adjacent lane. Position: (60, -5).
+
+#### 2. **Bypass Phase (T = 3 to T = 7 seconds):**
+   - **T = 4 seconds:** Continue in the adjacent lane. Position: (80, -5).
+   - **T = 5 seconds:** Pass the obstruction. Position: (100, -5).
+   - **T = 6 seconds:** Continue in the adjacent lane. Position: (120, -5).
+   - **T = 7 seconds:** Prepare to return to the original lane. Position: (140, -5).
+
+#### 3. **Return Phase (T = 7 to T = 10 seconds):**
+   - **T = 8 seconds:** Begin transitioning back. Position: (160, -3.33).
+   - **T = 9 seconds:** Continue transitioning. Position: (180, -1.67).
+   - **T = 10 seconds:** Fully back in the original lane. Position: (200, 0).
+
+### Summary of Positions:
+- **T = 0 seconds:** (0, 0)
+- **T = 1 second:** (20, -1.67)
+- **T = 2 seconds:** (40, -3.33)
+- **T = 3 seconds:** (60, -5)
+- **T = 4 seconds:** (80, -5)
+- **T = 5 seconds:** (100, -5)
+- **T = 6 seconds:** (120, -5)
+- **T = 7 seconds:** (140, -5)
+- **T = 8 seconds:** (160, -3.33)
+- **T = 9 seconds:** (180, -1.67)
+- **T = 10 seconds:** (200, 0)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and smoothly transitions between lanes.

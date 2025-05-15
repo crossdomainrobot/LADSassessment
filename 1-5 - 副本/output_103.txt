@@ -1,0 +1,54 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Returning to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: 72.0 km/h = 20 m/s  
+- Minimum speed: 60 km/h = 16.67 m/s  
+- Obstruction is at X = 100 meters.  
+- Lane width: 5 meters (Y = -5 for the adjacent lane).  
+- Lane change duration: 3 seconds (smooth transition).  
+- Bypassing the obstruction: Maintain the adjacent lane until X > 100 meters.  
+- Return to the original lane: Another 3 seconds.  
+
+---
+
+### Step-by-Step Plan:
+
+#### **Phase 1: Lane Change (T = 0 to T = 3 seconds)**  
+- **T = 0 seconds**: Starting position (0, 0).  
+- **T = 1 second**: Move halfway laterally. Position: (20, -2.5).  
+- **T = 2 seconds**: Complete lane change. Position: (40, -5).  
+- **T = 3 seconds**: Maintain lane. Position: (60, -5).  
+
+#### **Phase 2: Bypassing the Obstruction (T = 4 to T = 7 seconds)**  
+- **T = 4 seconds**: Position: (80, -5).  
+- **T = 5 seconds**: Position: (100, -5).  
+- **T = 6 seconds**: Position: (120, -5).  
+- **T = 7 seconds**: Position: (140, -5).  
+
+#### **Phase 3: Return to Original Lane (T = 8 to T = 10 seconds)**  
+- **T = 8 seconds**: Begin returning. Position: (160, -2.5).  
+- **T = 9 seconds**: Complete return. Position: (180, 0).  
+- **T = 10 seconds**: Maintain lane. Position: (200, 0).  
+
+---
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -2.5)      |  
+| 2        | (40, -5)        |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -5)       |  
+| 8        | (160, -2.5)     |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+This plan ensures the obstruction is bypassed safely while maintaining speed above 60 km/h.

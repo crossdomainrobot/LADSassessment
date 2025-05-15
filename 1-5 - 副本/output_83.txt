@@ -1,0 +1,46 @@
+To construct a route planning for navigating around the obstruction, we'll break down the maneuver into three phases:
+
+1. **Lane Change to Adjacent Lane**: Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5).
+2. **Bypass the Obstruction**: Travel in the adjacent lane until the obstruction at X = 100 is bypassed.
+3. **Lane Change Back to Original Lane**: Transition back to the outer lane (Y = 0).
+
+### Assumptions:
+- Initial velocity: 72.0 km/h = 20 m/s.
+- Speed must exceed 60 km/h = 16.67 m/s throughout.
+- Time step: 1 second (for simplicity).
+- Lane change duration: 2 seconds (smooth transition).
+- Distance to obstruction: 100 meters.
+
+### Phase 1: Lane Change to Adjacent Lane (T = 0 to T = 2)
+- **T = 0 s**: Start at (0, 0).
+- **T = 1 s**: Move halfway to the adjacent lane. Position: (20, -2.5).
+- **T = 2 s**: Complete lane change. Position: (40, -5).
+
+### Phase 2: Bypass the Obstruction (T = 2 to T = 6)
+- **T = 2 s**: Start bypassing at (40, -5).
+- **T = 3 s**: Position: (60, -5).
+- **T = 4 s**: Position: (80, -5).
+- **T = 5 s**: Position: (100, -5).
+- **T = 6 s**: Position: (120, -5). (Obstruction bypassed)
+
+### Phase 3: Lane Change Back to Original Lane (T = 6 to T = 8)
+- **T = 6 s**: Start lane change back at (120, -5).
+- **T = 7 s**: Move halfway back to the original lane. Position: (140, -2.5).
+- **T = 8 s**: Complete lane change. Position: (160, 0).
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, -2.5)
+- **T = 2 s**: (40, -5)
+- **T = 3 s**: (60, -5)
+- **T = 4 s**: (80, -5)
+- **T = 5 s**: (100, -5)
+- **T = 6 s**: (120, -5)
+- **T = 7 s**: (140, -2.5)
+- **T = 8 s**: (160, 0)
+
+### Verification:
+- Speed remains at 20 m/s (72 km/h) throughout, which exceeds the minimum requirement of 16.67 m/s (60 km/h).
+- The obstruction is bypassed between T = 4 s and T = 6 s.
+
+This plan ensures a smooth and safe transition around the obstruction while maintaining the required speed.

@@ -1,0 +1,70 @@
+To plan the route for navigating around the obstruction, we'll break down the maneuver into key steps and calculate the vehicle's position at 1-second intervals. Here's the plan:
+
+---
+
+### **Given:**
+1. **Starting Position:** (X, Y) = (0, 0)  
+2. **Obstruction Position:** (100, 0)  
+3. **Adjacent Lane Position:** Y = -5  
+4. **Initial Velocity:** 72.0 km/h = 20 m/s  
+5. **Minimum Speed:** > 60 km/h = 16.67 m/s  
+
+---
+
+### **Assumptions:**
+1. The vehicle maintains a constant speed of 20 m/s throughout the maneuver.  
+2. Lane changes are executed smoothly and take 2 seconds each (transition time).  
+3. The vehicle remains in the adjacent lane until it has completely bypassed the obstruction.  
+
+---
+
+### **Steps:**
+1. **Move to the adjacent lane:** Transition from Y = 0 to Y = -5 over 2 seconds.  
+2. **Bypass the obstruction:** Stay in the adjacent lane (Y = -5) until X > 100.  
+3. **Return to the original lane:** Transition from Y = -5 to Y = 0 over 2 seconds.  
+
+---
+
+### **Position Calculations:**
+At each second, calculate the vehicle's position (X, Y) based on its speed and lane transition.  
+
+#### **Key Intervals:**
+- **T = 0 to 2 seconds:** Lane change to Y = -5.  
+  - X increases at 20 m/s.  
+  - Y transitions linearly from 0 to -5.  
+- **T = 2 to 7 seconds:** Stay in the adjacent lane (Y = -5) and bypass the obstruction.  
+  - X increases at 20 m/s.  
+- **T = 7 to 9 seconds:** Lane change back to Y = 0.  
+  - X increases at 20 m/s.  
+  - Y transitions linearly from -5 to 0.  
+
+---
+
+### **Positions at 1-second Intervals:**
+
+| Time (s) | X (m)          | Y (m)          |
+|----------|----------------|----------------|
+| T = 0    | 0              | 0              |
+| T = 1    | 20             | -2.5           |
+| T = 2    | 40             | -5             |
+| T = 3    | 60             | -5             |
+| T = 4    | 80             | -5             |
+| T = 5    | 100            | -5             |
+| T = 6    | 120            | -5             |
+| T = 7    | 140            | -5             |
+| T = 8    | 160            | -2.5           |
+| T = 9    | 180            | 0              |
+| T = 10   | 200            | 0              |
+
+---
+
+### **Explanation:**
+1. **Lane Change (T = 0 to 2):** The vehicle transitions from Y = 0 to Y = -5 over 2 seconds while moving forward at 20 m/s.  
+2. **Bypassing Obstruction (T = 2 to 7):** The vehicle stays in the adjacent lane (Y = -5) and continues moving forward at 20 m/s. By T = 5, it has passed the obstruction at X = 100.  
+3. **Return to Original Lane (T = 7 to 9):** The vehicle transitions back to Y = 0 over 2 seconds while continuing to move forward at 20 m/s.  
+4. **Post-Maneuver (T = 9 to 10):** The vehicle continues in the original lane (Y = 0) at 20 m/s.  
+
+---
+
+### **Result:**
+The vehicle successfully navigates around the obstruction, maintains a speed above 60 km/h, and returns to its original lane within 10 seconds.

@@ -1,0 +1,52 @@
+To plan the route for navigating around the obstruction, we¨ll break the process into distinct phases: accelerating, lane change, bypassing the obstruction, and returning to the original lane. We¨ll calculate the vehicle's position at 1-second intervals, ensuring the speed stays above 60 km/h.
+
+### Key Assumptions:
+1. **Initial Velocity**: 72 km/h (20 m/s).
+2. **Minimum Speed**: Must exceed 60 km/h (16.67 m/s).
+3. **Lane Width**: Adjacent lane is at \( Y = -5 \).
+4. **Obstruction**: Located at \( X = 100 \), \( Y = 0 \).
+5. **Time Interval**: 1-second steps for 10 seconds.
+
+### Steps:
+1. **Accelerate (T = 0 to T = 2)**:
+   - Increase speed slightly to ensure the lane change is smooth.
+   - Assume acceleration to 75 km/h (20.83 m/s) over 2 seconds.
+
+2. **Lane Change (T = 3 to T = 4)**:
+   - Transition from \( Y = 0 \) to \( Y = -5 \) over 2 seconds.
+
+3. **Bypass Obstruction (T = 5 to T = 7)**:
+   - Continue in the adjacent lane (\( Y = -5 \)) until \( X > 100 \).
+
+4. **Return to Original Lane (T = 8 to T = 10)**:
+   - Transition back from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.
+
+### Position Estimates:
+- **T = 0**: \( (0, 0) \) ！ Starting point.
+- **T = 1**: \( (20, 0) \) ！ Moving at 20 m/s.
+- **T = 2**: \( (40, 0) \) ！ Accelerating to 20.83 m/s.
+- **T = 3**: \( (60, -1.25) \) ！ Begin lane change.
+- **T = 4**: \( (80, -5) \) ！ Complete lane change.
+- **T = 5**: \( (100, -5) \) ！ Reach obstruction location.
+- **T = 6**: \( (120, -5) \) ！ Bypass obstruction.
+- **T = 7**: \( (140, -5) \) ！ Continue in adjacent lane.
+- **T = 8**: \( (160, -3.75) \) ！ Begin return to original lane.
+- **T = 9**: \( (180, -1.25) \) ！ Continue returning.
+- **T = 10**: \( (200, 0) \) ！ Complete return to original lane.
+
+### Summary Table:
+| Time (s) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)           |
+| 1        | (20, 0)          |
+| 2        | (40, 0)          |
+| 3        | (60, -1.25)      |
+| 4        | (80, -5)         |
+| 5        | (100, -5)        |
+| 6        | (120, -5)        |
+| 7        | (140, -5)        |
+| 8        | (160, -3.75)     |
+| 9        | (180, -1.25)     |
+| 10       | (200, 0)         |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and safely returns to the original lane.

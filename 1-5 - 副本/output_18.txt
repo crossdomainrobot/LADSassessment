@@ -1,0 +1,50 @@
+To plan the route and estimate the vehicle¡¯s position at critical intervals, we¡¯ll break the maneuver into three phases: **lane change to the adjacent lane**, **bypassing the obstruction**, and **lane change back to the original lane**. We¡¯ll assume a smooth and constant speed of **72 km/h (20 m/s)** throughout the maneuver.
+
+### Key Assumptions:
+1. **Initial Position**: (X, Y) = (0, 0) at T = 0.
+2. **Obstruction Position**: (X, Y) = (100, 0).
+3. **Adjacent Lane**: Y = -5.
+4. **Speed**: 72 km/h (20 m/s).
+5. **Lane Change Duration**: Assume 2 seconds for each lane change (to Y = -5 and back to Y = 0).
+
+### Phase 1: Lane Change to Adjacent Lane (T = 0 to T = 2)
+- **Time Interval**: 0 to 2 seconds.
+- **Lateral Movement**: From Y = 0 to Y = -5.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 1: (20, -2.5)
+  - T = 2: (40, -5)
+
+### Phase 2: Bypass the Obstruction (T = 2 to T = 6)
+- **Time Interval**: 2 to 6 seconds.
+- **Lateral Movement**: Stay at Y = -5.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 3: (60, -5)
+  - T = 4: (80, -5)
+  - T = 5: (100, -5)
+  - T = 6: (120, -5)
+
+### Phase 3: Lane Change Back to Original Lane (T = 6 to T = 8)
+- **Time Interval**: 6 to 8 seconds.
+- **Lateral Movement**: From Y = -5 to Y = 0.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 7: (140, -2.5)
+  - T = 8: (160, 0)
+
+### Summary of Positions:
+- T = 0: (0, 0)
+- T = 1: (20, -2.5)
+- T = 2: (40, -5)
+- T = 3: (60, -5)
+- T = 4: (80, -5)
+- T = 5: (100, -5)
+- T = 6: (120, -5)
+- T = 7: (140, -2.5)
+- T = 8: (160, 0)
+
+### Notes:
+- The vehicle bypasses the obstruction at T = 5, when X = 100.
+- The maneuver is completed by T = 8, with the vehicle back in the original lane.
+- The speed remains constant at 72 km/h throughout, satisfying the requirement of exceeding 60 km/h.

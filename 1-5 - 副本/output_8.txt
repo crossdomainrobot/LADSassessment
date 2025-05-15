@@ -1,0 +1,99 @@
+To plan the route for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into phases: **lane change**, **bypassing the obstruction**, and **returning to the original lane**. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Assumptions**
+1. **Initial Conditions**:
+   - Starting position: \((X, Y) = (0, 0)\).
+   - Obstruction position: \((100, 0)\).
+   - Adjacent lane Y-coordinate: \(Y = -5\).
+   - Initial speed: \(72.0 \, \text{km/h} = 20 \, \text{m/s}\).
+   - Minimum speed: \(60 \, \text{km/h} = 16.67 \, \text{m/s}\).
+
+2. **Time Intervals**:
+   - We¡¯ll calculate positions every \(1 \, \text{second}\) for \(10 \, \text{seconds}\).
+
+3. **Lane Change Duration**:
+   - Assume the lane change takes \(2 \, \text{seconds}\) (smooth transition).
+
+4. **Bypassing the Obstruction**:
+   - Stay in the adjacent lane until \(X > 100\).
+
+5. **Returning to Original Lane**:
+   - Assume the return maneuver takes \(2 \, \text{seconds}\).
+
+---
+
+### **Route Plan**
+
+#### **Phase 1: Lane Change (T = 0 to T = 2)**
+- **Objective**: Transition from \(Y = 0\) to \(Y = -5\) over \(2 \, \text{seconds}\).
+- **Lateral Movement**: \(Y\) changes linearly from \(0\) to \(-5\).
+- **Longitudinal Movement**: \(X\) increases at \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)  |
+|----------|-------------|--------|
+| 0        | 0           | 0      |
+| 1        | 20          | -2.5   |
+| 2        | 40          | -5     |
+
+---
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6)**
+- **Objective**: Stay in the adjacent lane (\(Y = -5\)) until \(X > 100\).
+- **Longitudinal Movement**: \(X\) increases at \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)  |
+|----------|-------------|--------|
+| 3        | 60          | -5     |
+| 4        | 80          | -5     |
+| 5        | 100         | -5     |
+| 6        | 120         | -5     |
+
+---
+
+#### **Phase 3: Returning to Original Lane (T = 6 to T = 8)**
+- **Objective**: Transition from \(Y = -5\) to \(Y = 0\) over \(2 \, \text{seconds}\).
+- **Lateral Movement**: \(Y\) changes linearly from \(-5\) to \(0\).
+- **Longitudinal Movement**: \(X\) increases at \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)  |
+|----------|-------------|--------|
+| 7        | 140         | -2.5   |
+| 8        | 160         | 0      |
+
+---
+
+#### **Phase 4: Continuing in Original Lane (T = 8 to T = 10)**
+- **Objective**: Continue traveling in the original lane (\(Y = 0\)).
+
+| Time (s) | X (m)       | Y (m)  |
+|----------|-------------|--------|
+| 9        | 180         | 0      |
+| 10       | 200         | 0      |
+
+---
+
+### **Summary of Positions**
+Here¡¯s the consolidated route plan:
+
+| Time (s) | X (m)       | Y (m)  |
+|----------|-------------|--------|
+| 0        | 0           | 0      |
+| 1        | 20          | -2.5   |
+| 2        | 40          | -5     |
+| 3        | 60          | -5     |
+| 4        | 80          | -5     |
+| 5        | 100         | -5     |
+| 6        | 120         | -5     |
+| 7        | 140         | -2.5   |
+| 8        | 160         | 0      |
+| 9        | 180         | 0      |
+| 10       | 200         | 0      |
+
+---
+
+### **Notes**
+1. The speed remains constant at \(20 \, \text{m/s}\) (\(72 \, \text{km/h}\)) throughout the maneuver.
+2. The obstruction is bypassed safely by staying in the adjacent lane from \(X = 40\) to \(X = 120\).
+3. The vehicle returns to the original lane by \(X = 160\).

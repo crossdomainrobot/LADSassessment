@@ -1,0 +1,69 @@
+To plan the lane transition and bypass the obstruction while maintaining a speed above 60 km/h, we need to calculate the vehicle's position at critical time intervals. Here's the step-by-step route planning:
+
+---
+
+### **Given:**
+- **Starting position**: \( (X, Y) = (0.0, 0) \)
+- **Obstruction position**: \( (100, 0) \)
+- **Adjacent lane Y-coordinate**: \( Y = -5 \)
+- **Initial velocity**: \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)
+- **Minimum speed**: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)
+- **Time interval**: \( T = 0 \) to \( T = 10 \) seconds
+
+---
+
+### **Assumptions:**
+1. The lane change is smooth and takes **2 seconds** to complete.
+2. The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) throughout.
+3. The lane change starts at \( T = 2 \) seconds and ends at \( T = 4 \) seconds.
+4. The vehicle stays in the adjacent lane until it has passed the obstruction at \( X = 100 \).
+
+---
+
+### **Route Planning:**
+
+#### **Step 1: Travel in the original lane (T = 0 to T = 2 seconds)**
+- The vehicle moves along the X-axis at \( 20 \, \text{m/s} \).
+- At \( T = 1 \) second: \( X = 20 \), \( Y = 0 \) ¡ú \( (20, 0) \)
+- At \( T = 2 \) seconds: \( X = 40 \), \( Y = 0 \) ¡ú \( (40, 0) \)
+
+#### **Step 2: Lane change to the adjacent lane (T = 2 to T = 4 seconds)**
+- The vehicle transitions laterally from \( Y = 0 \) to \( Y = -5 \) over 2 seconds.
+- At \( T = 3 \) seconds: \( X = 60 \), \( Y = -2.5 \) ¡ú \( (60, -2.5) \)
+- At \( T = 4 \) seconds: \( X = 80 \), \( Y = -5 \) ¡ú \( (80, -5) \)
+
+#### **Step 3: Travel in the adjacent lane (T = 4 to T = 6 seconds)**
+- The vehicle continues in the adjacent lane at \( Y = -5 \).
+- At \( T = 5 \) seconds: \( X = 100 \), \( Y = -5 \) ¡ú \( (100, -5) \)
+- At \( T = 6 \) seconds: \( X = 120 \), \( Y = -5 \) ¡ú \( (120, -5) \)
+
+#### **Step 4: Lane change back to the original lane (T = 6 to T = 8 seconds)**
+- The vehicle transitions laterally from \( Y = -5 \) to \( Y = 0 \) over 2 seconds.
+- At \( T = 7 \) seconds: \( X = 140 \), \( Y = -2.5 \) ¡ú \( (140, -2.5) \)
+- At \( T = 8 \) seconds: \( X = 160 \), \( Y = 0 \) ¡ú \( (160, 0) \)
+
+#### **Step 5: Travel in the original lane (T = 8 to T = 10 seconds)**
+- The vehicle continues in the original lane at \( Y = 0 \).
+- At \( T = 9 \) seconds: \( X = 180 \), \( Y = 0 \) ¡ú \( (180, 0) \)
+- At \( T = 10 \) seconds: \( X = 200 \), \( Y = 0 \) ¡ú \( (200, 0) \)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -2.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -2.5)     |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+This plan ensures the vehicle bypasses the obstruction, maintains a speed above 60 km/h, and smoothly transitions back to the original lane.

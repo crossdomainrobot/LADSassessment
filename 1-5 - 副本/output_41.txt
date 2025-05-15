@@ -1,0 +1,84 @@
+To construct a route plan for navigating around the obstruction, we'll break down the maneuver into key phases: transitioning to the adjacent lane, maintaining the lane while bypassing the obstruction, and transitioning back to the original lane. Here's a step-by-step outline of the vehicle's position \((X, Y)\) at critical intervals over the next 10 seconds:
+
+---
+
+### **Assumptions:**
+1. **Initial conditions:**
+   - Starting position: \((X, Y) = (0, 0)\)
+   - Velocity: \(72.0 \, \text{km/h} = 20 \, \text{m/s}\)
+   - Obstruction: Located at \((100, 0)\)
+   - Adjacent lane: \(Y = -5\)
+
+2. **Constraints:**
+   - Speed must exceed \(60 \, \text{km/h} = 16.67 \, \text{m/s}\).
+   - Lane transitions should be smooth and safe.
+
+---
+
+### **Route Plan:**
+
+#### **1. Lane Transition to Adjacent Lane (Y = -5):**
+- **Time interval:** \(T = 0\) to \(T = 3\) seconds
+- **Lateral movement:** Transition from \(Y = 0\) to \(Y = -5\) over 3 seconds.
+- **Lateral speed:** \(\frac{-5}{3} \approx -1.67 \, \text{m/s}\)
+- **Forward speed:** Maintain \(20 \, \text{m/s}\).
+
+| \(T\) (s) | \(X\) (m) | \(Y\) (m) |
+|-----------|-----------|-----------|
+| 0         | 0         | 0         |
+| 1         | 20        | -1.67     |
+| 2         | 40        | -3.33     |
+| 3         | 60        | -5        |
+
+---
+
+#### **2. Bypass the Obstruction in Adjacent Lane:**
+- **Time interval:** \(T = 3\) to \(T = 7\) seconds
+- **Lateral position:** Maintain \(Y = -5\).
+- **Forward speed:** Maintain \(20 \, \text{m/s}\).
+
+| \(T\) (s) | \(X\) (m) | \(Y\) (m) |
+|-----------|-----------|-----------|
+| 4         | 80        | -5        |
+| 5         | 100       | -5        |
+| 6         | 120       | -5        |
+| 7         | 140       | -5        |
+
+---
+
+#### **3. Lane Transition Back to Original Lane (Y = 0):**
+- **Time interval:** \(T = 7\) to \(T = 10\) seconds
+- **Lateral movement:** Transition from \(Y = -5\) to \(Y = 0\) over 3 seconds.
+- **Lateral speed:** \(\frac{5}{3} \approx 1.67 \, \text{m/s}\)
+- **Forward speed:** Maintain \(20 \, \text{m/s}\).
+
+| \(T\) (s) | \(X\) (m) | \(Y\) (m) |
+|-----------|-----------|-----------|
+| 8         | 160       | -3.33     |
+| 9         | 180       | -1.67     |
+| 10        | 200       | 0         |
+
+---
+
+### **Summary of Positions:**
+
+| \(T\) (s) | \(X\) (m) | \(Y\) (m) |
+|-----------|-----------|-----------|
+| 0         | 0         | 0         |
+| 1         | 20        | -1.67     |
+| 2         | 40        | -3.33     |
+| 3         | 60        | -5        |
+| 4         | 80        | -5        |
+| 5         | 100       | -5        |
+| 6         | 120       | -5        |
+| 7         | 140       | -5        |
+| 8         | 160       | -3.33     |
+| 9         | 180       | -1.67     |
+| 10        | 200       | 0         |
+
+---
+
+### **Key Points:**
+1. The vehicle transitions to the adjacent lane by \(T = 3\) seconds and remains there until \(T = 7\) seconds to bypass the obstruction.
+2. The vehicle returns to the original lane by \(T = 10\) seconds.
+3. Speed remains constant at \(20 \, \text{m/s}\) (\(72 \, \text{km/h}\)), satisfying the constraint of exceeding \(60 \, \text{km/h}\).

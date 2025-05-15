@@ -1,0 +1,64 @@
+To navigate around the obstruction, we¡¯ll plan a smooth lane transition while maintaining a speed above 60 km/h. Here¡¯s the step-by-step route planning:
+
+---
+
+### **Key Assumptions:**
+1. **Initial Position:** (X, Y) = (0, 0) at T = 0.
+2. **Obstruction Position:** (X, Y) = (100, 0).
+3. **Adjacent Lane Position:** Y = -5.
+4. **Initial Speed:** 72 km/h = 20 m/s.
+5. **Minimum Speed:** 60 km/h = 16.67 m/s.
+6. **Time Frame:** 10 seconds.
+
+---
+
+### **Route Plan:**
+1. **Lane Change (T = 0 to T = 3 seconds):**
+   - Transition from Y = 0 to Y = -5 over 3 seconds.
+   - Move laterally at a constant rate.
+
+2. **Bypass Obstruction (T = 3 to T = 7 seconds):**
+   - Stay in the adjacent lane (Y = -5) while passing the obstruction.
+
+3. **Return to Original Lane (T = 7 to T = 10 seconds):**
+   - Transition back from Y = -5 to Y = 0 over 3 seconds.
+
+---
+
+### **Position Estimates:**
+We¡¯ll calculate the X-coordinate using the initial speed (20 m/s) and assume constant speed for simplicity.
+
+| Time (s) | X (m)         | Y (m)         | Description                          |
+|----------|---------------|---------------|--------------------------------------|
+| T = 0    | 0             | 0             | Starting position.                   |
+| T = 1    | 20            | -1.67         | Begin lane change.                   |
+| T = 2    | 40            | -3.33         | Continue lane change.                |
+| T = 3    | 60            | -5            | Complete lane change.                |
+| T = 4    | 80            | -5            | Approach obstruction.                |
+| T = 5    | 100           | -5            | Bypass obstruction.                  |
+| T = 6    | 120           | -5            | Continue in adjacent lane.           |
+| T = 7    | 140           | -5            | Begin return to original lane.       |
+| T = 8    | 160           | -3.33         | Continue return.                     |
+| T = 9    | 180           | -1.67         | Continue return.                     |
+| T = 10   | 200           | 0             | Complete return to original lane.    |
+
+---
+
+### **Explanation:**
+1. **Lane Change (T = 0 to T = 3):**
+   - Lateral movement: Y changes from 0 to -5 over 3 seconds.
+   - Rate of change: \( \Delta Y / \Delta T = -5 / 3 \approx -1.67 \, \text{m/s} \).
+
+2. **Bypass Obstruction (T = 3 to T = 7):**
+   - Stay in the adjacent lane (Y = -5) while passing the obstruction at X = 100.
+
+3. **Return to Original Lane (T = 7 to T = 10):**
+   - Lateral movement: Y changes from -5 to 0 over 3 seconds.
+   - Rate of change: \( \Delta Y / \Delta T = 5 / 3 \approx 1.67 \, \text{m/s} \).
+
+4. **Speed Maintenance:**
+   - Speed remains constant at 20 m/s (72 km/h), ensuring it exceeds 60 km/h.
+
+---
+
+This plan ensures a smooth and safe transition around the obstruction while maintaining the required speed.

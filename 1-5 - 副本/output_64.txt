@@ -1,0 +1,80 @@
+To construct a route planning for navigating around the obstruction while maintaining a speed exceeding 60 km/h, we¡¯ll break the process into critical intervals of 1 second. Here¡¯s the step-by-step plan:
+
+---
+
+### **Given:**
+- **Starting Position:** \( (X, Y) = (0, 0) \)
+- **Obstruction Position:** \( (100, 0) \)
+- **Adjacent Lane Y-Coordinate:** \( Y = -5 \)
+- **Initial Velocity:** \( 72.0 \, \text{km/h} = 20 \, \text{m/s} \)
+- **Time Interval:** \( T = 0 \) to \( T = 10 \, \text{seconds} \)
+
+---
+
+### **Assumptions:**
+1. **Lane Change Duration:** It takes 2 seconds to transition from the outer lane (\( Y = 0 \)) to the adjacent lane (\( Y = -5 \)) and 2 seconds to return.
+2. **Speed:** Maintain a constant speed of \( 20 \, \text{m/s} \) throughout.
+3. **Obstruction Bypass:** Stay in the adjacent lane (\( Y = -5 \)) while passing the obstruction at \( X = 100 \).
+
+---
+
+### **Route Planning:**
+
+#### **1. Lane Change to Adjacent Lane (\( T = 0 \) to \( T = 2 \)):**
+- **Time Interval:** \( T = 0 \) to \( T = 2 \)
+- **Lateral Movement:** Transition from \( Y = 0 \) to \( Y = -5 \) linearly over 2 seconds.
+- **Longitudinal Movement:** \( X \) increases at \( 20 \, \text{m/s} \).
+- **Positions:**
+  - \( T = 0 \): \( (0, 0) \)
+  - \( T = 1 \): \( (20, -2.5) \)
+  - \( T = 2 \): \( (40, -5) \)
+
+#### **2. Bypassing the Obstruction (\( T = 2 \) to \( T = 7 \)):**
+- **Time Interval:** \( T = 2 \) to \( T = 7 \)
+- **Lateral Movement:** Stay in the adjacent lane (\( Y = -5 \)).
+- **Longitudinal Movement:** \( X \) increases at \( 20 \, \text{m/s} \).
+- **Positions:**
+  - \( T = 3 \): \( (60, -5) \)
+  - \( T = 4 \): \( (80, -5) \)
+  - \( T = 5 \): \( (100, -5) \) (bypassing the obstruction)
+  - \( T = 6 \): \( (120, -5) \)
+  - \( T = 7 \): \( (140, -5) \)
+
+#### **3. Lane Change Back to Original Lane (\( T = 7 \) to \( T = 9 \)):**
+- **Time Interval:** \( T = 7 \) to \( T = 9 \)
+- **Lateral Movement:** Transition from \( Y = -5 \) to \( Y = 0 \) linearly over 2 seconds.
+- **Longitudinal Movement:** \( X \) increases at \( 20 \, \text{m/s} \).
+- **Positions:**
+  - \( T = 8 \): \( (160, -2.5) \)
+  - \( T = 9 \): \( (180, 0) \)
+
+#### **4. Continue in Original Lane (\( T = 9 \) to \( T = 10 \)):**
+- **Time Interval:** \( T = 9 \) to \( T = 10 \)
+- **Lateral Movement:** Stay in the original lane (\( Y = 0 \)).
+- **Longitudinal Movement:** \( X \) increases at \( 20 \, \text{m/s} \).
+- **Position:**
+  - \( T = 10 \): \( (200, 0) \)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -2.5)      |
+| 2        | (40, -5)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -2.5)     |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Key Notes:**
+- The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) (72 km/h) throughout.
+- The lane transitions are smooth and linear, ensuring safety and stability.
+- The obstruction is successfully bypassed while staying in the adjacent lane.

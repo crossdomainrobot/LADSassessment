@@ -1,0 +1,53 @@
+To plan the route, we¡¯ll break the maneuver into three phases:  
+1. **Transition to the adjacent lane** (Y = -5).  
+2. **Bypass the obstruction** while staying in the adjacent lane.  
+3. **Return to the original lane** (Y = 0).  
+
+### Assumptions:  
+- **Initial velocity**: 72 km/h = 20 m/s.  
+- **Speed constraint**: Maintain speed > 60 km/h (16.67 m/s).  
+- **Obstruction**: Located at (100, 0).  
+- **Lane width**: Adjacent lane is at Y = -5.  
+- **Time interval**: 10 seconds (T = 0 to T = 10).  
+
+### Phase 1: Transition to the Adjacent Lane (T = 0 to T = 2)  
+- **Lateral movement**: Assume a smooth lane change over 2 seconds.  
+- **Lateral velocity**: From Y = 0 to Y = -5 in 2 seconds (¦¤Y = -5/2 = -2.5 m/s).  
+- **Longitudinal movement**: Constant speed of 20 m/s.  
+
+### Phase 2: Bypass the Obstruction (T = 2 to T = 6)  
+- **Lateral position**: Stay at Y = -5.  
+- **Longitudinal movement**: Continue at 20 m/s.  
+
+### Phase 3: Return to the Original Lane (T = 6 to T = 8)  
+- **Lateral movement**: Smooth lane change back to Y = 0 over 2 seconds.  
+- **Lateral velocity**: From Y = -5 to Y = 0 in 2 seconds (¦¤Y = 5/2 = 2.5 m/s).  
+- **Longitudinal movement**: Constant speed of 20 m/s.  
+
+### Phase 4: Continue in the Original Lane (T = 8 to T = 10)  
+- **Lateral position**: Stay at Y = 0.  
+- **Longitudinal movement**: Continue at 20 m/s.  
+
+---
+
+### Position Estimates:  
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, -2.5)  
+- **T = 2**: (40, -5)  
+- **T = 3**: (60, -5)  
+- **T = 4**: (80, -5)  
+- **T = 5**: (100, -5)  
+- **T = 6**: (120, -5)  
+- **T = 7**: (140, -2.5)  
+- **T = 8**: (160, 0)  
+- **T = 9**: (180, 0)  
+- **T = 10**: (200, 0)  
+
+---
+
+### Verification:  
+- **Speed**: Constant at 20 m/s (72 km/h), satisfying the >60 km/h constraint.  
+- **Obstruction bypass**: At T = 5, the vehicle is at (100, -5), successfully bypassing the obstruction.  
+- **Lane transitions**: Smooth and completed within the allotted time.  
+
+This plan ensures safe navigation around the obstruction while maintaining speed and lane discipline.

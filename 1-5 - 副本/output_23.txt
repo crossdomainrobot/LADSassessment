@@ -1,0 +1,47 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed exceeding 60 km/h, we'll break the maneuver into three phases:
+
+1. **Lane Transition (T = 0 to T = 3 seconds):**  
+   - Move from the outer lane (Y = 0) to the adjacent lane (Y = -5).  
+   - Maintain a speed of 72 km/h (20 m/s) during this transition.  
+
+2. **Bypass the Obstruction (T = 3 to T = 7 seconds):**  
+   - Stay in the adjacent lane (Y = -5) while passing the obstruction at X = 100.  
+
+3. **Return to Original Lane (T = 7 to T = 10 seconds):**  
+   - Move back from the adjacent lane (Y = -5) to the outer lane (Y = 0).  
+   - Maintain a speed of 72 km/h (20 m/s) during this transition.  
+
+### Position Estimates at Critical Intervals:
+- **T = 0 seconds:** Starting point (0, 0).  
+- **T = 1 second:** Move to (20, -1.67), transitioning toward the adjacent lane.  
+- **T = 2 seconds:** Move to (40, -3.33), continuing the transition.  
+- **T = 3 seconds:** Arrive at (60, -5), fully in the adjacent lane.  
+- **T = 4 seconds:** Move to (80, -5), bypassing the obstruction.  
+- **T = 5 seconds:** Move to (100, -5), passing the obstruction.  
+- **T = 6 seconds:** Move to (120, -5), continuing in the adjacent lane.  
+- **T = 7 seconds:** Move to (140, -3.33), beginning the return to the outer lane.  
+- **T = 8 seconds:** Move to (160, -1.67), continuing the return.  
+- **T = 9 seconds:** Move to (180, 0), fully back in the outer lane.  
+- **T = 10 seconds:** Move to (200, 0), continuing in the outer lane.  
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -1.67)     |  
+| 2        | (40, -3.33)     |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -3.33)    |  
+| 8        | (160, -1.67)    |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+### Assumptions:
+- The lane transition is smooth and linear, taking 3 seconds each way.  
+- The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.  
+- The obstruction is successfully bypassed at X = 100.  
+
+This plan ensures the vehicle avoids the obstruction while maintaining a safe speed.

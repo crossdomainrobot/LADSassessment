@@ -1,0 +1,49 @@
+To construct a route plan for navigating around the obstruction, we¡¯ll break down the maneuver into key phases: **lane change to the adjacent lane, bypassing the obstruction, and returning to the original lane**. We¡¯ll use the spatial reference system \((X, Y)\) where \(X\) is the distance along the road and \(Y\) is the lateral position relative to the lanes. The vehicle starts at \((0, 0)\), and the obstruction is at \((100, 0)\). The adjacent lane is at \(Y = -5\).
+
+### Assumptions:
+1. **Initial velocity**: \(72.0 \, \text{km/h} = 20 \, \text{m/s}\).
+2. **Minimum speed**: \(60 \, \text{km/h} = 16.67 \, \text{m/s}\).
+3. **Lane change duration**: Assume each lane change takes 3 seconds (smooth transition).
+4. **Obstruction bypass**: The vehicle must stay in the adjacent lane from \(X = 100 - d\) to \(X = 100 + d\), where \(d\) is the distance needed to safely bypass the obstruction. Let¡¯s assume \(d = 20 \, \text{m}\).
+
+---
+
+### Route Plan:
+1. **Initial Phase (\(T = 0\) to \(T = 3\))**:
+   - Transition from \(Y = 0\) to \(Y = -5\) (lane change to the adjacent lane).
+   - Distance traveled: \(X = 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m}\).
+   - Position at \(T = 3\): \((60, -5)\).
+
+2. **Bypass Phase (\(T = 3\) to \(T = 7\))**:
+   - Continue in the adjacent lane (\(Y = -5\)).
+   - Distance traveled: \(X = 20 \, \text{m/s} \times 4 \, \text{s} = 80 \, \text{m}\).
+   - Total \(X\) at \(T = 7\): \(60 + 80 = 140 \, \text{m}\).
+   - Position at \(T = 7\): \((140, -5)\).
+
+3. **Return Phase (\(T = 7\) to \(T = 10\))**:
+   - Transition from \(Y = -5\) to \(Y = 0\) (lane change back to the original lane).
+   - Distance traveled: \(X = 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m}\).
+   - Total \(X\) at \(T = 10\): \(140 + 60 = 200 \, \text{m}\).
+   - Position at \(T = 10\): \((200, 0)\).
+
+---
+
+### Positions at Critical Intervals:
+- \(T = 0\): \((0, 0)\).
+- \(T = 1\): \((20, -1.67)\).
+- \(T = 2\): \((40, -3.33)\).
+- \(T = 3\): \((60, -5)\).
+- \(T = 4\): \((80, -5)\).
+- \(T = 5\): \((100, -5)\).
+- \(T = 6\): \((120, -5)\).
+- \(T = 7\): \((140, -5)\).
+- \(T = 8\): \((160, -3.33)\).
+- \(T = 9\): \((180, -1.67)\).
+- \(T = 10\): \((200, 0)\).
+
+---
+
+### Summary:
+- The vehicle changes lanes smoothly, bypasses the obstruction, and returns to the original lane within 10 seconds.
+- Speed is maintained above \(60 \, \text{km/h}\) throughout.
+- The obstruction is safely bypassed by staying in the adjacent lane from \(X = 80\) to \(X = 120\).

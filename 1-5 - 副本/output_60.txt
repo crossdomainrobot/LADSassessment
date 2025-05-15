@@ -1,0 +1,55 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll plan the vehicle¡¯s trajectory in three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Returning to the Original Lane (Y = 0)**
+
+### Assumptions:
+- Initial position: (0, 0)  
+- Initial velocity: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the adjacent lane)  
+- Obstruction at (100, 0)  
+- Time step: 1 second  
+
+### Phase 1: Lane Change (T = 0 to T = 3 seconds)
+We¡¯ll transition to the adjacent lane over 3 seconds while maintaining a speed of 20 m/s.
+
+- **T = 0 s**: (0, 0)  
+- **T = 1 s**: (20, -1.67)  
+- **T = 2 s**: (40, -3.33)  
+- **T = 3 s**: (60, -5)  
+
+### Phase 2: Bypassing the Obstruction (T = 3 to T = 6 seconds)
+We¡¯ll continue in the adjacent lane (Y = -5) until we¡¯ve passed the obstruction at X = 100.
+
+- **T = 4 s**: (80, -5)  
+- **T = 5 s**: (100, -5)  
+- **T = 6 s**: (120, -5)  
+
+### Phase 3: Returning to the Original Lane (T = 6 to T = 9 seconds)
+We¡¯ll transition back to the original lane (Y = 0) over 3 seconds.
+
+- **T = 7 s**: (140, -3.33)  
+- **T = 8 s**: (160, -1.67)  
+- **T = 9 s**: (180, 0)  
+
+### Final Position (T = 10 seconds)
+After completing the lane transitions, we¡¯ll continue in the original lane.
+
+- **T = 10 s**: (200, 0)  
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)  
+- **T = 1 s**: (20, -1.67)  
+- **T = 2 s**: (40, -3.33)  
+- **T = 3 s**: (60, -5)  
+- **T = 4 s**: (80, -5)  
+- **T = 5 s**: (100, -5)  
+- **T = 6 s**: (120, -5)  
+- **T = 7 s**: (140, -3.33)  
+- **T = 8 s**: (160, -1.67)  
+- **T = 9 s**: (180, 0)  
+- **T = 10 s**: (200, 0)  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and returns to the original lane safely.
