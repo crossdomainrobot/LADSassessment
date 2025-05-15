@@ -1,0 +1,63 @@
+To plan the route, we need to calculate the vehicle's position at 1-second intervals over the next 10 seconds while transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. Here¡¯s the step-by-step plan:
+
+---
+
+### **Given:**
+- **Initial position (T = 0):** (X, Y) = (0, 0)
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial velocity:** 72 km/h (convert to m/s: \( 72 \times \frac{1000}{3600} = 20 \, \text{m/s} \))
+- **Minimum speed:** 60 km/h (16.67 m/s)
+- **Obstruction at X = 100 m**
+
+---
+
+### **Route Plan:**
+1. **Lane Transition (T = 0 to T = 5 seconds):**
+   - Move from Y = 0 to Y = -5 (adjacent lane) over 5 seconds.
+   - Maintain speed at 20 m/s.
+
+2. **Bypass Obstruction (T = 5 to T = 10 seconds):**
+   - Stay in the adjacent lane (Y = -5) until X > 100 m.
+   - Continue at 20 m/s.
+
+3. **Return to Original Lane (T = 10 seconds onward):**
+   - Move from Y = -5 back to Y = 0 over 5 seconds.
+   - Maintain speed at 20 m/s.
+
+---
+
+### **Position Estimates:**
+Here¡¯s the vehicle¡¯s position at 1-second intervals:
+
+| **Time (s)** | **X (m)**          | **Y (m)**          |
+|--------------|--------------------|--------------------|
+| T = 0        | 0                  | 0                  |
+| T = 1        | 20                 | -1                 |
+| T = 2        | 40                 | -2                 |
+| T = 3        | 60                 | -3                 |
+| T = 4        | 80                 | -4                 |
+| T = 5        | 100                | -5                 |
+| T = 6        | 120                | -5                 |
+| T = 7        | 140                | -5                 |
+| T = 8        | 160                | -5                 |
+| T = 9        | 180                | -5                 |
+| T = 10       | 200                | -5                 |
+
+---
+
+### **Explanation:**
+1. **Lane Transition:**
+   - Y changes linearly from 0 to -5 over 5 seconds (1 m/s lateral velocity).
+   - X increases at 20 m/s (72 km/h).
+
+2. **Bypass Obstruction:**
+   - At T = 5 seconds, X = 100 m (obstruction location).
+   - Stay in the adjacent lane (Y = -5) until X > 100 m.
+
+3. **Return to Original Lane:**
+   - After T = 10 seconds, Y transitions back to 0 over 5 seconds.
+
+---
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

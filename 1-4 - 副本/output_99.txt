@@ -1,0 +1,40 @@
+To construct a route plan for navigating around the obstruction, we need to outline the vehicle¡¯s position at critical intervals over the next 10 seconds. The vehicle starts at (0, 0) with a velocity of 72 km/h (which is 20 m/s). The obstruction is at (100, 0), and the adjacent lane is at Y = -5. The vehicle must maintain a speed above 60 km/h (16.67 m/s) throughout the maneuver.
+
+### Assumptions:
+1. The vehicle transitions smoothly to the adjacent lane over a period of 2 seconds (from T = 0 to T = 2).
+2. The vehicle remains in the adjacent lane until it has bypassed the obstruction (X = 100).
+3. The vehicle transitions back to the original lane over another 2 seconds (from T = 8 to T = 10).
+4. The vehicle maintains a constant speed of 20 m/s throughout.
+
+### Critical Intervals and Positions:
+1. **T = 0 to T = 2** (Lane transition to Y = -5):
+   - At T = 0: (0, 0)
+   - At T = 1: (20, -2.5)
+   - At T = 2: (40, -5)
+
+2. **T = 2 to T = 8** (Traveling in the adjacent lane):
+   - At T = 3: (60, -5)
+   - At T = 4: (80, -5)
+   - At T = 5: (100, -5)
+   - At T = 6: (120, -5)
+   - At T = 7: (140, -5)
+   - At T = 8: (160, -5)
+
+3. **T = 8 to T = 10** (Lane transition back to Y = 0):
+   - At T = 9: (180, -2.5)
+   - At T = 10: (200, 0)
+
+### Summary of Positions:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, -2.5)
+- **T = 2**: (40, -5)
+- **T = 3**: (60, -5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5)
+- **T = 6**: (120, -5)
+- **T = 7**: (140, -5)
+- **T = 8**: (160, -5)
+- **T = 9**: (180, -2.5)
+- **T = 10**: (200, 0)
+
+This plan ensures the vehicle bypasses the obstruction smoothly while maintaining a speed above 60 km/h.

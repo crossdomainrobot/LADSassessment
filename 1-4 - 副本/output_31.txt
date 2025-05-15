@@ -1,0 +1,77 @@
+To plan the lane transition and bypass the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We¡¯ll assume a constant speed of **72 km/h (20 m/s)** for simplicity.
+
+### Key Assumptions:
+1. **Speed:** 72 km/h = 20 m/s.
+2. **Obstruction:** Located at (100, 0).
+3. **Lane Width:** Adjacent lane is at \( Y = -5 \).
+4. **Time Interval:** Positions are calculated every second for 10 seconds.
+
+### Maneuver Phases:
+1. **Lane Change (T = 0 to T = 2):** Transition from \( Y = 0 \) to \( Y = -5 \).
+2. **Bypass (T = 2 to T = 6):** Continue in the adjacent lane past the obstruction.
+3. **Return (T = 6 to T = 8):** Transition back to \( Y = 0 \).
+
+### Position Calculations:
+- **X-coordinate:** \( X = X_0 + v \cdot t \), where \( v = 20 \, \text{m/s} \).
+- **Y-coordinate:** Changes linearly during lane transitions.
+
+#### Detailed Positions:
+1. **T = 0 s:**
+   - \( X = 0 \)
+   - \( Y = 0 \)
+   - **Position:** (0, 0)
+
+2. **T = 1 s:**
+   - \( X = 20 \)
+   - \( Y = -2.5 \) (transitioning to the adjacent lane)
+   - **Position:** (20, -2.5)
+
+3. **T = 2 s:**
+   - \( X = 40 \)
+   - \( Y = -5 \) (fully in the adjacent lane)
+   - **Position:** (40, -5)
+
+4. **T = 3 s:**
+   - \( X = 60 \)
+   - \( Y = -5 \)
+   - **Position:** (60, -5)
+
+5. **T = 4 s:**
+   - \( X = 80 \)
+   - \( Y = -5 \)
+   - **Position:** (80, -5)
+
+6. **T = 5 s:**
+   - \( X = 100 \)
+   - \( Y = -5 \) (bypassing the obstruction)
+   - **Position:** (100, -5)
+
+7. **T = 6 s:**
+   - \( X = 120 \)
+   - \( Y = -5 \)
+   - **Position:** (120, -5)
+
+8. **T = 7 s:**
+   - \( X = 140 \)
+   - \( Y = -2.5 \) (transitioning back to the original lane)
+   - **Position:** (140, -2.5)
+
+9. **T = 8 s:**
+   - \( X = 160 \)
+   - \( Y = 0 \) (fully back in the original lane)
+   - **Position:** (160, 0)
+
+10. **T = 9 s:**
+    - \( X = 180 \)
+    - \( Y = 0 \)
+    - **Position:** (180, 0)
+
+11. **T = 10 s:**
+    - \( X = 200 \)
+    - \( Y = 0 \)
+    - **Position:** (200, 0)
+
+### Summary:
+- The maneuver is completed by **T = 8 s**, with the vehicle back in the original lane.
+- The vehicle maintains a speed of 72 km/h throughout the process.
+- The obstruction at (100, 0) is safely bypassed.

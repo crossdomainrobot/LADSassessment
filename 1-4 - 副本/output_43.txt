@@ -1,0 +1,73 @@
+To plan the route for navigating around the obstruction, we'll break down the maneuver into key steps and estimate the vehicle's position at 1-second intervals. Here's the plan:
+
+---
+
+### **Given Data**
+- **Initial Position**: (X, Y) = (0, 0)
+- **Obstruction Position**: (100, 0)
+- **Adjacent Lane Y-coordinate**: Y = -5
+- **Initial Velocity**: 72 km/h (20 m/s)
+- **Minimum Speed**: 60 km/h (16.67 m/s)
+- **Time Interval**: 1 second
+
+---
+
+### **Assumptions**
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h).
+2. The lane change takes 2 seconds, during which the vehicle moves laterally at a constant rate.
+3. The vehicle remains in the adjacent lane for 3 seconds to bypass the obstruction.
+4. The vehicle returns to the original lane in 2 seconds.
+
+---
+
+### **Step-by-Step Plan**
+
+#### **Phase 1: Lane Change (T = 0 to T = 2)**
+- **Lateral Movement**: From Y = 0 to Y = -5 over 2 seconds.
+  - Lateral velocity = (-5 - 0) / 2 = -2.5 m/s.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 0: (0, 0)
+  - T = 1: (20, -2.5)
+  - T = 2: (40, -5)
+
+#### **Phase 2: Bypass Obstruction (T = 2 to T = 5)**
+- **Lateral Movement**: Stay at Y = -5.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 3: (60, -5)
+  - T = 4: (80, -5)
+  - T = 5: (100, -5)
+
+#### **Phase 3: Lane Return (T = 5 to T = 7)**
+- **Lateral Movement**: From Y = -5 to Y = 0 over 2 seconds.
+  - Lateral velocity = (0 - (-5)) / 2 = 2.5 m/s.
+- **Longitudinal Movement**: X increases at 20 m/s.
+- **Positions**:
+  - T = 6: (120, -2.5)
+  - T = 7: (140, 0)
+
+---
+
+### **Final Route Plan**
+Here¡¯s the vehicle¡¯s position at each second:
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -2.5  |
+| 2        | 40    | -5    |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -2.5  |
+| 7        | 140   | 0     |
+
+---
+
+### **Verification**
+- Speed is maintained at 20 m/s (72 km/h), exceeding the minimum requirement of 16.67 m/s (60 km/h).
+- The obstruction at (100, 0) is bypassed while the vehicle is in the adjacent lane (Y = -5).
+- The vehicle returns to the original lane after bypassing the obstruction.
+
+This plan ensures a smooth and safe maneuver around the obstruction.

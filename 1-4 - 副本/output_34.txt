@@ -1,0 +1,64 @@
+To plan the route for your vehicle, we'll break down the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane**: Transition from Y = 0 (outer lane) to Y = -5 (adjacent lane).
+2. **Bypassing the Obstruction**: Maintain Y = -5 while moving past X = 100.
+3. **Lane Change Back to the Original Lane**: Transition from Y = -5 back to Y = 0.
+
+We'll assume smooth and constant acceleration during lane changes and a constant speed of 72 km/h (20 m/s) while bypassing the obstruction.
+
+---
+
+### **Key Assumptions**
+- **Time for Lane Change**: 2 seconds (1 second to change into the adjacent lane, 1 second to change back).
+- **Speed**: Maintain 20 m/s (72 km/h) throughout.
+- **Obstruction Position**: (100, 0).
+- **Adjacent Lane Position**: Y = -5.
+
+---
+
+### **Route Plan**
+
+#### **Phase 1: Lane Change to the Adjacent Lane (T = 0 to T = 1)**
+- **Time Interval**: T = 0 to T = 1.
+- **Y-Position**: Moves linearly from Y = 0 to Y = -5.
+- **X-Position**: Moves at 20 m/s.
+- **Positions**:
+  - T = 0: (0, 0)
+  - T = 1: (20, -5)
+
+#### **Phase 2: Bypassing the Obstruction (T = 1 to T = 4)**
+- **Time Interval**: T = 1 to T = 4.
+- **Y-Position**: Maintains Y = -5.
+- **X-Position**: Moves at 20 m/s.
+- **Positions**:
+  - T = 2: (40, -5)
+  - T = 3: (60, -5)
+  - T = 4: (80, -5)
+
+#### **Phase 3: Lane Change Back to the Original Lane (T = 4 to T = 5)**
+- **Time Interval**: T = 4 to T = 5.
+- **Y-Position**: Moves linearly from Y = -5 to Y = 0.
+- **X-Position**: Moves at 20 m/s.
+- **Positions**:
+  - T = 5: (100, 0)
+
+---
+
+### **Summary of Positions**
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -5    |
+| 2        | 40    | -5    |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | 0     |
+
+---
+
+### **Explanation**
+1. **Lane Change (T = 0 to T = 1)**: The vehicle smoothly transitions to the adjacent lane while maintaining speed.
+2. **Bypassing Obstruction (T = 1 to T = 4)**: The vehicle remains in the adjacent lane, ensuring the obstruction at X = 100 is safely bypassed.
+3. **Lane Change Back (T = 4 to T = 5)**: The vehicle smoothly transitions back to the original lane.
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

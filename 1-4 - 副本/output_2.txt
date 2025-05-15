@@ -1,0 +1,74 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break down the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane**: Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5).  
+2. **Bypass the Obstruction**: Continue in the adjacent lane until the obstruction is safely passed.  
+3. **Return to the Original Lane**: Transition back to the outer lane (Y = 0).  
+
+We¡¯ll assume a constant speed of **72 km/h (20 m/s)** for simplicity. The obstruction is at **X = 100 m**, and the adjacent lane is at **Y = -5 m**. We¡¯ll plan the maneuver over **10 seconds**.
+
+---
+
+### **Phase 1: Lane Change to the Adjacent Lane (T = 0 to T = 3 seconds)**  
+- **Time**: 0 to 3 seconds  
+- **Lateral Movement**: Smoothly transition from Y = 0 to Y = -5.  
+- **Longitudinal Movement**: Continue moving forward at 20 m/s.  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.67 |  
+| 2        | 40    | -3.33 |  
+| 3        | 60    | -5    |  
+
+---
+
+### **Phase 2: Bypass the Obstruction (T = 3 to T = 7 seconds)**  
+- **Time**: 3 to 7 seconds  
+- **Lateral Movement**: Stay in the adjacent lane (Y = -5).  
+- **Longitudinal Movement**: Continue moving forward at 20 m/s.  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -5    |  
+
+---
+
+### **Phase 3: Return to the Original Lane (T = 7 to T = 10 seconds)**  
+- **Time**: 7 to 10 seconds  
+- **Lateral Movement**: Smoothly transition from Y = -5 to Y = 0.  
+- **Longitudinal Movement**: Continue moving forward at 20 m/s.  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 8        | 160   | -3.33 |  
+| 9        | 180   | -1.67 |  
+| 10       | 200   | 0     |  
+
+---
+
+### **Summary of Critical Positions**  
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.67 |  
+| 2        | 40    | -3.33 |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -5    |  
+| 8        | 160   | -3.33 |  
+| 9        | 180   | -1.67 |  
+| 10       | 200   | 0     |  
+
+---
+
+### **Key Observations**  
+1. The obstruction is bypassed safely at **T = 5 seconds**, when the vehicle is at (100, -5).  
+2. The vehicle returns to the original lane by **T = 10 seconds**, having traveled 200 meters.  
+3. The speed remains constant at **72 km/h (20 m/s)** throughout the maneuver.  
+
+This plan ensures the vehicle avoids the obstruction while maintaining a safe and consistent speed.
