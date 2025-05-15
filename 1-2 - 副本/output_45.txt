@@ -1,0 +1,37 @@
+To create a trajectory for the vehicle to switch lanes, pass the obstacle, and return to the right lane, we¡¯ll break the maneuver into phases:
+
+1. **Initial Phase (T = 0 to T = 3 seconds):**  
+   - The vehicle is in the right lane (Y = 0) and approaching the obstacle.  
+   - Gradually start moving to the left lane while maintaining speed.  
+
+2. **Lane Change Phase (T = 3 to T = 6 seconds):**  
+   - Complete the lane change to the left lane (Y = -3.5 meters, assuming lane width is 3.5 meters).  
+   - Continue moving forward to pass the obstacle.  
+
+3. **Passing Phase (T = 6 to T = 9 seconds):**  
+   - Stay in the left lane and pass the obstacle.  
+
+4. **Return Phase (T = 9 to T = 12 seconds):**  
+   - Gradually return to the right lane (Y = 0).  
+
+Here¡¯s the trajectory in (X, Y) coordinates at 1-second intervals:
+
+| Time (T) | X (meters) | Y (meters) | Description                          |
+|----------|------------|------------|--------------------------------------|
+| 0        | 0          | 0          | Initial position in the right lane.  |
+| 1        | 20         | -0.5       | Start moving left.                   |
+| 2        | 40         | -1.5       | Continue moving left.                |
+| 3        | 60         | -3.5       | Fully in the left lane.              |
+| 4        | 80         | -3.5       | Continue in the left lane.           |
+| 5        | 100        | -3.5       | Pass the obstacle.                   |
+| 6        | 120        | -3.5       | Continue in the left lane.           |
+| 7        | 140        | -2.5       | Start moving back to the right lane. |
+| 8        | 160        | -1.5       | Continue moving right.               |
+| 9        | 180        | -0.5       | Nearly back in the right lane.       |
+| 10       | 200        | 0          | Fully back in the right lane.        |
+
+### Notes:  
+- Speed is maintained at 72 km/h (20 m/s).  
+- The obstacle is at (100, 0), and the vehicle passes it between T = 5 and T = 6 seconds.  
+- The lane width is assumed to be 3.5 meters, so Y = -3.5 represents the center of the left lane.  
+- The trajectory ensures the vehicle stays in the left lane while passing the obstacle.

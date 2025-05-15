@@ -1,0 +1,49 @@
+To describe the trajectory, we¡¯ll assume the following:
+
+1. The vehicle starts at position (0, 0) at time T = 0.
+2. The vehicle is moving at a constant speed of 72 km/h (20 m/s) in the right lane.
+3. The left lane is at Y = 4 meters (assuming the lane width is 4 meters).
+4. The obstacle is at (100, 0), and the vehicle needs to switch to the left lane, pass the obstacle, and switch back to the right lane.
+5. The lane change takes approximately 2 seconds (smooth transition).
+
+Here¡¯s the trajectory for the next 10 seconds:
+
+- **T = 0 s**: Position = (0, 0)  
+  The vehicle is in the right lane, starting to accelerate or maintain speed.
+
+- **T = 1 s**: Position = (20, 0)  
+  The vehicle continues in the right lane, moving forward at 20 m/s.
+
+- **T = 2 s**: Position = (40, 0)  
+  Still in the right lane, approaching the obstacle.
+
+- **T = 3 s**: Position = (60, 1)  
+  The vehicle begins the lane change to the left lane, moving laterally at 1 m/s.
+
+- **T = 4 s**: Position = (80, 2)  
+  Continuing the lane change, halfway into the left lane.
+
+- **T = 5 s**: Position = (100, 3)  
+  The vehicle is almost fully in the left lane, passing the obstacle at (100, 0).
+
+- **T = 6 s**: Position = (120, 4)  
+  The vehicle is now fully in the left lane, having passed the obstacle.
+
+- **T = 7 s**: Position = (140, 3)  
+  The vehicle begins to transition back to the right lane.
+
+- **T = 8 s**: Position = (160, 2)  
+  Continuing the transition back to the right lane.
+
+- **T = 9 s**: Position = (180, 1)  
+  Almost fully back in the right lane.
+
+- **T = 10 s**: Position = (200, 0)  
+  The vehicle is fully back in the right lane, continuing forward.
+
+### Key Details:
+- The lane change starts at T = 3 s and is completed by T = 6 s.
+- The return to the right lane starts at T = 7 s and is completed by T = 10 s.
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining speed and staying in the correct lanes.

@@ -1,0 +1,50 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into three phases:
+
+1. **Initial Phase (T = 0 to T = 2 seconds):**  
+   - Continue driving in the right lane while preparing to switch to the left lane.  
+   - Maintain a speed of 72 km/h (20 m/s).  
+
+2. **Lane-Changing Phase (T = 2 to T = 6 seconds):**  
+   - Gradually move from the right lane (Y = 0) to the left lane (Y = -3.5 meters, assuming a standard lane width of 3.5 meters).  
+   - Maintain a speed of 72 km/h (20 m/s).  
+
+3. **Passing Phase (T = 6 to T = 10 seconds):**  
+   - Stay in the left lane to pass the obstacle vehicle.  
+   - After passing, gradually return to the right lane.  
+
+Here¡¯s the trajectory in (X, Y) coordinates at 1-second intervals:
+
+- **T = 0 seconds:** (0, 0)  
+  Initial position in the right lane.  
+
+- **T = 1 second:** (20, 0)  
+  Continue in the right lane at 20 m/s.  
+
+- **T = 2 seconds:** (40, 0)  
+  Begin lane-changing maneuver.  
+
+- **T = 3 seconds:** (60, -1.75)  
+  Move halfway into the left lane.  
+
+- **T = 4 seconds:** (80, -3.5)  
+  Fully transitioned into the left lane.  
+
+- **T = 5 seconds:** (100, -3.5)  
+  Approach the obstacle vehicle while staying in the left lane.  
+
+- **T = 6 seconds:** (120, -3.5)  
+  Pass the obstacle vehicle.  
+
+- **T = 7 seconds:** (140, -2.625)  
+  Begin transitioning back to the right lane.  
+
+- **T = 8 seconds:** (160, -1.75)  
+  Move halfway back to the right lane.  
+
+- **T = 9 seconds:** (180, -0.875)  
+  Almost fully transitioned back to the right lane.  
+
+- **T = 10 seconds:** (200, 0)  
+  Returned to the right lane.  
+
+This trajectory ensures the obstacle is safely passed while maintaining a speed above 60 km/h.

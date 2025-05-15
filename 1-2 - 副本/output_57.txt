@@ -1,0 +1,32 @@
+To describe the trajectory, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from T = 0 to T = 3 seconds).  
+2. **Passing the obstacle** (from T = 3 to T = 7 seconds).  
+3. **Lane change back to the right lane** (from T = 7 to T = 10 seconds).  
+
+### Assumptions:  
+- **Speed**: 72 km/h = 20 m/s (constant).  
+- **Lane width**: Assume each lane is 3.5 meters wide.  
+- **Obstacle position**: (100, 0).  
+- **Lateral movement**: Smooth lane change over 3 seconds.  
+
+### Trajectory:  
+| Time (T) | X (m) | Y (m) | Description                     |  
+|----------|-------|-------|---------------------------------|  
+| 0        | 0     | 0     | Initial position in right lane. |  
+| 1        | 20    | 1.17  | Start lane change to the left.  |  
+| 2        | 40    | 2.33  | Continue lane change.           |  
+| 3        | 60    | 3.5   | Fully in the left lane.         |  
+| 4        | 80    | 3.5   | Approaching the obstacle.       |  
+| 5        | 100   | 3.5   | Passing the obstacle.           |  
+| 6        | 120   | 3.5   | Clear of the obstacle.          |  
+| 7        | 140   | 2.33  | Start lane change to the right. |  
+| 8        | 160   | 1.17  | Continue lane change.           |  
+| 9        | 180   | 0     | Fully in the right lane.        |  
+| 10       | 200   | 0     | Continue driving straight.      |  
+
+### Explanation:  
+1. **Lane change (T = 0 to 3)**: The vehicle moves laterally to the left lane over 3 seconds, covering 3.5 meters.  
+2. **Passing the obstacle (T = 3 to 7)**: The vehicle maintains its position in the left lane while passing the obstacle at X = 100 meters.  
+3. **Lane change back (T = 7 to 10)**: The vehicle moves laterally back to the right lane over 3 seconds.  
+
+This trajectory ensures the vehicle stays above 60 km/h and safely avoids the obstacle.

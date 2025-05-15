@@ -1,0 +1,36 @@
+To perform the lane-changing maneuver safely and efficiently, we¡¯ll break the trajectory into three phases: **1) Lane change to the left**, **2) Passing the obstacle**, and **3) Lane change back to the right**. The vehicle¡¯s initial speed is 72 km/h (20 m/s), and we¡¯ll maintain a speed of at least 60 km/h (16.67 m/s) throughout the maneuver.
+
+### Assumptions:
+- The obstacle is at (100, 0).
+- The left lane is at \( Y = -3 \) meters (assuming a standard lane width of 3 meters).
+- The lane change takes 2 seconds to complete.
+- The vehicle travels at a constant speed of 20 m/s.
+
+### Trajectory:
+#### Phase 1: Lane change to the left (T = 0 to T = 2)
+- At T = 0: (0, 0)
+- At T = 1: (20, -1.5) (halfway through the lane change)
+- At T = 2: (40, -3) (fully in the left lane)
+
+#### Phase 2: Passing the obstacle (T = 2 to T = 6)
+- At T = 3: (60, -3)
+- At T = 4: (80, -3)
+- At T = 5: (100, -3) (passing the obstacle at X = 100)
+- At T = 6: (120, -3) (fully past the obstacle)
+
+#### Phase 3: Lane change back to the right (T = 6 to T = 8)
+- At T = 7: (140, -1.5) (halfway back to the right lane)
+- At T = 8: (160, 0) (fully back in the right lane)
+
+### Final Trajectory:
+- T = 0: (0, 0)
+- T = 1: (20, -1.5)
+- T = 2: (40, -3)
+- T = 3: (60, -3)
+- T = 4: (80, -3)
+- T = 5: (100, -3)
+- T = 6: (120, -3)
+- T = 7: (140, -1.5)
+- T = 8: (160, 0)
+
+After T = 8, the vehicle continues in the right lane at a speed of 20 m/s. This trajectory ensures the vehicle stays in the left lane while passing the obstacle and maintains a safe speed above 60 km/h.

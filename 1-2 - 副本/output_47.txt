@@ -1,0 +1,78 @@
+To describe the trajectory of the vehicle as it switches lanes, passes the obstacle, and switches back, we need to account for the vehicle's speed, the distance to the obstacle, and the lane-changing maneuver. Here¡¯s the step-by-step description of the trajectory:
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h = 20 m/s.
+2. **Lane width**: Assume the lane width is 3.5 meters, so the lateral shift from the right lane (Y = 0) to the left lane (Y = 3.5) is 3.5 meters.
+3. **Time for lane change**: Assume it takes 2 seconds to complete a lane change.
+4. **Passing distance**: The vehicle needs to pass the obstacle completely before switching back to the right lane.
+5. **Obstacle position**: The obstacle is at (100, 0), and the vehicle starts at (0, 0).
+
+---
+
+### Trajectory:
+#### T = 0 s:
+- **Position**: (0, 0)  
+- **Action**: Begin moving forward in the right lane.
+
+#### T = 1 s:
+- **Position**: (20, 0)  
+- **Action**: Continue in the right lane.
+
+#### T = 2 s:
+- **Position**: (40, 0)  
+- **Action**: Start lane-changing maneuver to the left.
+
+#### T = 3 s:
+- **Position**: (60, 1.75)  
+- **Action**: Midway through the lane change.
+
+#### T = 4 s:
+- **Position**: (80, 3.5)  
+- **Action**: Complete lane change into the left lane.
+
+#### T = 5 s:
+- **Position**: (100, 3.5)  
+- **Action**: Pass the obstacle in the left lane.
+
+#### T = 6 s:
+- **Position**: (120, 3.5)  
+- **Action**: Continue in the left lane.
+
+#### T = 7 s:
+- **Position**: (140, 3.5)  
+- **Action**: Start lane-changing maneuver back to the right lane.
+
+#### T = 8 s:
+- **Position**: (160, 1.75)  
+- **Action**: Midway through the lane change.
+
+#### T = 9 s:
+- **Position**: (180, 0)  
+- **Action**: Complete lane change back into the right lane.
+
+#### T = 10 s:
+- **Position**: (200, 0)  
+- **Action**: Continue driving in the right lane.
+
+---
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, 1.75)      |
+| 4        | (80, 3.5)       |
+| 5        | (100, 3.5)      |
+| 6        | (120, 3.5)      |
+| 7        | (140, 3.5)      |
+| 8        | (160, 1.75)     |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+This trajectory ensures the vehicle safely switches lanes, passes the obstacle, and returns to the right lane while maintaining a speed of 72 km/h (20 m/s).

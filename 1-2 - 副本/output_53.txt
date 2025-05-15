@@ -1,0 +1,36 @@
+To describe the vehicle's trajectory, we'll break it down into three phases:
+
+1. **Initial Phase (T = 0 to T = 2 seconds):**  
+   The vehicle is in the right lane, moving at 72 km/h (20 m/s) and approaching the obstacle.  
+   - At T = 0: (0, 0)  
+   - At T = 1: (20, 0)  
+   - At T = 2: (40, 0)  
+
+2. **Lane Change Phase (T = 3 to T = 6 seconds):**  
+   The vehicle begins to move into the left lane to avoid the obstacle. Assume the lane change takes 3 seconds, with a lateral speed of about 1 m/s.  
+   - At T = 3: (60, 0)  
+   - At T = 4: (80, 1)  
+   - At T = 5: (100, 2)  
+   - At T = 6: (120, 3)  
+
+3. **Return to Right Lane Phase (T = 7 to T = 10 seconds):**  
+   After passing the obstacle, the vehicle returns to the right lane. Assume the return maneuver also takes 3 seconds.  
+   - At T = 7: (140, 3)  
+   - At T = 8: (160, 2)  
+   - At T = 9: (180, 1)  
+   - At T = 10: (200, 0)  
+
+### Summary of Positions:
+- T = 0: (0, 0)  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, 0)  
+- T = 4: (80, 1)  
+- T = 5: (100, 2)  
+- T = 6: (120, 3)  
+- T = 7: (140, 3)  
+- T = 8: (160, 2)  
+- T = 9: (180, 1)  
+- T = 10: (200, 0)  
+
+This trajectory ensures the vehicle maintains a speed of over 60 km/h, avoids the obstacle, and returns to the right lane safely.

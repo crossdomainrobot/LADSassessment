@@ -1,0 +1,45 @@
+To plan the trajectory for the lane-changing maneuver, we need to consider the following steps:
+
+1. **Accelerate to a safe speed for lane changing**: Maintain a speed of at least 60 km/h.
+2. **Switch to the left lane**: Move laterally to the left lane.
+3. **Pass the obstacle**: Continue driving in the left lane until the obstacle is cleared.
+4. **Switch back to the right lane**: Move laterally back to the right lane.
+
+Let¡¯s break this down step by step, assuming a constant speed of 72 km/h (20 m/s) and smooth lane changes. Here¡¯s the trajectory in (X, Y) coordinates at each second:
+
+---
+
+### **Trajectory Plan**
+- **Initial position**: (0, 0)
+- **Obstacle position**: (100, 0)
+- **Left lane Y-position**: Y = -3.5 (assuming a standard lane width of 3.5 meters)
+- **Time to reach the obstacle**: \( t = \frac{100 \, \text{m}}{20 \, \text{m/s}} = 5 \, \text{seconds} \)
+
+---
+
+### **Trajectory Table**
+| Time (T) | X (m) | Y (m) | Description |
+|----------|-------|-------|-------------|
+| 0        | 0     | 0     | Start in the right lane. |
+| 1        | 20    | 0     | Continue in the right lane. |
+| 2        | 40    | 0     | Begin lane change to the left. |
+| 3        | 60    | -1.75  | Midway through lane change. |
+| 4        | 80    | -3.5   | Fully in the left lane. |
+| 5        | 100   | -3.5   | Pass the obstacle in the left lane. |
+| 6        | 120   | -3.5   | Continue in the left lane. |
+| 7        | 140   | -2.625 | Begin lane change back to the right. |
+| 8        | 160   | -1.25  | Midway through lane change back. |
+| 9        | 180   | 0      | Fully back in the right lane. |
+| 10       | 200   | 0      | Continue in the right lane. |
+
+---
+
+### **Explanation**
+1. **T = 0¨C1 s**: Drive straight in the right lane.
+2. **T = 2¨C4 s**: Smoothly transition to the left lane, reaching Y = -3.5 m at T = 4 s.
+3. **T = 5 s**: Pass the obstacle while fully in the left lane.
+4. **T = 6 s**: Continue in the left lane to ensure the obstacle is cleared.
+5. **T = 7¨C9 s**: Smoothly transition back to the right lane, reaching Y = 0 m at T = 9 s.
+6. **T = 10 s**: Continue driving in the right lane.
+
+This trajectory ensures safe lane changes and maintains a speed of 72 km/h throughout the maneuver.

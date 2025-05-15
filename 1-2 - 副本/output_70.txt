@@ -1,0 +1,63 @@
+To describe the trajectory of the vehicle, we'll break the maneuver into three phases: accelerating to prepare for the lane change, executing the lane change, and returning to the right lane after passing the obstacle. Here's the step-by-step trajectory:
+
+---
+
+### **Assumptions:**
+1. The vehicle's initial speed is **72 km/h (20 m/s)**.
+2. The left lane is at **Y = -3.5 meters** (assuming standard lane width).
+3. The obstacle is at **(100, 0)**.
+4. The lane change takes **3 seconds** to complete.
+5. The vehicle maintains a speed of **72 km/h (20 m/s)** during the maneuver.
+
+---
+
+### **Trajectory:**
+
+#### **Phase 1: Approaching the obstacle (T = 0 to T = 3 seconds)**
+- The vehicle continues in the right lane **(Y = 0)**.
+- Position at each second:
+  - **T = 0:** (0, 0)
+  - **T = 1:** (20, 0)
+  - **T = 2:** (40, 0)
+  - **T = 3:** (60, 0)
+
+#### **Phase 2: Lane change to the left lane (T = 3 to T = 6 seconds)**
+- The vehicle smoothly transitions to the left lane **(Y = -3.5 meters)**.
+- Position at each second:
+  - **T = 4:** (80, -1.17)
+  - **T = 5:** (100, -2.33)
+  - **T = 6:** (120, -3.5)
+
+#### **Phase 3: Passing the obstacle and returning to the right lane (T = 6 to T = 10 seconds)**
+- The vehicle remains in the left lane **(Y = -3.5 meters)** until it passes the obstacle.
+- After passing the obstacle, it smoothly transitions back to the right lane **(Y = 0)**.
+- Position at each second:
+  - **T = 7:** (140, -3.5)
+  - **T = 8:** (160, -2.33)
+  - **T = 9:** (180, -1.17)
+  - **T = 10:** (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, 0)         |
+| 4        | (80, -1.17)     |
+| 5        | (100, -2.33)    |
+| 6        | (120, -3.5)     |
+| 7        | (140, -3.5)     |
+| 8        | (160, -2.33)    |
+| 9        | (180, -1.17)    |
+| 10       | (200, 0)        |
+
+---
+
+### **Key Points:**
+1. The lane change is completed by **T = 6 seconds**.
+2. The obstacle is passed safely by **T = 6 seconds**.
+3. The vehicle returns to the right lane by **T = 10 seconds**.
+4. The speed is maintained at **72 km/h (20 m/s)** throughout the maneuver.

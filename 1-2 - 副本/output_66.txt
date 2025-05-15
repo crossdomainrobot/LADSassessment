@@ -1,0 +1,41 @@
+To plan the trajectory for the lane-changing maneuver, we'll assume the following:
+
+1. **Initial Conditions**:
+   - Initial position: \( (X, Y) = (0, 0) \)
+   - Initial speed: \( 72 \) km/h \( = 20 \) m/s
+   - Obstacle position: \( (100, 0) \)
+   - Left lane is to the left, so \( Y \) increases negatively (e.g., \( Y = -3 \) for the left lane).
+
+2. **Constraints**:
+   - Maintain speed \( \geq 60 \) km/h \( = 16.67 \) m/s.
+   - Complete the lane change and return to the right lane smoothly.
+
+3. **Assumptions**:
+   - The vehicle starts changing lanes at \( T = 2 \) seconds and completes the lane change by \( T = 4 \) seconds.
+   - The vehicle stays in the left lane until \( T = 6 \) seconds, then starts returning to the right lane, completing the maneuver by \( T = 8 \) seconds.
+
+4. **Trajectory Calculation**:
+   - The vehicle moves forward at \( 20 \) m/s along the \( X \)-axis.
+   - The lateral movement (\( Y \)-axis) follows a smooth transition to the left lane and back.
+
+Here¡¯s the trajectory at 1-second intervals:
+
+- **\( T = 0 \)**: \( (0, 0) \)
+- **\( T = 1 \)**: \( (20, 0) \)
+- **\( T = 2 \)**: \( (40, 0) \) (start lane change)
+- **\( T = 3 \)**: \( (60, -1.5) \) (midway in lane change)
+- **\( T = 4 \)**: \( (80, -3) \) (fully in left lane)
+- **\( T = 5 \)**: \( (100, -3) \) (passing the obstacle)
+- **\( T = 6 \)**: \( (120, -3) \) (start returning to right lane)
+- **\( T = 7 \)**: \( (140, -1.5) \) (midway in returning)
+- **\( T = 8 \)**: \( (160, 0) \) (fully back in right lane)
+- **\( T = 9 \)**: \( (180, 0) \)
+- **\( T = 10 \)**: \( (200, 0) \)
+
+### Explanation:
+1. **Lane Change**: From \( T = 2 \) to \( T = 4 \), the vehicle transitions smoothly to the left lane (\( Y = -3 \)).
+2. **Passing the Obstacle**: The vehicle stays in the left lane from \( T = 4 \) to \( T = 6 \), ensuring it passes the obstacle safely.
+3. **Returning to Right Lane**: From \( T = 6 \) to \( T = 8 \), the vehicle transitions back to the right lane (\( Y = 0 \)).
+4. **Continued Motion**: After \( T = 8 \), the vehicle continues in the right lane.
+
+This trajectory ensures the vehicle maintains a speed of \( 20 \) m/s (\( 72 \) km/h) and safely navigates around the obstacle.

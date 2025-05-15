@@ -1,0 +1,44 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed of over 60 km/h (approximately 16.67 m/s). Here¡¯s a step-by-step breakdown of the maneuver:
+
+---
+
+### Assumptions:
+1. **Initial speed**: 72 km/h = 20 m/s.
+2. **Lane width**: Assume each lane is 3.5 meters wide.
+3. **Lane change duration**: Assume it takes 3 seconds to complete a lane change.
+4. **Obstacle position**: (100, 0).
+5. **Left lane position**: Y = -3.5 meters (since the left lane is to the left).
+
+---
+
+### Trajectory:
+1. **T = 0s**: Initial position = (0, 0). Vehicle is in the right lane.
+2. **T = 1s**: Vehicle moves forward in the right lane. Position = (20, 0).
+3. **T = 2s**: Vehicle continues in the right lane. Position = (40, 0).
+4. **T = 3s**: Begin lane change to the left. Position = (60, -1.17) (1/3 of the lane change completed).
+5. **T = 4s**: Midway through the lane change. Position = (80, -2.33) (2/3 of the lane change completed).
+6. **T = 5s**: Lane change completed. Vehicle is now fully in the left lane. Position = (100, -3.5).
+7. **T = 6s**: Vehicle passes the obstacle while staying in the left lane. Position = (120, -3.5).
+8. **T = 7s**: Vehicle continues in the left lane. Position = (140, -3.5).
+9. **T = 8s**: Begin lane change back to the right. Position = (160, -2.33) (1/3 of the lane change completed).
+10. **T = 9s**: Midway through the lane change. Position = (180, -1.17) (2/3 of the lane change completed).
+11. **T = 10s**: Lane change completed. Vehicle is now fully in the right lane. Position = (200, 0).
+
+---
+
+### Summary of Positions:
+- T = 0s: (0, 0)
+- T = 1s: (20, 0)
+- T = 2s: (40, 0)
+- T = 3s: (60, -1.17)
+- T = 4s: (80, -2.33)
+- T = 5s: (100, -3.5)
+- T = 6s: (120, -3.5)
+- T = 7s: (140, -3.5)
+- T = 8s: (160, -2.33)
+- T = 9s: (180, -1.17)
+- T = 10s: (200, 0)
+
+---
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed of over 60 km/h and completing the lane-change maneuver smoothly.

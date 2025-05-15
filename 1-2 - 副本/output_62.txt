@@ -1,0 +1,37 @@
+To describe the trajectory of the vehicle, we need to account for the following steps:
+
+1. **Initial Movement**: The vehicle starts at (0, 0) and continues in the right lane.
+2. **Lane Change to the Left**: The vehicle begins to change lanes to the left to avoid the obstacle.
+3. **Passing the Obstacle**: The vehicle passes the obstacle while staying in the left lane.
+4. **Lane Change Back to the Right**: The vehicle changes lanes back to the right after passing the obstacle.
+
+Let¡¯s assume the vehicle takes about 2 seconds to complete each lane change (left or right) and maintains a constant speed of 72 km/h (20 m/s) during the maneuver.
+
+### Step-by-Step Trajectory:
+
+- **T = 0 s**: Initial position (0, 0). The vehicle is in the right lane, moving at 20 m/s.
+- **T = 1 s**: The vehicle continues in the right lane. Position: (20, 0).
+- **T = 2 s**: The vehicle begins to change lanes to the left. Position: (40, 0).
+- **T = 3 s**: The vehicle is halfway through the lane change. Position: (60, -1) (assuming the lane width is 3 meters, Y = -1 represents the midpoint of the lane change).
+- **T = 4 s**: The vehicle completes the lane change to the left. Position: (80, -1.5).
+- **T = 5 s**: The vehicle is in the left lane, passing the obstacle. Position: (100, -1.5).
+- **T = 6 s**: The vehicle continues in the left lane, now past the obstacle. Position: (120, -1.5).
+- **T = 7 s**: The vehicle begins to change lanes back to the right. Position: (140, -1.5).
+- **T = 8 s**: The vehicle is halfway through the lane change back to the right. Position: (160, -0.75).
+- **T = 9 s**: The vehicle completes the lane change back to the right. Position: (180, 0).
+- **T = 10 s**: The vehicle is back in the right lane, continuing its journey. Position: (200, 0).
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 0)
+- **T = 3 s**: (60, -1)
+- **T = 4 s**: (80, -1.5)
+- **T = 5 s**: (100, -1.5)
+- **T = 6 s**: (120, -1.5)
+- **T = 7 s**: (140, -1.5)
+- **T = 8 s**: (160, -0.75)
+- **T = 9 s**: (180, 0)
+- **T = 10 s**: (200, 0)
+
+This trajectory ensures that the vehicle maintains a speed of 72 km/h (20 m/s) throughout the maneuver, successfully avoids the obstacle, and returns to the right lane after passing the obstacle.

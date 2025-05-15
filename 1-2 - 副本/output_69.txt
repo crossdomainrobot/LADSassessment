@@ -1,0 +1,51 @@
+To describe the trajectory of the vehicle, we'll break it down into phases: 
+
+1. **Initial phase (T = 0 to T = 3 seconds):**  
+   - The vehicle is in the right lane at (0, 0).  
+   - It maintains a speed of 72 km/h (20 m/s) and moves straight ahead.  
+   - Positions:  
+     - T = 1: (20, 0)  
+     - T = 2: (40, 0)  
+     - T = 3: (60, 0)  
+
+2. **Lane change to the left lane (T = 3 to T = 6 seconds):**  
+   - The vehicle starts moving laterally to the left lane while maintaining a speed of 72 km/h (20 m/s).  
+   - The lateral movement is smooth and takes about 3 seconds to complete.  
+   - Positions:  
+     - T = 4: (80, -1.5)  
+     - T = 5: (100, -3)  
+     - T = 6: (120, -3)  
+
+3. **Passing the obstacle (T = 6 to T = 9 seconds):**  
+   - The vehicle is now fully in the left lane and continues moving forward at 72 km/h (20 m/s).  
+   - The obstacle is at (100, 0), so the vehicle passes it safely in the left lane.  
+   - Positions:  
+     - T = 7: (140, -3)  
+     - T = 8: (160, -3)  
+     - T = 9: (180, -3)  
+
+4. **Lane change back to the right lane (T = 9 to T = 12 seconds):**  
+   - After passing the obstacle, the vehicle begins moving laterally back to the right lane.  
+   - The lateral movement is smooth and takes about 3 seconds to complete.  
+   - Positions:  
+     - T = 10: (200, -1.5)  
+     - T = 11: (220, 0)  
+     - T = 12: (240, 0)  
+
+After T = 12 seconds, the vehicle is back in the right lane and continues driving straight ahead at 72 km/h (20 m/s).  
+
+### Summary of positions:  
+- T = 1: (20, 0)  
+- T = 2: (40, 0)  
+- T = 3: (60, 0)  
+- T = 4: (80, -1.5)  
+- T = 5: (100, -3)  
+- T = 6: (120, -3)  
+- T = 7: (140, -3)  
+- T = 8: (160, -3)  
+- T = 9: (180, -3)  
+- T = 10: (200, -1.5)  
+- T = 11: (220, 0)  
+- T = 12: (240, 0)  
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

@@ -1,0 +1,90 @@
+To describe the trajectory for the lane-changing maneuver, we'll break it down into steps: **accelerating, switching to the left lane, passing the obstacle, and switching back to the right lane**. We'll assume a smooth transition and maintain a speed of at least 60 km/h (16.67 m/s). Here's the trajectory:
+
+---
+
+### **Assumptions:**
+1. Initial speed: \( 72 \, \text{km/h} = 20 \, \text{m/s} \).
+2. Acceleration/deceleration: Smooth and moderate.
+3. Lane width: Assume each lane is 3.5 meters wide, so the lateral shift is 3.5 meters.
+4. Obstacle position: \( (100, 0) \).
+5. Maneuver time: ~10 seconds.
+
+---
+
+### **Trajectory:**
+
+#### **T = 0s:**
+- Position: \( (0, 0) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Start accelerating slightly to prepare for the lane change.
+
+#### **T = 1s:**
+- Position: \( (20, 0) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Begin transitioning to the left lane.
+
+#### **T = 2s:**
+- Position: \( (40, 1.75) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Continue moving laterally into the left lane.
+
+#### **T = 3s:**
+- Position: \( (60, 3.5) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Fully in the left lane, maintaining speed.
+
+#### **T = 4s:**
+- Position: \( (80, 3.5) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Continue in the left lane, approaching the obstacle.
+
+#### **T = 5s:**
+- Position: \( (100, 3.5) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Passing the obstacle in the left lane.
+
+#### **T = 6s:**
+- Position: \( (120, 3.5) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Continue in the left lane, past the obstacle.
+
+#### **T = 7s:**
+- Position: \( (140, 3.5) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Begin transitioning back to the right lane.
+
+#### **T = 8s:**
+- Position: \( (160, 1.75) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Continue moving laterally into the right lane.
+
+#### **T = 9s:**
+- Position: \( (180, 0) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Fully back in the right lane.
+
+#### **T = 10s:**
+- Position: \( (200, 0) \).
+- Speed: \( 20 \, \text{m/s} \).
+- Action: Continue driving in the right lane.
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) in meters |
+|----------|---------------------------|
+| 0        | (0, 0)                    |
+| 1        | (20, 0)                   |
+| 2        | (40, 1.75)                |
+| 3        | (60, 3.5)                 |
+| 4        | (80, 3.5)                 |
+| 5        | (100, 3.5)                |
+| 6        | (120, 3.5)                |
+| 7        | (140, 3.5)                |
+| 8        | (160, 1.75)               |
+| 9        | (180, 0)                  |
+| 10       | (200, 0)                  |
+
+---
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

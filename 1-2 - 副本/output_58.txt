@@ -1,0 +1,35 @@
+To describe the trajectory of the vehicle switching lanes to pass the obstacle and then returning to the right lane, we'll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane** (from T = 0 to T = 3 seconds)  
+2. **Passing the Obstacle** (from T = 3 to T = 7 seconds)  
+3. **Lane Change back to the Right Lane** (from T = 7 to T = 10 seconds)  
+
+We'll assume the vehicle maintains a speed of **72 km/h (20 m/s)** throughout the maneuver. The lane width is approximately **3.5 meters**, so the lateral shift (Y) will transition from 0 to 3.5 meters and back to 0.
+
+### Trajectory Description
+
+| Time (T) | Position (X, Y)                  | Description                                   |
+|----------|----------------------------------|-----------------------------------------------|
+| T = 0    | (0, 0)                           | Starting position in the right lane.         |
+| T = 1    | (20, 1.2)                        | Begin lateral movement toward the left lane. |
+| T = 2    | (40, 2.3)                        | Continue moving into the left lane.          |
+| T = 3    | (60, 3.5)                        | Fully in the left lane.                      |
+| T = 4    | (80, 3.5)                        | Continue driving in the left lane.           |
+| T = 5    | (100, 3.5)                       | Passing the obstacle vehicle.                |
+| T = 6    | (120, 3.5)                       | Continue driving in the left lane.           |
+| T = 7    | (140, 2.3)                       | Begin moving back to the right lane.         |
+| T = 8    | (160, 1.2)                       | Continue moving into the right lane.         |
+| T = 9    | (180, 0)                         | Fully back in the right lane.                |
+| T = 10   | (200, 0)                         | Continue driving in the right lane.          |
+
+### Explanation of the Trajectory
+- **Lane Change to the Left Lane (T = 0 to T = 3):**  
+  The vehicle smoothly transitions from Y = 0 to Y = 3.5 meters over 3 seconds while maintaining a constant speed of 20 m/s in the X direction.  
+
+- **Passing the Obstacle (T = 3 to T = 7):**  
+  The vehicle stays in the left lane (Y = 3.5 meters) and passes the obstacle at X = 100 meters.  
+
+- **Lane Change back to the Right Lane (T = 7 to T = 10):**  
+  The vehicle smoothly transitions back to Y = 0 meters over 3 seconds while continuing to drive forward.  
+
+This trajectory ensures the vehicle maintains a safe speed, avoids the obstacle, and completes the maneuver efficiently.

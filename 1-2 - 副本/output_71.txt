@@ -1,0 +1,45 @@
+To describe the trajectory of the vehicle as it switches lanes to pass the obstacle and then switches back, we'll break the maneuver into three phases: (1) lane change to the left, (2) passing the obstacle, and (3) lane change back to the right. The vehicle starts at (0, 0) with a speed of 72 km/h (20 m/s). The obstacle is at (100, 0). We'll assume a lane width of 3.5 meters and a smooth lane change over 3 seconds.
+
+---
+
+### **Trajectory:**
+
+1. **T = 0 s**: Initial position = (0, 0). The vehicle is in the right lane.  
+2. **T = 1 s**: The vehicle begins lane change to the left. Position = (20, -0.5).  
+3. **T = 2 s**: Continuing lane change. Position = (40, -1.5).  
+4. **T = 3 s**: Lane change completed. Position = (60, -3.5). The vehicle is now fully in the left lane.  
+5. **T = 4 s**: The vehicle continues in the left lane. Position = (80, -3.5).  
+6. **T = 5 s**: The vehicle passes the obstacle at (100, 0). Position = (100, -3.5).  
+7. **T = 6 s**: The vehicle begins lane change back to the right. Position = (120, -2.5).  
+8. **T = 7 s**: Continuing lane change. Position = (140, -1.5).  
+9. **T = 8 s**: Lane change completed. Position = (160, 0). The vehicle is now fully in the right lane.  
+10. **T = 9 s**: The vehicle continues in the right lane. Position = (180, 0).  
+11. **T = 10 s**: The vehicle continues in the right lane. Position = (200, 0).  
+
+---
+
+### **Summary of Positions:**
+
+| T (s) | Position (X, Y) m | Description                  |
+|-------|-------------------|------------------------------|
+| 0     | (0, 0)            | Start in the right lane.     |
+| 1     | (20, -0.5)        | Begin lane change to left.   |
+| 2     | (40, -1.5)        | Continue lane change.        |
+| 3     | (60, -3.5)        | Fully in the left lane.      |
+| 4     | (80, -3.5)        | Approach the obstacle.       |
+| 5     | (100, -3.5)       | Pass the obstacle.           |
+| 6     | (120, -2.5)       | Begin lane change to right.  |
+| 7     | (140, -1.5)       | Continue lane change.        |
+| 8     | (160, 0)          | Fully in the right lane.     |
+| 9     | (180, 0)          | Continue in the right lane.  |
+| 10    | (200, 0)          | Continue in the right lane.  |
+
+---
+
+### **Assumptions:**
+- The vehicle maintains a constant speed of 20 m/s (72 km/h).  
+- Lane changes are smooth and take 3 seconds each.  
+- The obstacle is passed safely without slowing down.  
+- The left lane is centered at Y = -3.5 m, and the right lane is centered at Y = 0 m.  
+
+This trajectory ensures the vehicle stays above 60 km/h and completes the maneuver safely.

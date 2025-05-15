@@ -1,0 +1,56 @@
+To describe the vehicle¡¯s trajectory for the lane-changing maneuver, we¡¯ll assume the following:
+
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Lane Width**: A standard lane width is about 3.7 meters. We¡¯ll assume the right lane is at \( Y = 0 \) and the left lane is at \( Y = -3.7 \).
+3. **Obstacle Position**: The obstacle is at \( (100, 0) \).
+4. **Lane Change Duration**: We¡¯ll assume the lane change takes about 2 seconds, during which the vehicle moves laterally while continuing to move forward.
+
+Here¡¯s the trajectory in 1-second intervals:
+
+- **T = 0 s**: Initial position \( (0, 0) \).  
+  The vehicle is in the right lane at \( Y = 0 \), moving at 20 m/s.
+
+- **T = 1 s**: Position \( (20, 0) \).  
+  The vehicle continues in the right lane.
+
+- **T = 2 s**: Position \( (40, 0) \).  
+  The vehicle continues in the right lane.
+
+- **T = 3 s**: Position \( (60, -1.85) \).  
+  The vehicle starts moving laterally into the left lane. At \( T = 3 \), it¡¯s halfway through the lane change.
+
+- **T = 4 s**: Position \( (80, -3.7) \).  
+  The vehicle completes the lane change and is now fully in the left lane at \( Y = -3.7 \).
+
+- **T = 5 s**: Position \( (100, -3.7) \).  
+  The vehicle is in the left lane and passes the obstacle at \( X = 100 \).
+
+- **T = 6 s**: Position \( (120, -3.7) \).  
+  The vehicle continues in the left lane.
+
+- **T = 7 s**: Position \( (140, -1.85) \).  
+  The vehicle starts moving back into the right lane. At \( T = 7 \), it¡¯s halfway through the lane change.
+
+- **T = 8 s**: Position \( (160, 0) \).  
+  The vehicle completes the lane change and is now fully in the right lane at \( Y = 0 \).
+
+- **T = 9 s**: Position \( (180, 0) \).  
+  The vehicle continues in the right lane.
+
+- **T = 10 s**: Position \( (200, 0) \).  
+  The vehicle continues in the right lane.
+
+### Summary of Positions:
+- T = 0 s: \( (0, 0) \)
+- T = 1 s: \( (20, 0) \)
+- T = 2 s: \( (40, 0) \)
+- T = 3 s: \( (60, -1.85) \)
+- T = 4 s: \( (80, -3.7) \)
+- T = 5 s: \( (100, -3.7) \)
+- T = 6 s: \( (120, -3.7) \)
+- T = 7 s: \( (140, -1.85) \)
+- T = 8 s: \( (160, 0) \)
+- T = 9 s: \( (180, 0) \)
+- T = 10 s: \( (200, 0) \)
+
+This trajectory ensures the vehicle avoids the obstacle by switching to the left lane, passes it, and then safely returns to the right lane while maintaining a speed of over 60 km/h.

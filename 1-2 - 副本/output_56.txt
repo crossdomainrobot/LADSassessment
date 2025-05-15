@@ -1,0 +1,58 @@
+To plan the trajectory for the lane-changing maneuver, we'll break it down into phases:
+
+1. **Approach the obstacle**: Maintain speed in the right lane.
+2. **Change to the left lane**: Smoothly transition from the right lane (Y = 0) to the left lane (Y = -3.5 meters, assuming a standard lane width).
+3. **Pass the obstacle**: Stay in the left lane while overtaking the obstacle.
+4. **Return to the right lane**: Smoothly transition back to the right lane.
+
+### Assumptions:
+- Initial speed: 72 km/h = 20 m/s.
+- Lane width: 3.5 meters.
+- Lane change duration: 3 seconds (smooth transition).
+- Obstacle is at (100, 0), and we start at (0, 0).
+- Maintain speed at ~20 m/s (72 km/h).
+
+### Trajectory Plan:
+We'll describe the position (X, Y) at each second (T = 0, 1, 2, ..., 10).
+
+#### **Phase 1: Approach the obstacle (T = 0 to T = 3)**
+- Stay in the right lane (Y = 0).
+- Move forward at 20 m/s.
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | 0          |
+| 2        | 40         | 0          |
+| 3        | 60         | 0          |
+
+#### **Phase 2: Change to the left lane (T = 4 to T = 6)**
+- Smoothly transition from Y = 0 to Y = -3.5 meters over 3 seconds.
+- Continue moving forward at 20 m/s.
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 4        | 80         | -1.17      |
+| 5        | 100        | -2.33      |
+| 6        | 120        | -3.5       |
+
+#### **Phase 3: Pass the obstacle (T = 7 to T = 8)**
+- Stay in the left lane (Y = -3.5 meters).
+- Continue moving forward at 20 m/s.
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 7        | 140        | -3.5       |
+| 8        | 160        | -3.5       |
+
+#### **Phase 4: Return to the right lane (T = 9 to T = 10)**
+- Smoothly transition from Y = -3.5 meters to Y = 0 over 2 seconds.
+- Continue moving forward at 20 m/s.
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 9        | 180        | -1.75      |
+| 10       | 200        | 0          |
+
+### Summary:
+At T = 10 seconds, the vehicle has successfully passed the obstacle and returned to the right lane. The trajectory ensures the vehicle stays above 60 km/h and completes the maneuver safely.

@@ -1,0 +1,35 @@
+To describe the vehicle's trajectory for the lane-changing maneuver, we'll break it down into a series of steps. The vehicle starts at (0, 0) with a speed of 72 km/h (20 m/s). The obstacle is at (100, 0), and the left lane is to the left (negative Y direction). We'll assume the lane width is 3.5 meters, so the left lane's centerline is at Y = -3.5 meters.
+
+### Step 1: Lane Change to the Left Lane
+- **Time T = 0 to T = 3 seconds**: The vehicle gradually moves to the left lane. We'll assume the lane change takes 3 seconds.
+  - At T = 1 second: The vehicle moves to Y = -1.17 meters (one-third of the lane width).
+  - At T = 2 seconds: The vehicle moves to Y = -2.33 meters (two-thirds of the lane width).
+  - At T = 3 seconds: The vehicle is fully in the left lane at Y = -3.5 meters.
+
+### Step 2: Passing the Obstacle
+- **Time T = 3 to T = 7 seconds**: The vehicle continues driving in the left lane, maintaining a speed of 72 km/h (20 m/s).
+  - At T = 4 seconds: The vehicle has traveled 20 meters, so X = 80 meters.
+  - At T = 5 seconds: X = 100 meters (passing the obstacle).
+  - At T = 6 seconds: X = 120 meters.
+  - At T = 7 seconds: X = 140 meters.
+
+### Step 3: Lane Change Back to the Right Lane
+- **Time T = 7 to T = 10 seconds**: The vehicle gradually moves back to the right lane.
+  - At T = 8 seconds: The vehicle moves to Y = -2.33 meters.
+  - At T = 9 seconds: The vehicle moves to Y = -1.17 meters.
+  - At T = 10 seconds: The vehicle is fully in the right lane at Y = 0 meters.
+
+### Summary of Positions:
+- **T = 0 seconds**: (0, 0)
+- **T = 1 second**: (20, -1.17)
+- **T = 2 seconds**: (40, -2.33)
+- **T = 3 seconds**: (60, -3.5)
+- **T = 4 seconds**: (80, -3.5)
+- **T = 5 seconds**: (100, -3.5)
+- **T = 6 seconds**: (120, -3.5)
+- **T = 7 seconds**: (140, -3.5)
+- **T = 8 seconds**: (160, -2.33)
+- **T = 9 seconds**: (180, -1.17)
+- **T = 10 seconds**: (200, 0)
+
+This trajectory ensures the vehicle passes the obstacle safely while maintaining a speed above 60 km/h.

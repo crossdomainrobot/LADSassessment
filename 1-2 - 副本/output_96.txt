@@ -1,0 +1,46 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:  
+1. **Lane change to the left lane** (from \( Y = 0 \) to \( Y = -3.5 \) meters, assuming a standard lane width of 3.5 meters).  
+2. **Passing the obstacle** while staying in the left lane.  
+3. **Lane change back to the right lane** (from \( Y = -3.5 \) meters to \( Y = 0 \)).  
+
+We¡¯ll assume the vehicle maintains a constant speed of **72 km/h (20 m/s)** and completes each lane change in **3 seconds**. The obstacle is at \( X = 100 \) meters, and the vehicle starts at \( X = 0 \).  
+
+### Trajectory Plan:  
+1. **Lane Change to Left Lane (T = 0 to T = 3):**  
+   - Move laterally from \( Y = 0 \) to \( Y = -3.5 \) meters.  
+   - Move forward at 20 m/s.  
+
+2. **Passing the Obstacle (T = 3 to T = 8):**  
+   - Stay in the left lane (\( Y = -3.5 \) meters).  
+   - Move forward at 20 m/s.  
+
+3. **Lane Change Back to Right Lane (T = 8 to T = 11):**  
+   - Move laterally from \( Y = -3.5 \) meters to \( Y = 0 \).  
+   - Move forward at 20 m/s.  
+
+### Position at Each Second:  
+- **T = 0 s:** \( (0, 0) \)  
+- **T = 1 s:** \( (20, -1.17) \)  
+- **T = 2 s:** \( (40, -2.33) \)  
+- **T = 3 s:** \( (60, -3.5) \)  
+- **T = 4 s:** \( (80, -3.5) \)  
+- **T = 5 s:** \( (100, -3.5) \)  
+- **T = 6 s:** \( (120, -3.5) \)  
+- **T = 7 s:** \( (140, -3.5) \)  
+- **T = 8 s:** \( (160, -3.5) \)  
+- **T = 9 s:** \( (180, -2.33) \)  
+- **T = 10 s:** \( (200, -1.17) \)  
+- **T = 11 s:** \( (220, 0) \)  
+
+### Explanation:  
+1. **Lane Change (T = 0 to T = 3):**  
+   - The vehicle moves laterally at a rate of \( 3.5 \, \text{m} / 3 \, \text{s} = 1.17 \, \text{m/s} \).  
+   - The forward motion is \( 20 \, \text{m/s} \).  
+
+2. **Passing the Obstacle (T = 3 to T = 8):**  
+   - The vehicle stays in the left lane (\( Y = -3.5 \)) and continues forward at \( 20 \, \text{m/s} \).  
+
+3. **Lane Change Back (T = 8 to T = 11):**  
+   - The vehicle moves laterally back to the right lane at \( 1.17 \, \text{m/s} \) while continuing forward at \( 20 \, \text{m/s} \).  
+
+This trajectory ensures the vehicle maintains a speed of 72 km/h, avoids the obstacle, and completes the lane changes smoothly.

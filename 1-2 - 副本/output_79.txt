@@ -1,0 +1,36 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed of over 60 km/h (which is approximately 16.67 m/s). Here¡¯s the step-by-step trajectory in (X, Y) coordinates:
+
+### Assumptions:
+1. The vehicle starts at (0, 0) with a speed of 72 km/h (20 m/s).
+2. The obstacle is at (100, 0).
+3. The left lane is at Y = 3.5 meters (assuming a standard lane width of 3.5 meters).
+4. The lane change takes approximately 3 seconds (a smooth transition).
+5. After passing the obstacle, the vehicle switches back to the right lane.
+
+### Trajectory:
+- **T = 0 s**: Initial position = (0, 0). Speed = 20 m/s.
+- **T = 1 s**: The vehicle continues in the right lane. Position = (20, 0).
+- **T = 2 s**: The vehicle starts moving laterally to the left lane. Position = (40, 1.17).
+- **T = 3 s**: The vehicle is halfway through the lane change. Position = (60, 2.33).
+- **T = 4 s**: The vehicle completes the lane change and is now in the left lane. Position = (80, 3.5).
+- **T = 5 s**: The vehicle passes the obstacle in the left lane. Position = (100, 3.5).
+- **T = 6 s**: The vehicle continues in the left lane. Position = (120, 3.5).
+- **T = 7 s**: The vehicle starts moving laterally back to the right lane. Position = (140, 2.33).
+- **T = 8 s**: The vehicle is halfway through the lane change back to the right lane. Position = (160, 1.17).
+- **T = 9 s**: The vehicle completes the lane change and is back in the right lane. Position = (180, 0).
+- **T = 10 s**: The vehicle continues in the right lane. Position = (200, 0).
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0)
+- **T = 1 s**: (20, 0)
+- **T = 2 s**: (40, 1.17)
+- **T = 3 s**: (60, 2.33)
+- **T = 4 s**: (80, 3.5)
+- **T = 5 s**: (100, 3.5)
+- **T = 6 s**: (120, 3.5)
+- **T = 7 s**: (140, 2.33)
+- **T = 8 s**: (160, 1.17)
+- **T = 9 s**: (180, 0)
+- **T = 10 s**: (200, 0)
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.

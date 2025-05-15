@@ -1,0 +1,48 @@
+To describe the trajectory of the vehicle, we¡¯ll assume a smooth lane-changing maneuver while maintaining a speed of at least 60 km/h (16.67 m/s). Here¡¯s the plan:
+
+1. **Initial phase (T = 0 to T = 3 seconds):**  
+   - Accelerate slightly to prepare for the lane change.  
+   - Move laterally to the left lane while progressing forward.  
+
+2. **Passing phase (T = 3 to T = 7 seconds):**  
+   - Maintain speed and stay in the left lane to pass the obstacle.  
+
+3. **Return phase (T = 7 to T = 10 seconds):**  
+   - Move laterally back to the right lane while continuing forward.  
+
+Here¡¯s the trajectory in (X, Y) coordinates at 1-second intervals:
+
+- **T = 0 seconds:** (0, 0)  
+  Initial position in the right lane.
+
+- **T = 1 second:** (16.67, 0.5)  
+  Start moving laterally toward the left lane.
+
+- **T = 2 seconds:** (33.34, 1.0)  
+  Continue lateral movement.
+
+- **T = 3 seconds:** (50.01, 1.5)  
+  Fully transitioned to the left lane.
+
+- **T = 4 seconds:** (66.68, 1.5)  
+  Maintain left lane position, approaching the obstacle.
+
+- **T = 5 seconds:** (83.35, 1.5)  
+  Continue in the left lane, passing the obstacle.
+
+- **T = 6 seconds:** (100.02, 1.5)  
+  Fully past the obstacle, still in the left lane.
+
+- **T = 7 seconds:** (116.69, 1.0)  
+  Start moving laterally back to the right lane.
+
+- **T = 8 seconds:** (133.36, 0.5)  
+  Continue lateral movement.
+
+- **T = 9 seconds:** (150.03, 0)  
+  Fully transitioned back to the right lane.
+
+- **T = 10 seconds:** (166.70, 0)  
+  Continue driving in the right lane.
+
+This trajectory ensures the vehicle maintains a speed of ~60 km/h (16.67 m/s) while smoothly changing lanes to pass the obstacle and return to the right lane.

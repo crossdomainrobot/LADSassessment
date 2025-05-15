@@ -1,0 +1,37 @@
+To describe the trajectory of the vehicle, we need to account for the initial speed, the lane-changing maneuver, and the return to the original lane. Here¡¯s a step-by-step breakdown of the vehicle¡¯s position over time:
+
+### Assumptions:
+- **Initial speed**: 72 km/h = 20 m/s.
+- **Lane width**: Assume each lane is 3.5 meters wide.
+- **Time to change lanes**: Assume it takes 2 seconds to change lanes (both left and right).
+- **Passing distance**: Assume the vehicle passes the obstacle at a safe distance, staying in the left lane until clear.
+
+### Trajectory:
+1. **T = 0 s**: Initial position (0, 0).
+2. **T = 1 s**: Continue in the right lane. Position: (20, 0).
+3. **T = 2 s**: Continue in the right lane. Position: (40, 0).
+4. **T = 3 s**: Begin changing to the left lane. Position: (60, 0.875) (halfway through the lane change).
+5. **T = 4 s**: Complete the lane change. Position: (80, 3.5) (fully in the left lane).
+6. **T = 5 s**: Continue in the left lane, passing the obstacle. Position: (100, 3.5).
+7. **T = 6 s**: Continue in the left lane, now clear of the obstacle. Position: (120, 3.5).
+8. **T = 7 s**: Begin changing back to the right lane. Position: (140, 2.625) (halfway through the lane change).
+9. **T = 8 s**: Complete the lane change. Position: (160, 0) (fully in the right lane).
+10. **T = 9 s**: Continue in the right lane. Position: (180, 0).
+11. **T = 10 s**: Continue in the right lane. Position: (200, 0).
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) in meters |
+|----------|--------------------------|
+| 0        | (0, 0)                   |
+| 1        | (20, 0)                  |
+| 2        | (40, 0)                  |
+| 3        | (60, 0.875)              |
+| 4        | (80, 3.5)                |
+| 5        | (100, 3.5)               |
+| 6        | (120, 3.5)               |
+| 7        | (140, 2.625)             |
+| 8        | (160, 0)                 |
+| 9        | (180, 0)                 |
+| 10       | (200, 0)                 |
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the original lane while maintaining a speed above 60 km/h.

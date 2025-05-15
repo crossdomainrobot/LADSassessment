@@ -1,0 +1,54 @@
+To describe the trajectory of the vehicle while performing the lane-changing maneuver, we¡¯ll break down the motion into three phases:
+
+1. **Accelerating and Changing to the Left Lane (T = 0 to T = 3 seconds)**  
+   - The vehicle accelerates slightly to ensure a smooth lane change.  
+   - It moves laterally to the left lane while continuing to move forward.  
+
+2. **Passing the Obstacle in the Left Lane (T = 3 to T = 7 seconds)**  
+   - The vehicle maintains a steady speed in the left lane, passing the obstacle.  
+
+3. **Changing Back to the Right Lane (T = 7 to T = 10 seconds)**  
+   - The vehicle moves laterally back to the right lane while continuing to move forward.  
+
+Here¡¯s the trajectory in (X, Y) coordinates at each second:
+
+- **Initial Position (T = 0):** (0, 0)  
+  The vehicle starts in the right lane at position (0, 0).  
+
+- **T = 1:** (20, 0.5)  
+  The vehicle begins moving laterally to the left while accelerating slightly.  
+
+- **T = 2:** (40, 1.5)  
+  The vehicle continues moving into the left lane.  
+
+- **T = 3:** (60, 2.0)  
+  The vehicle is now fully in the left lane, preparing to pass the obstacle.  
+
+- **T = 4:** (80, 2.0)  
+  The vehicle maintains its position in the left lane, approaching the obstacle.  
+
+- **T = 5:** (100, 2.0)  
+  The vehicle passes the obstacle, which is at (100, 0).  
+
+- **T = 6:** (120, 2.0)  
+  The vehicle continues in the left lane, fully past the obstacle.  
+
+- **T = 7:** (140, 1.5)  
+  The vehicle begins moving laterally back to the right lane.  
+
+- **T = 8:** (160, 0.5)  
+  The vehicle continues transitioning to the right lane.  
+
+- **T = 9:** (180, 0)  
+  The vehicle is now fully back in the right lane.  
+
+- **T = 10:** (200, 0)  
+  The vehicle continues driving straight in the right lane.  
+
+### Summary of Key Points:
+- The vehicle accelerates slightly to maintain a speed above 60 km/h.  
+- The lateral movement (Y-coordinate) changes smoothly to avoid abrupt maneuvers.  
+- The vehicle remains in the left lane while passing the obstacle.  
+- The entire maneuver is completed within 10 seconds.  
+
+Let me know if you¡¯d like further clarification!

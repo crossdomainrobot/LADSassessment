@@ -1,0 +1,46 @@
+To describe the trajectory of the vehicle, we need to account for the lane-changing maneuver while maintaining a speed above 60 km/h. Here¡¯s a step-by-step breakdown of the vehicle¡¯s position over time:
+
+### Assumptions:
+- The vehicle¡¯s initial speed is **72 km/h (20 m/s)**.
+- The obstacle is at **(100, 0)**.
+- The left lane is to the left, so **Y = -2** (assuming a lane width of 2 meters).
+- The lane-changing maneuver takes approximately **3 seconds** (a smooth transition).
+
+### Trajectory:
+1. **Initial Position (T = 0):**  
+   The vehicle is at **(0, 0)**.
+
+2. **Approach Phase (T = 1 to T = 4):**  
+   - The vehicle continues in the right lane at **20 m/s**.  
+   - At **T = 4**, the vehicle reaches **X = 80** and starts the lane change.
+
+3. **Lane-Change Phase (T = 4 to T = 7):**  
+   - The vehicle smoothly transitions to the left lane over 3 seconds.  
+   - At **T = 5**, the vehicle is at **(100, -1)** (midway in the lane change).  
+   - At **T = 7**, the vehicle is fully in the left lane at **(140, -2)**.
+
+4. **Passing Phase (T = 7 to T = 10):**  
+   - The vehicle continues in the left lane at **20 m/s**.  
+   - At **T = 10**, the vehicle is at **(200, -2)**.
+
+### Detailed Positions:
+| Time (T) | Position (X, Y)  |
+|----------|------------------|
+| 0        | (0, 0)           |
+| 1        | (20, 0)          |
+| 2        | (40, 0)          |
+| 3        | (60, 0)          |
+| 4        | (80, 0)          |
+| 5        | (100, -1)        |
+| 6        | (120, -1.5)      |
+| 7        | (140, -2)        |
+| 8        | (160, -2)        |
+| 9        | (180, -2)        |
+| 10       | (200, -2)        |
+
+### Explanation:
+- The vehicle maintains a constant speed of **20 m/s** throughout the maneuver.  
+- The lane change is smooth and takes **3 seconds**, ensuring safety and stability.  
+- After passing the obstacle, the vehicle remains in the left lane until the maneuver is complete.  
+
+This trajectory ensures the vehicle avoids the obstacle while adhering to highway speed requirements.

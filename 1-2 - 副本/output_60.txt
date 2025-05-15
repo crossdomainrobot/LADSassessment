@@ -1,0 +1,37 @@
+To describe the trajectory of the vehicle while switching lanes to pass the obstacle, we¡¯ll assume the following:
+
+1. **Initial Conditions**:
+   - Initial position: \( (X, Y) = (0, 0) \)
+   - Initial speed: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+   - Obstacle position: \( (100, 0) \)
+   - Left lane is at \( Y = -3.5 \, \text{m} \) (assuming a standard lane width of 3.5 meters).
+
+2. **Maneuver Plan**:
+   - The vehicle will start changing lanes at \( T = 2 \, \text{seconds} \).
+   - The lane change will take approximately 3 seconds to complete.
+   - The vehicle will stay in the left lane until it has passed the obstacle, then switch back to the right lane starting at \( T = 7 \, \text{seconds} \).
+
+3. **Trajectory Calculation**:
+   - The vehicle moves forward at \( 20 \, \text{m/s} \) in the \( X \)-direction.
+   - The lateral movement (\( Y \)-direction) is smooth and linear during lane changes.
+
+Here¡¯s the trajectory at each second:
+
+- \( T = 0 \, \text{s} \): \( (0, 0) \)  
+- \( T = 1 \, \text{s} \): \( (20, 0) \)  
+- \( T = 2 \, \text{s} \): \( (40, 0) \) (start lane change)  
+- \( T = 3 \, \text{s} \): \( (60, -1.17) \)  
+- \( T = 4 \, \text{s} \): \( (80, -2.33) \)  
+- \( T = 5 \, \text{s} \): \( (100, -3.5) \) (fully in left lane, passing obstacle)  
+- \( T = 6 \, \text{s} \): \( (120, -3.5) \)  
+- \( T = 7 \, \text{s} \): \( (140, -3.5) \) (start returning to right lane)  
+- \( T = 8 \, \text{s} \): \( (160, -2.33) \)  
+- \( T = 9 \, \text{s} \): \( (180, -1.17) \)  
+- \( T = 10 \, \text{s} \): \( (200, 0) \) (fully back in right lane)  
+
+4. **Explanation**:
+   - The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) in the \( X \)-direction.
+   - The lane change is modeled as a linear transition in the \( Y \)-direction over 3 seconds.
+   - The vehicle stays in the left lane from \( T = 5 \, \text{s} \) to \( T = 7 \, \text{s} \) to ensure safe passing of the obstacle.
+
+This trajectory ensures the vehicle maintains a speed above \( 60 \, \text{km/h} \) while safely navigating around the obstacle.

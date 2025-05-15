@@ -1,0 +1,51 @@
+To describe the vehicle's trajectory for the lane-changing maneuver, we¡¯ll assume the vehicle maintains a speed of approximately 72 km/h (20 m/s) and completes the lane change smoothly. Here¡¯s the position of the vehicle over time:
+
+1. **Initial Position (T = 0)**: (0, 0)  
+   - The vehicle is in the right lane.
+
+2. **T = 1 second**: (20, 0)  
+   - The vehicle continues straight in the right lane, moving 20 meters forward.
+
+3. **T = 2 seconds**: (40, 0)  
+   - Still in the right lane, moving another 20 meters forward.
+
+4. **T = 3 seconds**: (60, 0)  
+   - The vehicle is now approaching the obstacle and begins to shift laterally toward the left lane.
+
+5. **T = 4 seconds**: (80, -2)  
+   - The vehicle starts moving into the left lane, with a lateral shift of 2 meters to the left.
+
+6. **T = 5 seconds**: (100, -4)  
+   - The vehicle is fully in the left lane, passing the obstacle at (100, 0).
+
+7. **T = 6 seconds**: (120, -4)  
+   - The vehicle continues in the left lane, moving 20 meters forward.
+
+8. **T = 7 seconds**: (140, -4)  
+   - Still in the left lane, moving another 20 meters forward.
+
+9. **T = 8 seconds**: (160, -2)  
+   - The vehicle begins shifting back toward the right lane.
+
+10. **T = 9 seconds**: (180, 0)  
+    - The vehicle completes the lane change and is back in the right lane.
+
+11. **T = 10 seconds**: (200, 0)  
+    - The vehicle continues straight in the right lane, moving another 20 meters forward.
+
+### Summary of Positions:
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, 0)         |
+| 4        | (80, -2)        |
+| 5        | (100, -4)       |
+| 6        | (120, -4)       |
+| 7        | (140, -4)       |
+| 8        | (160, -2)       |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed of around 72 km/h.

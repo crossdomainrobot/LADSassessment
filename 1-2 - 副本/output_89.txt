@@ -1,0 +1,33 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane (T = 0 to T = 3 seconds)**  
+2. **Passing the Obstacle (T = 3 to T = 7 seconds)**  
+3. **Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**  
+
+Assume the vehicle maintains a speed of **72 km/h (20 m/s)** throughout the maneuver. The obstacle is at **(100, 0)**, and the left lane is at **Y = -3.5 meters** (assuming a standard lane width of 3.5 meters).
+
+### Trajectory:
+
+#### **Phase 1: Lane Change to the Left Lane (T = 0 to T = 3 seconds)**  
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, -1.17)  
+- **T = 2**: (40, -2.33)  
+- **T = 3**: (60, -3.5)  
+
+#### **Phase 2: Passing the Obstacle (T = 3 to T = 7 seconds)**  
+- **T = 4**: (80, -3.5)  
+- **T = 5**: (100, -3.5)  
+- **T = 6**: (120, -3.5)  
+- **T = 7**: (140, -3.5)  
+
+#### **Phase 3: Lane Change Back to the Right Lane (T = 7 to T = 10 seconds)**  
+- **T = 8**: (160, -2.33)  
+- **T = 9**: (180, -1.17)  
+- **T = 10**: (200, 0)  
+
+### Explanation:
+1. **Lane Change to the Left Lane**: The vehicle smoothly transitions from the right lane (Y = 0) to the left lane (Y = -3.5) over 3 seconds while maintaining a speed of 20 m/s.  
+2. **Passing the Obstacle**: The vehicle continues in the left lane, passing the obstacle at (100, 0) without deviating laterally.  
+3. **Lane Change Back to the Right Lane**: The vehicle smoothly transitions back to the right lane (Y = 0) over the next 3 seconds.  
+
+This trajectory ensures a safe and efficient maneuver while maintaining highway speed.

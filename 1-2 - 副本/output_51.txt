@@ -1,0 +1,28 @@
+To describe the vehicle¨s trajectory, we assume the following:
+
+1. **Initial Speed**: 72 km/h (20 m/s).
+2. **Obstacle Position**: (100, 0).
+3. **Left Lane**: A lateral shift to \( Y = -3.5 \) meters (assuming a standard lane width of 3.5 meters).
+4. **Lane Change Duration**: 2 seconds for each lane change (acceleration and deceleration are ignored for simplicity).
+5. **Maintain Speed**: Stay above 60 km/h (16.67 m/s).
+
+Here¨s the trajectory in (X, Y) coordinates at 1-second intervals:
+
+- **T = 0s**: (0, 0) ！ Initial position in the right lane.
+- **T = 1s**: (20, 0) ！ Continue in the right lane.
+- **T = 2s**: (40, 0) ！ Continue in the right lane.
+- **T = 3s**: (60, -1.75) ！ Begin lane change to the left lane (halfway into the lane change).
+- **T = 4s**: (80, -3.5) ！ Complete lane change, now fully in the left lane.
+- **T = 5s**: (100, -3.5) ！ Continue in the left lane, passing the obstacle vehicle.
+- **T = 6s**: (120, -3.5) ！ Continue in the left lane.
+- **T = 7s**: (140, -1.75) ！ Begin lane change back to the right lane (halfway into the lane change).
+- **T = 8s**: (160, 0) ！ Complete lane change, now fully in the right lane.
+- **T = 9s**: (180, 0) ！ Continue in the right lane.
+- **T = 10s**: (200, 0) ！ Continue in the right lane.
+
+### Explanation:
+- **Lane Change**: The lateral shift \( Y \) is linear during the lane change, reaching \( Y = -3.5 \) meters in 2 seconds.
+- **Obstacle Avoidance**: The vehicle stays in the left lane from \( T = 4s \) to \( T = 7s \) to safely pass the obstacle.
+- **Speed**: The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.
+
+This trajectory ensures the vehicle avoids the obstacle while maintaining a safe speed and completing the maneuver in 10 seconds.

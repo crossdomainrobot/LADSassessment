@@ -1,0 +1,22 @@
+Here¡¯s a trajectory for the vehicle over the next 10 seconds, assuming a smooth lane change and constant speed. The initial speed is 72 km/h (20 m/s), and the obstacle is at (100, 0). The left lane is at \( Y = -3.5 \) meters (assuming a standard lane width of 3.5 meters).
+
+### Trajectory:
+1. **T = 0 s**: Initial position: \( (0, 0) \). Vehicle is in the right lane.
+2. **T = 1 s**: \( (20, -0.7) \). Begin lane change to the left.
+3. **T = 2 s**: \( (40, -1.4) \). Continue lane change.
+4. **T = 3 s**: \( (60, -2.1) \). Continue lane change.
+5. **T = 4 s**: \( (80, -3.5) \). Fully in the left lane, passing the obstacle.
+6. **T = 5 s**: \( (100, -3.5) \). Continue in the left lane, past the obstacle.
+7. **T = 6 s**: \( (120, -2.8) \). Begin lane change back to the right.
+8. **T = 7 s**: \( (140, -2.1) \). Continue lane change.
+9. **T = 8 s**: \( (160, -1.4) \). Continue lane change.
+10. **T = 9 s**: \( (180, -0.7) \). Continue lane change.
+11. **T = 10 s**: \( (200, 0) \). Fully back in the right lane.
+
+### Explanation:
+- **Lane Change Duration**: The lane change takes about 3 seconds to complete (from \( Y = 0 \) to \( Y = -3.5 \)), ensuring smooth and safe maneuvering.
+- **Speed**: The speed is maintained at 72 km/h (20 m/s) throughout the maneuver.
+- **Obstacle Avoidance**: The vehicle stays in the left lane while passing the obstacle at \( X = 100 \).
+- **Return to Right Lane**: The vehicle begins returning to the right lane after passing the obstacle, completing the maneuver by \( T = 10 \) s.
+
+This trajectory ensures safe and efficient obstacle avoidance while maintaining highway speed.

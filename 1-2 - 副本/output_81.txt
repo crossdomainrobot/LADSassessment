@@ -1,0 +1,38 @@
+To describe the trajectory of the vehicle, we will break the maneuver into phases: **accelerating to maintain speed**, **lane changing**, **passing the obstacle**, and **returning to the right lane**. We¡¯ll assume the following:
+
+- The vehicle¡¯s initial speed is **72 km/h (20 m/s)**.
+- The vehicle maintains a speed of **72 km/h** during the maneuver.
+- The lane width is approximately **3.5 meters**.
+- The lane change takes about **3 seconds** to complete.
+- The obstacle is at **(100, 0)**.
+- The left lane is at **Y = -3.5** (since the left lane is to the left of the right lane).
+
+### Trajectory Plan:
+1. **T = 0 to T = 3 seconds**: Accelerate slightly if needed and begin lane change to the left.
+2. **T = 3 to T = 6 seconds**: Complete lane change and stay in the left lane.
+3. **T = 6 to T = 9 seconds**: Pass the obstacle and prepare to return to the right lane.
+4. **T = 9 to T = 12 seconds**: Return to the right lane.
+
+### Position Calculations:
+The vehicle moves at **20 m/s** along the X-axis. The lateral movement (Y-axis) is smooth and takes **3 seconds** for each lane change. We¡¯ll use linear interpolation for simplicity.
+
+#### Trajectory:
+- **T = 0**: (0, 0)  
+- **T = 1**: (20, -1.17)  
+- **T = 2**: (40, -2.33)  
+- **T = 3**: (60, -3.5)  
+- **T = 4**: (80, -3.5)  
+- **T = 5**: (100, -3.5)  
+- **T = 6**: (120, -3.5)  
+- **T = 7**: (140, -2.33)  
+- **T = 8**: (160, -1.17)  
+- **T = 9**: (180, 0)  
+- **T = 10**: (200, 0)  
+
+### Detailed Explanation:
+1. **T = 0 to T = 3**: The vehicle starts at (0, 0) and moves laterally to the left lane while maintaining speed. At T = 3, it reaches (60, -3.5).
+2. **T = 3 to T = 6**: The vehicle stays in the left lane, passing the obstacle at T ¡Ö 5 seconds (100, -3.5).
+3. **T = 6 to T = 9**: The vehicle begins returning to the right lane, completing the maneuver at T = 9 (180, 0).
+4. **T = 10**: The vehicle continues in the right lane at (200, 0).
+
+This trajectory ensures the vehicle maintains speed above 60 km/h and safely passes the obstacle.

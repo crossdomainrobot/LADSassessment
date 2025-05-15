@@ -1,0 +1,35 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into phases: **accelerating, lane changing, passing the obstacle, and returning to the right lane**. The initial speed is 72 km/h (20 m/s), and we¡¯ll ensure the speed stays above 60 km/h (16.67 m/s). Here's the trajectory:
+
+---
+
+### Assumptions:
+1. The vehicle is initially at (0, 0) at T = 0, moving at 20 m/s.
+2. The obstacle is at (100, 0).
+3. The left lane is at Y = -4 meters (assuming a standard lane width of 4 meters).
+4. The lane change takes about 2 seconds, and the vehicle accelerates slightly to ensure smooth passing.
+
+---
+
+### Trajectory:
+- **T = 0**: (0, 0) - Starting position in the right lane.
+- **T = 1**: (20, 0) - Moving straight in the right lane.
+- **T = 2**: (40, 0) - Continue moving straight.
+- **T = 3**: (60, -1) - Begin lane change to the left (Y decreases).
+- **T = 4**: (80, -3) - Continue lane change.
+- **T = 5**: (100, -4) - Fully in the left lane, passing the obstacle at (100, 0).
+- **T = 6**: (120, -4) - Continue in the left lane, past the obstacle.
+- **T = 7**: (140, -3) - Begin returning to the right lane (Y increases).
+- **T = 8**: (160, -1) - Continue lane change.
+- **T = 9**: (180, 0) - Fully back in the right lane.
+- **T = 10**: (200, 0) - Continue straight in the right lane.
+
+---
+
+### Explanation:
+1. **T = 0 to T = 2**: The vehicle moves straight in the right lane at 20 m/s.
+2. **T = 3 to T = 5**: The vehicle smoothly changes lanes to the left lane over 2 seconds, reaching Y = -4 meters.
+3. **T = 5 to T = 6**: The vehicle passes the obstacle while staying in the left lane.
+4. **T = 7 to T = 9**: The vehicle smoothly returns to the right lane over 2 seconds, reaching Y = 0 meters.
+5. **T = 10**: The vehicle continues straight in the right lane.
+
+This trajectory ensures the vehicle maintains a speed above 60 km/h, avoids the obstacle, and completes the maneuver safely.

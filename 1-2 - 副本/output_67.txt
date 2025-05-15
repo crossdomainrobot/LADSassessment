@@ -1,0 +1,58 @@
+To describe the trajectory of the vehicle, we¡¯ll break the maneuver into three phases: **lane change to the left**, **passing the obstacle**, and **lane change back to the right**. The vehicle¡¯s initial speed is 72 km/h (20 m/s), and we¡¯ll assume a smooth lane change over 3 seconds each. Here¡¯s the trajectory:
+
+---
+
+### Phase 1: Lane Change to the Left (T = 0 to 3 s)
+- The vehicle moves laterally from the right lane (Y = 0) to the left lane (Y = -3.5 m, assuming a standard lane width of 3.5 m).
+- The vehicle continues moving forward at 20 m/s.
+
+| Time (s) | X (m)      | Y (m)      |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | -1.17      |
+| 2        | 40         | -2.33      |
+| 3        | 60         | -3.5       |
+
+---
+
+### Phase 2: Passing the Obstacle (T = 3 to 7 s)
+- The vehicle stays in the left lane (Y = -3.5 m) and continues moving forward at 20 m/s.
+- The obstacle is at X = 100 m, so the vehicle passes it between T = 5 s (X = 100 m) and T = 7 s (X = 140 m).
+
+| Time (s) | X (m)      | Y (m)      |
+|----------|------------|------------|
+| 4        | 80         | -3.5       |
+| 5        | 100        | -3.5       |
+| 6        | 120        | -3.5       |
+| 7        | 140        | -3.5       |
+
+---
+
+### Phase 3: Lane Change Back to the Right (T = 7 to 10 s)
+- The vehicle moves laterally from the left lane (Y = -3.5 m) back to the right lane (Y = 0).
+- The vehicle continues moving forward at 20 m/s.
+
+| Time (s) | X (m)      | Y (m)      |
+|----------|------------|------------|
+| 8        | 160        | -2.33      |
+| 9        | 180        | -1.17      |
+| 10       | 200        | 0          |
+
+---
+
+### Summary
+The vehicle successfully changes lanes, passes the obstacle, and returns to the right lane within 10 seconds. The speed is maintained at 72 km/h (20 m/s) throughout the maneuver. Here¡¯s the complete trajectory:
+
+| Time (s) | X (m)      | Y (m)      |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | -1.17      |
+| 2        | 40         | -2.33      |
+| 3        | 60         | -3.5       |
+| 4        | 80         | -3.5       |
+| 5        | 100        | -3.5       |
+| 6        | 120        | -3.5       |
+| 7        | 140        | -3.5       |
+| 8        | 160        | -2.33      |
+| 9        | 180        | -1.17      |
+| 10       | 200        | 0          |

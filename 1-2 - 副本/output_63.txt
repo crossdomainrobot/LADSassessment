@@ -1,0 +1,68 @@
+To describe the vehicle's trajectory for the lane-changing maneuver, we'll break it into phases: **acceleration**, **lane change**, **passing the obstacle**, and **returning to the right lane**. The initial speed is 72 km/h (20 m/s), and we'll maintain a speed of at least 60 km/h (16.67 m/s). Here's the trajectory in (X, Y) coordinates at 1-second intervals:
+
+---
+
+### **Phase 1: Acceleration (T = 0 to T = 2 seconds)**  
+- Accelerate slightly to ensure smooth lane change.  
+- Speed increases from 20 m/s to 22 m/s.  
+- **Positions**:  
+  - T = 0: (0, 0)  
+  - T = 1: (20, 0)  
+  - T = 2: (42, 0)  
+
+---
+
+### **Phase 2: Lane Change (T = 2 to T = 4 seconds)**  
+- Move laterally to the left lane. Assume the lane width is 3 meters, so Y changes from 0 to -3.  
+- Maintain speed at 22 m/s.  
+- **Positions**:  
+  - T = 3: (64, -1.5)  
+  - T = 4: (86, -3)  
+
+---
+
+### **Phase 3: Passing the Obstacle (T = 4 to T = 6 seconds)**  
+- Continue in the left lane past the obstacle at (100, 0).  
+- Maintain speed at 22 m/s.  
+- **Positions**:  
+  - T = 5: (108, -3)  
+  - T = 6: (130, -3)  
+
+---
+
+### **Phase 4: Returning to the Right Lane (T = 6 to T = 8 seconds)**  
+- Move laterally back to the right lane (Y changes from -3 to 0).  
+- Maintain speed at 22 m/s.  
+- **Positions**:  
+  - T = 7: (152, -1.5)  
+  - T = 8: (174, 0)  
+
+---
+
+### **Phase 5: Continuing in the Right Lane (T = 8 to T = 10 seconds)**  
+- Continue driving in the right lane.  
+- Maintain speed at 22 m/s.  
+- **Positions**:  
+  - T = 9: (196, 0)  
+  - T = 10: (218, 0)  
+
+---
+
+### **Summary of Positions (X, Y) at Each Second**:  
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, 0)         |  
+| 2        | (42, 0)         |  
+| 3        | (64, -1.5)      |  
+| 4        | (86, -3)        |  
+| 5        | (108, -3)       |  
+| 6        | (130, -3)       |  
+| 7        | (152, -1.5)     |  
+| 8        | (174, 0)        |  
+| 9        | (196, 0)        |  
+| 10       | (218, 0)        |  
+
+---
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining a speed above 60 km/h.

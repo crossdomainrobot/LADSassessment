@@ -1,0 +1,72 @@
+To plan the trajectory, we'll break the maneuver into three phases:
+
+1. **Lane Change to the Left Lane**: This will take a few seconds.
+2. **Passing the Obstacle**: Maintain the left lane while passing the obstacle.
+3. **Lane Change Back to the Right Lane**: Return to the right lane after passing the obstacle.
+
+### Assumptions:
+- The vehicle's speed is constant at **72 km/h (20 m/s)**.
+- The lane change takes **3 seconds** to complete.
+- The vehicle moves laterally at a constant rate during the lane change.
+- The obstacle is at **(100, 0)** and occupies the right lane.
+
+### Trajectory Plan:
+1. **Lane Change to the Left Lane (T = 0 to T = 3)**:
+   - Lateral movement: From **Y = 0** to **Y = -3.5** (assuming a lane width of 3.5 meters).
+   - Longitudinal movement: Constant speed of 20 m/s.
+
+2. **Passing the Obstacle (T = 3 to T = 8)**:
+   - Stay in the left lane (**Y = -3.5**).
+   - Continue longitudinal movement at 20 m/s.
+
+3. **Lane Change Back to the Right Lane (T = 8 to T = 11)**:
+   - Lateral movement: From **Y = -3.5** to **Y = 0**.
+   - Longitudinal movement: Constant speed of 20 m/s.
+
+### Trajectory Calculation:
+#### Initial Position:
+- At **T = 0**, the vehicle is at **(0, 0)**.
+
+#### Lane Change to the Left Lane (T = 0 to T = 3):
+- Lateral movement: **Y = -3.5 * (T / 3)**.
+- Longitudinal movement: **X = 20 * T**.
+- Positions:
+  - **T = 1**: (20, -1.17)
+  - **T = 2**: (40, -2.33)
+  - **T = 3**: (60, -3.5)
+
+#### Passing the Obstacle (T = 3 to T = 8):
+- Stay at **Y = -3.5**.
+- Longitudinal movement: **X = 60 + 20 * (T - 3)**.
+- Positions:
+  - **T = 4**: (80, -3.5)
+  - **T = 5**: (100, -3.5)
+  - **T = 6**: (120, -3.5)
+  - **T = 7**: (140, -3.5)
+  - **T = 8**: (160, -3.5)
+
+#### Lane Change Back to the Right Lane (T = 8 to T = 11):
+- Lateral movement: **Y = -3.5 + 3.5 * ((T - 8) / 3)**.
+- Longitudinal movement: **X = 160 + 20 * (T - 8)**.
+- Positions:
+  - **T = 9**: (180, -2.33)
+  - **T = 10**: (200, -1.17)
+  - **T = 11**: (220, 0)
+
+### Final Trajectory:
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.17)     |
+| 2        | (40, -2.33)     |
+| 3        | (60, -3.5)      |
+| 4        | (80, -3.5)      |
+| 5        | (100, -3.5)     |
+| 6        | (120, -3.5)     |
+| 7        | (140, -3.5)     |
+| 8        | (160, -3.5)     |
+| 9        | (180, -2.33)    |
+| 10       | (200, -1.17)    |
+| 11       | (220, 0)        |
+
+This trajectory ensures the vehicle safely passes the obstacle while maintaining a speed above 60 km/h.
