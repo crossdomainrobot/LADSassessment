@@ -1,0 +1,78 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we can break the maneuver into phases: (1) transitioning to the adjacent lane, (2) bypassing the obstruction, and (3) returning to the original lane. Here's how the vehicle's position can be estimated at critical intervals:
+
+---
+
+### **Given:**
+- Starting point: \( (X, Y) = (0, 0) \)
+- Obstruction: \( (100, 0) \)
+- Adjacent lane: \( Y = -5 \)
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)
+- Time interval: \( T = 0 \) to \( T = 10 \) seconds
+
+---
+
+### **Assumptions:**
+1. The vehicle transitions laterally at a constant rate of \( 1 \, \text{m/s} \) (smooth lane change).
+2. The vehicle maintains a constant speed of \( 20 \, \text{m/s} \) during the maneuver.
+3. The lane change takes \( 5 \) seconds to complete (transition to \( Y = -5 \) and back to \( Y = 0 \)).
+
+---
+
+### **Route Plan:**
+
+#### **Phase 1: Transition to Adjacent Lane (T = 0 to T = 5 seconds)**
+- Lateral movement: \( Y \) changes from \( 0 \) to \( -5 \) at \( 1 \, \text{m/s} \).
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -1          |
+| 2        | 40          | -2          |
+| 3        | 60          | -3          |
+| 4        | 80          | -4          |
+| 5        | 100         | -5          |
+
+#### **Phase 2: Bypass Obstruction (T = 5 to T = 7 seconds)**
+- Lateral movement: \( Y \) remains at \( -5 \).
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 6        | 120         | -5          |
+| 7        | 140         | -5          |
+
+#### **Phase 3: Return to Original Lane (T = 7 to T = 10 seconds)**
+- Lateral movement: \( Y \) changes from \( -5 \) to \( 0 \) at \( 1 \, \text{m/s} \).
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 8        | 160         | -4          |
+| 9        | 180         | -3          |
+| 10       | 200         | 0           |
+
+---
+
+### **Summary of Positions:**
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -1          |
+| 2        | 40          | -2          |
+| 3        | 60          | -3          |
+| 4        | 80          | -4          |
+| 5        | 100         | -5          |
+| 6        | 120         | -5          |
+| 7        | 140         | -5          |
+| 8        | 160         | -4          |
+| 9        | 180         | -3          |
+| 10       | 200         | 0           |
+
+---
+
+### **Key Points:**
+1. The vehicle bypasses the obstruction at \( X = 100 \) while in the adjacent lane (\( Y = -5 \)).
+2. The speed remains constant at \( 20 \, \text{m/s} \), ensuring it stays above the minimum requirement of \( 16.67 \, \text{m/s} \).
+3. The maneuver is completed within \( 10 \) seconds, with the vehicle returning to the original lane at \( T = 10 \) seconds.

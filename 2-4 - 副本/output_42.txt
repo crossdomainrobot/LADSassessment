@@ -1,0 +1,50 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane** (from \( Y = 0 \) to \( Y = -5 \))  
+2. **Bypassing the Obstruction** (traveling in the adjacent lane past \( X = 100 \))  
+3. **Lane Change Back to the Original Lane** (from \( Y = -5 \) to \( Y = 0 \))  
+
+### Assumptions:
+- **Initial speed**: 72 km/h (20 m/s).  
+- **Lane change duration**: 2 seconds (smooth transition).  
+- **Obstruction position**: \( X = 100, Y = 0 \).  
+- **Adjacent lane position**: \( Y = -5 \).  
+- **Time intervals**: 1-second increments.  
+
+### Calculations:
+1. **Lane Change Phase (T = 0 to T = 2)**:
+   - At \( T = 0 \): Position \( (0, 0) \).  
+   - At \( T = 1 \): Move halfway laterally to \( Y = -2.5 \), and travel forward 20 meters to \( X = 20 \).  
+   - At \( T = 2 \): Complete the lane change to \( Y = -5 \), and travel another 20 meters to \( X = 40 \).  
+
+2. **Bypassing Obstruction (T = 2 to T = 7)**:
+   - From \( T = 2 \) to \( T = 7 \), maintain \( Y = -5 \) and travel forward at 20 m/s.  
+   - At \( T = 3 \): \( X = 60, Y = -5 \).  
+   - At \( T = 4 \): \( X = 80, Y = -5 \).  
+   - At \( T = 5 \): \( X = 100, Y = -5 \) (bypassing the obstruction).  
+   - At \( T = 6 \): \( X = 120, Y = -5 \).  
+   - At \( T = 7 \): \( X = 140, Y = -5 \).  
+
+3. **Lane Change Back (T = 7 to T = 9)**:
+   - At \( T = 8 \): Move halfway laterally to \( Y = -2.5 \), and travel forward 20 meters to \( X = 160 \).  
+   - At \( T = 9 \): Complete the lane change to \( Y = 0 \), and travel another 20 meters to \( X = 180 \).  
+
+4. **Continue in Original Lane (T = 9 to T = 10)**:
+   - At \( T = 10 \): Maintain \( Y = 0 \), and travel forward 20 meters to \( X = 200 \).  
+
+### Summary of Positions:
+| Time (s) | Position \( (X, Y) \) |  
+|----------|-----------------------|  
+| 0        | \( (0, 0) \)          |  
+| 1        | \( (20, -2.5) \)      |  
+| 2        | \( (40, -5) \)        |  
+| 3        | \( (60, -5) \)        |  
+| 4        | \( (80, -5) \)        |  
+| 5        | \( (100, -5) \)       |  
+| 6        | \( (120, -5) \)       |  
+| 7        | \( (140, -5) \)       |  
+| 8        | \( (160, -2.5) \)     |  
+| 9        | \( (180, 0) \)        |  
+| 10       | \( (200, 0) \)        |  
+
+This plan ensures the vehicle maintains a speed of 72 km/h and safely navigates around the obstruction.

@@ -1,0 +1,69 @@
+To plan the route, we'll break this into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We'll calculate the vehicle's position at 1-second intervals while maintaining a speed above 60 km/h (16.67 m/s).
+
+### Assumptions:
+- **Initial position:** (0, 0)
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial velocity:** 72 km/h = 20 m/s
+- **Minimum speed:** 60 km/h = 16.67 m/s
+- **Time intervals:** 1 second
+
+### Phases:
+1. **Transition to the adjacent lane (Y = -5):**  
+   Assume this takes 2 seconds, with smooth lateral movement.
+2. **Bypass the obstruction:**  
+   Maintain the adjacent lane (Y = -5) until passing X = 100.
+3. **Return to the original lane (Y = 0):**  
+   Assume this takes 2 seconds, with smooth lateral movement.
+
+### Calculations:
+#### Phase 1: Transition to the adjacent lane (T = 0 to T = 2)
+- **Lateral movement:** From Y = 0 to Y = -5 over 2 seconds.
+  - Y changes by -2.5 per second.
+- **Forward movement:** X increases at 20 m/s.
+
+| Time (s) | X (m)       | Y (m)       |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -2.5        |
+| 2        | 40          | -5          |
+
+#### Phase 2: Bypass the obstruction (T = 2 to T = 6)
+- **Lateral movement:** Stay at Y = -5.
+- **Forward movement:** X increases at 20 m/s.
+
+| Time (s) | X (m)       | Y (m)       |
+|----------|-------------|-------------|
+| 3        | 60          | -5          |
+| 4        | 80          | -5          |
+| 5        | 100         | -5          |
+| 6        | 120         | -5          |
+
+#### Phase 3: Return to the original lane (T = 6 to T = 8)
+- **Lateral movement:** From Y = -5 to Y = 0 over 2 seconds.
+  - Y changes by +2.5 per second.
+- **Forward movement:** X increases at 20 m/s.
+
+| Time (s) | X (m)       | Y (m)       |
+|----------|-------------|-------------|
+| 7        | 140         | -2.5        |
+| 8        | 160         | 0           |
+
+### Final Positions:
+| Time (s) | X (m)       | Y (m)       |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -2.5        |
+| 2        | 40          | -5          |
+| 3        | 60          | -5          |
+| 4        | 80          | -5          |
+| 5        | 100         | -5          |
+| 6        | 120         | -5          |
+| 7        | 140         | -2.5        |
+| 8        | 160         | 0           |
+
+### Summary:
+- The vehicle transitions to the adjacent lane by T = 2.
+- It bypasses the obstruction at X = 100 by T = 5.
+- It returns to the original lane by T = 8.
+- Speed is maintained above 60 km/h throughout.

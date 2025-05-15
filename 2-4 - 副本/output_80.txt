@@ -1,0 +1,68 @@
+To plan the route, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane**: Transition from \(Y = 0\) (outer lane) to \(Y = -5\) (adjacent lane).
+2. **Bypassing the Obstruction**: Maintain \(Y = -5\) while passing \(X = 100\).
+3. **Lane Change Back to the Original Lane**: Transition from \(Y = -5\) back to \(Y = 0\).
+
+### Assumptions:
+- Initial velocity: \(72 \, \text{km/h} = 20 \, \text{m/s}\).
+- Speed must exceed \(60 \, \text{km/h} = 16.67 \, \text{m/s}\).
+- Lane change duration: Assume 3 seconds for each lane change (smooth transition).
+- Obstruction at \(X = 100 \, \text{m}\).
+
+---
+
+### Route Planning:
+
+#### 1. **Lane Change to Adjacent Lane (T = 0 to T = 3 seconds)**:
+- **Lateral Motion**: Transition from \(Y = 0\) to \(Y = -5\) linearly over 3 seconds.
+- **Longitudinal Motion**: Maintain \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)        |
+|----------|-------------|--------------|
+| 0        | 0           | 0            |
+| 1        | 20          | -1.67        |
+| 2        | 40          | -3.33        |
+| 3        | 60          | -5           |
+
+#### 2. **Bypassing the Obstruction (T = 3 to T = 7 seconds)**:
+- **Lateral Motion**: Maintain \(Y = -5\).
+- **Longitudinal Motion**: Continue at \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)        |
+|----------|-------------|--------------|
+| 3        | 60          | -5           |
+| 4        | 80          | -5           |
+| 5        | 100         | -5           |
+| 6        | 120         | -5           |
+| 7        | 140         | -5           |
+
+#### 3. **Lane Change Back to Original Lane (T = 7 to T = 10 seconds)**:
+- **Lateral Motion**: Transition from \(Y = -5\) to \(Y = 0\) linearly over 3 seconds.
+- **Longitudinal Motion**: Maintain \(20 \, \text{m/s}\).
+
+| Time (s) | X (m)       | Y (m)        |
+|----------|-------------|--------------|
+| 7        | 140         | -5           |
+| 8        | 160         | -3.33        |
+| 9        | 180         | -1.67        |
+| 10       | 200         | 0            |
+
+---
+
+### Summary of Critical Positions:
+| Time (s) | X (m)       | Y (m)        |
+|----------|-------------|--------------|
+| 0        | 0           | 0            |
+| 1        | 20          | -1.67        |
+| 2        | 40          | -3.33        |
+| 3        | 60          | -5           |
+| 4        | 80          | -5           |
+| 5        | 100         | -5           |
+| 6        | 120         | -5           |
+| 7        | 140         | -5           |
+| 8        | 160         | -3.33        |
+| 9        | 180         | -1.67        |
+| 10       | 200         | 0            |
+
+This plan ensures the vehicle safely navigates around the obstruction while maintaining a speed above \(60 \, \text{km/h}\).

@@ -1,0 +1,56 @@
+To plan the route, we¡¯ll break the maneuver into three phases:  
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:  
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Lane change duration: \( 2 \, \text{seconds} \) (smooth transition)  
+- Time step: \( 1 \, \text{second} \)  
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)  
+- Time: \( T = 0 \) to \( T = 2 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions linearly from \( 0 \) to \( -5 \) over \( 2 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -2.5  |  
+| 2        | 40    | -5    |  
+
+### Phase 2: Bypassing the Obstruction (X = 100)  
+- Time: \( T = 2 \) to \( T = 6 \, \text{seconds} \)  
+- Lateral position: \( Y = -5 \) (stay in the adjacent lane).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)  
+- Time: \( T = 6 \) to \( T = 8 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions linearly from \( -5 \) to \( 0 \) over \( 2 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 7        | 140   | -2.5  |  
+| 8        | 160   | 0     |  
+
+### Final Positions:  
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+### Summary:  
+- The vehicle successfully bypasses the obstruction at \( X = 100 \, \text{m} \) by transitioning to the adjacent lane and returning to the original lane.  
+- The speed remains above \( 60 \, \text{km/h} \) throughout the maneuver.  
+- The total distance covered in \( 10 \, \text{seconds} \) is \( 200 \, \text{m} \).

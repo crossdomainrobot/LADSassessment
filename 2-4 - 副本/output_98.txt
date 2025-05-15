@@ -1,0 +1,103 @@
+### Understanding the Problem
+
+First, let's break down the scenario:
+
+- **Road Layout**: Two parallel lanes. I'm currently in the outer lane, which we'll consider as the starting position (0,0).
+  
+- **Obstacle**: There's an unexpected obstruction directly ahead at (100,0). This means it's 100 meters away in the same lane.
+
+- **Lane Transition**: To avoid the obstacle, I need to move to the adjacent lane, which has a Y-coordinate of -5. After bypassing the obstacle, I should return to my original lane.
+
+- **Speed Constraints**: My initial speed is 72 km/h, and I must maintain a speed above 60 km/h throughout the maneuver.
+
+- **Time Frame**: We need to plan the vehicle's position every second for the next 10 seconds.
+
+### Converting Speed to Meters per Second
+
+Since our positions are in meters and time in seconds, it's practical to convert the speed from km/h to m/s.
+
+\[ \text{Speed in m/s} = \text{Speed in km/h} \times \frac{1000 \text{ meters}}{3600 \text{ seconds}} \]
+
+\[ 72 \text{ km/h} = 72 \times \frac{1000}{3600} = 20 \text{ m/s} \]
+
+\[ 60 \text{ km/h} = 60 \times \frac{1000}{3600} \approx 16.67 \text{ m/s} \]
+
+So, I must maintain a speed above 16.67 m/s.
+
+### Planning the Lane Transition
+
+To navigate around the obstacle, I'll need to:
+
+1. **Change to the adjacent lane (Y = -5)**.
+2. **Bypass the obstacle at X = 100**.
+3. **Return to the original lane (Y = 0)**.
+
+Let's assume that the lane change takes a certain amount of time and distance. For simplicity, we'll consider that the lane change occurs linearly over a short period.
+
+### Estimating Positions Over Time
+
+We'll calculate the vehicle's position every second for 10 seconds. Here's how we'll approach it:
+
+1. **Initial Position (T = 0)**: (0, 0)
+2. **Determine when to start the lane change**: We need to ensure that we're in the adjacent lane before reaching the obstacle at X = 100.
+3. **Calculate X and Y positions at each second**.
+
+Let's assume that the lane change starts at T = 2 seconds and is completed by T = 4 seconds. This gives us a smooth transition.
+
+### Detailed Position Calculations
+
+Let's create a table to track the vehicle's position at each second.
+
+| Time (s) | X Position (m) | Y Position (m) | Notes |
+|----------|----------------|----------------|-------|
+| 0        | 0              | 0              | Starting point |
+| 1        | 20             | 0              | Moving straight |
+| 2        | 40             | 0              | Start lane change |
+| 3        | 60             | -2.5           | Midway in lane change |
+| 4        | 80             | -5             | Lane change complete |
+| 5        | 100            | -5             | Bypassing obstacle |
+| 6        | 120            | -5             | Continue in adjacent lane |
+| 7        | 140            | -5             | Prepare to return |
+| 8        | 160            | -2.5           | Start returning to original lane |
+| 9        | 180            | 0              | Return to original lane complete |
+| 10       | 200            | 0              | Continue in original lane |
+
+**Explanation of Calculations:**
+
+- **X Position**: Since the speed is 20 m/s, each second the vehicle moves 20 meters along the X-axis.
+  
+- **Y Position**:
+  - **T = 0 to T = 1**: Moving straight, Y remains 0.
+  - **T = 2 to T = 4**: Lane change from Y = 0 to Y = -5. Assuming a linear change:
+    - At T = 2: Y = 0
+    - At T = 3: Y = -2.5 (midway)
+    - At T = 4: Y = -5
+  - **T = 5 to T = 7**: Continue in the adjacent lane, Y remains -5.
+  - **T = 8 to T = 9**: Return to the original lane from Y = -5 to Y = 0.
+    - At T = 8: Y = -2.5
+    - At T = 9: Y = 0
+  - **T = 10**: Continue in the original lane, Y remains 0.
+
+### Verifying Speed Constraints
+
+Throughout the maneuver, the vehicle maintains a constant speed of 20 m/s, which is above the required minimum of 16.67 m/s. Therefore, the speed constraint is satisfied.
+
+### Final Route Plan
+
+Based on the calculations, here's the vehicle's position at each second:
+
+- **T = 0**: (0, 0)
+- **T = 1**: (20, 0)
+- **T = 2**: (40, 0)
+- **T = 3**: (60, -2.5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5)
+- **T = 6**: (120, -5)
+- **T = 7**: (140, -5)
+- **T = 8**: (160, -2.5)
+- **T = 9**: (180, 0)
+- **T = 10**: (200, 0)
+
+### Conclusion
+
+By following this route plan, the vehicle successfully navigates around the obstacle while maintaining the required speed. The lane changes are executed smoothly over a few seconds, ensuring safety and efficiency in the maneuver.

@@ -1,0 +1,82 @@
+### Understanding the Problem
+
+First, let's break down the scenario:
+
+- **Road Layout**: Two parallel lanes. I'm currently in the outer lane, which we'll consider as the starting position (0,0).
+- **Obstruction**: Located 100 meters ahead at (100,0).
+- **Adjacent Lane**: Positioned at Y = -5 meters relative to my current lane.
+- **Speed**: Initial velocity is 72 km/h, and I must maintain a speed above 60 km/h throughout the maneuver.
+- **Objective**: Transition to the adjacent lane, bypass the obstruction, and return to the original lane within 10 seconds.
+
+### Converting Speed to Meters per Second
+
+To work with meters and seconds, it's essential to convert the speed from km/h to m/s.
+
+\[
+72 \text{ km/h} = \frac{72 \times 1000}{3600} = 20 \text{ m/s}
+\]
+
+\[
+60 \text{ km/h} = \frac{60 \times 1000}{3600} \approx 16.67 \text{ m/s}
+\]
+
+So, I need to maintain a speed above 16.67 m/s.
+
+### Planning the Lane Transition
+
+To navigate around the obstruction, I'll need to:
+
+1. **Change to the adjacent lane (Y = -5)**.
+2. **Bypass the obstruction at X = 100**.
+3. **Return to the original lane (Y = 0)**.
+
+This needs to be done smoothly within 10 seconds.
+
+### Estimating Positions Over Time
+
+Let's outline the vehicle's position at each second from T = 0 to T = 10.
+
+#### Assumptions:
+
+- **Acceleration/Deceleration**: For simplicity, assume constant speed of 20 m/s.
+- **Lane Change Duration**: Allocate 2 seconds for each lane change (entering and exiting the adjacent lane).
+
+#### Step-by-Step Positions:
+
+1. **T = 0 s**: Starting at (0, 0).
+2. **T = 1 s**: Moving at 20 m/s, position is (20, 0).
+3. **T = 2 s**: Position is (40, 0). Begin lane change to Y = -5.
+4. **T = 3 s**: Position is (60, -2.5) ！ halfway through the lane change.
+5. **T = 4 s**: Position is (80, -5) ！ fully in the adjacent lane.
+6. **T = 5 s**: Position is (100, -5) ！ bypassing the obstruction.
+7. **T = 6 s**: Position is (120, -5). Begin lane change back to Y = 0.
+8. **T = 7 s**: Position is (140, -2.5) ！ halfway back to the original lane.
+9. **T = 8 s**: Position is (160, 0) ！ fully back in the original lane.
+10. **T = 9 s**: Position is (180, 0).
+11. **T = 10 s**: Position is (200, 0).
+
+### Verifying Speed Constraint
+
+Throughout the maneuver, the speed remains at 20 m/s, which is above the required 16.67 m/s. Thus, the speed constraint is satisfied.
+
+### Final Route Plan
+
+Here's a summary of the vehicle's position at each second:
+
+| Time (s) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 0        | 0              | 0              |
+| 1        | 20             | 0              |
+| 2        | 40             | 0              |
+| 3        | 60             | -2.5           |
+| 4        | 80             | -5             |
+| 5        | 100            | -5             |
+| 6        | 120            | -5             |
+| 7        | 140            | -2.5           |
+| 8        | 160            | 0              |
+| 9        | 180            | 0              |
+| 10       | 200            | 0              |
+
+### Conclusion
+
+By maintaining a constant speed of 20 m/s and allocating 2 seconds for each lane change, the vehicle successfully navigates around the obstruction and returns to the original lane within the 10-second timeframe, all while keeping the speed above the required 60 km/h.

@@ -1,0 +1,67 @@
+To plan the route, we need to calculate the vehicle¡¯s position at critical intervals over the next 10 seconds. Here¡¯s the step-by-step breakdown:
+
+---
+
+### **Given Data:**
+- **Initial Position:** (X, Y) = (0, 0)
+- **Obstruction Position:** (100, 0)
+- **Adjacent Lane Y-coordinate:** Y = -5
+- **Initial Velocity:** 72 km/h = 20 m/s (converted for calculations)
+- **Minimum Speed:** 60 km/h = 16.67 m/s
+- **Time Intervals:** T = 1, 2, 3, ..., 10 seconds
+
+---
+
+### **Assumptions:**
+1. The vehicle maintains a constant speed of 20 m/s (72 km/h).
+2. The lane transition (changing Y-coordinate) is smooth and linear.
+3. The vehicle spends 2 seconds to transition into the adjacent lane (Y = -5), bypasses the obstruction, and spends another 2 seconds to return to the original lane (Y = 0).
+
+---
+
+### **Route Planning:**
+1. **T = 0 to T = 2 seconds:** Transition from Y = 0 to Y = -5 (moving into the adjacent lane).
+2. **T = 2 to T = 7 seconds:** Maintain Y = -5 while bypassing the obstruction.
+3. **T = 7 to T = 9 seconds:** Transition from Y = -5 back to Y = 0 (returning to the original lane).
+4. **T = 9 to T = 10 seconds:** Continue in the original lane.
+
+---
+
+### **Calculations:**
+- **Distance Traveled per Second (X-coordinate):**  
+  \( X = X_0 + (v \cdot t) \)  
+  \( X = 0 + (20 \cdot t) \)  
+  For example, at T = 1 second, \( X = 20 \); at T = 2 seconds, \( X = 40 \), etc.
+
+- **Lateral Movement (Y-coordinate):**  
+  - From T = 0 to T = 2 seconds: \( Y \) transitions linearly from 0 to -5.  
+  - From T = 2 to T = 7 seconds: \( Y = -5 \).  
+  - From T = 7 to T = 9 seconds: \( Y \) transitions linearly from -5 to 0.  
+  - From T = 9 to T = 10 seconds: \( Y = 0 \).
+
+---
+
+### **Vehicle Positions:**
+| Time (T) | X-coordinate (m) | Y-coordinate (m) |
+|----------|------------------|------------------|
+| 0        | 0                | 0                |
+| 1        | 20               | -2.5             |
+| 2        | 40               | -5               |
+| 3        | 60               | -5               |
+| 4        | 80               | -5               |
+| 5        | 100              | -5               |
+| 6        | 120              | -5               |
+| 7        | 140              | -5               |
+| 8        | 160              | -2.5             |
+| 9        | 180              | 0                |
+| 10       | 200              | 0                |
+
+---
+
+### **Explanation:**
+1. **T = 0 to T = 2 seconds:** The vehicle moves into the adjacent lane while traveling forward. At T = 2 seconds, it reaches Y = -5.
+2. **T = 2 to T = 7 seconds:** The vehicle maintains Y = -5, bypassing the obstruction at X = 100.
+3. **T = 7 to T = 9 seconds:** The vehicle transitions back to the original lane (Y = 0).
+4. **T = 9 to T = 10 seconds:** The vehicle continues in the original lane.
+
+This plan ensures the vehicle avoids the obstruction while maintaining a speed above 60 km/h.

@@ -1,0 +1,58 @@
+To plan the route, we¡¯ll break the maneuver into three phases:  
+1. **Lane Change to the Adjacent Lane** (from Y = 0 to Y = -5).  
+2. **Bypassing the Obstruction** (while maintaining Y = -5).  
+3. **Lane Change Back to the Original Lane** (from Y = -5 to Y = 0).  
+
+### Assumptions:  
+- Initial velocity: 72 km/h = 20 m/s.  
+- Minimum speed: 60 km/h = 16.67 m/s.  
+- Obstruction is at X = 100 m.  
+- Lane width: 5 m (Y = -5 for the adjacent lane).  
+- Lane change duration: 3 seconds (smooth transition).  
+- Bypassing duration: 4 seconds (to ensure safe clearance).  
+- Total maneuver time: 10 seconds.  
+
+### Phase 1: Lane Change (T = 0 to T = 3 seconds)  
+- **Lateral movement**: Transition from Y = 0 to Y = -5 over 3 seconds.  
+- **Longitudinal movement**: Maintain speed at 20 m/s.  
+
+Positions:  
+- T = 1 s: X = 20 m, Y = -1.67 m.  
+- T = 2 s: X = 40 m, Y = -3.33 m.  
+- T = 3 s: X = 60 m, Y = -5 m.  
+
+### Phase 2: Bypassing the Obstruction (T = 3 to T = 7 seconds)  
+- **Lateral movement**: Maintain Y = -5 m.  
+- **Longitudinal movement**: Continue at 20 m/s.  
+
+Positions:  
+- T = 4 s: X = 80 m, Y = -5 m.  
+- T = 5 s: X = 100 m, Y = -5 m.  
+- T = 6 s: X = 120 m, Y = -5 m.  
+- T = 7 s: X = 140 m, Y = -5 m.  
+
+### Phase 3: Lane Change Back (T = 7 to T = 10 seconds)  
+- **Lateral movement**: Transition from Y = -5 to Y = 0 over 3 seconds.  
+- **Longitudinal movement**: Maintain speed at 20 m/s.  
+
+Positions:  
+- T = 8 s: X = 160 m, Y = -3.33 m.  
+- T = 9 s: X = 180 m, Y = -1.67 m.  
+- T = 10 s: X = 200 m, Y = 0 m.  
+
+### Summary of Positions:  
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.67 |  
+| 2        | 40    | -3.33 |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -5    |  
+| 8        | 160   | -3.33 |  
+| 9        | 180   | -1.67 |  
+| 10       | 200   | 0     |  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and completes the maneuver within 10 seconds.

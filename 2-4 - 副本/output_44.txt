@@ -1,0 +1,84 @@
+To plan the route for your vehicle to bypass the obstruction, we'll break down the maneuver into critical intervals over the next 10 seconds. Here's the step-by-step plan:
+
+---
+
+### **Key Assumptions**
+1. **Initial Position**: (X, Y) = (0, 0)
+2. **Obstruction Position**: (100, 0)
+3. **Adjacent Lane Position**: Y = -5
+4. **Initial Speed**: 72 km/h (20 m/s)
+5. **Minimum Speed**: Must exceed 60 km/h (16.67 m/s)
+6. **Time Intervals**: 1-second increments from T = 0 to T = 10
+
+---
+
+### **Route Plan**
+The maneuver involves:
+1. **Lane Change to Adjacent Lane**: Transition from Y = 0 to Y = -5.
+2. **Bypass Obstruction**: Maintain Y = -5 while passing X = 100.
+3. **Return to Original Lane**: Transition from Y = -5 back to Y = 0.
+
+We assume the lane change takes **3 seconds** each (to and from the adjacent lane) and the bypass takes **4 seconds**.
+
+---
+
+### **Position Estimates**
+#### **1. Lane Change (T = 0 to T = 3)**
+- **Lateral Movement**: Linear transition from Y = 0 to Y = -5.
+- **Longitudinal Movement**: Constant speed of 20 m/s.
+
+| Time (s) | X (m) = 20 * T | Y (m) = -5/3 * T |
+|----------|----------------|------------------|
+| T = 0    | 0              | 0                |
+| T = 1    | 20             | -1.67            |
+| T = 2    | 40             | -3.33            |
+| T = 3    | 60             | -5               |
+
+#### **2. Bypass Obstruction (T = 3 to T = 7)**
+- **Lateral Position**: Maintain Y = -5.
+- **Longitudinal Movement**: Constant speed of 20 m/s.
+
+| Time (s) | X (m) = 60 + 20 * (T - 3) | Y (m) = -5 |
+|----------|---------------------------|------------|
+| T = 3    | 60                        | -5         |
+| T = 4    | 80                        | -5         |
+| T = 5    | 100                       | -5         |
+| T = 6    | 120                       | -5         |
+| T = 7    | 140                       | -5         |
+
+#### **3. Return to Original Lane (T = 7 to T = 10)**
+- **Lateral Movement**: Linear transition from Y = -5 to Y = 0.
+- **Longitudinal Movement**: Constant speed of 20 m/s.
+
+| Time (s) | X (m) = 140 + 20 * (T - 7) | Y (m) = -5 + 5/3 * (T - 7) |
+|----------|----------------------------|----------------------------|
+| T = 7    | 140                        | -5                         |
+| T = 8    | 160                        | -3.33                      |
+| T = 9    | 180                        | -1.67                      |
+| T = 10   | 200                        | 0                          |
+
+---
+
+### **Summary of Positions**
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| T = 0    | 0     | 0     |
+| T = 1    | 20    | -1.67 |
+| T = 2    | 40    | -3.33 |
+| T = 3    | 60    | -5    |
+| T = 4    | 80    | -5    |
+| T = 5    | 100   | -5    |
+| T = 6    | 120   | -5    |
+| T = 7    | 140   | -5    |
+| T = 8    | 160   | -3.33 |
+| T = 9    | 180   | -1.67 |
+| T = 10   | 200   | 0     |
+
+---
+
+### **Verification**
+1. **Speed**: Maintained above 60 km/h (16.67 m/s) throughout.
+2. **Obstruction Bypass**: Successfully avoided the obstruction at X = 100 by being in the adjacent lane (Y = -5).
+3. **Lane Transitions**: Smoothly transitioned to and from the adjacent lane.
+
+This plan ensures a safe and efficient bypass of the obstruction.

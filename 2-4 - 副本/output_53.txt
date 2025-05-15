@@ -1,0 +1,64 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into phases and estimate the vehicle¡¯s position at 1-second intervals. Here¡¯s the step-by-step plan:
+
+---
+
+### **Given:**
+- Starting position: \((X, Y) = (0, 0)\)
+- Obstruction position: \((100, 0)\)
+- Adjacent lane position: \(Y = -5\)
+- Initial velocity: \(72 \, \text{km/h} = 20 \, \text{m/s}\)
+- Minimum speed: \(60 \, \text{km/h} = 16.67 \, \text{m/s}\)
+
+---
+
+### **Assumptions:**
+1. The vehicle transitions smoothly between lanes over a 2-second interval.
+2. The vehicle bypasses the obstruction by moving into the adjacent lane \(Y = -5\) and returns to the original lane \(Y = 0\) after passing the obstruction.
+3. The vehicle maintains a constant speed of \(20 \, \text{m/s}\) during the maneuver.
+
+---
+
+### **Phase 1: Lane Transition (T = 0 to T = 2)**
+- Transition from \(Y = 0\) to \(Y = -5\) over 2 seconds.
+- Lateral velocity: \(\frac{-5}{2} = -2.5 \, \text{m/s}\).
+
+---
+
+### **Phase 2: Bypass Obstruction (T = 2 to T = 5)**
+- Maintain position in the adjacent lane \(Y = -5\).
+- Bypass the obstruction at \(X = 100\).
+
+---
+
+### **Phase 3: Lane Transition (T = 5 to T = 7)**
+- Transition from \(Y = -5\) to \(Y = 0\) over 2 seconds.
+- Lateral velocity: \(\frac{5}{2} = 2.5 \, \text{m/s}\).
+
+---
+
+### **Position Estimates:**
+The vehicle¡¯s position \((X, Y)\) is calculated at 1-second intervals using \(X = 20T\) and the lateral position \(Y\) based on the phase.
+
+| Time (s) | X (m) | Y (m)    | Phase                     |
+|----------|-------|----------|---------------------------|
+| T = 0    | 0     | 0        | Starting position         |
+| T = 1    | 20    | -2.5     | Lane transition           |
+| T = 2    | 40    | -5       | Enter adjacent lane       |
+| T = 3    | 60    | -5       | Bypass obstruction        |
+| T = 4    | 80    | -5       | Bypass obstruction        |
+| T = 5    | 100   | -5       | Pass obstruction          |
+| T = 6    | 120   | -2.5     | Lane transition           |
+| T = 7    | 140   | 0        | Return to original lane   |
+| T = 8    | 160   | 0        | Continue in original lane |
+| T = 9    | 180   | 0        | Continue in original lane |
+| T = 10   | 200   | 0        | Continue in original lane |
+
+---
+
+### **Summary:**
+- The vehicle transitions to the adjacent lane by \(T = 2\).
+- It bypasses the obstruction at \(T = 5\).
+- It returns to the original lane by \(T = 7\).
+- The speed remains constant at \(20 \, \text{m/s}\) throughout the maneuver.
+
+This plan ensures the vehicle navigates around the obstruction safely while maintaining the required speed.

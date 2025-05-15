@@ -1,0 +1,50 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Lane change duration: \( 2 \, \text{seconds} \) (smooth transition)  
+- Time step: \( 1 \, \text{second} \)  
+
+### Route Plan:
+#### Phase 1: Lane Change (T = 0 to T = 2)
+- At \( T = 0 \): \( (X, Y) = (0, 0) \)  
+- At \( T = 1 \): \( (X, Y) = (20, -2.5) \) (halfway through lane change)  
+- At \( T = 2 \): \( (X, Y) = (40, -5) \) (fully in the adjacent lane)  
+
+#### Phase 2: Bypassing the Obstruction (T = 2 to T = 6)
+- At \( T = 3 \): \( (X, Y) = (60, -5) \)  
+- At \( T = 4 \): \( (X, Y) = (80, -5) \)  
+- At \( T = 5 \): \( (X, Y) = (100, -5) \) (bypassing the obstruction)  
+- At \( T = 6 \): \( (X, Y) = (120, -5) \)  
+
+#### Phase 3: Lane Change Back (T = 6 to T = 8)
+- At \( T = 7 \): \( (X, Y) = (140, -2.5) \) (halfway back to the original lane)  
+- At \( T = 8 \): \( (X, Y) = (160, 0) \) (fully back in the original lane)  
+
+#### Phase 4: Continuing in the Original Lane (T = 8 to T = 10)
+- At \( T = 9 \): \( (X, Y) = (180, 0) \)  
+- At \( T = 10 \): \( (X, Y) = (200, 0) \)  
+
+### Summary of Positions:
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -2.5  |  
+| 2        | 40    | -5    |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -2.5  |  
+| 8        | 160   | 0     |  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+This plan ensures the vehicle maintains a speed above \( 60 \, \text{km/h} \) while safely navigating around the obstruction.

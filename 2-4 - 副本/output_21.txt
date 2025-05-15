@@ -1,0 +1,59 @@
+To plan the route for navigating around the obstruction, we'll break down the movement into phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**
+2. **Bypass the Obstruction (X = 100)**
+3. **Lane Change Back to the Original Lane (Y = 0)**
+
+### Assumptions:
+- **Initial Velocity:** 72 km/h = 20 m/s
+- **Minimum Speed:** 60 km/h = 16.67 m/s
+- **Lane Width:** 5 meters (Y = -5 for the adjacent lane)
+- **Obstruction Location:** (100, 0)
+- **Time Step:** 1 second
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+We¡¯ll assume the lane change takes **2 seconds**, during which the vehicle moves laterally from Y = 0 to Y = -5 while maintaining a speed of 20 m/s.
+
+- **T = 0 s:** (0, 0)
+- **T = 1 s:** (20, -2.5)  
+  (Halfway through the lane change)
+- **T = 2 s:** (40, -5)  
+  (Lane change complete)
+
+### Phase 2: Bypass the Obstruction (X = 100)
+The vehicle continues in the adjacent lane (Y = -5) until it has bypassed the obstruction at X = 100.
+
+- **T = 3 s:** (60, -5)
+- **T = 4 s:** (80, -5)
+- **T = 5 s:** (100, -5)  
+  (Obstruction bypassed)
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+We¡¯ll assume the lane change back takes **2 seconds**, during which the vehicle moves laterally from Y = -5 to Y = 0 while maintaining a speed of 20 m/s.
+
+- **T = 6 s:** (120, -2.5)  
+  (Halfway through the lane change)
+- **T = 7 s:** (140, 0)  
+  (Lane change complete)
+
+### Final Positions:
+- **T = 8 s:** (160, 0)
+- **T = 9 s:** (180, 0)
+- **T = 10 s:** (200, 0)
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -2.5)      |
+| 2        | (40, -5)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -2.5)     |
+| 7        | (140, 0)        |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+This plan ensures the vehicle maintains a speed above 60 km/h while safely navigating around the obstruction.

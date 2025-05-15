@@ -1,0 +1,50 @@
+### Route Planning and Position Estimation
+
+**Initial Conditions:**
+- **Starting Point (T = 0):** (X, Y) = (0, 0)
+- **Obstruction:** Located at (100, 0)
+- **Adjacent Lane:** Y = -5
+- **Initial Velocity:** 72 km/h = 20 m/s
+- **Minimum Speed:** Must exceed 60 km/h = 16.67 m/s
+
+**Assumptions:**
+- The lane change takes approximately 2 seconds.
+- The vehicle maintains a constant speed of 20 m/s (72 km/h).
+
+**Critical Intervals:**
+1. **T = 0 s:** Start at (0, 0)
+2. **T = 1 s:** Move forward 20 meters, still in the outer lane.
+   - **Position:** (20, 0)
+3. **T = 2 s:** Begin lane transition to the adjacent lane (Y = -5).
+   - **Position:** (40, -2.5)
+4. **T = 3 s:** Continue lane transition, now fully in the adjacent lane.
+   - **Position:** (60, -5)
+5. **T = 4 s:** Bypass the obstruction, remaining in the adjacent lane.
+   - **Position:** (80, -5)
+6. **T = 5 s:** Prepare to return to the original lane.
+   - **Position:** (100, -5)
+7. **T = 6 s:** Begin lane transition back to the original lane (Y = 0).
+   - **Position:** (120, -2.5)
+8. **T = 7 s:** Complete lane transition, now fully in the original lane.
+   - **Position:** (140, 0)
+9. **T = 8 s:** Continue traveling in the original lane.
+   - **Position:** (160, 0)
+10. **T = 9 s:** Continue traveling in the original lane.
+    - **Position:** (180, 0)
+11. **T = 10 s:** Continue traveling in the original lane.
+    - **Position:** (200, 0)
+
+**Summary of Positions:**
+- **T = 0 s:** (0, 0)
+- **T = 1 s:** (20, 0)
+- **T = 2 s:** (40, -2.5)
+- **T = 3 s:** (60, -5)
+- **T = 4 s:** (80, -5)
+- **T = 5 s:** (100, -5)
+- **T = 6 s:** (120, -2.5)
+- **T = 7 s:** (140, 0)
+- **T = 8 s:** (160, 0)
+- **T = 9 s:** (180, 0)
+- **T = 10 s:** (200, 0)
+
+This plan ensures that the vehicle navigates around the obstruction while maintaining a speed above 60 km/h. The lane transitions are smooth and completed within the 10-second window.

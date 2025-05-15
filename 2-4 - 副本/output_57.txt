@@ -1,0 +1,40 @@
+To plan the route for your vehicle, we need to break down the maneuver into several phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We'll assume the vehicle moves at a constant speed of 72 km/h (which is 20 m/s) and that the lane change takes a certain amount of time. We'll also assume the lane change is smooth and takes 2 seconds to complete.
+
+### Phase 1: Lane Change (T = 0 to T = 2 seconds)
+- **Initial Position (T = 0):** (0, 0)
+- **Final Position (T = 2):** (40, -5)
+
+During this phase, the vehicle moves from the outer lane (Y = 0) to the adjacent lane (Y = -5). The lateral movement is assumed to be linear over 2 seconds.
+
+### Phase 2: Bypassing the Obstruction (T = 2 to T = 6 seconds)
+- **Position at T = 2:** (40, -5)
+- **Position at T = 6:** (120, -5)
+
+During this phase, the vehicle continues in the adjacent lane, bypassing the obstruction at X = 100. The vehicle travels at 20 m/s, so in 4 seconds, it covers 80 meters.
+
+### Phase 3: Returning to the Original Lane (T = 6 to T = 8 seconds)
+- **Position at T = 6:** (120, -5)
+- **Final Position (T = 8):** (160, 0)
+
+During this phase, the vehicle moves back to the original lane (Y = 0). The lateral movement is assumed to be linear over 2 seconds.
+
+### Phase 4: Continuing in the Original Lane (T = 8 to T = 10 seconds)
+- **Position at T = 8:** (160, 0)
+- **Final Position (T = 10):** (200, 0)
+
+During this phase, the vehicle continues in the original lane at 20 m/s.
+
+### Summary of Positions at Critical Intervals
+- **T = 0:** (0, 0)
+- **T = 1:** (20, -2.5)  (Midpoint of lane change)
+- **T = 2:** (40, -5)    (Completed lane change)
+- **T = 3:** (60, -5)
+- **T = 4:** (80, -5)
+- **T = 5:** (100, -5)   (Bypassing the obstruction)
+- **T = 6:** (120, -5)
+- **T = 7:** (140, -2.5) (Midpoint of returning to original lane)
+- **T = 8:** (160, 0)    (Completed return to original lane)
+- **T = 9:** (180, 0)
+- **T = 10:** (200, 0)
+
+This route planning ensures that the vehicle bypasses the obstruction while maintaining a speed above 60 km/h. The lane changes are smooth and take 2 seconds each, and the vehicle remains in the adjacent lane while bypassing the obstruction.

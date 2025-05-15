@@ -1,0 +1,149 @@
+### Understanding the Problem
+
+First, let's break down the scenario:
+
+- **Road Layout**: Two parallel lanes. I'm currently in the outer lane, which we'll consider as the starting position (0,0).
+- **Obstruction**: Located 100 meters ahead at (100,0).
+- **Adjacent Lane**: Positioned at Y = -5 relative to my current lane.
+- **Initial Velocity**: 72 km/h, which needs to be maintained above 60 km/h throughout the maneuver.
+- **Objective**: Transition to the adjacent lane, bypass the obstruction, and return to the original lane within 10 seconds.
+
+### Converting Velocity to Meters per Second
+
+To work with meters and seconds, it's essential to convert the velocity from km/h to m/s.
+
+\[
+72 \text{ km/h} = \frac{72 \times 1000}{3600} = 20 \text{ m/s}
+\]
+
+Similarly, the minimum speed of 60 km/h is:
+
+\[
+60 \text{ km/h} = \frac{60 \times 1000}{3600} \approx 16.67 \text{ m/s}
+\]
+
+### Planning the Lane Transition
+
+The maneuver involves three main phases:
+
+1. **Lane Change to Adjacent Lane**: Move from Y = 0 to Y = -5.
+2. **Bypassing the Obstruction**: Continue in the adjacent lane past X = 100.
+3. **Returning to Original Lane**: Move back from Y = -5 to Y = 0.
+
+### Estimating Time for Each Phase
+
+Given the total time is 10 seconds, we need to allocate time for each phase. A reasonable distribution could be:
+
+- **Lane Change**: 2 seconds
+- **Bypassing**: 6 seconds
+- **Returning**: 2 seconds
+
+### Calculating Distance Covered
+
+At a constant speed of 20 m/s:
+
+- **Total Distance in 10 seconds**: \(20 \text{ m/s} \times 10 \text{ s} = 200 \text{ meters}\)
+  
+However, the obstruction is only 100 meters ahead. This suggests that the maneuver needs to be completed before reaching the obstruction, which contradicts the initial assumption. Therefore, we need to adjust our approach.
+
+### Re-evaluating the Maneuver Timeline
+
+Given that the obstruction is at 100 meters and we're traveling at 20 m/s, we'll reach the obstruction in:
+
+\[
+\frac{100 \text{ meters}}{20 \text{ m/s}} = 5 \text{ seconds}
+\]
+
+This means the entire maneuver must be completed within 5 seconds to avoid the obstruction.
+
+### Adjusting Phase Durations
+
+Let's redistribute the time:
+
+- **Lane Change**: 1 second
+- **Bypassing**: 3 seconds
+- **Returning**: 1 second
+
+### Calculating Positions Over Time
+
+We'll track the vehicle's position every second.
+
+#### Initial Position at T = 0s
+
+\[
+(X, Y) = (0, 0)
+\]
+
+#### T = 1s: Lane Change
+
+- **X-coordinate**: \(20 \text{ m/s} \times 1 \text{ s} = 20 \text{ meters}\)
+- **Y-coordinate**: Transition from 0 to -5 over 1 second. Assuming linear movement:
+
+\[
+Y = -5 \times \frac{1}{1} = -5
+\]
+
+\[
+(X, Y) = (20, -5)
+\]
+
+#### T = 2s: Continuing in Adjacent Lane
+
+- **X-coordinate**: \(20 \text{ m/s} \times 2 \text{ s} = 40 \text{ meters}\)
+- **Y-coordinate**: Remains at -5
+
+\[
+(X, Y) = (40, -5)
+\]
+
+#### T = 3s: Approaching Obstruction
+
+- **X-coordinate**: \(20 \text{ m/s} \times 3 \text{ s} = 60 \text{ meters}\)
+- **Y-coordinate**: Remains at -5
+
+\[
+(X, Y) = (60, -5)
+\]
+
+#### T = 4s: Bypassing Obstruction
+
+- **X-coordinate**: \(20 \text{ m/s} \times 4 \text{ s} = 80 \text{ meters}\)
+- **Y-coordinate**: Remains at -5
+
+\[
+(X, Y) = (80, -5)
+\]
+
+#### T = 5s: Returning to Original Lane
+
+- **X-coordinate**: \(20 \text{ m/s} \times 5 \text{ s} = 100 \text{ meters}\)
+- **Y-coordinate**: Transition from -5 to 0 over 1 second. Assuming linear movement:
+
+\[
+Y = -5 + 5 \times \frac{1}{1} = 0
+\]
+
+\[
+(X, Y) = (100, 0)
+\]
+
+### Verifying Speed Constraint
+
+Throughout the maneuver, the speed remains at 20 m/s, which is above the minimum required speed of 16.67 m/s.
+
+### Final Route Plan
+
+Here's the vehicle's position at each second:
+
+| Time (s) | X (meters) | Y (meters) |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | -5         |
+| 2        | 40         | -5         |
+| 3        | 60         | -5         |
+| 4        | 80         | -5         |
+| 5        | 100        | 0          |
+
+### Conclusion
+
+By transitioning to the adjacent lane within the first second, maintaining that lane until bypassing the obstruction, and returning to the original lane by the fifth second, the vehicle successfully navigates around the obstruction while maintaining the required speed. This plan ensures safety and efficiency in the given scenario.

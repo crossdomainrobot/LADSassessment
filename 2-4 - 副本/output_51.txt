@@ -1,0 +1,72 @@
+To plan the route and estimate the vehicle's position at critical intervals, we'll break down the task into the following steps:
+
+1. **Convert Speed to Meters per Second (m/s):**
+   - Initial velocity = 72 km/h = 20 m/s
+   - Minimum speed = 60 km/h = 16.67 m/s
+
+2. **Define the Obstacle and Lane Transition:**
+   - Obstacle is at (100, 0).
+   - Adjacent lane is at Y = -5.
+   - The vehicle starts at (0, 0).
+
+3. **Plan the Lane Transition:**
+   - The vehicle needs to transition to the adjacent lane (Y = -5) before reaching the obstacle at X = 100.
+   - After bypassing the obstacle, the vehicle should return to the original lane (Y = 0).
+
+4. **Time Calculation:**
+   - Time to reach the obstacle at constant speed: \( t = \frac{100 \text{ m}}{20 \text{ m/s}} = 5 \text{ seconds} \).
+   - We have 10 seconds to complete the maneuver.
+
+5. **Position Estimation:**
+   - We'll estimate the vehicle's position every second.
+
+### Route Planning:
+
+- **T = 0 s:** Position = (0, 0)
+- **T = 1 s:** Position = (20, 0)
+- **T = 2 s:** Position = (40, 0)
+- **T = 3 s:** Position = (60, -1.67)  (Start transitioning to the adjacent lane)
+- **T = 4 s:** Position = (80, -3.33)  (Continue transitioning)
+- **T = 5 s:** Position = (100, -5)    (Fully in the adjacent lane, bypassing the obstacle)
+- **T = 6 s:** Position = (120, -5)
+- **T = 7 s:** Position = (140, -3.33) (Start transitioning back to the original lane)
+- **T = 8 s:** Position = (160, -1.67) (Continue transitioning)
+- **T = 9 s:** Position = (180, 0)     (Fully back in the original lane)
+- **T = 10 s:** Position = (200, 0)
+
+### Detailed Steps:
+
+1. **T = 0 to T = 2 s:**
+   - The vehicle travels straight in the outer lane.
+   - At T = 2 s, the vehicle is at (40, 0).
+
+2. **T = 3 to T = 5 s:**
+   - The vehicle starts transitioning to the adjacent lane.
+   - By T = 5 s, the vehicle has fully entered the adjacent lane at (100, -5), bypassing the obstacle.
+
+3. **T = 6 s:**
+   - The vehicle continues in the adjacent lane, now at (120, -5).
+
+4. **T = 7 to T = 9 s:**
+   - The vehicle starts transitioning back to the original lane.
+   - By T = 9 s, the vehicle has fully returned to the original lane at (180, 0).
+
+5. **T = 10 s:**
+   - The vehicle continues straight in the original lane at (200, 0).
+
+### Conclusion:
+The vehicle successfully bypasses the obstacle by transitioning to the adjacent lane and then returns to the original lane, all while maintaining a speed above 60 km/h. The positions at each second are as follows:
+
+- T = 0 s: (0, 0)
+- T = 1 s: (20, 0)
+- T = 2 s: (40, 0)
+- T = 3 s: (60, -1.67)
+- T = 4 s: (80, -3.33)
+- T = 5 s: (100, -5)
+- T = 6 s: (120, -5)
+- T = 7 s: (140, -3.33)
+- T = 8 s: (160, -1.67)
+- T = 9 s: (180, 0)
+- T = 10 s: (200, 0)
+
+This plan ensures the vehicle navigates around the obstacle safely and efficiently.

@@ -1,0 +1,107 @@
+To plan the route, we need to calculate the vehicle¡¯s position at critical intervals over the next 10 seconds. We will assume constant speed and smooth lane transitions. Here¡¯s the step-by-step plan:
+
+---
+
+### **Given:**
+- **Initial position (T = 0):** (X, Y) = (0, 0)
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial velocity:** 72 km/h (20 m/s)
+- **Minimum speed:** Must exceed 60 km/h (16.67 m/s)
+
+---
+
+### **Assumptions:**
+1. The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout.
+2. Lane transitions are smooth and take 2 seconds each (1 second to move into the adjacent lane and 1 second to return to the original lane).
+3. The vehicle starts transitioning into the adjacent lane at T = 3 seconds and completes the transition at T = 5 seconds.
+4. The vehicle starts transitioning back into the original lane at T = 7 seconds and completes the transition at T = 9 seconds.
+
+---
+
+### **Calculations:**
+1. **Distance traveled per second:** 20 meters (since speed is 20 m/s).
+2. **Lane transition speed:** The vehicle moves laterally at a rate of 5 meters per second (to cover Y = 0 to Y = -5 in 1 second).
+
+---
+
+### **Position Estimates:**
+
+#### **T = 0 seconds:**
+- **X:** 0
+- **Y:** 0
+- **Position:** (0, 0)
+
+#### **T = 1 second:**
+- **X:** 20
+- **Y:** 0
+- **Position:** (20, 0)
+
+#### **T = 2 seconds:**
+- **X:** 40
+- **Y:** 0
+- **Position:** (40, 0)
+
+#### **T = 3 seconds:**
+- **X:** 60
+- **Y:** 0
+- **Position:** (60, 0)
+
+#### **T = 4 seconds:**
+- **X:** 80
+- **Y:** -2.5 (transitioning into the adjacent lane)
+- **Position:** (80, -2.5)
+
+#### **T = 5 seconds:**
+- **X:** 100
+- **Y:** -5 (fully in the adjacent lane)
+- **Position:** (100, -5)
+
+#### **T = 6 seconds:**
+- **X:** 120
+- **Y:** -5
+- **Position:** (120, -5)
+
+#### **T = 7 seconds:**
+- **X:** 140
+- **Y:** -5
+- **Position:** (140, -5)
+
+#### **T = 8 seconds:**
+- **X:** 160
+- **Y:** -2.5 (transitioning back into the original lane)
+- **Position:** (160, -2.5)
+
+#### **T = 9 seconds:**
+- **X:** 180
+- **Y:** 0 (fully in the original lane)
+- **Position:** (180, 0)
+
+#### **T = 10 seconds:**
+- **X:** 200
+- **Y:** 0
+- **Position:** (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | X (m) | Y (m) | Position (X, Y) |
+|----------|-------|-------|-----------------|
+| 0        | 0     | 0     | (0, 0)          |
+| 1        | 20    | 0     | (20, 0)         |
+| 2        | 40    | 0     | (40, 0)         |
+| 3        | 60    | 0     | (60, 0)         |
+| 4        | 80    | -2.5  | (80, -2.5)      |
+| 5        | 100   | -5    | (100, -5)       |
+| 6        | 120   | -5    | (120, -5)       |
+| 7        | 140   | -5    | (140, -5)       |
+| 8        | 160   | -2.5  | (160, -2.5)     |
+| 9        | 180   | 0     | (180, 0)        |
+| 10       | 200   | 0     | (200, 0)        |
+
+---
+
+### **Key Points:**
+1. The vehicle bypasses the obstruction at X = 100 meters by transitioning into the adjacent lane (Y = -5).
+2. The lane transitions occur smoothly over 2 seconds each.
+3. The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.

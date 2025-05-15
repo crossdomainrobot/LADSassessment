@@ -1,0 +1,78 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5):**  
+   - Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5) smoothly.  
+   - Assume this takes **2 seconds**.  
+
+2. **Bypassing the Obstruction (X = 100):**  
+   - Travel in the adjacent lane (Y = -5) until you¡¯ve passed the obstruction at X = 100.  
+   - Assume this takes **4 seconds**.  
+
+3. **Lane Change Back to the Original Lane (Y = 0):**  
+   - Transition back to the original lane (Y = 0) smoothly.  
+   - Assume this takes **2 seconds**.  
+
+### Vehicle Dynamics:
+- **Initial Speed:** 72 km/h = 20 m/s.  
+- **Minimum Speed:** 60 km/h = 16.67 m/s.  
+- Assume constant speed of **20 m/s** for simplicity.  
+
+### Position Estimates:
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at 1-second intervals over 10 seconds.  
+
+---
+
+#### **Phase 1: Lane Change to Adjacent Lane (T = 0 to T = 2 seconds)**  
+- **Y-coordinate:** Smoothly transitions from Y = 0 to Y = -5 over 2 seconds.  
+  - At T = 1 second: Y = -2.5 (halfway through the lane change).  
+  - At T = 2 seconds: Y = -5 (fully in the adjacent lane).  
+- **X-coordinate:** Travels at 20 m/s.  
+  - At T = 1 second: X = 20.  
+  - At T = 2 seconds: X = 40.  
+
+---
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6 seconds)**  
+- **Y-coordinate:** Remains at Y = -5.  
+- **X-coordinate:** Travels at 20 m/s.  
+  - At T = 3 seconds: X = 60.  
+  - At T = 4 seconds: X = 80.  
+  - At T = 5 seconds: X = 100.  
+  - At T = 6 seconds: X = 120.  
+
+---
+
+#### **Phase 3: Lane Change Back to Original Lane (T = 6 to T = 8 seconds)**  
+- **Y-coordinate:** Smoothly transitions from Y = -5 to Y = 0 over 2 seconds.  
+  - At T = 7 seconds: Y = -2.5 (halfway through the lane change).  
+  - At T = 8 seconds: Y = 0 (fully in the original lane).  
+- **X-coordinate:** Travels at 20 m/s.  
+  - At T = 7 seconds: X = 140.  
+  - At T = 8 seconds: X = 160.  
+
+---
+
+#### **Continued Travel in Original Lane (T = 8 to T = 10 seconds)**  
+- **Y-coordinate:** Remains at Y = 0.  
+- **X-coordinate:** Travels at 20 m/s.  
+  - At T = 9 seconds: X = 180.  
+  - At T = 10 seconds: X = 200.  
+
+---
+
+### Summary of Positions (X, Y) at 1-Second Intervals:
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -2.5  |  
+| 2        | 40    | -5    |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -2.5  |  
+| 8        | 160   | 0     |  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+This plan ensures the vehicle navigates around the obstruction while maintaining a speed above 60 km/h and completes the maneuver within 10 seconds.

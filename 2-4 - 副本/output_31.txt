@@ -1,0 +1,49 @@
+To construct a route plan for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals over the next 10 seconds. We'll assume the vehicle maintains a constant speed of **72 km/h (20 m/s)** and transitions smoothly between lanes.
+
+---
+
+### **Key Parameters**
+1. **Initial Position**: \( (X, Y) = (0, 0) \)
+2. **Obstruction Position**: \( (X, Y) = (100, 0) \)
+3. **Adjacent Lane Position**: \( Y = -5 \)
+4. **Speed**: 72 km/h = 20 m/s
+5. **Time Interval**: 10 seconds
+
+---
+
+### **Route Plan**
+1. **Lane Transition to Adjacent Lane**:
+   - Transition starts at \( T = 0 \) and ends at \( T = 2.5 \) seconds.
+   - Lateral movement: \( Y \) changes from \( 0 \) to \( -5 \) linearly over 2.5 seconds.
+
+2. **Bypass the Obstruction**:
+   - Vehicle travels in the adjacent lane \( (Y = -5) \) from \( T = 2.5 \) to \( T = 7.5 \) seconds.
+
+3. **Return to Original Lane**:
+   - Transition starts at \( T = 7.5 \) and ends at \( T = 10 \) seconds.
+   - Lateral movement: \( Y \) changes from \( -5 \) to \( 0 \) linearly over 2.5 seconds.
+
+---
+
+### **Position Estimates at Critical Intervals**
+- **\( T = 0 \) sec**: \( (0, 0) \)
+- **\( T = 1 \) sec**: \( (20, -2) \) (Transitioning to adjacent lane)
+- **\( T = 2 \) sec**: \( (40, -4) \) (Transitioning to adjacent lane)
+- **\( T = 2.5 \) sec**: \( (50, -5) \) (Fully in adjacent lane)
+- **\( T = 3 \) sec**: \( (60, -5) \) (Bypassing obstruction)
+- **\( T = 4 \) sec**: \( (80, -5) \) (Bypassing obstruction)
+- **\( T = 5 \) sec**: \( (100, -5) \) (Bypassing obstruction)
+- **\( T = 6 \) sec**: \( (120, -5) \) (Bypassing obstruction)
+- **\( T = 7 \) sec**: \( (140, -5) \) (Bypassing obstruction)
+- **\( T = 7.5 \) sec**: \( (150, -5) \) (Starting to return to original lane)
+- **\( T = 8 \) sec**: \( (160, -3) \) (Returning to original lane)
+- **\( T = 9 \) sec**: \( (180, -1) \) (Returning to original lane)
+- **\( T = 10 \) sec**: \( (200, 0) \) (Fully in original lane)
+
+---
+
+### **Summary**
+- The vehicle transitions to the adjacent lane between \( T = 0 \) and \( T = 2.5 \) seconds.
+- It bypasses the obstruction at \( Y = -5 \) between \( T = 2.5 \) and \( T = 7.5 \) seconds.
+- It returns to the original lane between \( T = 7.5 \) and \( T = 10 \) seconds.
+- The vehicle maintains a speed of 72 km/h throughout the maneuver.

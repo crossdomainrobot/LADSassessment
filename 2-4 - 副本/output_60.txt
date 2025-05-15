@@ -1,0 +1,49 @@
+To plan the route, we¡¯ll break the maneuver into phases:  
+1. **Lane Change to the Adjacent Lane** (Y = -5).  
+2. **Bypassing the Obstruction** (X = 100).  
+3. **Lane Change Back to the Original Lane** (Y = 0).  
+
+### Assumptions:  
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \).  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \).  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane).  
+- Obstruction at \( X = 100 \, \text{m} \).  
+- Time step: \( 1 \, \text{second} \).  
+
+### Phases:  
+1. **Lane Change (T = 0 to T = 3 seconds):**  
+   - Transition from \( Y = 0 \) to \( Y = -5 \) over 3 seconds.  
+   - Lateral velocity: \( \frac{5 \, \text{m}}{3 \, \text{s}} \approx 1.67 \, \text{m/s} \).  
+   - Maintain forward speed: \( 20 \, \text{m/s} \).  
+
+2. **Bypassing the Obstruction (T = 3 to T = 7 seconds):**  
+   - Stay in the adjacent lane (\( Y = -5 \)).  
+   - Maintain forward speed: \( 20 \, \text{m/s} \).  
+
+3. **Lane Change Back (T = 7 to T = 10 seconds):**  
+   - Transition from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.  
+   - Lateral velocity: \( \frac{5 \, \text{m}}{3 \, \text{s}} \approx 1.67 \, \text{m/s} \).  
+   - Maintain forward speed: \( 20 \, \text{m/s} \).  
+
+### Position Estimates:  
+| Time (s) | X (m)          | Y (m)          | Description                     |  
+|----------|----------------|----------------|---------------------------------|  
+| 0        | 0              | 0              | Starting point                  |  
+| 1        | 20             | -1.67          | Lane change in progress         |  
+| 2        | 40             | -3.33          | Lane change in progress         |  
+| 3        | 60             | -5             | Fully in adjacent lane          |  
+| 4        | 80             | -5             | Bypassing obstruction           |  
+| 5        | 100            | -5             | Passing obstruction             |  
+| 6        | 120            | -5             | Bypassing obstruction           |  
+| 7        | 140            | -5             | Start lane change back          |  
+| 8        | 160            | -3.33          | Lane change back in progress    |  
+| 9        | 180            | -1.67          | Lane change back in progress    |  
+| 10       | 200            | 0              | Back in original lane           |  
+
+### Notes:  
+- The vehicle maintains a constant forward speed of \( 20 \, \text{m/s} \).  
+- The lateral movement is smooth and completed within 3 seconds for each lane change.  
+- The obstruction is bypassed safely by staying in the adjacent lane from \( T = 3 \) to \( T = 7 \).  
+- The total distance covered in 10 seconds is \( 200 \, \text{m} \).  
+
+This plan ensures the vehicle remains above the minimum speed of \( 60 \, \text{km/h} \) and navigates around the obstruction safely.

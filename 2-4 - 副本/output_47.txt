@@ -1,0 +1,63 @@
+To construct a route plan, we need to calculate the vehicle¡¯s position at critical intervals over the next 10 seconds while transitioning lanes, bypassing the obstruction, and returning to the original lane. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Parameters**
+- **Initial velocity**: 72 km/h = 20 m/s
+- **Minimum speed**: 60 km/h = 16.67 m/s
+- **Obstruction**: Located at (100, 0)
+- **Adjacent lane**: Y = -5
+- **Starting point**: (0, 0)
+- **Time interval**: 1 second
+
+---
+
+### **Assumptions**
+1. The vehicle accelerates/decelerates smoothly to maintain speed above 60 km/h.
+2. Lane transitions take 2 seconds each (1 second to move laterally and 1 second to stabilize).
+3. The vehicle bypasses the obstruction between X = 100 and X = 120.
+
+---
+
+### **Route Plan**
+1. **T = 0 to T = 2**: Transition to the adjacent lane (Y = -5).
+2. **T = 2 to T = 6**: Bypass the obstruction (X = 100 to X = 120).
+3. **T = 6 to T = 8**: Transition back to the original lane (Y = 0).
+4. **T = 8 to T = 10**: Continue in the original lane.
+
+---
+
+### **Position Estimates**
+| Time (s) | X (m) | Y (m) | Description                     |
+|----------|-------|-------|---------------------------------|
+| T = 0    | 0     | 0     | Starting point                  |
+| T = 1    | 20    | -2.5  | Transitioning to adjacent lane  |
+| T = 2    | 40    | -5    | Fully in adjacent lane          |
+| T = 3    | 60    | -5    | Bypassing obstruction           |
+| T = 4    | 80    | -5    | Bypassing obstruction           |
+| T = 5    | 100   | -5    | Reaching obstruction            |
+| T = 6    | 120   | -5    | Fully bypassed obstruction      |
+| T = 7    | 140   | -2.5  | Transitioning back to original lane |
+| T = 8    | 160   | 0     | Fully in original lane          |
+| T = 9    | 180   | 0     | Continuing in original lane     |
+| T = 10   | 200   | 0     | Continuing in original lane     |
+
+---
+
+### **Explanation**
+1. **Lane Transition (T = 0 to T = 2)**:
+   - The vehicle moves laterally from Y = 0 to Y = -5 over 2 seconds.
+   - X increases linearly at 20 m/s.
+
+2. **Bypassing Obstruction (T = 2 to T = 6)**:
+   - The vehicle remains in the adjacent lane (Y = -5) while moving past the obstruction at X = 100.
+
+3. **Returning to Original Lane (T = 6 to T = 8)**:
+   - The vehicle moves laterally from Y = -5 to Y = 0 over 2 seconds.
+
+4. **Continuing in Original Lane (T = 8 to T = 10)**:
+   - The vehicle maintains its position in the original lane (Y = 0) while moving forward.
+
+---
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

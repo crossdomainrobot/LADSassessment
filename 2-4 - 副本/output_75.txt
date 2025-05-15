@@ -1,0 +1,101 @@
+To plan the route, we need to calculate the vehicle's position at each second while transitioning lanes, bypassing the obstruction, and returning to the original lane. Here¡¯s the step-by-step breakdown:
+
+---
+
+### **Given:**
+- **Initial position:** \( (X, Y) = (0, 0) \)
+- **Obstruction position:** \( (100, 0) \)
+- **Adjacent lane Y-coordinate:** \( Y = -5 \)
+- **Initial velocity:** \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+- **Minimum speed:** \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)
+- **Time frame:** \( T = 0 \) to \( T = 10 \) seconds
+
+---
+
+### **Assumptions:**
+1. The lane change takes **2 seconds** (smooth transition).
+2. The vehicle bypasses the obstruction in the adjacent lane from \( X = 80 \) to \( X = 120 \).
+3. The vehicle returns to the original lane after bypassing the obstruction.
+
+---
+
+### **Step 1: Initial Movement (Straight Line, \( Y = 0 \))**
+- From \( T = 0 \) to \( T = 3 \) seconds, the vehicle moves straight in the outer lane.
+- Distance traveled per second: \( 20 \, \text{m/s} \).
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | 0     |
+| 2        | 40    | 0     |
+| 3        | 60    | 0     |
+
+---
+
+### **Step 2: Lane Change to Adjacent Lane (\( Y = 0 \) to \( Y = -5 \))**
+- From \( T = 3 \) to \( T = 5 \) seconds, the vehicle transitions to the adjacent lane.
+- Lateral movement: \( Y \) changes from \( 0 \) to \( -5 \).
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 4        | 80    | -2.5  |
+| 5        | 100   | -5    |
+
+---
+
+### **Step 3: Bypassing the Obstruction in Adjacent Lane**
+- From \( T = 5 \) to \( T = 7 \) seconds, the vehicle bypasses the obstruction.
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+- Lateral position remains \( Y = -5 \).
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+
+---
+
+### **Step 4: Lane Change Back to Original Lane (\( Y = -5 \) to \( Y = 0 \))**
+- From \( T = 7 \) to \( T = 9 \) seconds, the vehicle transitions back to the original lane.
+- Lateral movement: \( Y \) changes from \( -5 \) to \( 0 \).
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 8        | 160   | -2.5  |
+| 9        | 180   | 0     |
+
+---
+
+### **Step 5: Continue in Original Lane**
+- At \( T = 10 \) seconds, the vehicle continues in the original lane.
+
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 10       | 200   | 0     |
+
+---
+
+### **Summary of Positions:**
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | 0     |
+| 2        | 40    | 0     |
+| 3        | 60    | 0     |
+| 4        | 80    | -2.5  |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -2.5  |
+| 9        | 180   | 0     |
+| 10       | 200   | 0     |
+
+---
+
+### **Key Points:**
+1. The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout.
+2. The lane changes are smooth and take 2 seconds each.
+3. The obstruction is bypassed in the adjacent lane from \( X = 80 \) to \( X = 120 \).
+4. The vehicle returns to the original lane after bypassing the obstruction.

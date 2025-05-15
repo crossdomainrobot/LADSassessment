@@ -1,0 +1,79 @@
+To construct a route planning for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Assumptions:**
+1. **Initial Position:** (X, Y) = (0, 0) at T = 0.
+2. **Obstruction Position:** (X, Y) = (100, 0).
+3. **Adjacent Lane Position:** Y = -5.
+4. **Initial Speed:** 72 km/h = 20 m/s.
+5. **Minimum Speed:** 60 km/h = 16.67 m/s.
+6. **Time Interval:** 1 second (T = 0, 1, 2, ..., 10).
+
+---
+
+### **Route Plan:**
+
+#### **Phase 1: Transition to the Adjacent Lane (T = 0 to T = 3)**
+- **Objective:** Move from Y = 0 to Y = -5 over 3 seconds.
+- **Lateral Movement:** Linear transition from Y = 0 to Y = -5.
+- **Longitudinal Movement:** Continue at 20 m/s.
+
+**Positions:**
+- T = 0: (0, 0)
+- T = 1: (20, -1.67)
+- T = 2: (40, -3.33)
+- T = 3: (60, -5)
+
+---
+
+#### **Phase 2: Bypass the Obstruction (T = 3 to T = 7)**
+- **Objective:** Stay in the adjacent lane (Y = -5) while bypassing the obstruction at X = 100.
+- **Lateral Movement:** Maintain Y = -5.
+- **Longitudinal Movement:** Continue at 20 m/s.
+
+**Positions:**
+- T = 3: (60, -5)
+- T = 4: (80, -5)
+- T = 5: (100, -5)
+- T = 6: (120, -5)
+- T = 7: (140, -5)
+
+---
+
+#### **Phase 3: Return to the Original Lane (T = 7 to T = 10)**
+- **Objective:** Move from Y = -5 to Y = 0 over 3 seconds.
+- **Lateral Movement:** Linear transition from Y = -5 to Y = 0.
+- **Longitudinal Movement:** Continue at 20 m/s.
+
+**Positions:**
+- T = 7: (140, -5)
+- T = 8: (160, -3.33)
+- T = 9: (180, -1.67)
+- T = 10: (200, 0)
+
+---
+
+### **Summary of Positions (X, Y) at Each Second:**
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.67 |
+| 2        | 40    | -3.33 |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -3.33 |
+| 9        | 180   | -1.67 |
+| 10       | 200   | 0     |
+
+---
+
+### **Verification:**
+- **Speed:** Maintained above 60 km/h (16.67 m/s) throughout.
+- **Obstruction Avoidance:** The vehicle is in the adjacent lane (Y = -5) when passing X = 100.
+- **Lane Transitions:** Smooth and completed within the 10-second window.
+
+This plan ensures a safe and efficient maneuver around the obstruction.

@@ -1,0 +1,55 @@
+To plan the route for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into phases and calculate the vehicle¡¯s position at 1-second intervals (T = 0 to T = 10). Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Initial Setup**
+1. **Speed**: Initial velocity = 72 km/h (20 m/s). Maintain speed above 60 km/h (16.67 m/s).
+2. **Lane Width**: Y = 0 (outer lane), Y = -5 (adjacent lane).
+3. **Obstruction**: Located at (X = 100, Y = 0).
+4. **Maneuver**: Transition to adjacent lane (Y = -5), bypass the obstruction, and return to the original lane (Y = 0).
+
+---
+
+### **Maneuver Phases**
+1. **Phase 1 (T = 0 to T = 2)**: Transition from Y = 0 to Y = -5 (lane change).
+2. **Phase 2 (T = 2 to T = 6)**: Travel in the adjacent lane (Y = -5), bypassing the obstruction.
+3. **Phase 3 (T = 6 to T = 8)**: Transition from Y = -5 back to Y = 0 (lane change).
+4. **Phase 4 (T = 8 to T = 10)**: Continue in the original lane (Y = 0).
+
+---
+
+### **Position Calculations**
+At each second, the vehicle¡¯s X-coordinate increases by 20 m (since speed = 20 m/s). The Y-coordinate changes during lane transitions.
+
+| Time (T) | X (m) | Y (m) | Description                          |
+|----------|-------|-------|--------------------------------------|
+| 0        | 0     | 0     | Start in the outer lane.             |
+| 1        | 20    | -1.25 | Begin lane change to adjacent lane.  |
+| 2        | 40    | -5    | Complete lane change.                |
+| 3        | 60    | -5    | Travel in adjacent lane.             |
+| 4        | 80    | -5    | Travel in adjacent lane.             |
+| 5        | 100   | -5    | Bypass the obstruction.              |
+| 6        | 120   | -5    | Begin lane change back to outer lane.|
+| 7        | 140   | -1.25 | Continue lane change.                |
+| 8        | 160   | 0     | Complete lane change.                |
+| 9        | 180   | 0     | Travel in outer lane.                |
+| 10       | 200   | 0     | Continue in outer lane.              |
+
+---
+
+### **Details**
+1. **Lane Change (Y-coordinate)**:
+   - The lane change is assumed to take 2 seconds, with linear interpolation of Y from 0 to -5.
+   - Y = -1.25 at T = 1, Y = -5 at T = 2 (transition complete).
+   - Similarly, Y = -1.25 at T = 7, Y = 0 at T = 8 (transition complete).
+
+2. **Bypassing the Obstruction**:
+   - At T = 5, the vehicle reaches X = 100 (obstruction location) but is in the adjacent lane (Y = -5), so it safely bypasses the obstruction.
+
+3. **Speed Maintenance**:
+   - The vehicle¡¯s speed remains constant at 20 m/s (72 km/h), which satisfies the requirement of staying above 60 km/h.
+
+---
+
+### **Conclusion**
+The vehicle successfully navigates around the obstruction by transitioning to the adjacent lane, bypassing the blockage, and returning to the original lane within 10 seconds. The positions at each second are outlined in the table above.

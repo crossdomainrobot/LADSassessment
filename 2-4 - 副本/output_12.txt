@@ -1,0 +1,41 @@
+To plan the route for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals over the next 10 seconds. The vehicle starts at (0, 0) with an initial velocity of 72 km/h (20 m/s) and must maintain a speed above 60 km/h (16.67 m/s). The adjacent lane is at Y = -5, and the obstruction is at (100, 0).
+
+### Assumptions:
+1. The vehicle transitions smoothly between lanes.
+2. The lateral movement (Y-axis) is linear and takes 2 seconds to complete (1 second to move to the adjacent lane and 1 second to return).
+3. The vehicle maintains a constant speed of 20 m/s along the X-axis.
+
+### Critical Intervals:
+1. **T = 0 to T = 1 second**: Move from Y = 0 to Y = -5 (transition to the adjacent lane).
+2. **T = 1 to T = 9 seconds**: Stay in the adjacent lane (Y = -5) while bypassing the obstruction.
+3. **T = 9 to T = 10 seconds**: Move from Y = -5 back to Y = 0 (return to the original lane).
+
+### Position Estimates:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, -5) ¡ª Transition to the adjacent lane.
+- **T = 2**: (40, -5)
+- **T = 3**: (60, -5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5) ¡ª Bypass the obstruction.
+- **T = 6**: (120, -5)
+- **T = 7**: (140, -5)
+- **T = 8**: (160, -5)
+- **T = 9**: (180, -5)
+- **T = 10**: (200, 0) ¡ª Return to the original lane.
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -5)        |
+| 2        | (40, -5)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -5)       |
+| 9        | (180, -5)       |
+| 10       | (200, 0)        |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and returns to the original lane after 10 seconds.

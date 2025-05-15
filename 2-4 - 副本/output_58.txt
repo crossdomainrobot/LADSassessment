@@ -1,0 +1,43 @@
+To plan the route and estimate the vehicle¡¯s position at critical intervals, we¡¯ll follow these steps:
+
+1. **Convert speed to meters per second (m/s)**:
+   - Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \).
+   - Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \).
+
+2. **Define the lane transition**:
+   - Starting position: \( (0, 0) \).
+   - Adjacent lane: \( Y = -5 \).
+   - Obstruction: \( (100, 0) \).
+
+3. **Assumptions**:
+   - The vehicle maintains a constant speed of \( 20 \, \text{m/s} \).
+   - The lane change takes 2 seconds (smooth transition).
+   - The vehicle remains in the adjacent lane until it has passed the obstruction.
+
+4. **Critical intervals**:
+   - \( T = 0 \): Starting position \( (0, 0) \).
+   - \( T = 1 \): Move forward \( 20 \, \text{m} \), position \( (20, 0) \).
+   - \( T = 2 \): Begin lane change, move forward \( 20 \, \text{m} \), position \( (40, -2.5) \).
+   - \( T = 3 \): Complete lane change, move forward \( 20 \, \text{m} \), position \( (60, -5) \).
+   - \( T = 4 \): Continue in adjacent lane, position \( (80, -5) \).
+   - \( T = 5 \): Continue in adjacent lane, position \( (100, -5) \) (bypassing the obstruction).
+   - \( T = 6 \): Begin returning to the original lane, move forward \( 20 \, \text{m} \), position \( (120, -2.5) \).
+   - \( T = 7 \): Complete return to original lane, move forward \( 20 \, \text{m} \), position \( (140, 0) \).
+   - \( T = 8 \): Continue in original lane, position \( (160, 0) \).
+   - \( T = 9 \): Continue in original lane, position \( (180, 0) \).
+   - \( T = 10 \): Continue in original lane, position \( (200, 0) \).
+
+### Summary of Positions:
+- \( T = 0 \): \( (0, 0) \)
+- \( T = 1 \): \( (20, 0) \)
+- \( T = 2 \): \( (40, -2.5) \)
+- \( T = 3 \): \( (60, -5) \)
+- \( T = 4 \): \( (80, -5) \)
+- \( T = 5 \): \( (100, -5) \)
+- \( T = 6 \): \( (120, -2.5) \)
+- \( T = 7 \): \( (140, 0) \)
+- \( T = 8 \): \( (160, 0) \)
+- \( T = 9 \): \( (180, 0) \)
+- \( T = 10 \): \( (200, 0) \)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above \( 60 \, \text{km/h} \) and safely returns to the original lane.

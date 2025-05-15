@@ -1,0 +1,58 @@
+To plan the route, we¡¯ll break the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We¡¯ll calculate the vehicle¡¯s position at 1-second intervals, ensuring the speed remains above 60 km/h (16.67 m/s).
+
+### Assumptions:
+- **Initial position**: (0, 0)
+- **Obstruction position**: (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+- **Time interval**: 1 second
+
+### Phase 1: Transition to the adjacent lane (T = 0 to T = 3 seconds)
+- **Lateral movement**: Move from Y = 0 to Y = -5 over 3 seconds.
+- **Lateral velocity**: ¦¤Y = -5 / 3 ¡Ö -1.67 m/s
+- **Longitudinal velocity**: Maintain 20 m/s (72 km/h)
+
+#### Positions:
+- **T = 1**: X = 20, Y = -1.67
+- **T = 2**: X = 40, Y = -3.33
+- **T = 3**: X = 60, Y = -5
+
+### Phase 2: Bypass the obstruction (T = 3 to T = 7 seconds)
+- **Lateral position**: Stay at Y = -5
+- **Longitudinal velocity**: Maintain 20 m/s (72 km/h)
+
+#### Positions:
+- **T = 4**: X = 80, Y = -5
+- **T = 5**: X = 100, Y = -5
+- **T = 6**: X = 120, Y = -5
+- **T = 7**: X = 140, Y = -5
+
+### Phase 3: Return to the original lane (T = 7 to T = 10 seconds)
+- **Lateral movement**: Move from Y = -5 to Y = 0 over 3 seconds.
+- **Lateral velocity**: ¦¤Y = 5 / 3 ¡Ö 1.67 m/s
+- **Longitudinal velocity**: Maintain 20 m/s (72 km/h)
+
+#### Positions:
+- **T = 8**: X = 160, Y = -3.33
+- **T = 9**: X = 180, Y = -1.67
+- **T = 10**: X = 200, Y = 0
+
+### Summary of Positions:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, -1.67)
+- **T = 2**: (40, -3.33)
+- **T = 3**: (60, -5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5)
+- **T = 6**: (120, -5)
+- **T = 7**: (140, -5)
+- **T = 8**: (160, -3.33)
+- **T = 9**: (180, -1.67)
+- **T = 10**: (200, 0)
+
+### Key Points:
+- The vehicle transitions to the adjacent lane by T = 3 seconds.
+- It bypasses the obstruction at T = 5 seconds (X = 100, Y = -5).
+- It returns to the original lane by T = 10 seconds.
+- The speed remains constant at 20 m/s (72 km/h) throughout the maneuver.

@@ -1,0 +1,55 @@
+To plan the lane transition and bypass the obstruction, we'll break the process into phases: acceleration, lane change, bypassing the obstruction, and returning to the original lane. Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Constants**
+1. **Initial velocity**: \( v_0 = 72 \, \text{km/h} = 20 \, \text{m/s} \).
+2. **Minimum speed**: \( v_{\text{min}} = 60 \, \text{km/h} = 16.67 \, \text{m/s} \).
+3. **Lane width**: \( \Delta Y = 5 \, \text{m} \) (from \( Y = 0 \) to \( Y = -5 \)).
+4. **Obstruction position**: \( X = 100 \, \text{m}, Y = 0 \).
+
+---
+
+### **Phases of the Maneuver**
+1. **Acceleration Phase (T = 0 to T = 2 seconds)**:
+   - Accelerate slightly to ensure speed remains above \( 60 \, \text{km/h} \).
+   - Maintain \( Y = 0 \).
+
+2. **Lane Change Phase (T = 2 to T = 5 seconds)**:
+   - Transition from \( Y = 0 \) to \( Y = -5 \).
+   - Maintain speed.
+
+3. **Bypass Phase (T = 5 to T = 8 seconds)**:
+   - Continue traveling in the adjacent lane (\( Y = -5 \)).
+   - Ensure \( X > 100 \, \text{m} \) to bypass the obstruction.
+
+4. **Return Phase (T = 8 to T = 10 seconds)**:
+   - Transition back to the original lane (\( Y = 0 \)).
+
+---
+
+### **Position Estimates**
+We assume constant speed \( v = 20 \, \text{m/s} \) for simplicity.
+
+| Time (s) | X (m)          | Y (m)       | Description                      |
+|----------|----------------|-------------|----------------------------------|
+| T = 0    | 0              | 0           | Starting position                |
+| T = 1    | 20             | 0           | Accelerating                     |
+| T = 2    | 40             | 0           | Begin lane change                |
+| T = 3    | 60             | -1.67       | Lane change in progress          |
+| T = 4    | 80             | -3.33       | Lane change in progress          |
+| T = 5    | 100            | -5          | Fully in adjacent lane           |
+| T = 6    | 120            | -5          | Bypassing obstruction            |
+| T = 7    | 140            | -5          | Bypassing obstruction            |
+| T = 8    | 160            | -3.33       | Begin return to original lane    |
+| T = 9    | 180            | -1.67       | Return in progress               |
+| T = 10   | 200            | 0           | Back in original lane            |
+
+---
+
+### **Notes**
+- The lane change is modeled as a linear transition over 3 seconds (T = 2 to T = 5).
+- The vehicle bypasses the obstruction at \( X = 100 \, \text{m} \) while in the adjacent lane.
+- The return to the original lane is also modeled as a linear transition over 2 seconds (T = 8 to T = 10).
+
+This plan ensures the vehicle maintains speed above \( 60 \, \text{km/h} \) and safely navigates around the obstruction.

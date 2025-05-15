@@ -1,0 +1,45 @@
+To plan the route, we¡¯ll break the maneuver into three phases:  
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Returning to the Original Lane (Y = 0)**  
+
+### Assumptions:  
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Time step: \( 1 \, \text{second} \)  
+
+### Phase 1: Lane Change (T = 0 to T = 3 seconds)  
+- **T = 0 s**: Start at \( (0, 0) \).  
+- **T = 1 s**: Move to \( (20, -1.67) \) (lateral movement begins).  
+- **T = 2 s**: Move to \( (40, -3.33) \).  
+- **T = 3 s**: Reach \( (60, -5) \) (fully in the adjacent lane).  
+
+### Phase 2: Bypassing the Obstruction (T = 3 to T = 7 seconds)  
+- **T = 4 s**: Move to \( (80, -5) \).  
+- **T = 5 s**: Move to \( (100, -5) \) (obstruction bypassed).  
+- **T = 6 s**: Move to \( (120, -5) \).  
+- **T = 7 s**: Move to \( (140, -5) \).  
+
+### Phase 3: Returning to the Original Lane (T = 7 to T = 10 seconds)  
+- **T = 8 s**: Move to \( (160, -3.33) \) (lateral movement begins).  
+- **T = 9 s**: Move to \( (180, -1.67) \).  
+- **T = 10 s**: Reach \( (200, 0) \) (fully back in the original lane).  
+
+### Summary of Positions:  
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -1.67)     |  
+| 2        | (40, -3.33)     |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -5)       |  
+| 8        | (160, -3.33)    |  
+| 9        | (180, -1.67)    |  
+| 10       | (200, 0)        |  
+
+This plan ensures the vehicle maintains a speed above \( 60 \, \text{km/h} \) and safely navigates around the obstruction.

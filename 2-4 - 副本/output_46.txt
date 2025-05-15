@@ -1,0 +1,71 @@
+To construct a route planning for this scenario, we¡¯ll break down the vehicle¡¯s motion into critical intervals of 1 second each. We¡¯ll calculate the vehicle¡¯s position (X, Y) at each time step, ensuring the speed remains above 60 km/h and the lane transitions are smooth.
+
+### Given:
+- **Initial position**: (0, 0)
+- **Obstruction position**: (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial velocity**: 72 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+- **Time intervals**: T = 0, 1, 2, ..., 10 seconds
+
+### Assumptions:
+1. The vehicle accelerates/decelerates uniformly during lane transitions.
+2. The lane transition (Y-axis movement) is completed over 3 seconds.
+3. The vehicle maintains a constant speed of 20 m/s during straight-line travel.
+
+### Plan:
+1. **Lane Change to Adjacent Lane (Y = -5)**:
+   - Start at T = 0, (0, 0)
+   - Transition to Y = -5 over 3 seconds (T = 0 to T = 3)
+2. **Bypassing the Obstruction**:
+   - Continue in the adjacent lane (Y = -5) until X > 100
+3. **Lane Change Back to Original Lane (Y = 0)**:
+   - Transition back to Y = 0 over 3 seconds after bypassing the obstruction
+
+### Calculations:
+#### 1. Lane Change to Adjacent Lane (T = 0 to T = 3):
+- **Y-axis motion**: Move from Y = 0 to Y = -5 over 3 seconds
+  - Y-position at T = 1: Y = -5/3 ¡Ö -1.67
+  - Y-position at T = 2: Y = -10/3 ¡Ö -3.33
+  - Y-position at T = 3: Y = -5
+- **X-axis motion**: Constant speed of 20 m/s
+  - X-position at T = 1: 20 m
+  - X-position at T = 2: 40 m
+  - X-position at T = 3: 60 m
+
+#### 2. Bypassing the Obstruction (T = 3 to T = 7):
+- **Y-axis motion**: Stay at Y = -5
+- **X-axis motion**: Constant speed of 20 m/s
+  - X-position at T = 4: 80 m
+  - X-position at T = 5: 100 m
+  - X-position at T = 6: 120 m
+  - X-position at T = 7: 140 m
+
+#### 3. Lane Change Back to Original Lane (T = 7 to T = 10):
+- **Y-axis motion**: Move from Y = -5 to Y = 0 over 3 seconds
+  - Y-position at T = 8: Y = -5 + 5/3 ¡Ö -3.33
+  - Y-position at T = 9: Y = -5 + 10/3 ¡Ö -1.67
+  - Y-position at T = 10: Y = 0
+- **X-axis motion**: Constant speed of 20 m/s
+  - X-position at T = 8: 160 m
+  - X-position at T = 9: 180 m
+  - X-position at T = 10: 200 m
+
+### Summary of Positions:
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.67 |
+| 2        | 40    | -3.33 |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -3.33 |
+| 9        | 180   | -1.67 |
+| 10       | 200   | 0     |
+
+### Notes:
+- The vehicle successfully bypasses the obstruction at X = 100 while maintaining a speed above 60 km/h.
+- Lane transitions are smooth and completed within the specified time intervals.

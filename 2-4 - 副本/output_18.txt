@@ -1,0 +1,91 @@
+To plan the route, we¡¯ll break down the maneuver into phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We¡¯ll calculate the vehicle¡¯s position at 1-second intervals, ensuring the speed remains above 60 km/h (16.67 m/s). Here¡¯s the step-by-step plan:
+
+---
+
+### **Assumptions and Conversions**
+1. **Initial Velocity**: 72 km/h = 20 m/s.
+2. **Minimum Speed**: 60 km/h = 16.67 m/s.
+3. **Lane Width**: Adjacent lane is at \( Y = -5 \) meters.
+4. **Obstruction Location**: \( X = 100 \) meters, \( Y = 0 \).
+
+---
+
+### **Maneuver Phases**
+1. **Lane Change (T = 0 to T = 3 seconds)**:
+   - Transition from \( Y = 0 \) to \( Y = -5 \).
+   - Maintain speed at ~20 m/s.
+
+2. **Bypass Obstruction (T = 3 to T = 7 seconds)**:
+   - Stay in the adjacent lane (\( Y = -5 \)) while passing the obstruction at \( X = 100 \).
+
+3. **Return to Original Lane (T = 7 to T = 10 seconds)**:
+   - Transition from \( Y = -5 \) back to \( Y = 0 \).
+   - Maintain speed at ~20 m/s.
+
+---
+
+### **Position Estimates**
+We¡¯ll calculate \( X \) and \( Y \) at 1-second intervals:
+
+#### **1. Lane Change (T = 0 to T = 3 seconds)**:
+- **X-Position**: \( X = X_0 + v \cdot t \)
+  - \( X = 0 + 20 \cdot t \)
+- **Y-Position**: Linearly transition from \( Y = 0 \) to \( Y = -5 \) over 3 seconds.
+  - \( Y = -\frac{5}{3} \cdot t \)
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -1.67       |
+| 2        | 40          | -3.33       |
+| 3        | 60          | -5          |
+
+#### **2. Bypass Obstruction (T = 3 to T = 7 seconds)**:
+- **X-Position**: \( X = 60 + 20 \cdot (t - 3) \)
+  - \( X = 60 + 20 \cdot (t - 3) \)
+- **Y-Position**: Stay at \( Y = -5 \).
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 3        | 60          | -5          |
+| 4        | 80          | -5          |
+| 5        | 100         | -5          |
+| 6        | 120         | -5          |
+| 7        | 140         | -5          |
+
+#### **3. Return to Original Lane (T = 7 to T = 10 seconds)**:
+- **X-Position**: \( X = 140 + 20 \cdot (t - 7) \)
+  - \( X = 140 + 20 \cdot (t - 7) \)
+- **Y-Position**: Linearly transition from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.
+  - \( Y = -5 + \frac{5}{3} \cdot (t - 7) \)
+
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 7        | 140         | -5          |
+| 8        | 160         | -3.33       |
+| 9        | 180         | -1.67       |
+| 10       | 200         | 0           |
+
+---
+
+### **Summary of Positions**
+| Time (s) | \( X \) (m) | \( Y \) (m) |
+|----------|-------------|-------------|
+| 0        | 0           | 0           |
+| 1        | 20          | -1.67       |
+| 2        | 40          | -3.33       |
+| 3        | 60          | -5          |
+| 4        | 80          | -5          |
+| 5        | 100         | -5          |
+| 6        | 120         | -5          |
+| 7        | 140         | -5          |
+| 8        | 160         | -3.33       |
+| 9        | 180         | -1.67       |
+| 10       | 200         | 0           |
+
+---
+
+### **Key Points**
+- The vehicle successfully bypasses the obstruction at \( X = 100 \) meters while staying in the adjacent lane.
+- Speed is maintained at 20 m/s (72 km/h) throughout the maneuver.
+- The lane transitions are smooth and completed within 10 seconds.
