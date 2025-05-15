@@ -1,0 +1,41 @@
+To construct a route planning for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals over the next 10 seconds. We'll ensure the vehicle maintains a speed exceeding 60 km/h (16.67 m/s) and transitions smoothly between lanes.
+
+### Assumptions:
+- **Initial Position**: (X, Y) = (0, 0)
+- **Obstruction Position**: (X, Y) = (100, 0)
+- **Adjacent Lane Y-coordinate**: Y = -5
+- **Initial Velocity**: 72 km/h = 20 m/s
+- **Time Intervals**: T = 1, 2, 3, ..., 10 seconds
+
+### Plan:
+1. **Lane Change to Adjacent Lane**: Transition from Y = 0 to Y = -5 between T = 0 and T = 3 seconds.
+2. **Bypass Obstruction**: Maintain Y = -5 while passing the obstruction at X = 100.
+3. **Lane Change Back to Original Lane**: Transition from Y = -5 back to Y = 0 between T = 7 and T = 10 seconds.
+
+### Calculations:
+- **Distance Traveled per Second**: 20 m/s (constant speed)
+- **Lane Change Duration**: 3 seconds for each transition (0 to -5 and -5 to 0)
+
+### Position Estimates:
+| Time (T) | X (m) | Y (m) | Description                     |
+|----------|-------|-------|---------------------------------|
+| 0        | 0     | 0     | Starting point                  |
+| 1        | 20    | -1.67 | Begin lane change to Y = -5     |
+| 2        | 40    | -3.33 | Continue lane change            |
+| 3        | 60    | -5    | Complete lane change            |
+| 4        | 80    | -5    | Bypass obstruction              |
+| 5        | 100   | -5    | Pass obstruction at X = 100     |
+| 6        | 120   | -5    | Continue bypassing              |
+| 7        | 140   | -3.33 | Begin lane change back to Y = 0 |
+| 8        | 160   | -1.67 | Continue lane change            |
+| 9        | 180   | 0     | Complete lane change            |
+| 10       | 200   | 0     | Back in original lane           |
+
+### Explanation:
+- **X-coordinate**: Increases by 20 meters each second (constant speed of 20 m/s).
+- **Y-coordinate**:
+  - From T = 0 to T = 3: Linearly transitions from Y = 0 to Y = -5.
+  - From T = 3 to T = 7: Maintains Y = -5 while bypassing the obstruction.
+  - From T = 7 to T = 10: Linearly transitions back from Y = -5 to Y = 0.
+
+This plan ensures the vehicle maintains a speed exceeding 60 km/h and safely navigates around the obstruction.

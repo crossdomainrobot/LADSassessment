@@ -1,0 +1,76 @@
+To construct a route plan for navigating around the obstruction, we need to calculate the vehicle's position at critical intervals over the next 10 seconds. Here's how we can approach this:
+
+### Assumptions and Initial Conditions:
+1. **Initial Position**: (X, Y) = (0, 0)
+2. **Obstruction Position**: (X, Y) = (100, 0)
+3. **Adjacent Lane Y-coordinate**: Y = -5
+4. **Initial Velocity**: 72 km/h (which is 20 m/s)
+5. **Minimum Speed**: Must exceed 60 km/h (which is 16.67 m/s)
+6. **Time Interval**: We¡¯ll calculate positions at T = 1, 2, 3, ..., 10 seconds.
+
+### Lane Transition Plan:
+1. **From T = 0 to T = 3 seconds**: Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5).
+2. **From T = 3 to T = 7 seconds**: Stay in the adjacent lane (Y = -5) while bypassing the obstruction.
+3. **From T = 7 to T = 10 seconds**: Transition back to the outer lane (Y = 0).
+
+### Calculations:
+- **Distance traveled along X-axis per second**: 20 meters (since speed is 20 m/s).
+- **Lateral movement (Y-axis)**: We¡¯ll assume a smooth transition over 3 seconds for each lane change.
+
+#### Step-by-Step Position Estimates:
+1. **T = 0 seconds**: (X, Y) = (0, 0)
+2. **T = 1 second**: 
+   - X = 20 meters
+   - Y = -1.67 meters (transitioning to the adjacent lane)
+   - Position: (20, -1.67)
+3. **T = 2 seconds**: 
+   - X = 40 meters
+   - Y = -3.33 meters
+   - Position: (40, -3.33)
+4. **T = 3 seconds**: 
+   - X = 60 meters
+   - Y = -5 meters (fully in the adjacent lane)
+   - Position: (60, -5)
+5. **T = 4 seconds**: 
+   - X = 80 meters
+   - Y = -5 meters
+   - Position: (80, -5)
+6. **T = 5 seconds**: 
+   - X = 100 meters
+   - Y = -5 meters (bypassing the obstruction)
+   - Position: (100, -5)
+7. **T = 6 seconds**: 
+   - X = 120 meters
+   - Y = -5 meters
+   - Position: (120, -5)
+8. **T = 7 seconds**: 
+   - X = 140 meters
+   - Y = -3.33 meters (transitioning back to the outer lane)
+   - Position: (140, -3.33)
+9. **T = 8 seconds**: 
+   - X = 160 meters
+   - Y = -1.67 meters
+   - Position: (160, -1.67)
+10. **T = 9 seconds**: 
+    - X = 180 meters
+    - Y = 0 meters (fully back in the outer lane)
+    - Position: (180, 0)
+11. **T = 10 seconds**: 
+    - X = 200 meters
+    - Y = 0 meters
+    - Position: (200, 0)
+
+### Summary of Positions:
+- T = 0: (0, 0)
+- T = 1: (20, -1.67)
+- T = 2: (40, -3.33)
+- T = 3: (60, -5)
+- T = 4: (80, -5)
+- T = 5: (100, -5)
+- T = 6: (120, -5)
+- T = 7: (140, -3.33)
+- T = 8: (160, -1.67)
+- T = 9: (180, 0)
+- T = 10: (200, 0)
+
+This plan ensures that the vehicle maintains a speed above 60 km/h while safely navigating around the obstruction and returning to the original lane.

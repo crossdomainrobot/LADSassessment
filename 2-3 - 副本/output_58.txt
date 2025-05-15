@@ -1,0 +1,55 @@
+To plan your route and navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break down the maneuver into key phases: lane transition, bypassing the obstruction, and returning to the original lane. Here¡¯s the step-by-step plan with your vehicle¡¯s position (X, Y) at 1-second intervals (T = 0 to T = 10 seconds):
+
+---
+
+### **Assumptions**
+1. **Initial Position**: (X, Y) = (0, 0) at T = 0.
+2. **Obstruction Position**: (100, 0).
+3. **Adjacent Lane**: Y = -5.
+4. **Initial Speed**: 72 km/h (20 m/s).
+5. **Minimum Speed**: Must exceed 60 km/h (16.67 m/s).
+6. **Safe Lane Transition Time**: Assume 2 seconds for each lane change (smooth transition).
+
+---
+
+### **Route Plan**
+1. **Lane Transition (T = 0 to T = 2)**:
+   - Move from Y = 0 to Y = -5 (adjacent lane) over 2 seconds.
+   - Maintain speed at 72 km/h (20 m/s).
+
+2. **Bypassing Obstruction (T = 2 to T = 6)**:
+   - Stay in the adjacent lane (Y = -5) until you¡¯ve passed the obstruction at X = 100.
+   - Maintain speed at 72 km/h (20 m/s).
+
+3. **Returning to Original Lane (T = 6 to T = 8)**:
+   - Move from Y = -5 back to Y = 0 over 2 seconds.
+   - Maintain speed at 72 km/h (20 m/s).
+
+4. **Continuing Forward (T = 8 to T = 10)**:
+   - Stay in the original lane (Y = 0) and continue traveling forward.
+   - Maintain speed at 72 km/h (20 m/s).
+
+---
+
+### **Position Estimates (X, Y) at 1-Second Intervals**
+- **T = 0**: (0, 0) ¡ª Starting point.
+- **T = 1**: (20, -2.5) ¡ª Transitioning to the adjacent lane.
+- **T = 2**: (40, -5) ¡ª Fully in the adjacent lane.
+- **T = 3**: (60, -5) ¡ª Bypassing the obstruction.
+- **T = 4**: (80, -5) ¡ª Bypassing the obstruction.
+- **T = 5**: (100, -5) ¡ª Passing the obstruction.
+- **T = 6**: (120, -5) ¡ª Fully past the obstruction.
+- **T = 7**: (140, -2.5) ¡ª Transitioning back to the original lane.
+- **T = 8**: (160, 0) ¡ª Fully in the original lane.
+- **T = 9**: (180, 0) ¡ª Continuing forward.
+- **T = 10**: (200, 0) ¡ª Continuing forward.
+
+---
+
+### **Key Notes**
+- The lane transitions are smooth and take 2 seconds each, ensuring safety and stability.
+- Speed is maintained at 72 km/h (20 m/s) throughout, exceeding the minimum requirement of 60 km/h.
+- By T = 5 seconds, you¡¯ve fully bypassed the obstruction at X = 100.
+- By T = 8 seconds, you¡¯ve returned to your original lane and continue traveling forward.
+
+Let me know if you need further adjustments!

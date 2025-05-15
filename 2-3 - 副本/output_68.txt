@@ -1,0 +1,57 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break down the maneuver into three phases:
+
+1. **Transition to the adjacent lane (Y = -5)**  
+2. **Bypass the obstruction (X = 100)**  
+3. **Return to the original lane (Y = 0)**  
+
+### Given:
+- Initial speed: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Obstruction at (100, 0)  
+- Adjacent lane at Y = -5  
+- Time starts at T = 0  
+
+### Assumptions:
+- Smooth lane transitions (linear change in Y).  
+- Constant speed of 20 m/s (72 km/h) throughout the maneuver.  
+- Lane change duration: 2 seconds (1 second to transition to the adjacent lane, 1 second to return to the original lane).  
+
+### Critical Positions:
+#### Phase 1: Transition to the adjacent lane (T = 0 to T = 1)  
+- At T = 0: (X, Y) = (0, 0)  
+- At T = 1: (X, Y) = (20, -5)  
+
+#### Phase 2: Bypass the obstruction (T = 1 to T = 5)  
+- At T = 2: (X, Y) = (40, -5)  
+- At T = 3: (X, Y) = (60, -5)  
+- At T = 4: (X, Y) = (80, -5)  
+- At T = 5: (X, Y) = (100, -5)  
+
+#### Phase 3: Return to the original lane (T = 5 to T = 6)  
+- At T = 6: (X, Y) = (120, 0)  
+
+### Summary of Positions:
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -5)        |  
+| 2        | (40, -5)        |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, 0)        |  
+
+### Explanation:
+1. **Transition to the adjacent lane (T = 0 to T = 1):**  
+   - The vehicle moves 20 meters along the X-axis (20 m/s ¡Á 1 s).  
+   - The Y-coordinate changes linearly from 0 to -5 over 1 second.  
+
+2. **Bypass the obstruction (T = 1 to T = 5):**  
+   - The vehicle continues straight in the adjacent lane (Y = -5).  
+   - The X-coordinate increases by 20 meters every second.  
+
+3. **Return to the original lane (T = 5 to T = 6):**  
+   - The vehicle moves another 20 meters along the X-axis.  
+   - The Y-coordinate changes linearly from -5 to 0 over 1 second.  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

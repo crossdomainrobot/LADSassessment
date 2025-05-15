@@ -1,0 +1,84 @@
+To plan the route for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the adjacent lane)  
+- Obstruction at X = 100 meters  
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+- Time for lane change: Assume 2 seconds (smooth transition).  
+- Lateral movement: From Y = 0 to Y = -5 over 2 seconds.  
+- Speed remains constant at 20 m/s during lane change.  
+
+### Phase 2: Bypassing the Obstruction (X = 100)
+- Travel in the adjacent lane until X > 100 meters.  
+- Speed remains constant at 20 m/s.  
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+- Time for lane change: Assume 2 seconds.  
+- Lateral movement: From Y = -5 to Y = 0 over 2 seconds.  
+- Speed remains constant at 20 m/s during lane change.  
+
+### Position Estimates:
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at 1-second intervals.
+
+#### Phase 1: Lane Change (T = 0 to T = 2)
+- X = 20 m/s ¡Á T  
+- Y = -2.5 ¡Á T (linear transition from 0 to -5 over 2 seconds)  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 0     | 0     | 0     |  
+| 1     | 20    | -2.5  |  
+| 2     | 40    | -5    |  
+
+#### Phase 2: Bypassing the Obstruction (T = 2 to T = 6)
+- X = 40 + 20 ¡Á (T - 2)  
+- Y = -5 (constant)  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 3     | 60    | -5    |  
+| 4     | 80    | -5    |  
+| 5     | 100   | -5    |  
+| 6     | 120   | -5    |  
+
+#### Phase 3: Lane Change Back (T = 6 to T = 8)
+- X = 120 + 20 ¡Á (T - 6)  
+- Y = -5 + 2.5 ¡Á (T - 6) (linear transition from -5 to 0 over 2 seconds)  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 7     | 140   | -2.5  |  
+| 8     | 160   | 0     |  
+
+#### Phase 4: Continue in Original Lane (T = 8 to T = 10)
+- X = 160 + 20 ¡Á (T - 8)  
+- Y = 0 (constant)  
+
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 9     | 180   | 0     |  
+| 10    | 200   | 0     |  
+
+### Summary of Positions:
+| T (s) | X (m) | Y (m) |  
+|-------|-------|-------|  
+| 0     | 0     | 0     |  
+| 1     | 20    | -2.5  |  
+| 2     | 40    | -5    |  
+| 3     | 60    | -5    |  
+| 4     | 80    | -5    |  
+| 5     | 100   | -5    |  
+| 6     | 120   | -5    |  
+| 7     | 140   | -2.5  |  
+| 8     | 160   | 0     |  
+| 9     | 180   | 0     |  
+| 10    | 200   | 0     |  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

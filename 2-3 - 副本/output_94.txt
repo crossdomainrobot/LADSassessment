@@ -1,0 +1,84 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll plan a smooth lane transition and return to the original lane. Here¡¯s a step-by-step route plan with estimated positions at 1-second intervals:
+
+---
+
+### **Assumptions and Constants**
+1. **Initial Conditions**:
+   - Starting position: (X, Y) = (0, 0)
+   - Obstruction position: (X, Y) = (100, 0)
+   - Adjacent lane Y-coordinate: Y = -5
+   - Initial velocity: 72 km/h = 20 m/s
+   - Minimum speed: 60 km/h = 16.67 m/s
+
+2. **Time Intervals**: 1 second (T = 1, 2, 3, ..., 10)
+
+3. **Lane Transition**:
+   - Transition to the adjacent lane (Y = -5) by T = 3 seconds.
+   - Stay in the adjacent lane until bypassing the obstruction (X = 100).
+   - Return to the original lane (Y = 0) by T = 7 seconds.
+
+4. **Speed**:
+   - Maintain a constant speed of 20 m/s (72 km/h) throughout.
+
+---
+
+### **Route Plan**
+At each second, calculate the vehicle¡¯s position (X, Y) based on the speed and lane transition.
+
+#### **T = 0**:
+- Position: (0, 0)
+
+#### **T = 1**:
+- X = 20 m (20 m/s ¡Á 1 s)
+- Y = 0 (still in the original lane)
+- Position: (20, 0)
+
+#### **T = 2**:
+- X = 40 m
+- Y = -1.67 (transitioning to the adjacent lane, Y = -5, over 3 seconds)
+- Position: (40, -1.67)
+
+#### **T = 3**:
+- X = 60 m
+- Y = -5 (fully in the adjacent lane)
+- Position: (60, -5)
+
+#### **T = 4**:
+- X = 80 m
+- Y = -5 (bypassing the obstruction)
+- Position: (80, -5)
+
+#### **T = 5**:
+- X = 100 m
+- Y = -5 (just bypassing the obstruction)
+- Position: (100, -5)
+
+#### **T = 6**:
+- X = 120 m
+- Y = -3.33 (transitioning back to the original lane, Y = 0, over 3 seconds)
+- Position: (120, -3.33)
+
+#### **T = 7**:
+- X = 140 m
+- Y = 0 (fully back in the original lane)
+- Position: (140, 0)
+
+#### **T = 8**:
+- X = 160 m
+- Y = 0
+- Position: (160, 0)
+
+#### **T = 9**:
+- X = 180 m
+- Y = 0
+- Position: (180, 0)
+
+#### **T = 10**:
+- X = 200 m
+- Y = 0
+- Position: (200, 0)
+
+---
+
+### **Summary**
+The vehicle smoothly transitions to the adjacent lane by T = 3 seconds, bypasses the obstruction at T = 5 seconds, and returns to the original lane by T = 7 seconds. The speed is maintained at 20 m/s (72 km/h) throughout the maneuver.

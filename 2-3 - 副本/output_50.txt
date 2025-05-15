@@ -1,0 +1,90 @@
+To plan the route for your vehicle, we'll break down the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We'll estimate the vehicle's position at 1-second intervals over the next 10 seconds, ensuring the speed remains above 60 km/h (approximately 16.67 m/s).
+
+---
+
+### **Key Parameters**
+- **Initial velocity**: 72 km/h = 20 m/s
+- **Minimum speed**: 60 km/h = 16.67 m/s
+- **Obstruction location**: (100, 0)
+- **Adjacent lane**: Y = -5
+- **Starting point**: (0, 0)
+
+---
+
+### **Assumptions**
+1. The lane change (Y-axis movement) is linear and takes 2 seconds.
+2. The vehicle maintains a constant speed of 20 m/s during the maneuver.
+3. The obstruction is bypassed between X = 100 and X = 120.
+
+---
+
+### **Route Plan**
+We¡¯ll calculate the vehicle's position (X, Y) at 1-second intervals.
+
+#### **Phase 1: Lane Change (T = 0 to T = 2)**
+- **Goal**: Transition from Y = 0 to Y = -5.
+- **Y-axis velocity**: -2.5 m/s (since the lane change takes 2 seconds).
+
+| **Time (s)** | **X (m)** | **Y (m)** |
+|--------------|-----------|-----------|
+| T = 0        | 0         | 0         |
+| T = 1        | 20        | -2.5      |
+| T = 2        | 40        | -5        |
+
+---
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6)**
+- **Goal**: Stay in the adjacent lane (Y = -5) while bypassing the obstruction at X = 100.
+- **X-axis movement**: 20 m/s.
+
+| **Time (s)** | **X (m)** | **Y (m)** |
+|--------------|-----------|-----------|
+| T = 3        | 60        | -5        |
+| T = 4        | 80        | -5        |
+| T = 5        | 100       | -5        |
+| T = 6        | 120       | -5        |
+
+---
+
+#### **Phase 3: Returning to the Original Lane (T = 6 to T = 8)**
+- **Goal**: Transition from Y = -5 to Y = 0.
+- **Y-axis velocity**: +2.5 m/s (since the lane change takes 2 seconds).
+
+| **Time (s)** | **X (m)** | **Y (m)** |
+|--------------|-----------|-----------|
+| T = 7        | 140       | -2.5      |
+| T = 8        | 160       | 0         |
+
+---
+
+#### **Phase 4: Continuing in the Original Lane (T = 8 to T = 10)**
+- **Goal**: Maintain Y = 0 and continue moving forward.
+
+| **Time (s)** | **X (m)** | **Y (m)** |
+|--------------|-----------|-----------|
+| T = 9        | 180       | 0         |
+| T = 10       | 200       | 0         |
+
+---
+
+### **Summary of Positions**
+| **Time (s)** | **X (m)** | **Y (m)** |
+|--------------|-----------|-----------|
+| T = 0        | 0         | 0         |
+| T = 1        | 20        | -2.5      |
+| T = 2        | 40        | -5        |
+| T = 3        | 60        | -5        |
+| T = 4        | 80        | -5        |
+| T = 5        | 100       | -5        |
+| T = 6        | 120       | -5        |
+| T = 7        | 140       | -2.5      |
+| T = 8        | 160       | 0         |
+| T = 9        | 180       | 0         |
+| T = 10       | 200       | 0         |
+
+---
+
+### **Analysis**
+- The vehicle successfully transitions to the adjacent lane, bypasses the obstruction, and returns to the original lane.
+- The speed remains constant at 20 m/s (72 km/h), exceeding the minimum requirement of 16.67 m/s (60 km/h).
+- The obstruction is bypassed between T = 5 and T = 6.

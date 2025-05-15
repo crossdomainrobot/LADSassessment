@@ -1,0 +1,86 @@
+To construct a route plan, we¡¯ll break down the maneuver into phases: **lane transition**, **bypassing the obstruction**, and **returning to the original lane**. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Parameters**
+1. **Initial Position**: (X, Y) = (0, 0)  
+2. **Obstruction Position**: (100, 0)  
+3. **Adjacent Lane Y-coordinate**: Y = -5  
+4. **Initial Velocity**: 72 km/h = 20 m/s  
+5. **Minimum Speed**: 60 km/h = 16.67 m/s  
+
+---
+
+### **Assumptions**
+- Lane transition takes **2 seconds** (smooth lateral movement).  
+- Bypassing the obstruction requires staying in the adjacent lane until X > 100.  
+- Returning to the original lane takes **2 seconds**.  
+
+---
+
+### **Route Plan**
+#### **Phase 1: Lane Transition (T = 0 to T = 2)**
+- **Lateral Movement**: Transition from Y = 0 to Y = -5 over 2 seconds.  
+- **Longitudinal Movement**: Continue at 20 m/s.  
+
+**Positions**:  
+- T = 1: (20, -2.5)  
+- T = 2: (40, -5)  
+
+---
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6)**
+- **Lateral Position**: Stay at Y = -5.  
+- **Longitudinal Movement**: Continue at 20 m/s.  
+
+**Positions**:  
+- T = 3: (60, -5)  
+- T = 4: (80, -5)  
+- T = 5: (100, -5)  
+- T = 6: (120, -5)  
+
+---
+
+#### **Phase 3: Returning to Original Lane (T = 6 to T = 8)**
+- **Lateral Movement**: Transition from Y = -5 to Y = 0 over 2 seconds.  
+- **Longitudinal Movement**: Continue at 20 m/s.  
+
+**Positions**:  
+- T = 7: (140, -2.5)  
+- T = 8: (160, 0)  
+
+---
+
+#### **Phase 4: Continuing in Original Lane (T = 8 to T = 10)**
+- **Lateral Position**: Stay at Y = 0.  
+- **Longitudinal Movement**: Continue at 20 m/s.  
+
+**Positions**:  
+- T = 9: (180, 0)  
+- T = 10: (200, 0)  
+
+---
+
+### **Summary of Positions**
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -2.5)      |  
+| 2        | (40, -5)        |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -2.5)     |  
+| 8        | (160, 0)        |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+---
+
+### **Verification**
+- **Speed Constraint**: Maintained at 20 m/s (72 km/h), exceeding 16.67 m/s (60 km/h).  
+- **Obstruction Bypass**: Vehicle stays in the adjacent lane (Y = -5) until X > 100.  
+- **Smooth Transitions**: Lane changes are completed in 2 seconds each.  
+
+This plan ensures safe and efficient navigation around the obstruction.

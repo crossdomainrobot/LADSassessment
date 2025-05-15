@@ -1,0 +1,54 @@
+To plan the route, we need to calculate the vehicle's position at critical intervals over the next 10 seconds. The vehicle starts at (0, 0) with a velocity of 72 km/h (which is 20 m/s) and must maintain a speed exceeding 60 km/h (16.67 m/s). The obstruction is at (100, 0), and the adjacent lane is at Y = -5.
+
+Here¡¯s the step-by-step plan:
+
+### Step 1: Transition to the Adjacent Lane (Y = -5)
+- **Time:** 0 to 2 seconds
+- **Distance Covered:** 20 m/s * 2 s = 40 m
+- **Position at T = 1 s:** (20, -2.5)  
+- **Position at T = 2 s:** (40, -5)  
+- **Explanation:** The vehicle transitions linearly from Y = 0 to Y = -5 over 2 seconds while maintaining a constant speed of 20 m/s.
+
+### Step 2: Bypass the Obstruction in the Adjacent Lane
+- **Time:** 2 to 5 seconds
+- **Distance Covered:** 20 m/s * 3 s = 60 m
+- **Position at T = 3 s:** (60, -5)  
+- **Position at T = 4 s:** (80, -5)  
+- **Position at T = 5 s:** (100, -5)  
+- **Explanation:** The vehicle continues in the adjacent lane (Y = -5) at 20 m/s, bypassing the obstruction at X = 100.
+
+### Step 3: Return to the Original Lane (Y = 0)
+- **Time:** 5 to 7 seconds
+- **Distance Covered:** 20 m/s * 2 s = 40 m
+- **Position at T = 6 s:** (120, -2.5)  
+- **Position at T = 7 s:** (140, 0)  
+- **Explanation:** The vehicle transitions linearly from Y = -5 to Y = 0 over 2 seconds while maintaining a constant speed of 20 m/s.
+
+### Step 4: Continue in the Original Lane
+- **Time:** 7 to 10 seconds
+- **Distance Covered:** 20 m/s * 3 s = 60 m
+- **Position at T = 8 s:** (160, 0)  
+- **Position at T = 9 s:** (180, 0)  
+- **Position at T = 10 s:** (200, 0)  
+- **Explanation:** The vehicle continues in the original lane (Y = 0) at 20 m/s.
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, -2.5)      |
+| 2        | (40, -5)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -2.5)     |
+| 7        | (140, 0)        |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+### Key Points:
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout.
+- The lane transition is smooth, taking 2 seconds to change lanes.
+- The obstruction is bypassed safely in the adjacent lane.
+- The vehicle returns to the original lane after clearing the obstruction.

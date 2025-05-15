@@ -1,0 +1,39 @@
+To construct a route planning for the given scenario, we¨ll break it down into critical steps and estimate the vehicle¨s position at 1-second intervals. Here¨s the plan:
+
+1. **Initial Conditions**:
+   - Starting point: (X, Y) = (0, 0).
+   - Obstacle position: (100, 0).
+   - Adjacent lane Y-coordinate: Y = -5.
+   - Initial velocity: 72 km/h (20 m/s).
+   - Minimum speed: 60 km/h (16.67 m/s).
+
+2. **Assumptions**:
+   - The vehicle transitions smoothly between lanes.
+   - The lane change is completed linearly over 2 seconds.
+   - The vehicle bypasses the obstacle and returns to the original lane in a similar manner.
+
+3. **Route Planning**:
+   - **T = 0 to T = 3**: Transition to the adjacent lane.
+   - **T = 3 to T = 7**: Travel in the adjacent lane, bypassing the obstacle.
+   - **T = 7 to T = 10**: Transition back to the original lane.
+
+4. **Position Estimates**:
+   - **T = 0**: (0, 0).
+   - **T = 1**: (20, -1.67) ！ Starting lane change.
+   - **T = 2**: (40, -3.33) ！ Midway through lane change.
+   - **T = 3**: (60, -5) ！ Fully in the adjacent lane.
+   - **T = 4**: (80, -5) ！ Continuing in the adjacent lane.
+   - **T = 5**: (100, -5) ！ Bypassing the obstacle.
+   - **T = 6**: (120, -5) ！ Continuing in the adjacent lane.
+   - **T = 7**: (140, -3.33) ！ Starting to return to the original lane.
+   - **T = 8**: (160, -1.67) ！ Midway through lane change.
+   - **T = 9**: (180, 0) ！ Fully back in the original lane.
+   - **T = 10**: (200, 0) ！ Continuing in the original lane.
+
+5. **Explanation**:
+   - The vehicle moves at a constant speed of 20 m/s along the X-axis.
+   - The lane change is modeled as a linear transition over 2 seconds, with the Y-coordinate changing by -1.67 m/s.
+   - The vehicle remains in the adjacent lane from T = 3 to T = 7 to bypass the obstacle.
+   - The return to the original lane is also a linear transition over 2 seconds, with the Y-coordinate changing by +1.67 m/s.
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

@@ -1,0 +1,56 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the adjacent lane)  
+- Obstruction is at (100, 0)  
+- Time step: 1 second  
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+- Duration: 3 seconds (smooth lane change)  
+- Lateral movement: From Y = 0 to Y = -5  
+- Speed: Maintained at 20 m/s  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -1.67 |  
+| 2        | 40    | -3.33 |  
+| 3        | 60    | -5    |  
+
+### Phase 2: Bypassing the Obstruction (X = 100)
+- Duration: 2 seconds (passing the obstruction)  
+- Lateral position: Y = -5  
+- Speed: Maintained at 20 m/s  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+- Duration: 3 seconds (smooth lane change)  
+- Lateral movement: From Y = -5 to Y = 0  
+- Speed: Maintained at 20 m/s  
+
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 6        | 120   | -3.33 |  
+| 7        | 140   | -1.67 |  
+| 8        | 160   | 0     |  
+
+### Final Positions:
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+### Summary:
+- The vehicle changes lanes smoothly over 3 seconds, bypasses the obstruction at X = 100, and returns to the original lane by T = 8 seconds.  
+- Speed is maintained at 20 m/s (72 km/h) throughout the maneuver.  
+- The vehicle¡¯s position at critical intervals is outlined above.

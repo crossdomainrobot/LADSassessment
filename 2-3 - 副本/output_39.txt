@@ -1,0 +1,52 @@
+To construct a route plan that allows you to bypass the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5):** Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5).
+2. **Bypass the Obstruction at X = 100:** Continue traveling in the adjacent lane until you clear the obstruction.
+3. **Return to the Original Lane (Y = 0):** Transition back to the outer lane.
+
+### Assumptions:
+- Initial speed: 72 km/h = 20 m/s.
+- Total time for lane changes: 2 seconds (1 second for each lane change).
+- Time to bypass the obstruction: Approximately 5 seconds (100 meters at 20 m/s).
+- Total time for the maneuver: 10 seconds.
+
+### Step-by-Step Route Plan:
+
+#### 1. **Lane Change to the Adjacent Lane (Y = -5):**
+   - Duration: 1 second (T = 0 to T = 1).
+   - Lateral movement: From Y = 0 to Y = -5.
+   - X-coordinate: Travels 20 meters (20 m/s ¡Á 1 s).
+   - Position at T = 1: (20, -5).
+
+#### 2. **Bypass the Obstruction (X = 100):**
+   - Duration: 5 seconds (T = 1 to T = 6).
+   - Lateral position: Y = -5.
+   - X-coordinate: Travels 100 meters (20 m/s ¡Á 5 s).
+   - Position at T = 6: (120, -5).
+
+#### 3. **Return to the Original Lane (Y = 0):**
+   - Duration: 1 second (T = 6 to T = 7).
+   - Lateral movement: From Y = -5 to Y = 0.
+   - X-coordinate: Travels 20 meters (20 m/s ¡Á 1 s).
+   - Position at T = 7: (140, 0).
+
+#### 4. **Continue Traveling in the Original Lane:**
+   - Duration: 3 seconds (T = 7 to T = 10).
+   - Lateral position: Y = 0.
+   - X-coordinate: Travels 60 meters (20 m/s ¡Á 3 s).
+   - Position at T = 10: (200, 0).
+
+### Summary of Positions:
+- T = 0: (0, 0)
+- T = 1: (20, -5)
+- T = 2: (40, -5)
+- T = 3: (60, -5)
+- T = 4: (80, -5)
+- T = 5: (100, -5)
+- T = 6: (120, -5)
+- T = 7: (140, 0)
+- T = 8: (160, 0)
+- T = 9: (180, 0)
+- T = 10: (200, 0)
+
+This plan ensures you bypass the obstruction while maintaining a speed of 72 km/h (20 m/s) and complete the maneuver within 10 seconds.

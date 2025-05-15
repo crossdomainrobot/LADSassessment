@@ -1,0 +1,61 @@
+To construct a route plan for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Lane Change Back to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Lane width: \( 5 \, \text{m} \) (Y = -5 for the adjacent lane)  
+- Obstruction at \( X = 100 \, \text{m} \)  
+- Time step: \( 1 \, \text{second} \)  
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+- Duration: \( 2 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions from \( 0 \) to \( -5 \) linearly over \( 2 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+### Phase 2: Bypassing the Obstruction (X = 100)
+- Duration: \( 3 \, \text{seconds} \)  
+- Lateral position: \( Y = -5 \) (stay in the adjacent lane).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+- Duration: \( 2 \, \text{seconds} \)  
+- Lateral movement: \( Y \) transitions from \( -5 \) to \( 0 \) linearly over \( 2 \, \text{seconds} \).  
+- Longitudinal movement: \( X \) increases at \( 20 \, \text{m/s} \).  
+
+### Route Plan:
+| Time (s) | X (m) | Y (m) | Description                     |
+|----------|-------|-------|---------------------------------|
+| 0        | 0     | 0     | Start in the outer lane.        |
+| 1        | 20    | -2.5  | Begin lane change.              |
+| 2        | 40    | -5    | Complete lane change.           |
+| 3        | 60    | -5    | Bypassing obstruction.          |
+| 4        | 80    | -5    | Bypassing obstruction.          |
+| 5        | 100   | -5    | Pass the obstruction.           |
+| 6        | 120   | -2.5  | Begin lane change back.         |
+| 7        | 140   | 0     | Complete lane change back.      |
+| 8        | 160   | 0     | Continue in the original lane.  |
+| 9        | 180   | 0     | Continue in the original lane.  |
+| 10       | 200   | 0     | Continue in the original lane.  |
+
+### Explanation:
+1. **Lane Change (T = 0 to T = 2):**  
+   - \( Y \) transitions linearly from \( 0 \) to \( -5 \) over \( 2 \, \text{seconds} \).  
+   - \( X \) increases by \( 20 \, \text{m} \) each second.  
+
+2. **Bypassing Obstruction (T = 2 to T = 5):**  
+   - \( Y \) remains at \( -5 \).  
+   - \( X \) increases by \( 20 \, \text{m} \) each second.  
+
+3. **Lane Change Back (T = 5 to T = 7):**  
+   - \( Y \) transitions linearly from \( -5 \) to \( 0 \) over \( 2 \, \text{seconds} \).  
+   - \( X \) increases by \( 20 \, \text{m} \) each second.  
+
+4. **Continuing in Original Lane (T = 7 to T = 10):**  
+   - \( Y \) remains at \( 0 \).  
+   - \( X \) increases by \( 20 \, \text{m} \) each second.  
+
+This plan ensures the vehicle maintains a speed above \( 60 \, \text{km/h} \) and safely navigates around the obstruction.

@@ -1,0 +1,53 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¨ll plan a smooth lane transition and return. Here¨s the route planning:
+
+### Key Parameters:
+- **Initial position**: (0, 0)
+- **Obstruction position**: (100, 0)
+- **Adjacent lane Y-coordinate**: Y = -5
+- **Initial speed**: 72 km/h (20 m/s)
+- **Minimum speed**: 60 km/h (16.67 m/s)
+- **Time interval**: 10 seconds
+
+### Strategy:
+1. Transition to the adjacent lane (Y = -5) over a reasonable distance before the obstruction.
+2. Maintain the adjacent lane while bypassing the obstruction.
+3. Return to the original lane (Y = 0) after clearing the obstruction.
+
+### Assumptions:
+- Smooth lane transitions take approximately 2 seconds each.
+- Speed remains constant at 20 m/s (72 km/h).
+
+### Position Estimates:
+The vehicle travels 20 meters per second. Here¨s the position at each second:
+
+- **T = 0 s**: (0, 0) ！ Start in the outer lane.
+- **T = 1 s**: (20, 0) ！ Continue in the outer lane.
+- **T = 2 s**: (40, -1.25) ！ Begin transitioning to the adjacent lane (linear transition over 2 seconds).
+- **T = 3 s**: (60, -2.5) ！ Continue transitioning.
+- **T = 4 s**: (80, -5) ！ Fully in the adjacent lane.
+- **T = 5 s**: (100, -5) ！ Bypass the obstruction in the adjacent lane.
+- **T = 6 s**: (120, -5) ！ Continue in the adjacent lane.
+- **T = 7 s**: (140, -3.75) ！ Begin transitioning back to the outer lane.
+- **T = 8 s**: (160, -2.5) ！ Continue transitioning.
+- **T = 9 s**: (180, -1.25) ！ Almost back in the outer lane.
+- **T = 10 s**: (200, 0) ！ Fully back in the outer lane.
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, -1.25)     |
+| 3        | (60, -2.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -3.75)    |
+| 8        | (160, -2.5)     |
+| 9        | (180, -1.25)    |
+| 10       | (200, 0)        |
+
+### Notes:
+- The lane transitions are linear and take 2 seconds each.
+- The vehicle maintains a constant speed of 20 m/s (72 km/h).
+- The obstruction is bypassed safely in the adjacent lane.

@@ -1,0 +1,56 @@
+To plan the route, we¡¯ll break the maneuver into phases:  
+1. **Lane Change to the Adjacent Lane** (Y = -5).  
+2. **Bypassing the Obstruction** (X = 100).  
+3. **Returning to the Original Lane** (Y = 0).  
+
+### Assumptions:  
+- Initial velocity: 72 km/h = 20 m/s.  
+- Minimum speed: 60 km/h = 16.67 m/s.  
+- Lane width: 5 meters (Y = -5 for the adjacent lane).  
+- Obstruction at X = 100 meters.  
+- Time step: 1 second.  
+
+### Route Planning:  
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at each second (T = 0, 1, 2, ..., 10).  
+
+#### Phase 1: Lane Change (T = 0 to T = 2)  
+- **T = 0**: Start at (0, 0).  
+- **T = 1**: Begin lane change. Move to (20, -2.5).  
+- **T = 2**: Complete lane change. Move to (40, -5).  
+
+#### Phase 2: Bypassing the Obstruction (T = 2 to T = 6)  
+- **T = 3**: Continue in the adjacent lane. Move to (60, -5).  
+- **T = 4**: Continue in the adjacent lane. Move to (80, -5).  
+- **T = 5**: Continue in the adjacent lane. Move to (100, -5).  
+- **T = 6**: Continue in the adjacent lane. Move to (120, -5).  
+
+#### Phase 3: Returning to the Original Lane (T = 6 to T = 8)  
+- **T = 7**: Begin lane change. Move to (140, -2.5).  
+- **T = 8**: Complete lane change. Move to (160, 0).  
+
+#### Phase 4: Continue in the Original Lane (T = 8 to T = 10)  
+- **T = 9**: Continue in the original lane. Move to (180, 0).  
+- **T = 10**: Continue in the original lane. Move to (200, 0).  
+
+### Summary of Positions:  
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -2.5)      |  
+| 2        | (40, -5)        |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -2.5)     |  
+| 8        | (160, 0)        |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+### Key Points:  
+- The lane change is completed by T = 2.  
+- The obstruction is bypassed by T = 5.  
+- The vehicle returns to the original lane by T = 8.  
+- Speed is maintained above 60 km/h throughout.  
+
+This plan ensures a smooth and safe maneuver around the obstruction.

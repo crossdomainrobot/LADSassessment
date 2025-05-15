@@ -1,0 +1,73 @@
+To plan your route, we'll break down the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We'll calculate your vehicle's position at 1-second intervals while ensuring your speed remains above 60 km/h (16.67 m/s).
+
+---
+
+### **Given:**
+- **Starting position (T = 0):** (X, Y) = (0, 0)
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial velocity:** 72 km/h = 20 m/s
+- **Minimum speed:** 60 km/h = 16.67 m/s
+
+---
+
+### **Assumptions:**
+1. **Lane transition duration:** 2 seconds (T = 0 to T = 2) to move from Y = 0 to Y = -5.
+2. **Bypass duration:** 5 seconds (T = 2 to T = 7) to pass the obstruction while maintaining Y = -5.
+3. **Return to original lane duration:** 3 seconds (T = 7 to T = 10) to move from Y = -5 to Y = 0.
+
+---
+
+### **Calculations:**
+
+#### **Phase 1: Transition to Adjacent Lane (T = 0 to T = 2)**
+- **Y-coordinate:** Linearly interpolate from Y = 0 to Y = -5 over 2 seconds.
+  - At T = 1: Y = -2.5
+  - At T = 2: Y = -5
+- **X-coordinate:** Move at 20 m/s along the road.
+  - At T = 1: X = 20
+  - At T = 2: X = 40
+
+#### **Phase 2: Bypass Obstruction (T = 2 to T = 7)**
+- **Y-coordinate:** Maintain Y = -5.
+- **X-coordinate:** Continue moving at 20 m/s.
+  - At T = 3: X = 60
+  - At T = 4: X = 80
+  - At T = 5: X = 100 (obstruction bypassed)
+  - At T = 6: X = 120
+  - At T = 7: X = 140
+
+#### **Phase 3: Return to Original Lane (T = 7 to T = 10)**
+- **Y-coordinate:** Linearly interpolate from Y = -5 to Y = 0 over 3 seconds.
+  - At T = 8: Y = -3.33
+  - At T = 9: Y = -1.67
+  - At T = 10: Y = 0
+- **X-coordinate:** Continue moving at 20 m/s.
+  - At T = 8: X = 160
+  - At T = 9: X = 180
+  - At T = 10: X = 200
+
+---
+
+### **Route Plan (Positions at 1-second intervals):**
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -2.5  |
+| 2        | 40    | -5    |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -3.33 |
+| 9        | 180   | -1.67 |
+| 10       | 200   | 0     |
+
+---
+
+### **Summary:**
+- You transition to the adjacent lane by T = 2.
+- You bypass the obstruction at T = 5.
+- You return to the original lane by T = 10.
+- Your speed remains constant at 20 m/s (72 km/h), satisfying the minimum speed requirement.

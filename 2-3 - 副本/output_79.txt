@@ -1,0 +1,50 @@
+To construct a route planning for your vehicle, we¡¯ll break down the maneuver into three phases:
+
+1. **Transition to the adjacent lane (Y = -5)**: To safely bypass the obstruction, you need to change lanes before reaching it.
+2. **Bypass the obstruction (X = 100)**: Maintain the adjacent lane until you¡¯ve fully bypassed the obstruction.
+3. **Return to the original lane (Y = 0)**: After bypassing the obstruction, transition back to your original lane.
+
+### Assumptions:
+- Vehicle speed: 72 km/h (20 m/s, since 72 ¡Á 1000 / 3600 = 20).
+- Minimum speed: 60 km/h (16.67 m/s).
+- Lane change takes approximately 2 seconds (smooth transition).
+- Obstruction is at X = 100 meters.
+- Time intervals: 1 second.
+
+### Step-by-Step Plan:
+
+#### Phase 1: Transition to the Adjacent Lane (Y = -5)
+- Start at (0, 0), T = 0.
+- Begin lane change at T = 1, complete by T = 3.
+- During lane change, X increases linearly at 20 m/s, and Y transitions smoothly from 0 to -5.
+
+#### Phase 2: Bypass the Obstruction (Y = -5)
+- Maintain Y = -5 until X > 100.
+- Continue moving forward at 20 m/s.
+
+#### Phase 3: Return to the Original Lane (Y = 0)
+- Begin lane change back to Y = 0 after bypassing the obstruction.
+- Complete lane change by T = 10.
+
+### Estimated Positions (X, Y) at Each Second:
+
+| Time (T) | X (meters) | Y (meters) | Notes                           |
+|----------|------------|------------|---------------------------------|
+| 0        | 0          | 0          | Starting position               |
+| 1        | 20         | 0          | Begin lane change               |
+| 2        | 40         | -2.5       | Midway through lane change      |
+| 3        | 60         | -5         | Lane change complete            |
+| 4        | 80         | -5         | Approaching obstruction         |
+| 5        | 100        | -5         | At obstruction, bypassing       |
+| 6        | 120        | -5         | Past obstruction                |
+| 7        | 140        | -5         | Continue in adjacent lane       |
+| 8        | 160        | -2.5       | Begin lane change back          |
+| 9        | 180        | -1.25      | Midway through lane change back |
+| 10       | 200        | 0          | Lane change complete            |
+
+### Explanation:
+1. **Lane Change**: From T = 1 to T = 3, Y transitions linearly from 0 to -5.
+2. **Bypass Obstruction**: From T = 3 to T = 7, Y remains at -5 while X increases.
+3. **Return to Original Lane**: From T = 8 to T = 10, Y transitions back to 0.
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

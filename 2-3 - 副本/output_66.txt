@@ -1,0 +1,43 @@
+To construct a route planning for your vehicle, we'll break down the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We'll estimate the vehicle's position at 1-second intervals over the next 10 seconds.
+
+### Assumptions:
+1. **Initial Position**: (X, Y) = (0, 0)
+2. **Obstruction Position**: (X, Y) = (100, 0)
+3. **Adjacent Lane Y-coordinate**: Y = -5
+4. **Initial Velocity**: 72 km/h (20 m/s)
+5. **Minimum Speed**: 60 km/h (16.67 m/s)
+6. **Time Intervals**: 1 second
+
+### Phases:
+1. **Transition to Adjacent Lane (T = 0 to T = 3 seconds)**:
+   - The vehicle moves from Y = 0 to Y = -5 over 3 seconds.
+   - Lateral velocity: \( \frac{-5}{3} \approx -1.67 \) m/s
+
+2. **Bypass Obstruction (T = 3 to T = 7 seconds)**:
+   - The vehicle maintains Y = -5 while bypassing the obstruction at X = 100.
+
+3. **Return to Original Lane (T = 7 to T = 10 seconds)**:
+   - The vehicle moves from Y = -5 back to Y = 0 over 3 seconds.
+   - Lateral velocity: \( \frac{5}{3} \approx 1.67 \) m/s
+
+### Position Estimates:
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1.67 |
+| 2        | 40    | -3.33 |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -3.33 |
+| 9        | 180   | -1.67 |
+| 10       | 200   | 0     |
+
+### Explanation:
+- **X-coordinate**: The vehicle moves at a constant speed of 20 m/s along the road.
+- **Y-coordinate**: The vehicle transitions to the adjacent lane over 3 seconds, maintains the lane for 4 seconds, and then returns to the original lane over the next 3 seconds.
+
+This plan ensures that the vehicle bypasses the obstruction while maintaining a speed above 60 km/h throughout the maneuver.

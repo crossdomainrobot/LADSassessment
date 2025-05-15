@@ -1,0 +1,45 @@
+To plan the route, we'll break the maneuver into three phases:  
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Returning to the Original Lane (Y = 0)**  
+
+### Assumptions:  
+- Initial velocity: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the adjacent lane)  
+- Obstruction at (100, 0)  
+- Smooth lane transitions take approximately 2 seconds each.  
+
+### Phase 1: Lane Change (T = 0 to T = 2)  
+- **T = 0**: Start at (0, 0), moving at 20 m/s.  
+- **T = 1**: Transition halfway to the adjacent lane. Position: (20, -2.5).  
+- **T = 2**: Complete the lane change. Position: (40, -5).  
+
+### Phase 2: Bypassing the Obstruction (T = 2 to T = 6)  
+- **T = 3**: Continue in the adjacent lane. Position: (60, -5).  
+- **T = 4**: Continue in the adjacent lane. Position: (80, -5).  
+- **T = 5**: Continue in the adjacent lane. Position: (100, -5).  
+- **T = 6**: Continue in the adjacent lane. Position: (120, -5).  
+
+### Phase 3: Returning to the Original Lane (T = 6 to T = 8)  
+- **T = 7**: Transition halfway back to the original lane. Position: (140, -2.5).  
+- **T = 8**: Complete the lane change. Position: (160, 0).  
+
+### Final Phase: Continuing in the Original Lane (T = 8 to T = 10)  
+- **T = 9**: Continue in the original lane. Position: (180, 0).  
+- **T = 10**: Continue in the original lane. Position: (200, 0).  
+
+### Summary of Positions:  
+- T = 0: (0, 0)  
+- T = 1: (20, -2.5)  
+- T = 2: (40, -5)  
+- T = 3: (60, -5)  
+- T = 4: (80, -5)  
+- T = 5: (100, -5)  
+- T = 6: (120, -5)  
+- T = 7: (140, -2.5)  
+- T = 8: (160, 0)  
+- T = 9: (180, 0)  
+- T = 10: (200, 0)  
+
+This plan ensures the vehicle maintains a speed above 60 km/h while safely navigating around the obstruction.
