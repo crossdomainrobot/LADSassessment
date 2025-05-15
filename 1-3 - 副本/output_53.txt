@@ -1,0 +1,89 @@
+To construct a route plan for navigating around the obstruction, we need to calculate the vehicle's position at critical intervals over the next 10 seconds. Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Initial Conditions**
+1. **Initial Position (T = 0):** \( (X, Y) = (0, 0) \)
+2. **Obstruction Position:** \( (100, 0) \)
+3. **Adjacent Lane Y-coordinate:** \( Y = -5 \)
+4. **Initial Speed:** \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+5. **Minimum Speed:** \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)
+6. **Time Frame:** \( T = 0 \) to \( T = 10 \) seconds
+
+---
+
+### **Route Plan**
+The vehicle needs to:
+1. Transition from \( Y = 0 \) to \( Y = -5 \) (adjacent lane) before \( X = 100 \).
+2. Remain in the adjacent lane while bypassing the obstruction.
+3. Transition back to \( Y = 0 \) after bypassing the obstruction.
+
+---
+
+### **Position Calculations**
+We calculate the vehicle's position every second, assuming constant speed and smooth lane transitions.
+
+#### **1. Lane Transition to Adjacent Lane (T = 0 to T = 3)**
+- **Lateral Movement:** Transition from \( Y = 0 \) to \( Y = -5 \) over 3 seconds.
+  - \( Y \) changes linearly: \( Y(T) = -\frac{5}{3}T \)
+- **Longitudinal Movement:** \( X(T) = 20 \cdot T \)
+
+| T (s) | X (m) | Y (m) |
+|-------|-------|-------|
+| 0     | 0     | 0     |
+| 1     | 20    | -1.67 |
+| 2     | 40    | -3.33 |
+| 3     | 60    | -5    |
+
+#### **2. Bypass Obstruction in Adjacent Lane (T = 3 to T = 6)**
+- **Lateral Movement:** \( Y = -5 \) (stay in adjacent lane).
+- **Longitudinal Movement:** \( X(T) = 60 + 20 \cdot (T - 3) \)
+
+| T (s) | X (m) | Y (m) |
+|-------|-------|-------|
+| 3     | 60    | -5    |
+| 4     | 80    | -5    |
+| 5     | 100   | -5    |
+| 6     | 120   | -5    |
+
+#### **3. Lane Transition Back to Original Lane (T = 6 to T = 9)**
+- **Lateral Movement:** Transition from \( Y = -5 \) to \( Y = 0 \) over 3 seconds.
+  - \( Y(T) = -5 + \frac{5}{3}(T - 6) \)
+- **Longitudinal Movement:** \( X(T) = 120 + 20 \cdot (T - 6) \)
+
+| T (s) | X (m) | Y (m) |
+|-------|-------|-------|
+| 6     | 120   | -5    |
+| 7     | 140   | -3.33 |
+| 8     | 160   | -1.67 |
+| 9     | 180   | 0     |
+
+#### **4. Continue in Original Lane (T = 9 to T = 10)**
+- **Lateral Movement:** \( Y = 0 \) (stay in original lane).
+- **Longitudinal Movement:** \( X(T) = 180 + 20 \cdot (T - 9) \)
+
+| T (s) | X (m) | Y (m) |
+|-------|-------|-------|
+| 9     | 180   | 0     |
+| 10    | 200   | 0     |
+
+---
+
+### **Summary of Positions**
+| T (s) | X (m) | Y (m) |
+|-------|-------|-------|
+| 0     | 0     | 0     |
+| 1     | 20    | -1.67 |
+| 2     | 40    | -3.33 |
+| 3     | 60    | -5    |
+| 4     | 80    | -5    |
+| 5     | 100   | -5    |
+| 6     | 120   | -5    |
+| 7     | 140   | -3.33 |
+| 8     | 160   | -1.67 |
+| 9     | 180   | 0     |
+| 10    | 200   | 0     |
+
+---
+
+This plan ensures the vehicle bypasses the obstruction safely while maintaining a speed above \( 60 \, \text{km/h} \).

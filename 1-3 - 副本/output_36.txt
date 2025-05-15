@@ -1,0 +1,104 @@
+To construct a route planning for your vehicle, we'll break down the maneuver into critical intervals over the next 10 seconds. Here's a step-by-step plan:
+
+---
+
+### **1. Initial Conditions**
+- Starting position: (X, Y) = (0, 0)
+- Velocity: 72 km/h = 20 m/s
+- Obstacle position: (100, 0)
+- Adjacent lane Y-coordinate: Y = -5
+- Minimum speed: 60 km/h = 16.67 m/s
+
+---
+
+### **2. Assumptions**
+- You transition smoothly between lanes at a constant lateral speed.
+- The lane change takes **2 seconds** (from Y = 0 to Y = -5).
+- You maintain a constant speed of 20 m/s throughout the maneuver.
+
+---
+
+### **3. Critical Intervals**
+We¡¯ll calculate the position (X, Y) at each second.
+
+#### **T = 0 s**
+- **Position:** (0, 0)
+- **Action:** Begin lane change to adjacent lane.
+
+#### **T = 1 s**
+- **X:** 0 + (20 m/s ¡Á 1 s) = 20 m
+- **Y:** 0 + (-2.5 m/s ¡Á 1 s) = -2.5 m
+- **Position:** (20, -2.5)
+
+#### **T = 2 s**
+- **X:** 20 + (20 m/s ¡Á 1 s) = 40 m
+- **Y:** -2.5 + (-2.5 m/s ¡Á 1 s) = -5 m
+- **Position:** (40, -5)
+- **Action:** Lane change complete. Stay in the adjacent lane.
+
+#### **T = 3 s**
+- **X:** 40 + (20 m/s ¡Á 1 s) = 60 m
+- **Y:** -5 (remain in the adjacent lane)
+- **Position:** (60, -5)
+
+#### **T = 4 s**
+- **X:** 60 + (20 m/s ¡Á 1 s) = 80 m
+- **Y:** -5
+- **Position:** (80, -5)
+
+#### **T = 5 s**
+- **X:** 80 + (20 m/s ¡Á 1 s) = 100 m
+- **Y:** -5
+- **Position:** (100, -5)
+- **Action:** Obstacle bypassed. Begin returning to the original lane.
+
+#### **T = 6 s**
+- **X:** 100 + (20 m/s ¡Á 1 s) = 120 m
+- **Y:** -5 + (2.5 m/s ¡Á 1 s) = -2.5 m
+- **Position:** (120, -2.5)
+
+#### **T = 7 s**
+- **X:** 120 + (20 m/s ¡Á 1 s) = 140 m
+- **Y:** -2.5 + (2.5 m/s ¡Á 1 s) = 0 m
+- **Position:** (140, 0)
+- **Action:** Lane change complete. Returned to the original lane.
+
+#### **T = 8 s**
+- **X:** 140 + (20 m/s ¡Á 1 s) = 160 m
+- **Y:** 0
+- **Position:** (160, 0)
+
+#### **T = 9 s**
+- **X:** 160 + (20 m/s ¡Á 1 s) = 180 m
+- **Y:** 0
+- **Position:** (180, 0)
+
+#### **T = 10 s**
+- **X:** 180 + (20 m/s ¡Á 1 s) = 200 m
+- **Y:** 0
+- **Position:** (200, 0)
+
+---
+
+### **Summary of Positions**
+| Time (s) | X (m) | Y (m) | Action                     |
+|----------|-------|-------|----------------------------|
+| 0        | 0     | 0     | Start lane change          |
+| 1        | 20    | -2.5  | Lane change in progress    |
+| 2        | 40    | -5    | Lane change complete       |
+| 3        | 60    | -5    | Bypassing obstacle         |
+| 4        | 80    | -5    | Bypassing obstacle         |
+| 5        | 100   | -5    | Obstacle bypassed          |
+| 6        | 120   | -2.5  | Returning to original lane |
+| 7        | 140   | 0     | Lane change complete       |
+| 8        | 160   | 0     | Continuing in original lane|
+| 9        | 180   | 0     | Continuing in original lane|
+| 10       | 200   | 0     | Continuing in original lane|
+
+---
+
+### **Key Notes**
+- The lane change is completed within 2 seconds (T = 0 to T = 2).
+- The obstacle is bypassed at T = 5 s (X = 100 m).
+- The vehicle returns to the original lane by T = 7 s.
+- Speed is maintained at 20 m/s (72 km/h) throughout.

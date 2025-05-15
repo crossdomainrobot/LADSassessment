@@ -1,0 +1,82 @@
+To construct the route planning for navigating around the obstruction, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X > 100)**  
+3. **Returning to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: 72 km/h = 20 m/s  
+- Minimum speed: 60 km/h = 16.67 m/s  
+- Obstruction at (100, 0)  
+- Lane change duration: 2 seconds (smooth transition)  
+- Bypassing duration: 2 seconds (to ensure X > 100)  
+- Return to original lane duration: 2 seconds  
+
+### Critical Intervals and Positions:
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at 1-second intervals over 10 seconds.
+
+#### **Phase 1: Lane Change (T = 0 to T = 2)**  
+- **T = 0**: Start at (0, 0).  
+- **T = 1**: Move toward Y = -5.  
+  - X = 20 m/s ¡Á 1 = 20 m.  
+  - Y = -2.5 m (halfway to Y = -5).  
+  - Position: (20, -2.5).  
+- **T = 2**: Complete lane change.  
+  - X = 20 m/s ¡Á 2 = 40 m.  
+  - Y = -5 m.  
+  - Position: (40, -5).  
+
+#### **Phase 2: Bypassing Obstruction (T = 2 to T = 4)**  
+- **T = 3**: Continue in the adjacent lane.  
+  - X = 20 m/s ¡Á 3 = 60 m.  
+  - Y = -5 m.  
+  - Position: (60, -5).  
+- **T = 4**: Reach X > 100.  
+  - X = 20 m/s ¡Á 4 = 80 m.  
+  - Y = -5 m.  
+  - Position: (80, -5).  
+
+#### **Phase 3: Returning to Original Lane (T = 4 to T = 6)**  
+- **T = 5**: Begin returning to Y = 0.  
+  - X = 20 m/s ¡Á 5 = 100 m.  
+  - Y = -2.5 m (halfway back to Y = 0).  
+  - Position: (100, -2.5).  
+- **T = 6**: Complete return to original lane.  
+  - X = 20 m/s ¡Á 6 = 120 m.  
+  - Y = 0 m.  
+  - Position: (120, 0).  
+
+#### **Phase 4: Continue in Original Lane (T = 6 to T = 10)**  
+- **T = 7**: Continue at constant speed.  
+  - X = 20 m/s ¡Á 7 = 140 m.  
+  - Y = 0 m.  
+  - Position: (140, 0).  
+- **T = 8**:  
+  - X = 20 m/s ¡Á 8 = 160 m.  
+  - Y = 0 m.  
+  - Position: (160, 0).  
+- **T = 9**:  
+  - X = 20 m/s ¡Á 9 = 180 m.  
+  - Y = 0 m.  
+  - Position: (180, 0).  
+- **T = 10**:  
+  - X = 20 m/s ¡Á 10 = 200 m.  
+  - Y = 0 m.  
+  - Position: (200, 0).  
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -2.5)      |  
+| 2        | (40, -5)        |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -2.5)     |  
+| 6        | (120, 0)        |  
+| 7        | (140, 0)        |  
+| 8        | (160, 0)        |  
+| 9        | (180, 0)        |  
+| 10       | (200, 0)        |  
+
+This plan ensures the vehicle maintains a speed above 60 km/h and safely navigates around the obstruction.

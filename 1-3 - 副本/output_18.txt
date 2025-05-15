@@ -1,0 +1,66 @@
+To navigate around the obstruction while maintaining a speed exceeding 60 km/h, we¡¯ll plan a smooth lane transition, bypass the obstruction, and return to the original lane. Here¡¯s the step-by-step route planning in the spatial reference system (X, Y):
+
+---
+
+### **Assumptions and Calculations**
+1. **Initial Velocity**: 72 km/h = 20 m/s.
+2. **Minimum Speed**: 60 km/h = 16.67 m/s.
+3. **Obstruction Location**: (100, 0).
+4. **Adjacent Lane Y-coordinate**: Y = -5.
+5. **Lane Transition Time**: Assume 2 seconds to change lanes (to ensure smoothness and safety).
+6. **Bypass Duration**: Assume 2 seconds in the adjacent lane to clear the obstruction.
+7. **Total Maneuver Time**: 6 seconds (2 seconds to transition, 2 seconds to bypass, and 2 seconds to return).
+
+---
+
+### **Route Plan**
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at 1-second intervals for the next 10 seconds.
+
+#### **Key Steps**
+1. **T = 0 to T = 2**: Transition from (0, 0) to (40, -5) in the adjacent lane.
+2. **T = 2 to T = 4**: Bypass the obstruction from (40, -5) to (80, -5).
+3. **T = 4 to T = 6**: Return to the original lane from (80, -5) to (120, 0).
+4. **T = 6 to T = 10**: Continue in the original lane at constant speed.
+
+---
+
+### **Position Estimates**
+| Time (T) | X (m) | Y (m) | Description |
+|----------|-------|-------|-------------|
+| 0        | 0     | 0     | Starting point. |
+| 1        | 20    | -2.5  | Transitioning to adjacent lane. |
+| 2        | 40    | -5    | Fully in adjacent lane. |
+| 3        | 60    | -5    | Bypassing obstruction. |
+| 4        | 80    | -5    | Clearing obstruction. |
+| 5        | 100   | -2.5  | Returning to original lane. |
+| 6        | 120   | 0     | Fully in original lane. |
+| 7        | 140   | 0     | Continuing in original lane. |
+| 8        | 160   | 0     | Continuing in original lane. |
+| 9        | 180   | 0     | Continuing in original lane. |
+| 10       | 200   | 0     | Continuing in original lane. |
+
+---
+
+### **Explanation**
+1. **Lane Transition (T = 0 to T = 2)**:
+   - X increases linearly at 20 m/s: \( X = 20 \times T \).
+   - Y transitions linearly from 0 to -5: \( Y = -2.5 \times T \).
+
+2. **Bypass (T = 2 to T = 4)**:
+   - X increases at 20 m/s: \( X = 40 + 20 \times (T - 2) \).
+   - Y remains constant at -5.
+
+3. **Return to Original Lane (T = 4 to T = 6)**:
+   - X increases at 20 m/s: \( X = 80 + 20 \times (T - 4) \).
+   - Y transitions linearly from -5 to 0: \( Y = -5 + 2.5 \times (T - 4) \).
+
+4. **Continue in Original Lane (T = 6 to T = 10)**:
+   - X increases at 20 m/s: \( X = 120 + 20 \times (T - 6) \).
+   - Y remains constant at 0.
+
+---
+
+### **Speed Check**
+- Throughout the maneuver, the speed remains at 72 km/h (20 m/s), satisfying the requirement of exceeding 60 km/h.
+
+This plan ensures a smooth and safe lane transition while bypassing the obstruction.

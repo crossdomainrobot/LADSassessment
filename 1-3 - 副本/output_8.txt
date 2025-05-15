@@ -1,0 +1,66 @@
+To navigate around the obstruction while maintaining a speed above 60 km/h, we¡¯ll plan the vehicle¡¯s trajectory in 1-second intervals. Here¡¯s the step-by-step route planning:
+
+---
+
+### **Assumptions and Calculations**
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Minimum Speed**: 60 km/h = 16.67 m/s.
+3. **Lane Transition**: The adjacent lane is at \( Y = -5 \).
+4. **Obstruction**: Located at \( (100, 0) \).
+5. **Time Intervals**: 1 second each, from \( T = 0 \) to \( T = 10 \).
+
+---
+
+### **Route Plan**
+We¡¯ll break the maneuver into three phases:
+1. **Lane Change to Adjacent Lane (Y = -5)**.
+2. **Bypassing the Obstruction (X = 100)**.
+3. **Return to Original Lane (Y = 0)**.
+
+---
+
+#### **Phase 1: Lane Change (T = 0 to T = 3)**
+- At \( T = 0 \): \( (0, 0) \).
+- At \( T = 1 \): Move to \( (20, -1.67) \).
+- At \( T = 2 \): Move to \( (40, -3.33) \).
+- At \( T = 3 \): Move to \( (60, -5) \).
+
+---
+
+#### **Phase 2: Bypass Obstruction (T = 4 to T = 6)**
+- At \( T = 4 \): Move to \( (80, -5) \).
+- At \( T = 5 \): Move to \( (100, -5) \).
+- At \( T = 6 \): Move to \( (120, -5) \).
+
+---
+
+#### **Phase 3: Return to Original Lane (T = 7 to T = 10)**
+- At \( T = 7 \): Move to \( (140, -3.33) \).
+- At \( T = 8 \): Move to \( (160, -1.67) \).
+- At \( T = 9 \): Move to \( (180, 0) \).
+- At \( T = 10 \): Move to \( (200, 0) \).
+
+---
+
+### **Summary of Positions**
+| Time (T) | Position (X, Y)     |
+|----------|---------------------|
+| 0        | (0, 0)             |
+| 1        | (20, -1.67)        |
+| 2        | (40, -3.33)        |
+| 3        | (60, -5)           |
+| 4        | (80, -5)           |
+| 5        | (100, -5)          |
+| 6        | (120, -5)          |
+| 7        | (140, -3.33)       |
+| 8        | (160, -1.67)       |
+| 9        | (180, 0)           |
+| 10       | (200, 0)           |
+
+---
+
+### **Key Points**
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout.
+- The lane change is smooth and completed within 3 seconds.
+- The obstruction is bypassed safely at \( X = 100 \), while the vehicle is in the adjacent lane.
+- The vehicle returns to its original lane by \( T = 10 \).

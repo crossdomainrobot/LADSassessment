@@ -1,0 +1,68 @@
+To plan the route, we need to consider the vehicle's speed, the distance to the obstacle, and the time required to change lanes and bypass the obstruction. Here's a step-by-step breakdown:
+
+---
+
+### **Given:**
+- **Initial position:** \( (X, Y) = (0, 0) \)
+- **Obstruction position:** \( (100, 0) \)
+- **Adjacent lane Y-coordinate:** \( Y = -5 \)
+- **Initial speed:** \( 72 \, \text{km/h} = 20 \, \text{m/s} \)
+- **Minimum speed:** \( > 60 \, \text{km/h} \approx 16.67 \, \text{m/s} \)
+
+---
+
+### **Assumptions:**
+1. The lane change takes **3 seconds** (smooth transition).
+2. The vehicle maintains a constant speed of \( 20 \, \text{m/s} \).
+3. The vehicle remains in the adjacent lane until it has fully bypassed the obstruction at \( X = 100 \).
+
+---
+
+### **Route Planning:**
+
+#### **1. Lane Change (T = 0 to T = 3):**
+- **T = 0:** \( (0, 0) \)
+- **T = 1:** \( (20, -1.67) \)
+- **T = 2:** \( (40, -3.33) \)
+- **T = 3:** \( (60, -5) \)
+
+#### **2. Bypassing Obstruction (T = 3 to T = 5):**
+- **T = 4:** \( (80, -5) \)
+- **T = 5:** \( (100, -5) \)
+
+#### **3. Lane Change Back (T = 5 to T = 8):**
+- **T = 6:** \( (120, -3.33) \)
+- **T = 7:** \( (140, -1.67) \)
+- **T = 8:** \( (160, 0) \)
+
+#### **4. Continuing in Original Lane (T = 8 to T = 10):**
+- **T = 9:** \( (180, 0) \)
+- **T = 10:** \( (200, 0) \)
+
+---
+
+### **Summary of Positions:**
+
+| Time (s) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -3.33)    |
+| 7        | (140, -1.67)    |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Explanation:**
+1. **Lane Change (T = 0 to T = 3):** The vehicle transitions smoothly from \( Y = 0 \) to \( Y = -5 \) over 3 seconds while moving forward at \( 20 \, \text{m/s} \).
+2. **Bypassing Obstruction (T = 3 to T = 5):** The vehicle remains in the adjacent lane until it has passed the obstruction at \( X = 100 \).
+3. **Lane Change Back (T = 5 to T = 8):** The vehicle transitions back to the original lane over 3 seconds.
+4. **Continuing in Original Lane (T = 8 to T = 10):** The vehicle continues traveling in the original lane.
+
+This plan ensures the vehicle maintains a speed above \( 60 \, \text{km/h} \) throughout the maneuver.

@@ -1,0 +1,58 @@
+To plan the route, we¡¯ll break the maneuver into phases:  
+1. **Transition to the adjacent lane** (from \( Y = 0 \) to \( Y = -5 \)).  
+2. **Bypass the obstruction** (while maintaining \( Y = -5 \)).  
+3. **Return to the original lane** (from \( Y = -5 \) back to \( Y = 0 \)).  
+
+### Assumptions:  
+- **Initial velocity**: \( 72 \, \text{km/h} = 20 \, \text{m/s} \).  
+- **Minimum speed**: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \).  
+- **Obstruction location**: \( (100, 0) \).  
+- **Adjacent lane**: \( Y = -5 \).  
+- **Time step**: \( 1 \, \text{second} \).  
+
+### Phase 1: Transition to the adjacent lane (0 ¡Ü T ¡Ü 2 seconds)  
+- **Lateral transition**: Smoothly move from \( Y = 0 \) to \( Y = -5 \) over 2 seconds.  
+- **Lateral velocity**: \( \Delta Y = -5 \, \text{m} \) in \( 2 \, \text{s} \), so \( v_Y = -2.5 \, \text{m/s} \).  
+- **Forward motion**: Maintain \( v_X = 20 \, \text{m/s} \).  
+
+| Time (T) | X-position | Y-position |  
+|----------|------------|------------|  
+| 0        | 0          | 0          |  
+| 1        | 20         | -2.5       |  
+| 2        | 40         | -5         |  
+
+### Phase 2: Bypass the obstruction (2 < T ¡Ü 6 seconds)  
+- **Maintain lane**: Stay at \( Y = -5 \).  
+- **Forward motion**: Continue at \( v_X = 20 \, \text{m/s} \).  
+
+| Time (T) | X-position | Y-position |  
+|----------|------------|------------|  
+| 3        | 60         | -5         |  
+| 4        | 80         | -5         |  
+| 5        | 100        | -5         |  
+| 6        | 120        | -5         |  
+
+### Phase 3: Return to the original lane (6 < T ¡Ü 8 seconds)  
+- **Lateral transition**: Smoothly move from \( Y = -5 \) to \( Y = 0 \) over 2 seconds.  
+- **Lateral velocity**: \( \Delta Y = +5 \, \text{m} \) in \( 2 \, \text{s} \), so \( v_Y = +2.5 \, \text{m/s} \).  
+- **Forward motion**: Maintain \( v_X = 20 \, \text{m/s} \).  
+
+| Time (T) | X-position | Y-position |  
+|----------|------------|------------|  
+| 7        | 140        | -2.5       |  
+| 8        | 160        | 0          |  
+
+### Summary of Positions:  
+| Time (T) | X-position | Y-position |  
+|----------|------------|------------|  
+| 0        | 0          | 0          |  
+| 1        | 20         | -2.5       |  
+| 2        | 40         | -5         |  
+| 3        | 60         | -5         |  
+| 4        | 80         | -5         |  
+| 5        | 100        | -5         |  
+| 6        | 120        | -5         |  
+| 7        | 140        | -2.5       |  
+| 8        | 160        | 0          |  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above \( 60 \, \text{km/h} \).

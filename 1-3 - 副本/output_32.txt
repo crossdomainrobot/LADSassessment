@@ -1,0 +1,67 @@
+To plan the route for the vehicle, we need to calculate its position at critical intervals over the next 10 seconds while ensuring it transitions to the adjacent lane, bypasses the obstruction, and returns to the original lane. Here's the step-by-step plan:
+
+---
+
+### **Given:**
+- **Initial position:** (X, Y) = (0, 0)
+- **Obstruction position:** (X, Y) = (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial speed:** 72 km/h (20 m/s)
+- **Minimum speed:** 60 km/h (16.67 m/s)
+- **Time intervals:** T = 1, 2, 3, ..., 10 seconds
+
+---
+
+### **Assumptions:**
+1. The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+2. Lane changes are smooth and take 2 seconds each (linear transition in Y).
+3. The vehicle starts lane change at T = 2 seconds and completes it by T = 4 seconds.
+4. The vehicle starts returning to the original lane at T = 6 seconds and completes it by T = 8 seconds.
+
+---
+
+### **Route Planning:**
+
+#### **1. Lane Change (T = 0 to T = 4):**
+- At T = 0: (X, Y) = (0, 0)
+- At T = 1: (X, Y) = (20, 0)
+- At T = 2: (X, Y) = (40, 0) (start lane change)
+- At T = 3: (X, Y) = (60, -2.5) (midway lane change)
+- At T = 4: (X, Y) = (80, -5) (complete lane change)
+
+#### **2. Bypass Obstruction (T = 4 to T = 6):**
+- At T = 5: (X, Y) = (100, -5) (bypass obstruction)
+- At T = 6: (X, Y) = (120, -5) (start returning to original lane)
+
+#### **3. Return to Original Lane (T = 6 to T = 8):**
+- At T = 7: (X, Y) = (140, -2.5) (midway return)
+- At T = 8: (X, Y) = (160, 0) (complete return)
+
+#### **4. Continue in Original Lane (T = 8 to T = 10):**
+- At T = 9: (X, Y) = (180, 0)
+- At T = 10: (X, Y) = (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (T) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -2.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -2.5)     |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Explanation:**
+- The vehicle maintains a constant speed of 20 m/s, so X increases by 20 meters each second.
+- Lane changes are modeled as linear transitions in Y over 2 seconds.
+- The obstruction is bypassed at T = 5 seconds (X = 100, Y = -5).
+- The vehicle returns to the original lane by T = 8 seconds and continues straight afterward.

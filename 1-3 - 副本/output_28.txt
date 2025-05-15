@@ -1,0 +1,96 @@
+To construct a route planning for your vehicle, we'll break down the maneuver into three phases:
+
+1. **Lane Transition (from Y = 0 to Y = -5)**  
+2. **Bypassing the Obstruction (while maintaining Y = -5)**  
+3. **Return to Original Lane (from Y = -5 to Y = 0)**
+
+### Assumptions:
+- **Initial Velocity:** 72 km/h = 20 m/s  
+- **Minimum Speed:** 60 km/h = 16.67 m/s  
+- **Lane Width:** 5 meters (Y = -5 for the adjacent lane)  
+- **Obstruction Position:** (100, 0)  
+
+### Critical Intervals:
+We'll calculate the vehicle's position every second for 10 seconds.
+
+---
+
+### **Phase 1: Lane Transition (T = 0 to T = 2.5 seconds)**
+To transition from Y = 0 to Y = -5, we assume a smooth lateral movement over 2.5 seconds.  
+- **Lateral Speed:** \( \frac{5 \text{ m}}{2.5 \text{ s}} = 2 \text{ m/s} \)  
+- **Longitudinal Speed:** Maintained at 20 m/s  
+
+#### Position at T = 1:  
+- \( X = 20 \times 1 = 20 \)  
+- \( Y = 0 + (-2 \times 1) = -2 \)  
+- **Position:** (20, -2)  
+
+#### Position at T = 2:  
+- \( X = 20 \times 2 = 40 \)  
+- \( Y = 0 + (-2 \times 2) = -4 \)  
+- **Position:** (40, -4)  
+
+#### Position at T = 2.5:  
+- \( X = 20 \times 2.5 = 50 \)  
+- \( Y = 0 + (-2 \times 2.5) = -5 \)  
+- **Position:** (50, -5)  
+
+---
+
+### **Phase 2: Bypassing the Obstruction (T = 2.5 to T = 5 seconds)**
+Maintain Y = -5 while bypassing the obstruction at X = 100.  
+- **Longitudinal Speed:** 20 m/s  
+
+#### Position at T = 3:  
+- \( X = 20 \times 3 = 60 \)  
+- **Position:** (60, -5)  
+
+#### Position at T = 4:  
+- \( X = 20 \times 4 = 80 \)  
+- **Position:** (80, -5)  
+
+#### Position at T = 5:  
+- \( X = 20 \times 5 = 100 \)  
+- **Position:** (100, -5)  
+
+---
+
+### **Phase 3: Return to Original Lane (T = 5 to T = 7.5 seconds)**
+Transition back from Y = -5 to Y = 0 over 2.5 seconds.  
+- **Lateral Speed:** \( \frac{5 \text{ m}}{2.5 \text{ s}} = 2 \text{ m/s} \)  
+- **Longitudinal Speed:** Maintained at 20 m/s  
+
+#### Position at T = 6:  
+- \( X = 20 \times 6 = 120 \)  
+- \( Y = -5 + (2 \times 1) = -3 \)  
+- **Position:** (120, -3)  
+
+#### Position at T = 7:  
+- \( X = 20 \times 7 = 140 \)  
+- \( Y = -5 + (2 \times 2) = -1 \)  
+- **Position:** (140, -1)  
+
+#### Position at T = 7.5:  
+- \( X = 20 \times 7.5 = 150 \)  
+- \( Y = -5 + (2 \times 2.5) = 0 \)  
+- **Position:** (150, 0)  
+
+---
+
+### **Summary of Positions:**
+- T = 1: (20, -2)  
+- T = 2: (40, -4)  
+- T = 2.5: (50, -5)  
+- T = 3: (60, -5)  
+- T = 4: (80, -5)  
+- T = 5: (100, -5)  
+- T = 6: (120, -3)  
+- T = 7: (140, -1)  
+- T = 7.5: (150, 0)  
+
+After T = 7.5, the vehicle continues in the original lane at 20 m/s.  
+
+### **Verification of Speed:**
+- The vehicle maintains a speed of 20 m/s (72 km/h) throughout, satisfying the minimum speed requirement of 16.67 m/s (60 km/h).  
+
+This plan ensures safe navigation around the obstruction while adhering to speed constraints.

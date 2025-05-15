@@ -1,0 +1,59 @@
+To plan the route for your vehicle, we¡¯ll break down the maneuver into three phases:
+
+1. **Transition to the adjacent lane (Y = -5)**  
+2. **Bypass the obstruction (X = 100)**  
+3. **Return to the original lane (Y = 0)**  
+
+### Assumptions:
+- Initial velocity: 72 km/h = 20 m/s  
+- Minimum speed: 60 km/h = 16.67 m/s  
+- Obstruction is at (100, 0).  
+- Adjacent lane is at Y = -5.  
+- Time intervals: 1 second.  
+
+### Route Planning:
+We¡¯ll calculate the vehicle¡¯s position (X, Y) at each second (T = 1, 2, 3, ..., 10).
+
+#### Phase 1: Transition to the adjacent lane (T = 0 to T = 3)
+- **T = 0**: Start at (0, 0).  
+- **T = 1**: Move forward 20 meters (X = 20) and begin transitioning to Y = -5. Assume linear lateral movement: Y = -1.67.  
+  Position: (20, -1.67).  
+- **T = 2**: Move forward 20 meters (X = 40) and continue transitioning: Y = -3.33.  
+  Position: (40, -3.33).  
+- **T = 3**: Move forward 20 meters (X = 60) and complete transition: Y = -5.  
+  Position: (60, -5).  
+
+#### Phase 2: Bypass the obstruction (T = 4 to T = 6)
+- **T = 4**: Move forward 20 meters (X = 80) while maintaining Y = -5.  
+  Position: (80, -5).  
+- **T = 5**: Move forward 20 meters (X = 100) while maintaining Y = -5.  
+  Position: (100, -5).  
+- **T = 6**: Move forward 20 meters (X = 120) while maintaining Y = -5.  
+  Position: (120, -5).  
+
+#### Phase 3: Return to the original lane (T = 7 to T = 10)
+- **T = 7**: Move forward 20 meters (X = 140) and begin transitioning to Y = 0. Assume linear lateral movement: Y = -3.33.  
+  Position: (140, -3.33).  
+- **T = 8**: Move forward 20 meters (X = 160) and continue transitioning: Y = -1.67.  
+  Position: (160, -1.67).  
+- **T = 9**: Move forward 20 meters (X = 180) and complete transition: Y = 0.  
+  Position: (180, 0).  
+- **T = 10**: Move forward 20 meters (X = 200) while maintaining Y = 0.  
+  Position: (200, 0).  
+
+### Summary of Positions:
+| Time (s) | Position (X, Y) |  
+|----------|-----------------|  
+| T = 0    | (0, 0)          |  
+| T = 1    | (20, -1.67)     |  
+| T = 2    | (40, -3.33)     |  
+| T = 3    | (60, -5)        |  
+| T = 4    | (80, -5)        |  
+| T = 5    | (100, -5)       |  
+| T = 6    | (120, -5)       |  
+| T = 7    | (140, -3.33)    |  
+| T = 8    | (160, -1.67)    |  
+| T = 9    | (180, 0)        |  
+| T = 10   | (200, 0)        |  
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h. Adjustments can be made for smoother transitions or varying speeds.

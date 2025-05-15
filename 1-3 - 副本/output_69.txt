@@ -1,0 +1,89 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we first convert the speed to meters per second (m/s) for easier calculations:
+
+- Initial speed: 72 km/h = 20 m/s
+- Minimum speed: 60 km/h = 16.67 m/s
+
+We will plan the maneuver over 10 seconds, ensuring the vehicle transitions to the adjacent lane (Y = -5), bypasses the obstruction at X = 100, and returns to the original lane (Y = 0). Here¡¯s the step-by-step plan:
+
+---
+
+### Assumptions:
+1. The vehicle starts at (0, 0) with an initial velocity of 20 m/s.
+2. The vehicle transitions smoothly to the adjacent lane (Y = -5) over 2 seconds.
+3. The vehicle remains in the adjacent lane until it has fully bypassed the obstruction at X = 100.
+4. The vehicle transitions back to the original lane (Y = 0) over 2 seconds.
+5. The speed remains above 16.67 m/s throughout.
+
+---
+
+### Route Plan:
+
+#### **T = 0 s**:  
+- Position: (0, 0)  
+- Action: Begin lane transition to Y = -5.
+
+#### **T = 1 s**:  
+- X = 20 m (20 m/s ¡Á 1 s)  
+- Y = -2.5 m (halfway to the adjacent lane)  
+- Action: Continue lane transition.
+
+#### **T = 2 s**:  
+- X = 40 m (20 m/s ¡Á 2 s)  
+- Y = -5 m (fully in the adjacent lane)  
+- Action: Maintain lane position.
+
+#### **T = 3 s**:  
+- X = 60 m (20 m/s ¡Á 3 s)  
+- Y = -5 m  
+
+#### **T = 4 s**:  
+- X = 80 m (20 m/s ¡Á 4 s)  
+- Y = -5 m  
+
+#### **T = 5 s**:  
+- X = 100 m (20 m/s ¡Á 5 s)  
+- Y = -5 m  
+- Action: Bypass the obstruction and begin returning to the original lane.
+
+#### **T = 6 s**:  
+- X = 120 m (20 m/s ¡Á 6 s)  
+- Y = -2.5 m (halfway back to the original lane)  
+- Action: Continue lane transition.
+
+#### **T = 7 s**:  
+- X = 140 m (20 m/s ¡Á 7 s)  
+- Y = 0 m (fully back in the original lane)  
+- Action: Maintain lane position.
+
+#### **T = 8 s**:  
+- X = 160 m (20 m/s ¡Á 8 s)  
+- Y = 0 m  
+
+#### **T = 9 s**:  
+- X = 180 m (20 m/s ¡Á 9 s)  
+- Y = 0 m  
+
+#### **T = 10 s**:  
+- X = 200 m (20 m/s ¡Á 10 s)  
+- Y = 0 m  
+
+---
+
+### Summary of Positions:
+| Time (s) | X (m) | Y (m) | Action                          |
+|----------|-------|-------|---------------------------------|
+| 0        | 0     | 0     | Start lane transition           |
+| 1        | 20    | -2.5  | Continue lane transition        |
+| 2        | 40    | -5    | Fully in adjacent lane          |
+| 3        | 60    | -5    | Maintain lane position          |
+| 4        | 80    | -5    | Maintain lane position          |
+| 5        | 100   | -5    | Bypass obstruction              |
+| 6        | 120   | -2.5  | Begin returning to original lane|
+| 7        | 140   | 0     | Fully back in original lane     |
+| 8        | 160   | 0     | Maintain lane position          |
+| 9        | 180   | 0     | Maintain lane position          |
+| 10       | 200   | 0     | Continue driving                |
+
+---
+
+This plan ensures the vehicle bypasses the obstruction smoothly while maintaining a speed above 60 km/h.

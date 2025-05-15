@@ -1,0 +1,52 @@
+To construct a route plan for navigating around the obstruction while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**  
+2. **Bypassing the Obstruction (X = 100)**  
+3. **Returning to the Original Lane (Y = 0)**  
+
+### Assumptions:
+- Initial speed: 72 km/h (20 m/s)  
+- Minimum speed: 60 km/h (16.67 m/s)  
+- Lane width: 5 meters (Y = -5 for the adjacent lane)  
+- Obstruction at X = 100 meters  
+- Time intervals: 1-second steps  
+
+### Phase 1: Lane Change (0 ¡Ü T ¡Ü 2 seconds)
+We¡¯ll assume the lane change takes 2 seconds. During this time, the vehicle moves laterally from Y = 0 to Y = -5 while continuing forward at a constant speed of 20 m/s.
+
+- **T = 0 s**: (X, Y) = (0, 0)  
+- **T = 1 s**: (X, Y) = (20, -2.5)  
+- **T = 2 s**: (X, Y) = (40, -5)  
+
+### Phase 2: Bypassing the Obstruction (2 < T ¡Ü 6 seconds)
+The vehicle remains in the adjacent lane (Y = -5) and continues forward at 20 m/s until it has passed the obstruction at X = 100.
+
+- **T = 3 s**: (X, Y) = (60, -5)  
+- **T = 4 s**: (X, Y) = (80, -5)  
+- **T = 5 s**: (X, Y) = (100, -5)  
+- **T = 6 s**: (X, Y) = (120, -5)  
+
+### Phase 3: Returning to the Original Lane (6 < T ¡Ü 10 seconds)
+The vehicle transitions back to the original lane (Y = 0) over 2 seconds while maintaining a speed of 20 m/s.
+
+- **T = 7 s**: (X, Y) = (140, -2.5)  
+- **T = 8 s**: (X, Y) = (160, 0)  
+- **T = 9 s**: (X, Y) = (180, 0)  
+- **T = 10 s**: (X, Y) = (200, 0)  
+
+### Summary of Positions:
+| Time (s) | X (m) | Y (m) |  
+|----------|-------|-------|  
+| 0        | 0     | 0     |  
+| 1        | 20    | -2.5  |  
+| 2        | 40    | -5    |  
+| 3        | 60    | -5    |  
+| 4        | 80    | -5    |  
+| 5        | 100   | -5    |  
+| 6        | 120   | -5    |  
+| 7        | 140   | -2.5  |  
+| 8        | 160   | 0     |  
+| 9        | 180   | 0     |  
+| 10       | 200   | 0     |  
+
+This plan ensures the vehicle maintains a speed above 60 km/h throughout the maneuver and successfully navigates around the obstruction.

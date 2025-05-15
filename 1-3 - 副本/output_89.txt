@@ -1,0 +1,54 @@
+To plan the route, we¡¯ll break down the vehicle¡¯s movement into phases: (1) traveling straight, (2) transitioning to the adjacent lane, (3) bypassing the obstruction, (4) transitioning back to the original lane, and (5) continuing straight. We¡¯ll use the given spatial reference system and maintain a speed above 60 km/h (16.67 m/s).
+
+### Key Assumptions:
+- **Speed**: Maintain a constant speed of 72 km/h (20 m/s) for simplicity.
+- **Lane Width**: The adjacent lane is at \( Y = -5 \), meaning the lane width is 5 meters.
+- **Obstruction**: Located at \( (100, 0) \).
+- **Time Frame**: Plan for the next 10 seconds.
+
+---
+
+### Step-by-Step Plan:
+
+#### Phase 1: Travel Straight (T = 0 to T = 2.5 seconds)
+- Move straight in the outer lane (\( Y = 0 \)) until approaching the obstruction.
+- Distance covered: \( 20 \, \text{m/s} \times 2.5 \, \text{s} = 50 \, \text{m} \).
+- Position at \( T = 2.5 \): \( (50, 0) \).
+
+#### Phase 2: Transition to Adjacent Lane (T = 2.5 to T = 5 seconds)
+- Gradually move to the adjacent lane (\( Y = -5 \)) over 2.5 seconds.
+- Lateral movement: \( Y \) changes linearly from 0 to -5.
+- Distance covered: \( 20 \, \text{m/s} \times 2.5 \, \text{s} = 50 \, \text{m} \).
+- Position at \( T = 5 \): \( (100, -5) \).
+
+#### Phase 3: Bypass the Obstruction (T = 5 to T = 7.5 seconds)
+- Continue in the adjacent lane (\( Y = -5 \)) to bypass the obstruction.
+- Distance covered: \( 20 \, \text{m/s} \times 2.5 \, \text{s} = 50 \, \text{m} \).
+- Position at \( T = 7.5 \): \( (150, -5) \).
+
+#### Phase 4: Transition Back to Original Lane (T = 7.5 to T = 10 seconds)
+- Gradually move back to the original lane (\( Y = 0 \)) over 2.5 seconds.
+- Lateral movement: \( Y \) changes linearly from -5 to 0.
+- Distance covered: \( 20 \, \text{m/s} \times 2.5 \, \text{s} = 50 \, \text{m} \).
+- Position at \( T = 10 \): \( (200, 0) \).
+
+---
+
+### Estimated Positions at Critical Intervals:
+- \( T = 0 \): \( (0, 0) \)
+- \( T = 1 \): \( (20, 0) \)
+- \( T = 2 \): \( (40, 0) \)
+- \( T = 3 \): \( (60, -2) \)
+- \( T = 4 \): \( (80, -4) \)
+- \( T = 5 \): \( (100, -5) \)
+- \( T = 6 \): \( (120, -5) \)
+- \( T = 7 \): \( (140, -5) \)
+- \( T = 8 \): \( (160, -3) \)
+- \( T = 9 \): \( (180, -1) \)
+- \( T = 10 \): \( (200, 0) \)
+
+---
+
+### Summary:
+- The vehicle transitions to the adjacent lane between \( T = 2.5 \) and \( T = 5 \), bypasses the obstruction at \( X = 100 \), and transitions back to the original lane between \( T = 7.5 \) and \( T = 10 \).
+- The speed remains constant at 72 km/h throughout the maneuver.

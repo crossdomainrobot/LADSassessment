@@ -1,0 +1,59 @@
+To construct a route planning for your vehicle, we¡¯ll break down the movement into three phases:
+
+1. **Lane Transition Phase**: Move from the outer lane (Y = 0) to the adjacent lane (Y = -5).
+2. **Bypassing Phase**: Travel in the adjacent lane (Y = -5) past the obstruction (X = 100).
+3. **Return Phase**: Move back to the original lane (Y = 0).
+
+### Assumptions and Calculations:
+- **Initial Velocity**: 72 km/h = 20 m/s.
+- **Minimum Speed**: 60 km/h = 16.67 m/s.
+- **Lane Width**: 5 meters (transition from Y = 0 to Y = -5).
+- **Time Intervals**: 1-second increments.
+- **Obstruction Position**: (100, 0).
+
+### Phase 1: Lane Transition (T = 0 to T = 2 seconds)
+- Objective: Transition from Y = 0 to Y = -5.
+- Time taken: Assume 2 seconds for smooth lateral movement.
+- Lateral velocity: \( \frac{5 \, \text{m}}{2 \, \text{s}} = 2.5 \, \text{m/s} \).
+- Longitudinal velocity: 20 m/s (maintained).
+
+Positions:
+- **T = 0 s**: (0, 0).
+- **T = 1 s**: \( X = 20 \times 1 = 20 \, \text{m} \), \( Y = -2.5 \, \text{m} \). Position: (20, -2.5).
+- **T = 2 s**: \( X = 20 \times 2 = 40 \, \text{m} \), \( Y = -5 \, \text{m} \). Position: (40, -5).
+
+### Phase 2: Bypassing (T = 2 to T = 6 seconds)
+- Objective: Travel in the adjacent lane (Y = -5) past the obstruction (X = 100).
+- Longitudinal velocity: 20 m/s.
+
+Positions:
+- **T = 3 s**: \( X = 20 \times 3 = 60 \, \text{m} \), \( Y = -5 \, \text{m} \). Position: (60, -5).
+- **T = 4 s**: \( X = 20 \times 4 = 80 \, \text{m} \), \( Y = -5 \, \text{m} \). Position: (80, -5).
+- **T = 5 s**: \( X = 20 \times 5 = 100 \, \text{m} \), \( Y = -5 \, \text{m} \). Position: (100, -5).
+- **T = 6 s**: \( X = 20 \times 6 = 120 \, \text{m} \), \( Y = -5 \, \text{m} \). Position: (120, -5).
+
+### Phase 3: Return Phase (T = 6 to T = 8 seconds)
+- Objective: Transition back to the original lane (Y = 0).
+- Time taken: Assume 2 seconds for smooth lateral movement.
+- Lateral velocity: \( \frac{5 \, \text{m}}{2 \, \text{s}} = 2.5 \, \text{m/s} \).
+- Longitudinal velocity: 20 m/s (maintained).
+
+Positions:
+- **T = 7 s**: \( X = 20 \times 7 = 140 \, \text{m} \), \( Y = -2.5 \, \text{m} \). Position: (140, -2.5).
+- **T = 8 s**: \( X = 20 \times 8 = 160 \, \text{m} \), \( Y = 0 \, \text{m} \). Position: (160, 0).
+
+### Summary of Positions:
+- **T = 0 s**: (0, 0).
+- **T = 1 s**: (20, -2.5).
+- **T = 2 s**: (40, -5).
+- **T = 3 s**: (60, -5).
+- **T = 4 s**: (80, -5).
+- **T = 5 s**: (100, -5).
+- **T = 6 s**: (120, -5).
+- **T = 7 s**: (140, -2.5).
+- **T = 8 s**: (160, 0).
+
+### Verification:
+- Speed is maintained above 60 km/h throughout.
+- Obstruction at (100, 0) is bypassed safely in the adjacent lane.
+- Vehicle returns to the original lane after bypassing the obstruction.

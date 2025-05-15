@@ -1,0 +1,49 @@
+To construct a route planning for your vehicle, we'll break down the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane (Y = -5)**
+2. **Bypassing the Obstruction at X = 100**
+3. **Lane Change Back to the Original Lane (Y = 0)**
+
+### Assumptions:
+- **Initial Velocity**: 72 km/h = 20 m/s
+- **Minimum Speed**: 60 km/h = 16.67 m/s
+- **Time Step**: 1 second
+- **Lane Width**: 5 meters (Y = -5 for the adjacent lane)
+
+### Phase 1: Lane Change to the Adjacent Lane (Y = -5)
+We¡¯ll assume the lane change takes **3 seconds**. During this time, the vehicle will move laterally from Y = 0 to Y = -5 while maintaining a speed of 20 m/s.
+
+- **At T = 0**: (0, 0)
+- **At T = 1**: (20, -1.67)
+- **At T = 2**: (40, -3.33)
+- **At T = 3**: (60, -5)
+
+### Phase 2: Bypassing the Obstruction (X = 100)
+After completing the lane change at T = 3, the vehicle will continue in the adjacent lane (Y = -5) until it has passed the obstruction at X = 100. The vehicle will maintain a speed of 20 m/s.
+
+- **At T = 4**: (80, -5)
+- **At T = 5**: (100, -5)
+
+### Phase 3: Lane Change Back to the Original Lane (Y = 0)
+We¡¯ll assume the lane change back to the original lane also takes **3 seconds**. During this time, the vehicle will move laterally from Y = -5 to Y = 0 while maintaining a speed of 20 m/s.
+
+- **At T = 6**: (120, -3.33)
+- **At T = 7**: (140, -1.67)
+- **At T = 8**: (160, 0)
+
+### Summary of Positions:
+- **T = 0**: (0, 0)
+- **T = 1**: (20, -1.67)
+- **T = 2**: (40, -3.33)
+- **T = 3**: (60, -5)
+- **T = 4**: (80, -5)
+- **T = 5**: (100, -5)
+- **T = 6**: (120, -3.33)
+- **T = 7**: (140, -1.67)
+- **T = 8**: (160, 0)
+
+### Verification:
+- **Speed**: The vehicle¡¯s speed remains at 20 m/s (72 km/h) throughout, which exceeds the minimum speed requirement of 60 km/h.
+- **Obstruction**: The vehicle successfully bypasses the obstruction at X = 100 while in the adjacent lane.
+
+This route planning ensures a smooth and safe maneuver around the obstruction while maintaining the required speed.

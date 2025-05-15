@@ -1,0 +1,51 @@
+To construct a route planning for navigating around the obstruction, we'll break down the vehicle's movement into critical intervals. The goal is to transition to the adjacent lane (Y = -5), bypass the obstruction at X = 100, and then return to the original lane (Y = 0) while maintaining a speed above 60 km/h.
+
+### Given:
+- **Initial Position (T = 0):** (0, 0)
+- **Obstruction Position:** (100, 0)
+- **Adjacent Lane:** Y = -5
+- **Initial Velocity:** 72 km/h (which is 20 m/s)
+- **Minimum Speed:** 60 km/h (which is 16.67 m/s)
+
+### Assumptions:
+- The vehicle will take **5 seconds** to change lanes (from Y = 0 to Y = -5) and another **5 seconds** to return to the original lane (from Y = -5 to Y = 0).
+- The vehicle will maintain a constant speed of 20 m/s throughout the maneuver.
+
+### Step-by-Step Route Planning:
+
+1. **T = 0 to T = 5 seconds: Lane Change to Adjacent Lane (Y = -5)**
+   - **T = 0:** (0, 0)
+   - **T = 1:** (20, -1)
+   - **T = 2:** (40, -2)
+   - **T = 3:** (60, -3)
+   - **T = 4:** (80, -4)
+   - **T = 5:** (100, -5)
+
+2. **T = 5 to T = 10 seconds: Lane Change Back to Original Lane (Y = 0)**
+   - **T = 6:** (120, -4)
+   - **T = 7:** (140, -3)
+   - **T = 8:** (160, -2)
+   - **T = 9:** (180, -1)
+   - **T = 10:** (200, 0)
+
+### Summary of Positions:
+- **T = 0:** (0, 0)
+- **T = 1:** (20, -1)
+- **T = 2:** (40, -2)
+- **T = 3:** (60, -3)
+- **T = 4:** (80, -4)
+- **T = 5:** (100, -5)
+- **T = 6:** (120, -4)
+- **T = 7:** (140, -3)
+- **T = 8:** (160, -2)
+- **T = 9:** (180, -1)
+- **T = 10:** (200, 0)
+
+### Explanation:
+- **Lane Change (T = 0 to T = 5):** The vehicle moves from Y = 0 to Y = -5 over 5 seconds while traveling at 20 m/s. This means the vehicle covers 20 meters along the X-axis each second and transitions laterally by 1 meter per second.
+  
+- **Bypassing the Obstruction (T = 5):** At T = 5 seconds, the vehicle is at (100, -5), which means it has successfully bypassed the obstruction while in the adjacent lane.
+
+- **Returning to Original Lane (T = 5 to T = 10):** The vehicle moves back from Y = -5 to Y = 0 over the next 5 seconds, continuing to travel at 20 m/s along the X-axis.
+
+This route planning ensures that the vehicle maintains a speed above 60 km/h throughout the maneuver and successfully navigates around the obstruction.

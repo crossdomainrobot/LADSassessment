@@ -1,0 +1,49 @@
+To plan the route and estimate the vehicle's position at critical intervals, we¡¯ll break the maneuver into three phases:
+
+1. **Lane Change to the Adjacent Lane**  
+2. **Bypassing the Obstruction in the Adjacent Lane**  
+3. **Returning to the Original Lane**
+
+### Assumptions:
+- Initial position: \( (X, Y) = (0, 0) \)  
+- Obstruction position: \( (100, 0) \)  
+- Adjacent lane¡¯s Y-coordinate: \( Y = -5 \)  
+- Initial velocity: \( 72 \, \text{km/h} = 20 \, \text{m/s} \)  
+- Minimum speed: \( 60 \, \text{km/h} = 16.67 \, \text{m/s} \)  
+- Time starts at \( T = 0 \)  
+
+### Step 1: Lane Change to the Adjacent Lane
+- Assume the lane change takes 3 seconds.  
+- During this phase, the vehicle moves laterally from \( Y = 0 \) to \( Y = -5 \) while continuing forward.  
+- Lateral velocity: \( \frac{-5 \, \text{m}}{3 \, \text{s}} = -1.67 \, \text{m/s} \).  
+- Forward velocity: Maintained at \( 20 \, \text{m/s} \).  
+
+### Step 2: Bypassing the Obstruction in the Adjacent Lane
+- Once in the adjacent lane, the vehicle continues forward until it clears the obstruction at \( X = 100 \).  
+- Forward velocity: Maintained at \( 20 \, \text{m/s} \).  
+
+### Step 3: Returning to the Original Lane
+- Assume the return lane change also takes 3 seconds.  
+- Lateral velocity: \( \frac{5 \, \text{m}}{3 \, \text{s}} = 1.67 \, \text{m/s} \).  
+- Forward velocity: Maintained at \( 20 \, \text{m/s} \).  
+
+### Estimated Positions at Critical Intervals:
+- **T = 0 s**: \( (0, 0) \)  
+- **T = 1 s**: \( (20, -1.67) \)  
+- **T = 2 s**: \( (40, -3.33) \)  
+- **T = 3 s**: \( (60, -5) \) (Lane change complete)  
+- **T = 4 s**: \( (80, -5) \)  
+- **T = 5 s**: \( (100, -5) \) (Obstruction bypassed)  
+- **T = 6 s**: \( (120, -3.33) \)  
+- **T = 7 s**: \( (140, -1.67) \)  
+- **T = 8 s**: \( (160, 0) \) (Return to original lane complete)  
+- **T = 9 s**: \( (180, 0) \)  
+- **T = 10 s**: \( (200, 0) \)  
+
+### Summary:
+- **Lane Change (T = 0 to 3 s)**: Transition from \( Y = 0 \) to \( Y = -5 \).  
+- **Bypassing Obstruction (T = 3 to 5 s)**: Stay in the adjacent lane until \( X = 100 \).  
+- **Returning to Original Lane (T = 5 to 8 s)**: Transition from \( Y = -5 \) to \( Y = 0 \).  
+- The vehicle maintains a speed of \( 20 \, \text{m/s} \) throughout, ensuring it exceeds the minimum speed requirement.  
+
+This plan ensures a safe and efficient maneuver while adhering to the constraints.

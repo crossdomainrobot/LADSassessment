@@ -1,0 +1,99 @@
+To construct a route planning for your vehicle, we'll break down the movement into three phases: **lane transition**, **bypassing the obstruction**, and **returning to the original lane**. We'll calculate your vehicle's position (X, Y) at 1-second intervals (T = 0, 1, 2, ..., 10) while ensuring the speed remains above 60 km/h.
+
+---
+
+### **Given:**
+- Starting position: (0, 0)
+- Obstruction position: (100, 0)
+- Adjacent lane Y-coordinate: Y = -5
+- Initial velocity: 72 km/h (20 m/s)
+- Minimum speed: 60 km/h (16.67 m/s)
+- Time interval: 1 second
+
+---
+
+### **Assumptions:**
+1. **Lane transition**: Smooth lateral movement over 2 seconds to transition to the adjacent lane (Y = -5).
+2. **Bypassing the obstruction**: Travel in the adjacent lane until the obstruction is passed (X > 100).
+3. **Returning to the original lane**: Smooth lateral movement over 2 seconds to transition back to the original lane (Y = 0).
+4. **Speed**: Maintain a constant speed of 20 m/s (72 km/h) throughout.
+
+---
+
+### **Route Planning:**
+
+#### **Phase 1: Lane Transition (T = 0 to T = 2)**
+- **Lateral movement**: Transition from Y = 0 to Y = -5 over 2 seconds.
+  - Y changes linearly: Y = -2.5 * T
+- **Longitudinal movement**: X increases at 20 m/s.
+  - X = 20 * T
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -2.5  |
+| 2        | 40    | -5    |
+
+---
+
+#### **Phase 2: Bypassing the Obstruction (T = 2 to T = 6)**
+- **Lateral movement**: Remain in the adjacent lane (Y = -5).
+- **Longitudinal movement**: X increases at 20 m/s.
+  - X = 40 + 20 * (T - 2)
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+
+---
+
+#### **Phase 3: Returning to the Original Lane (T = 6 to T = 8)**
+- **Lateral movement**: Transition from Y = -5 to Y = 0 over 2 seconds.
+  - Y changes linearly: Y = -5 + 2.5 * (T - 6)
+- **Longitudinal movement**: X increases at 20 m/s.
+  - X = 120 + 20 * (T - 6)
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 7        | 140   | -2.5  |
+| 8        | 160   | 0     |
+
+---
+
+#### **Phase 4: Continuing in the Original Lane (T = 8 to T = 10)**
+- **Lateral movement**: Remain in the original lane (Y = 0).
+- **Longitudinal movement**: X increases at 20 m/s.
+  - X = 160 + 20 * (T - 8)
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 9        | 180   | 0     |
+| 10       | 200   | 0     |
+
+---
+
+### **Summary of Positions:**
+
+| Time (T) | X (m) | Y (m) | Phase                          |
+|----------|-------|-------|--------------------------------|
+| 0        | 0     | 0     | Lane transition                |
+| 1        | 20    | -2.5  | Lane transition                |
+| 2        | 40    | -5    | Bypassing the obstruction      |
+| 3        | 60    | -5    | Bypassing the obstruction      |
+| 4        | 80    | -5    | Bypassing the obstruction      |
+| 5        | 100   | -5    | Bypassing the obstruction      |
+| 6        | 120   | -5    | Returning to the original lane |
+| 7        | 140   | -2.5  | Returning to the original lane |
+| 8        | 160   | 0     | Continuing in the original lane |
+| 9        | 180   | 0     | Continuing in the original lane |
+| 10       | 200   | 0     | Continuing in the original lane |
+
+---
+
+### **Key Observations:**
+1. The obstruction is bypassed between T = 5 and T = 6 (X = 100 to X = 120).
+2. The vehicle returns to the original lane by T = 8.
+3. The speed is maintained at 20 m/s (72 km/h) throughout, satisfying the minimum speed requirement.

@@ -1,0 +1,129 @@
+### **Understanding the Scenario**
+
+First, let's break down the information provided:
+
+- **Road Structure**: There are two parallel lanes. I'm currently in the outer lane.
+- **Obstruction**: Detected 100 meters ahead directly in my path at coordinates (100, 0).
+- **Lane Transition**: To bypass the obstruction, I need to move to the adjacent lane (Y = -5), go around the blockage, and then return to my original lane (Y = 0).
+- **Vehicle's Starting Point**: (0, 0).
+- **Speed**: Initial velocity is 72 km/h, and I must maintain a speed exceeding 60 km/h throughout the maneuver.
+- **Time Frame**: Need to plan the route over the next 10 seconds, with position estimates at each second.
+
+### **Converting Speed to Meters per Second**
+
+Since the distances are in meters and time in seconds, it's practical to convert the speed from km/h to m/s.
+
+\[ 72 \text{ km/h} = 72 \times \frac{1000 \text{ meters}}{3600 \text{ seconds}} = 20 \text{ m/s} \]
+
+Similarly, the minimum speed:
+
+\[ 60 \text{ km/h} = 60 \times \frac{1000}{3600} \approx 16.67 \text{ m/s} \]
+
+### **Planning the Lane Transition**
+
+To navigate around the obstruction, I'll need to:
+
+1. **Change to the adjacent lane (Y = -5)** before reaching the obstruction.
+2. **Bypass the obstruction** while staying in the adjacent lane.
+3. **Return to the original lane (Y = 0)** after passing the obstruction.
+
+### **Estimating Position Over Time**
+
+Assuming a constant speed of 20 m/s, I'll calculate the vehicle's X position every second. The Y position will change as I transition between lanes.
+
+#### **Time Intervals and Positions**
+
+Let's create a table to estimate the vehicle's position at each second from T = 0 to T = 10.
+
+| Time (s) | X Position (m) | Y Position (m) | Notes |
+|----------|----------------|----------------|-------|
+| 0        | 0              | 0              | Starting point. |
+| 1        | 20             | 0              | Continue in the original lane. |
+| 2        | 40             | 0              | Still in the original lane. |
+| 3        | 60             | -1.25          | Begin transitioning to the adjacent lane (Y = -5). |
+| 4        | 80             | -2.5           | Continue transitioning. |
+| 5        | 100            | -5             | Fully in the adjacent lane; bypassing obstruction. |
+| 6        | 120            | -5             | Continue in the adjacent lane past the obstruction. |
+| 7        | 140            | -3.75          | Begin transitioning back to the original lane. |
+| 8        | 160            | -2.5           | Continue transitioning back. |
+| 9        | 180            | -1.25          | Nearly back to the original lane. |
+| 10       | 200            | 0              | Fully returned to the original lane. |
+
+#### **Detailed Steps**
+
+1. **T = 0 to T = 2**:
+   - **X**: Increases by 20 m/s.
+   - **Y**: Remains at 0. I stay in the original lane as I approach the obstruction.
+
+2. **T = 3 to T = 4**:
+   - **X**: Continues to increase.
+   - **Y**: Begins transitioning from 0 to -5. To achieve this smoothly, I'll change lanes linearly over 2 seconds.
+     - From T = 3 to T = 5, Y changes from 0 to -5.
+     - Rate of change: \( \frac{-5}{2} = -2.5 \, \text{m/s} \).
+
+3. **T = 5**:
+   - **X**: Reaches 100 m, directly where the obstruction is.
+   - **Y**: At -5, fully in the adjacent lane, successfully bypassing the obstruction.
+
+4. **T = 6**:
+   - **X**: Continues past the obstruction.
+   - **Y**: Remains at -5, staying in the adjacent lane.
+
+5. **T = 7 to T = 9**:
+   - **X**: Continues to increase.
+   - **Y**: Begins transitioning back from -5 to 0 over 3 seconds.
+     - From T = 7 to T = 10, Y changes from -5 to 0.
+     - Rate of change: \( \frac{5}{3} \approx 1.67 \, \text{m/s} \).
+
+6. **T = 10**:
+   - **X**: Reaches 200 m.
+   - **Y**: Back at 0, fully returned to the original lane.
+
+### **Ensuring Speed Constraints**
+
+Throughout the maneuver, the speed remains at 20 m/s (72 km/h), which exceeds the minimum required speed of 16.67 m/s (60 km/h). Therefore, the speed constraint is satisfied.
+
+### **Final Position Estimates**
+
+Summarizing the vehicle's position at each second:
+
+| Time (s) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 0        | 0              | 0              |
+| 1        | 20             | 0              |
+| 2        | 40             | 0              |
+| 3        | 60             | -1.25          |
+| 4        | 80             | -2.5           |
+| 5        | 100            | -5             |
+| 6        | 120            | -5             |
+| 7        | 140            | -3.75          |
+| 8        | 160            | -2.5           |
+| 9        | 180            | -1.25          |
+| 10       | 200            | 0              |
+
+### **Visualization**
+
+To better understand the vehicle's path, let's plot the positions:
+
+1. **From T = 0 to T = 2**: Moves straight along the X-axis, Y remains 0.
+2. **From T = 3 to T = 5**: Gradually shifts from Y = 0 to Y = -5 while moving forward.
+3. **At T = 5**: Directly in front of the obstruction at X = 100, Y = -5.
+4. **From T = 6 to T = 10**: Moves past the obstruction and transitions back to Y = 0.
+
+### **Conclusion**
+
+By planning the lane transitions over specific time intervals, I ensure a smooth bypass of the obstruction while maintaining the required speed. Here's the final route planned:
+
+- **T = 0**: Start at (0, 0).
+- **T = 1**: (20, 0).
+- **T = 2**: (40, 0).
+- **T = 3**: (60, -1.25).
+- **T = 4**: (80, -2.5).
+- **T = 5**: (100, -5).
+- **T = 6**: (120, -5).
+- **T = 7**: (140, -3.75).
+- **T = 8**: (160, -2.5).
+- **T = 9**: (180, -1.25).
+- **T = 10**: (200, 0).
+
+This plan allows me to navigate around the obstruction safely and efficiently.

@@ -1,0 +1,70 @@
+To plan the route effectively, we'll break down the vehicle's movement into key phases: **acceleration**, **lane change**, **bypassing the obstruction**, and **lane return**. We'll calculate the position at each second (T = 1, 2, ..., 10) while ensuring the speed remains above 60 km/h.
+
+---
+
+### **Key Assumptions:**
+1. **Initial Velocity**: 72 km/h (20 m/s).
+2. **Speed Constraint**: Must exceed 60 km/h (16.67 m/s) at all times.
+3. **Lateral Movement**: Transition to Y = -5 (adjacent lane) and back to Y = 0 (original lane).
+4. **Obstruction**: Located at X = 100.
+
+---
+
+### **Route Planning:**
+
+#### **Phase 1: Initial Movement (T = 0 to T = 2)**
+- **Objective**: Prepare for lane change.
+- **Action**: Maintain speed at 72 km/h (20 m/s).
+- **Positions**:
+  - T = 1: (20, 0)
+  - T = 2: (40, 0)
+
+#### **Phase 2: Lane Change (T = 3 to T = 5)**
+- **Objective**: Transition to the adjacent lane (Y = -5).
+- **Action**: Gradually move laterally while maintaining speed.
+- **Positions**:
+  - T = 3: (60, -1.67)
+  - T = 4: (80, -3.33)
+  - T = 5: (100, -5)
+
+#### **Phase 3: Bypassing Obstruction (T = 6 to T = 8)**
+- **Objective**: Stay in the adjacent lane while passing the obstruction.
+- **Action**: Maintain speed and lateral position.
+- **Positions**:
+  - T = 6: (120, -5)
+  - T = 7: (140, -5)
+  - T = 8: (160, -5)
+
+#### **Phase 4: Lane Return (T = 9 to T = 10)**
+- **Objective**: Transition back to the original lane (Y = 0).
+- **Action**: Gradually move laterally while maintaining speed.
+- **Positions**:
+  - T = 9: (180, -3.33)
+  - T = 10: (200, 0)
+
+---
+
+### **Summary of Positions:**
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -1.67)     |
+| 4        | (80, -3.33)     |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -5)       |
+| 9        | (180, -3.33)    |
+| 10       | (200, 0)        |
+
+---
+
+### **Notes:**
+1. **Speed**: The vehicle maintains 72 km/h (20 m/s) throughout.
+2. **Lateral Movement**: Smooth transitions to and from the adjacent lane over 3 seconds each.
+3. **Obstruction Bypass**: The vehicle remains in the adjacent lane (Y = -5) from T = 5 to T = 8, ensuring safe clearance.
+
+This plan ensures the vehicle navigates around the obstruction while adhering to speed and safety constraints.

@@ -1,0 +1,53 @@
+To plan the lane transition and bypass the obstruction while maintaining a speed above 60 km/h, we¡¯ll break down the maneuver into three phases:
+
+1. **Lane Change Phase (T = 0 to T = 3 seconds)**: Transition from the outer lane (Y = 0) to the adjacent lane (Y = -5).
+2. **Bypass Phase (T = 3 to T = 7 seconds)**: Continue in the adjacent lane to bypass the obstruction at X = 100.
+3. **Return Phase (T = 7 to T = 10 seconds)**: Transition back to the outer lane (Y = 0).
+
+### Assumptions:
+- Vehicle speed: **72 km/h = 20 m/s** (constant throughout).
+- Lane width: **5 meters** (Y = -5 for the adjacent lane).
+- Obstruction at X = 100 meters.
+- Time intervals: **1 second**.
+
+### Route Planning:
+
+#### **Phase 1: Lane Change (T = 0 to T = 3 seconds)**
+- At T = 0: Position = (0, 0).
+- At T = 1: Position = (20, -1.67).  
+  (Y changes linearly: -1.67 m/s to reach Y = -5 in 3 seconds).
+- At T = 2: Position = (40, -3.33).
+- At T = 3: Position = (60, -5).  
+  (Lane change complete).
+
+#### **Phase 2: Bypass (T = 3 to T = 7 seconds)**
+- At T = 4: Position = (80, -5).
+- At T = 5: Position = (100, -5).  
+  (Obstruction bypassed).
+- At T = 6: Position = (120, -5).
+- At T = 7: Position = (140, -5).  
+  (Continue in adjacent lane).
+
+#### **Phase 3: Return (T = 7 to T = 10 seconds)**
+- At T = 8: Position = (160, -3.33).  
+  (Y changes linearly: +1.67 m/s to return to Y = 0 in 3 seconds).
+- At T = 9: Position = (180, -1.67).
+- At T = 10: Position = (200, 0).  
+  (Return to the outer lane).
+
+### Summary of Positions:
+| Time (T) | X (m) | Y (m)  |
+|----------|-------|--------|
+| 0        | 0     | 0      |
+| 1        | 20    | -1.67  |
+| 2        | 40    | -3.33  |
+| 3        | 60    | -5     |
+| 4        | 80    | -5     |
+| 5        | 100   | -5     |
+| 6        | 120   | -5     |
+| 7        | 140   | -5     |
+| 8        | 160   | -3.33  |
+| 9        | 180   | -1.67  |
+| 10       | 200   | 0      |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed of 72 km/h and completes the lane transitions smoothly.

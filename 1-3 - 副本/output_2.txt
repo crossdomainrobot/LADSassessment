@@ -1,0 +1,75 @@
+To construct a route plan for navigating around the obstruction, we need to consider the vehicle's speed, lane changes, and the position of the obstruction. Here¡¯s a step-by-step plan:
+
+### Given:
+- **Initial Position (T = 0):** (X, Y) = (0, 0)
+- **Obstruction Position:** (100, 0)
+- **Adjacent Lane Y-coordinate:** Y = -5
+- **Initial Velocity:** 72 km/h (20 m/s)
+- **Minimum Speed:** 60 km/h (16.67 m/s)
+
+### Assumptions:
+- The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+- Lane changes are instantaneous for simplicity.
+- The vehicle begins transitioning to the adjacent lane at T = 2 seconds and completes the transition by T = 4 seconds.
+- The vehicle remains in the adjacent lane until it has bypassed the obstruction at X = 100, then transitions back to the original lane.
+
+### Route Plan:
+
+1. **T = 0 seconds:**
+   - Position: (0, 0)
+   - Action: Start in the outer lane.
+
+2. **T = 1 second:**
+   - Position: (20, 0)
+   - Action: Continue in the outer lane.
+
+3. **T = 2 seconds:**
+   - Position: (40, 0)
+   - Action: Begin transitioning to the adjacent lane.
+
+4. **T = 3 seconds:**
+   - Position: (60, -2.5)
+   - Action: Mid-transition to the adjacent lane.
+
+5. **T = 4 seconds:**
+   - Position: (80, -5)
+   - Action: Complete transition to the adjacent lane.
+
+6. **T = 5 seconds:**
+   - Position: (100, -5)
+   - Action: Bypass the obstruction while in the adjacent lane.
+
+7. **T = 6 seconds:**
+   - Position: (120, -5)
+   - Action: Continue in the adjacent lane past the obstruction.
+
+8. **T = 7 seconds:**
+   - Position: (140, -5)
+   - Action: Begin transitioning back to the original lane.
+
+9. **T = 8 seconds:**
+   - Position: (160, -2.5)
+   - Action: Mid-transition back to the original lane.
+
+10. **T = 9 seconds:**
+    - Position: (180, 0)
+    - Action: Complete transition back to the original lane.
+
+11. **T = 10 seconds:**
+    - Position: (200, 0)
+    - Action: Continue in the original lane.
+
+### Summary of Critical Positions:
+- **T = 0:** (0, 0)
+- **T = 1:** (20, 0)
+- **T = 2:** (40, 0)
+- **T = 3:** (60, -2.5)
+- **T = 4:** (80, -5)
+- **T = 5:** (100, -5)
+- **T = 6:** (120, -5)
+- **T = 7:** (140, -5)
+- **T = 8:** (160, -2.5)
+- **T = 9:** (180, 0)
+- **T = 10:** (200, 0)
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h and completes the lane transitions smoothly.

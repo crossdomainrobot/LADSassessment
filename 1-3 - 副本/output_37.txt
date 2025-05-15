@@ -1,0 +1,58 @@
+To plan the vehicle¡¯s route while maintaining a speed above 60 km/h, we¡¯ll break the maneuver into three phases:
+
+1. **Transition to the adjacent lane (Y = -5)**  
+2. **Bypass the obstruction (X = 100)**  
+3. **Return to the original lane (Y = 0)**
+
+### Key Assumptions:
+- **Initial speed:** 72 km/h (20 m/s)  
+- **Minimum speed:** 60 km/h (16.67 m/s)  
+- **Obstruction location:** (100, 0)  
+- **Adjacent lane Y-coordinate:** Y = -5  
+- **Time step:** 1 second  
+
+### Phase 1: Transition to the Adjacent Lane (T = 0 to T = 3)
+Assume the lane change takes 3 seconds. During this time, the vehicle moves laterally from Y = 0 to Y = -5 while maintaining a speed of 72 km/h (20 m/s).  
+
+#### Vehicle Positions:
+- **T = 0:** (0, 0)  
+- **T = 1:** (20, -1.67)  
+- **T = 2:** (40, -3.33)  
+- **T = 3:** (60, -5)  
+
+### Phase 2: Bypass the Obstruction (T = 3 to T = 7)
+The vehicle remains in the adjacent lane (Y = -5) while bypassing the obstruction at X = 100.  
+
+#### Vehicle Positions:
+- **T = 4:** (80, -5)  
+- **T = 5:** (100, -5)  
+- **T = 6:** (120, -5)  
+- **T = 7:** (140, -5)  
+
+### Phase 3: Return to the Original Lane (T = 7 to T = 10)
+The vehicle transitions back to the original lane (Y = 0) over 3 seconds while maintaining a speed of 72 km/h (20 m/s).  
+
+#### Vehicle Positions:
+- **T = 8:** (160, -3.33)  
+- **T = 9:** (180, -1.67)  
+- **T = 10:** (200, 0)  
+
+### Summary of Positions:
+| Time (T) | Position (X, Y) |  
+|----------|-----------------|  
+| 0        | (0, 0)          |  
+| 1        | (20, -1.67)     |  
+| 2        | (40, -3.33)     |  
+| 3        | (60, -5)        |  
+| 4        | (80, -5)        |  
+| 5        | (100, -5)       |  
+| 6        | (120, -5)       |  
+| 7        | (140, -5)       |  
+| 8        | (160, -3.33)    |  
+| 9        | (180, -1.67)    |  
+| 10       | (200, 0)        |  
+
+### Notes:
+- The vehicle maintains a constant speed of 72 km/h (20 m/s) throughout the maneuver.  
+- The lane transitions are assumed to be smooth and take 3 seconds each.  
+- The obstruction is bypassed safely by remaining in the adjacent lane from X = 60 to X = 140.

@@ -1,0 +1,89 @@
+To construct a route plan for navigating around the obstruction, we'll break the process into key phases: **lane transition**, **bypassing the obstruction**, and **returning to the original lane**. We'll calculate the vehicle's position at 1-second intervals, ensuring the speed remains above 60 km/h.
+
+---
+
+### **Given Data**
+- **Initial position**: (X, Y) = (0, 0)  
+- **Obstruction position**: (X, Y) = (100, 0)  
+- **Adjacent lane Y-coordinate**: Y = -5  
+- **Initial velocity**: 72 km/h = 20 m/s  
+- **Minimum speed**: 60 km/h = 16.67 m/s  
+
+---
+
+### **Assumptions**
+1. The lane change is smooth and takes 2 seconds to transition from Y = 0 to Y = -5.  
+2. The vehicle travels at a constant speed of 20 m/s during the maneuver.  
+3. The bypass phase occurs between X = 100 and X = 120 (to ensure sufficient clearance).  
+4. The return to the original lane takes 2 seconds.  
+
+---
+
+### **Route Plan**
+We calculate the vehicle's position (X, Y) at 1-second intervals:
+
+#### **Phase 1: Lane Transition (T = 0 to T = 2)**
+- Transition from Y = 0 to Y = -5 over 2 seconds.  
+- Y changes linearly: Y(T) = -2.5 * T.  
+- X increases at 20 m/s: X(T) = 20 * T.  
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | -2.5       |
+| 2        | 40         | -5         |
+
+---
+
+#### **Phase 2: Bypassing Obstruction (T = 2 to T = 6)**
+- Maintain Y = -5 while traveling past the obstruction.  
+- X increases at 20 m/s: X(T) = 40 + 20 * (T - 2).  
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 3        | 60         | -5         |
+| 4        | 80         | -5         |
+| 5        | 100        | -5         |
+| 6        | 120        | -5         |
+
+---
+
+#### **Phase 3: Returning to Original Lane (T = 6 to T = 8)**
+- Transition from Y = -5 to Y = 0 over 2 seconds.  
+- Y changes linearly: Y(T) = -5 + 2.5 * (T - 6).  
+- X increases at 20 m/s: X(T) = 120 + 20 * (T - 6).  
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 7        | 140        | -2.5       |
+| 8        | 160        | 0          |
+
+---
+
+#### **Phase 4: Continuing in Original Lane (T = 8 to T = 10)**
+- Maintain Y = 0 while traveling forward.  
+- X increases at 20 m/s: X(T) = 160 + 20 * (T - 8).  
+
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 9        | 180        | 0          |
+| 10       | 200        | 0          |
+
+---
+
+### **Summary of Positions**
+| Time (T) | X Position | Y Position |
+|----------|------------|------------|
+| 0        | 0          | 0          |
+| 1        | 20         | -2.5       |
+| 2        | 40         | -5         |
+| 3        | 60         | -5         |
+| 4        | 80         | -5         |
+| 5        | 100        | -5         |
+| 6        | 120        | -5         |
+| 7        | 140        | -2.5       |
+| 8        | 160        | 0          |
+| 9        | 180        | 0          |
+| 10       | 200        | 0          |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

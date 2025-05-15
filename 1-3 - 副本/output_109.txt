@@ -1,0 +1,54 @@
+To plan the route, we¡¯ll break the maneuver into three phases:
+
+1. **Transition to the adjacent lane (from Y = 0 to Y = -5)**  
+2. **Bypass the obstruction (travel past X = 100 while maintaining Y = -5)**  
+3. **Return to the original lane (from Y = -5 to Y = 0)**
+
+### Assumptions:
+- **Initial velocity**: 72 km/h = 20 m/s  
+- **Minimum speed**: 60 km/h = 16.67 m/s  
+- **Obstruction location**: X = 100 m, Y = 0  
+- **Adjacent lane Y-coordinate**: Y = -5  
+- **Time step**: 1 second intervals  
+
+### Phase 1: Transition to the adjacent lane (Y = 0 to Y = -5)
+Assume the lane change takes **2 seconds**, during which the vehicle moves laterally while maintaining forward speed.
+
+- At T = 0: (X, Y) = (0, 0)  
+- At T = 1: (X, Y) = (20, -2.5)  
+- At T = 2: (X, Y) = (40, -5)  
+
+### Phase 2: Bypass the obstruction (X = 100, Y = -5)
+The vehicle continues forward at 20 m/s, staying in the adjacent lane.
+
+- At T = 3: (X, Y) = (60, -5)  
+- At T = 4: (X, Y) = (80, -5)  
+- At T = 5: (X, Y) = (100, -5)  
+- At T = 6: (X, Y) = (120, -5)  
+
+### Phase 3: Return to the original lane (Y = -5 to Y = 0)
+Assume the lane change takes **2 seconds**, similar to Phase 1.
+
+- At T = 7: (X, Y) = (140, -2.5)  
+- At T = 8: (X, Y) = (160, 0)  
+
+### Final Positions:
+- At T = 9: (X, Y) = (180, 0)  
+- At T = 10: (X, Y) = (200, 0)  
+
+### Summary of Positions:
+| Time (s) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -2.5  |
+| 2        | 40    | -5    |
+| 3        | 60    | -5    |
+| 4        | 80    | -5    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -2.5  |
+| 8        | 160   | 0     |
+| 9        | 180   | 0     |
+| 10       | 200   | 0     |
+
+This plan ensures the vehicle bypasses the obstruction while maintaining a speed above 60 km/h.

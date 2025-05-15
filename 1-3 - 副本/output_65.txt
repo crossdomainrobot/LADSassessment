@@ -1,0 +1,72 @@
+To construct a route planning for your vehicle, we¡¯ll break down the maneuver into key phases: initial travel, lane transition, bypassing the obstruction, returning to the original lane, and continuing forward. We¡¯ll calculate your position at 1-second intervals while ensuring your speed remains above 60 km/h.
+
+---
+
+### **Given:**
+- **Initial position:** (X, Y) = (0, 0) at T = 0
+- **Obstruction position:** (100, 0)
+- **Adjacent lane Y-coordinate:** Y = -5
+- **Initial speed:** 72 km/h (20 m/s)
+- **Minimum speed:** 60 km/h (16.67 m/s)
+- **Time interval:** 1 second
+
+---
+
+### **Assumptions:**
+1. **Lane transition time:** It takes 2 seconds to safely transition between lanes.
+2. **Bypassing the obstruction:** You stay in the adjacent lane (Y = -5) until you¡¯ve fully passed the obstruction at X = 100.
+3. **Speed adjustments:** You maintain a constant speed of 72 km/h (20 m/s) throughout the maneuver.
+
+---
+
+### **Route Planning:**
+
+#### **Phase 1: Initial Travel (T = 0 to T = 3)**
+- At T = 0: (0, 0)
+- At T = 1: (20, 0)
+- At T = 2: (40, 0)
+- At T = 3: (60, 0)
+  - Begin transitioning to the adjacent lane (Y = -5).
+
+#### **Phase 2: Lane Transition (T = 3 to T = 5)**
+- At T = 3: (60, 0)
+- At T = 4: (80, -2.5)
+- At T = 5: (100, -5)
+  - Fully in the adjacent lane (Y = -5).
+
+#### **Phase 3: Bypassing the Obstruction (T = 5 to T = 7)**
+- At T = 5: (100, -5)
+- At T = 6: (120, -5)
+- At T = 7: (140, -5)
+  - Obstruction is now behind you.
+
+#### **Phase 4: Returning to Original Lane (T = 7 to T = 9)**
+- At T = 7: (140, -5)
+- At T = 8: (160, -2.5)
+- At T = 9: (180, 0)
+  - Fully back in the original lane (Y = 0).
+
+#### **Phase 5: Continuing Forward (T = 9 to T = 10)**
+- At T = 9: (180, 0)
+- At T = 10: (200, 0)
+
+---
+
+### **Summary of Positions:**
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, 0)         |
+| 4        | (80, -2.5)      |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -2.5)     |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+This plan ensures you bypass the obstruction safely while maintaining a speed above 60 km/h. Let me know if you need further adjustments!

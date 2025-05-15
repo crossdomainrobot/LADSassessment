@@ -1,0 +1,40 @@
+To plan the route and estimate the vehicle¡¯s position at critical intervals, we¡¯ll use the following steps:
+
+### 1. **Convert Speed to Meters per Second**
+   - Initial velocity: **72 km/h** = \( 72 \times \frac{1000}{3600} = 20 \, \text{m/s} \)
+   - Minimum speed: **60 km/h** = \( 60 \times \frac{1000}{3600} \approx 16.67 \, \text{m/s} \)
+
+### 2. **Lane Transition Plan**
+   - **Outer Lane (Y = 0)**: Start at (0, 0).
+   - **Adjacent Lane (Y = -5)**: Transition to this lane to bypass the obstruction.
+   - **Obstruction**: Located at (100, 0).
+   - **Lane Transition**: Smoothly move from Y = 0 to Y = -5, bypass the obstruction, and return to Y = 0.
+
+### 3. **Assumptions**
+   - The lane transition takes **2 seconds** (1 second to move to Y = -5 and 1 second to return to Y = 0).
+   - The vehicle maintains a **constant speed of 20 m/s** throughout the maneuver.
+
+### 4. **Route Planning**
+   - **T = 0s**: Start at (0, 0).
+   - **T = 1s**: Begin transitioning to the adjacent lane. Position: (20, -2.5).
+   - **T = 2s**: Fully in the adjacent lane. Position: (40, -5).
+   - **T = 3s**: Continue in the adjacent lane. Position: (60, -5).
+   - **T = 4s**: Continue in the adjacent lane. Position: (80, -5).
+   - **T = 5s**: Begin transitioning back to the original lane. Position: (100, -2.5).
+   - **T = 6s**: Fully back in the original lane. Position: (120, 0).
+
+### 5. **Position Estimates**
+   - **T = 0s**: (0, 0)
+   - **T = 1s**: (20, -2.5)
+   - **T = 2s**: (40, -5)
+   - **T = 3s**: (60, -5)
+   - **T = 4s**: (80, -5)
+   - **T = 5s**: (100, -2.5)
+   - **T = 6s**: (120, 0)
+
+### 6. **Verification**
+   - The vehicle bypasses the obstruction at **X = 100** while in the adjacent lane (Y = -5).
+   - Speed is maintained above **60 km/h (16.67 m/s)** throughout the maneuver.
+   - Lane transitions are smooth and completed within the planned time frame.
+
+This route ensures a safe and efficient bypass of the obstruction while maintaining the required speed.

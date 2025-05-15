@@ -1,0 +1,110 @@
+### Understanding the Problem
+
+First, let's break down the scenario:
+
+1. **Road Layout**: We're on a road with two parallel lanes. I'm currently in the outer lane, which we'll consider as Y = 0. The adjacent lane is at Y = -5.
+   
+2. **Obstacle**: There's an obstruction 100 meters ahead in my current lane at position (100, 0).
+
+3. **Objective**: I need to switch to the adjacent lane to bypass the obstruction and then return to my original lane, all while maintaining a speed above 60 km/h.
+
+4. **Initial Conditions**: 
+   - Starting position: (0, 0)
+   - Speed: 72 km/h
+   - Time starts at T = 0 seconds.
+
+### Converting Speed to Meters per Second
+
+Since speed is given in km/h and we're dealing with meters and seconds, it's better to convert the speed to meters per second (m/s).
+
+\[ 72 \text{ km/h} = \frac{72 \times 1000}{3600} \text{ m/s} = 20 \text{ m/s} \]
+
+So, my vehicle is moving at 20 m/s.
+
+### Determining the Time to Reach the Obstacle
+
+The obstruction is at X = 100 meters.
+
+\[ \text{Time} = \frac{\text{Distance}}{\text{Speed}} = \frac{100 \text{ m}}{20 \text{ m/s}} = 5 \text{ seconds} \]
+
+This means I have 5 seconds to complete the lane change before reaching the obstruction.
+
+### Planning the Lane Change
+
+To safely bypass the obstruction, I need to:
+
+1. **Move from Y = 0 to Y = -5** (switch to the adjacent lane).
+2. **Continue in the adjacent lane until I've passed the obstruction**.
+3. **Return from Y = -5 back to Y = 0** (original lane).
+
+Let's determine how much time to allocate for each segment.
+
+#### Segment 1: Switching Lanes (Y = 0 to Y = -5)
+
+Assuming a smooth and safe lane change, it typically takes about 3 to 5 seconds. Let's allocate **3 seconds** for this maneuver.
+
+#### Segment 2: Bypassing the Obstruction in the Adjacent Lane
+
+We've already calculated that it takes 5 seconds to reach the obstruction. Since we're starting the lane change at T = 0 and it takes 3 seconds to complete, we'll be in the adjacent lane at T = 3 seconds.
+
+To ensure we've fully passed the obstruction, we should remain in the adjacent lane until T = 5 seconds. This gives us **2 seconds** in the adjacent lane after completing the lane change.
+
+#### Segment 3: Returning to the Original Lane (Y = -5 to Y = 0)
+
+Allocating another **3 seconds** to return to the original lane. This will take us from T = 5 seconds to T = 8 seconds.
+
+### Calculating Positions Over Time
+
+Now, let's calculate the vehicle's position (X, Y) at each second from T = 0 to T = 10 seconds.
+
+#### Assumptions:
+
+- **Lane Change Speed**: The lateral movement from Y = 0 to Y = -5 takes 3 seconds, so the lateral speed is \( \frac{5 \text{ m}}{3 \text{ s}} \approx 1.67 \text{ m/s} \).
+  
+- **Forward Movement**: The vehicle moves forward at a constant speed of 20 m/s.
+
+Let's create a table to represent the positions.
+
+| Time (s) | X (m) | Y (m) | Description |
+|----------|-------|-------|-------------|
+| 0        | 0     | 0     | Starting position |
+| 1        | 20    | -1.67 | Moving forward and starting lane change |
+| 2        | 40    | -3.33 | Continuing lane change |
+| 3        | 60    | -5    | Lane change completed |
+| 4        | 80    | -5    | Moving forward in adjacent lane |
+| 5        | 100   | -5    | Reached the obstruction's X position |
+| 6        | 120   | -3.33 | Starting to return to original lane |
+| 7        | 140   | -1.67 | Continuing return |
+| 8        | 160   | 0     | Returned to original lane |
+| 9        | 180   | 0     | Continuing straight |
+| 10       | 200   | 0     | Continuing straight |
+
+### Verifying the Speed Constraint
+
+The problem states that the speed must exceed 60 km/h throughout the maneuver. Our constant speed is 72 km/h, which meets this requirement.
+
+### Potential Adjustments
+
+- **Lane Change Duration**: If the lane change needs to be smoother or faster, we can adjust the time allocated. For instance, a 2-second lane change would require a faster lateral movement, which may not be as safe.
+  
+- **Obstacle Proximity**: If the obstruction were closer or farther, the timing would need to be adjusted accordingly to ensure safe bypassing.
+
+### Conclusion
+
+By breaking down the problem into manageable segments and calculating the positions at each second, we've constructed a route plan that allows the vehicle to safely bypass the obstruction while maintaining the required speed. This method ensures a clear understanding of the vehicle's movement and aids in real-time decision-making while driving.
+
+**Final Route Plan (Positions at Each Second):**
+
+- **T = 0s**: (0, 0)
+- **T = 1s**: (20, -1.67)
+- **T = 2s**: (40, -3.33)
+- **T = 3s**: (60, -5)
+- **T = 4s**: (80, -5)
+- **T = 5s**: (100, -5)
+- **T = 6s**: (120, -3.33)
+- **T = 7s**: (140, -1.67)
+- **T = 8s**: (160, 0)
+- **T = 9s**: (180, 0)
+- **T = 10s**: (200, 0)
+
+This plan ensures that the vehicle successfully navigates around the obstruction and returns to the original lane within the specified time frame.

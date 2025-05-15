@@ -1,0 +1,104 @@
+To construct a route plan for navigating around the obstruction, we'll break down the vehicle's movement into phases: accelerating, lane changing, bypassing the obstruction, and returning to the original lane. Here's the step-by-step plan:
+
+---
+
+### **Assumptions and Constants**
+1. **Initial Position**: (X, Y) = (0, 0)
+2. **Obstruction Position**: (100, 0)
+3. **Adjacent Lane Position**: Y = -5
+4. **Initial Velocity**: 72 km/h = 20 m/s
+5. **Minimum Speed**: Must exceed 60 km/h = 16.67 m/s
+6. **Time Intervals**: 1-second increments for simplicity
+7. **Lane Change Duration**: Assume 2 seconds for each lane change (to and from the adjacent lane).
+
+---
+
+### **Route Plan**
+We¡¯ll calculate the vehicle¡¯s position at each second (T = 1, 2, ..., 10), ensuring the obstruction is bypassed safely.
+
+---
+
+#### **Phase 1: Initial Movement (T = 0 to T = 2)**
+- **Objective**: Continue in the outer lane, maintaining speed.
+- **Velocity**: 20 m/s
+- **Position Calculation**:
+  - X(T) = X(0) + (Velocity ¡Á T)
+  - Y(T) = 0 (outer lane)
+- **Positions**:
+  - T = 0: (0, 0)
+  - T = 1: (20, 0)
+  - T = 2: (40, 0)
+
+---
+
+#### **Phase 2: Lane Change to Adjacent Lane (T = 2 to T = 4)**
+- **Objective**: Transition to the adjacent lane (Y = -5) over 2 seconds.
+- **Velocity**: Maintain 20 m/s
+- **Lateral Movement**: Assume uniform lateral speed: ¦¤Y = -5 over 2 seconds ¡ú -2.5 m/s
+- **Position Calculation**:
+  - X(T) = X(2) + (Velocity ¡Á (T - 2))
+  - Y(T) = Y(2) + (Lateral Speed ¡Á (T - 2))
+- **Positions**:
+  - T = 3: (60, -2.5)
+  - T = 4: (80, -5)
+
+---
+
+#### **Phase 3: Bypassing Obstruction (T = 4 to T = 6)**
+- **Objective**: Stay in the adjacent lane (Y = -5) while passing the obstruction (X = 100).
+- **Velocity**: Maintain 20 m/s
+- **Position Calculation**:
+  - X(T) = X(4) + (Velocity ¡Á (T - 4))
+  - Y(T) = -5
+- **Positions**:
+  - T = 5: (100, -5) ¡ú Obstruction bypassed
+  - T = 6: (120, -5)
+
+---
+
+#### **Phase 4: Lane Change Back to Outer Lane (T = 6 to T = 8)**
+- **Objective**: Transition back to the outer lane (Y = 0) over 2 seconds.
+- **Velocity**: Maintain 20 m/s
+- **Lateral Movement**: Uniform lateral speed: ¦¤Y = +5 over 2 seconds ¡ú +2.5 m/s
+- **Position Calculation**:
+  - X(T) = X(6) + (Velocity ¡Á (T - 6))
+  - Y(T) = Y(6) + (Lateral Speed ¡Á (T - 6))
+- **Positions**:
+  - T = 7: (140, -2.5)
+  - T = 8: (160, 0)
+
+---
+
+#### **Phase 5: Continued Movement in Outer Lane (T = 8 to T = 10)**
+- **Objective**: Continue in the outer lane, maintaining speed.
+- **Velocity**: 20 m/s
+- **Position Calculation**:
+  - X(T) = X(8) + (Velocity ¡Á (T - 8))
+  - Y(T) = 0
+- **Positions**:
+  - T = 9: (180, 0)
+  - T = 10: (200, 0)
+
+---
+
+### **Summary of Positions**
+| Time (s) | Position (X, Y) |
+|----------|-----------------|
+| 0        | (0, 0)          |
+| 1        | (20, 0)         |
+| 2        | (40, 0)         |
+| 3        | (60, -2.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -2.5)     |
+| 8        | (160, 0)        |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Key Points**
+1. The obstruction is bypassed at T = 5, where the vehicle is at (100, -5).
+2. Speed is maintained above 60 km/h throughout the maneuver.
+3. Lane changes are smooth and completed within 2 seconds each.

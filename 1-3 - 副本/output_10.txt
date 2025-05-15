@@ -1,0 +1,67 @@
+To navigate around the obstruction, we¡¯ll plan a smooth trajectory that ensures the vehicle transitions to the adjacent lane, bypasses the obstruction, and returns to the original lane while maintaining a speed above 60 km/h. Here¡¯s the step-by-step plan:
+
+---
+
+### **Key Assumptions:**
+1. **Initial Position:** (X, Y) = (0, 0) at T = 0.
+2. **Obstruction Position:** (X, Y) = (100, 0).
+3. **Adjacent Lane:** Y = -5.
+4. **Initial Speed:** 72 km/h = 20 m/s.
+5. **Minimum Speed:** 60 km/h = 16.67 m/s.
+6. **Time Frame:** 10 seconds.
+
+---
+
+### **Route Planning:**
+1. **Lane Transition (T = 0 to T = 2.5 seconds):**
+   - Move from Y = 0 to Y = -5 over 2.5 seconds.
+   - X-coordinate increases linearly at 20 m/s.
+
+2. **Bypassing Obstruction (T = 2.5 to T = 7.5 seconds):**
+   - Maintain Y = -5 while traveling past the obstruction (X = 100).
+   - X-coordinate increases linearly at 20 m/s.
+
+3. **Return to Original Lane (T = 7.5 to T = 10 seconds):**
+   - Move from Y = -5 back to Y = 0 over 2.5 seconds.
+   - X-coordinate increases linearly at 20 m/s.
+
+---
+
+### **Position Estimates:**
+| Time (s) | X (m)           | Y (m)           |
+|----------|-----------------|-----------------|
+| 0        | 0               | 0               |
+| 1        | 20              | -2              |
+| 2        | 40              | -4              |
+| 2.5      | 50              | -5              |
+| 3        | 60              | -5              |
+| 4        | 80              | -5              |
+| 5        | 100             | -5              |
+| 6        | 120             | -5              |
+| 7        | 140             | -5              |
+| 7.5      | 150             | -5              |
+| 8        | 160             | -4              |
+| 9        | 180             | -2              |
+| 10       | 200             | 0               |
+
+---
+
+### **Explanation:**
+1. **Lane Transition (T = 0 to T = 2.5 seconds):**
+   - The vehicle moves laterally from Y = 0 to Y = -5 over 2.5 seconds.
+   - X increases at 20 m/s: X = 20 * T.
+
+2. **Bypassing Obstruction (T = 2.5 to T = 7.5 seconds):**
+   - The vehicle maintains Y = -5 while traveling past the obstruction.
+   - X increases at 20 m/s: X = 50 + 20 * (T - 2.5).
+
+3. **Return to Original Lane (T = 7.5 to T = 10 seconds):**
+   - The vehicle moves laterally from Y = -5 back to Y = 0 over 2.5 seconds.
+   - X increases at 20 m/s: X = 150 + 20 * (T - 7.5).
+
+---
+
+### **Speed Check:**
+- The vehicle maintains a constant speed of 20 m/s (72 km/h), which exceeds the minimum requirement of 16.67 m/s (60 km/h).
+
+This plan ensures a smooth and safe maneuver around the obstruction.

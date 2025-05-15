@@ -1,0 +1,60 @@
+To plan the route, we¡¯ll break the maneuver into three phases: transitioning to the adjacent lane, bypassing the obstruction, and returning to the original lane. We¡¯ll use the given spatial reference system and assume constant velocity (72 km/h = 20 m/s) for simplicity.
+
+### Phase 1: Transition to the Adjacent Lane (Y = -5)
+- **Time**: 0 to 2 seconds (assume smooth lane change takes 2 seconds).
+- **X Position**: Increases linearly at 20 m/s.
+- **Y Position**: Transitions from 0 to -5 linearly.
+
+### Phase 2: Bypass the Obstruction (X = 100)
+- **Time**: 2 to 6 seconds.
+- **X Position**: Continues to increase linearly at 20 m/s.
+- **Y Position**: Remains at -5.
+
+### Phase 3: Return to the Original Lane (Y = 0)
+- **Time**: 6 to 8 seconds.
+- **X Position**: Continues to increase linearly at 20 m/s.
+- **Y Position**: Transitions from -5 to 0 linearly.
+
+### Position Estimates at Critical Intervals
+Here¡¯s the vehicle¡¯s position (X, Y) at each second:
+
+- **T = 0s**: (0, 0)  
+  Starting point in the outer lane.
+
+- **T = 1s**: (20, -2.5)  
+  Midway through lane change.
+
+- **T = 2s**: (40, -5)  
+  Fully in the adjacent lane.
+
+- **T = 3s**: (60, -5)  
+  Bypassing the obstruction.
+
+- **T = 4s**: (80, -5)  
+  Bypassing the obstruction.
+
+- **T = 5s**: (100, -5)  
+  Passing the obstruction.
+
+- **T = 6s**: (120, -5)  
+  Bypassing the obstruction.
+
+- **T = 7s**: (140, -2.5)  
+  Midway through returning to the original lane.
+
+- **T = 8s**: (160, 0)  
+  Fully back in the original lane.
+
+- **T = 9s**: (180, 0)  
+  Continuing in the original lane.
+
+- **T = 10s**: (200, 0)  
+  Continuing in the original lane.
+
+### Summary of the Maneuver
+1. **Lane Change (0 to 2s)**: Smoothly transition from Y = 0 to Y = -5.
+2. **Bypass Obstruction (2 to 6s)**: Maintain Y = -5 while passing X = 100.
+3. **Return to Original Lane (6 to 8s)**: Smoothly transition from Y = -5 to Y = 0.
+4. **Continue Driving (8 to 10s)**: Maintain Y = 0.
+
+This plan ensures the vehicle maintains a speed of 72 km/h (20 m/s) throughout the maneuver.
