@@ -1,0 +1,51 @@
+To safely navigate the double lane change maneuver, I will plan a smooth trajectory that avoids the obstacle at $ X = 100 $ while maintaining highway speed ($ > 60 \, \text{km/h} $) and returning to the right lane afterward. The vehicle starts at $ (X, Y) = (0, 0) $ with an initial velocity of $ 72 \, \text{km/h} = 20 \, \text{m/s} $. Here's the detailed trajectory:
+
+### Key Points:
+- **Initial Lane:** Right lane ($ Y = 0 $).
+- **Left Lane:** $ Y = -5 $.
+- **Obstacle Location:** $ X = 100, Y = 0 $.
+- **Velocity Constraint:** Maintain $ > 60 \, \text{km/h} = 16.67 \, \text{m/s} $.
+
+---
+
+### Trajectory Plan:
+1. Start in the right lane ($ Y = 0 $).
+2. Gradually move to the left lane ($ Y = -5 $) before reaching the obstacle.
+3. Pass the obstacle at $ X = 100 $ while staying in the left lane.
+4. Return to the right lane ($ Y = 0 $) after passing the obstacle.
+
+---
+
+### Position at Each Time Step:
+#### Initial Conditions:
+- $ T = 0 $: $ (X, Y) = (0, 0) $.
+- Velocity: $ v_x = 20 \, \text{m/s} $, $ v_y = 0 \, \text{m/s} $.
+
+#### Step-by-Step Trajectory:
+| **Time (T)** | **Position (X, Y)** | **Comments** |
+|--------------|----------------------|--------------|
+| $ T = 1 $    | $ (20, -0.5) $     | Begin lateral movement to the left lane. |
+| $ T = 2 $    | $ (40, -1.5) $     | Continue moving leftward. |
+| $ T = 3 $    | $ (60, -3.0) $     | Approaching the left lane. |
+| $ T = 4 $    | $ (80, -4.5) $     | Almost in the left lane. |
+| $ T = 5 $    | $ (100, -5.0) $    | In the left lane, passing the obstacle. |
+| $ T = 6 $    | $ (120, -5.0) $    | Still in the left lane. |
+| $ T = 7 $    | $ (140, -4.5) $    | Starting to return to the right lane. |
+| $ T = 8 $    | $ (160, -3.0) $    | Continuing the transition back. |
+| $ T = 9 $    | $ (180, -1.5) $    | Nearing the right lane. |
+| $ T = 10 $   | $ (200, 0.0) $    | Back in the right lane. |
+
+---
+
+### Explanation of the Trajectory:
+1. **Lateral Movement:** The vehicle smoothly transitions from $ Y = 0 $ to $ Y = -5 $ over the first 5 seconds, ensuring a safe distance from the obstacle.
+2. **Passing the Obstacle:** At $ X = 100 $, the vehicle is fully in the left lane ($ Y = -5 $).
+3. **Returning to the Right Lane:** After passing the obstacle, the vehicle gradually returns to $ Y = 0 $ by $ T = 10 $.
+
+### Final Answer:
+The positions for the next 10 seconds are:
+$$
+\boxed{
+(20, -0.5), (40, -1.5), (60, -3.0), (80, -4.5), (100, -5.0), (120, -5.0), (140, -4.5), (160, -3.0), (180, -1.5), (200, 0.0)
+}
+$$

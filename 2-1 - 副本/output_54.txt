@@ -1,0 +1,80 @@
+To safely execute the double lane change maneuver while maintaining highway speed constraints, we need to carefully plan the trajectory. The vehicle must smoothly transition into the left lane (Y = -5), pass the obstacle at X = 100, and then return to the right lane (Y = 0). Below is a detailed trajectory for the next 10 seconds.
+
+### Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lane Width**: Y = 0 (right lane) and Y = -5 (left lane).
+3. **Obstacle Location**: (X = 100, Y = 0).
+4. **Highway Speed Constraint**: Maintain speed > 60 km/h (16.67 m/s).
+
+---
+
+### Trajectory Plan:
+The maneuver will involve three phases:
+1. **Lane Change to Left Lane**: Gradually move from Y = 0 to Y = -5.
+2. **Pass Obstacle in Left Lane**: Maintain Y = -5 as the vehicle passes X = 100.
+3. **Return to Right Lane**: Gradually move back from Y = -5 to Y = 0 after passing the obstacle.
+
+We will calculate the position (X, Y) at each second (T = 1, 2, ..., 10).
+
+---
+
+### Detailed Trajectory:
+
+#### Phase 1: Lane Change to Left Lane (T = 0 to T = 5)
+- Start moving laterally from Y = 0 to Y = -5 while maintaining forward speed of approximately 20 m/s.
+
+| Time (T) | X (m)   | Y (m)   |
+|----------|---------|---------|
+| 0        | 0       | 0       |
+| 1        | 20      | -1      |
+| 2        | 40      | -2      |
+| 3        | 60      | -3      |
+| 4        | 80      | -4      |
+| 5        | 100     | -5      |
+
+At T = 5, the vehicle reaches X = 100 and Y = -5, ready to pass the obstacle.
+
+---
+
+#### Phase 2: Pass Obstacle in Left Lane (T = 5 to T = 7)
+- Maintain Y = -5 and continue forward at approximately 20 m/s.
+
+| Time (T) | X (m)   | Y (m)   |
+|----------|---------|---------|
+| 6        | 120     | -5      |
+| 7        | 140     | -5      |
+
+At T = 7, the vehicle has passed the obstacle and is now safe to begin returning to the right lane.
+
+---
+
+#### Phase 3: Return to Right Lane (T = 7 to T = 10)
+- Gradually move laterally from Y = -5 back to Y = 0 while maintaining forward speed of approximately 20 m/s.
+
+| Time (T) | X (m)   | Y (m)   |
+|----------|---------|---------|
+| 8        | 160     | -4      |
+| 9        | 180     | -2      |
+| 10       | 200     | 0       |
+
+At T = 10, the vehicle successfully completes the maneuver and returns to the right lane.
+
+---
+
+### Final Trajectory Summary:
+
+| Time (T) | X (m)   | Y (m)   |
+|----------|---------|---------|
+| 0        | 0       | 0       |
+| 1        | 20      | -1      |
+| 2        | 40      | -2      |
+| 3        | 60      | -3      |
+| 4        | 80      | -4      |
+| 5        | 100     | -5      |
+| 6        | 120     | -5      |
+| 7        | 140     | -5      |
+| 8        | 160     | -4      |
+| 9        | 180     | -2      |
+| 10       | 200     | 0       |
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the original lane while adhering to highway speed constraints.

@@ -1,0 +1,84 @@
+To safely navigate the double lane change maneuver, we need to ensure that the vehicle transitions smoothly into the left lane before reaching the obstacle at $ X = 100 $, stays in the left lane while passing it, and then transitions back to the right lane afterward. Below is a detailed trajectory plan for the next 10 seconds.
+
+### Key Parameters:
+- Initial speed: $ v = 72 \, \text{km/h} = 20 \, \text{m/s} $
+- Highway speed requirement: $ v > 60 \, \text{km/h} = 16.67 \, \text{m/s} $
+- Obstacle position: $ (X, Y) = (100, 0) $
+- Lane positions:
+  - Right lane: $ Y = 0 $
+  - Left lane: $ Y = -5 $
+
+We will use a smooth lateral transition with constant longitudinal velocity to ensure safety and compliance with highway speed rules.
+
+---
+
+### Trajectory Plan:
+
+#### **Phase 1: Transition to Left Lane (T = 0 to T = 4 seconds)**
+
+The vehicle begins moving laterally from $ Y = 0 $ to $ Y = -5 $ while maintaining its longitudinal speed of $ 20 \, \text{m/s} $. The lateral movement is linear over time.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| $ T = 0 $ | $ (0, 0) $ |
+| $ T = 1 $ | $ (20, -1.25) $ |
+| $ T = 2 $ | $ (40, -2.5) $ |
+| $ T = 3 $ | $ (60, -3.75) $ |
+| $ T = 4 $ | $ (80, -5) $ |
+
+At $ T = 4 $, the vehicle is fully in the left lane ($ Y = -5 $) and has traveled $ X = 80 \, \text{m} $ longitudinally.
+
+---
+
+#### **Phase 2: Pass the Obstacle (T = 4 to T = 6 seconds)**
+
+The vehicle remains in the left lane ($ Y = -5 $) and continues traveling longitudinally at $ 20 \, \text{m/s} $ to pass the obstacle at $ X = 100 $.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| $ T = 4 $ | $ (80, -5) $ |
+| $ T = 5 $ | $ (100, -5) $ |
+| $ T = 6 $ | $ (120, -5) $ |
+
+At $ T = 6 $, the vehicle has passed the obstacle and is now $ X = 120 \, \text{m} $ down the road.
+
+---
+
+#### **Phase 3: Transition Back to Right Lane (T = 6 to T = 10 seconds)**
+
+The vehicle transitions back to the right lane ($ Y = 0 $) while maintaining its longitudinal speed of $ 20 \, \text{m/s} $. The lateral movement is again linear over time.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| $ T = 6 $ | $ (120, -5) $ |
+| $ T = 7 $ | $ (140, -3.75) $ |
+| $ T = 8 $ | $ (160, -2.5) $ |
+| $ T = 9 $ | $ (180, -1.25) $ |
+| $ T = 10 $ | $ (200, 0) $ |
+
+At $ T = 10 $, the vehicle is fully back in the right lane ($ Y = 0 $) and has traveled $ X = 200 \, \text{m} $ longitudinally.
+
+---
+
+### Final Trajectory Summary:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| $ T = 0 $ | $ (0, 0) $ |
+| $ T = 1 $ | $ (20, -1.25) $ |
+| $ T = 2 $ | $ (40, -2.5) $ |
+| $ T = 3 $ | $ (60, -3.75) $ |
+| $ T = 4 $ | $ (80, -5) $ |
+| $ T = 5 $ | $ (100, -5) $ |
+| $ T = 6 $ | $ (120, -5) $ |
+| $ T = 7 $ | $ (140, -3.75) $ |
+| $ T = 8 $ | $ (160, -2.5) $ |
+| $ T = 9 $ | $ (180, -1.25) $ |
+| $ T = 10 $ | $ (200, 0) $ |
+
+---
+
+### Final Answer:
+$$
+\boxed{\text{The vehicle completes the double lane change maneuver safely by following the trajectory above.}}
+$$

@@ -1,0 +1,67 @@
+To safely perform the double lane change maneuver while maintaining highway speed, I will describe a trajectory for the vehicle. The goal is to smoothly transition into the left lane before reaching the obstacle at $ X = 100 $, pass it, and then return to the right lane afterward. The vehicle's initial speed is $ 72 \, \text{km/h} $ ($ 20 \, \text{m/s} $), and we need to maintain a speed greater than $ 60 \, \text{km/h} $ ($ 16.67 \, \text{m/s} $).
+
+We'll assume a smooth lateral motion (Y-axis) using a sinusoidal-like curve to minimize abrupt changes in direction. Here's the planned trajectory:
+
+---
+
+### **Trajectory Description**
+
+#### Initial Conditions:
+- Initial position: $ (X, Y) = (0, 0) $
+- Initial velocity: $ v_x = 20 \, \text{m/s} $ (along the X-axis)
+- Lane width: $ 5 \, \text{m} $ (right lane: $ Y = 0 $, left lane: $ Y = -5 $)
+
+---
+
+### **Position at Each Time Step (T = 1, 2, ..., 10 seconds)**
+
+| **Time (T)** | **Position (X, Y)**       | **Explanation**                                                                 |
+|--------------|---------------------------|---------------------------------------------------------------------------------|
+| $ T = 0 $   | $ (0, 0) $              | Starting point in the right lane.                                              |
+| $ T = 1 $   | $ (20, -0.5) $          | Begin transitioning to the left lane with a gradual decrease in $ Y $.           |
+| $ T = 2 $   | $ (40, -1.8) $          | Continue moving laterally toward the left lane.                                |
+| $ T = 3 $   | $ (60, -3.2) $          | Progressing further into the left lane.                                        |
+| $ T = 4 $   | $ (80, -4.5) $          | Fully transitioned to the left lane ($ Y \approx -5 $).                         |
+| $ T = 5 $   | $ (100, -5) $           | Passing the obstacle at $ X = 100 $ while staying in the left lane.            |
+| $ T = 6 $   | $ (120, -4.5) $         | Begin transitioning back to the right lane with a gradual increase in $ Y $.    |
+| $ T = 7 $   | $ (140, -3.2) $         | Continuing the transition back to the right lane.                               |
+| $ T = 8 $   | $ (160, -1.8) $         | Approaching the right lane.                                                   |
+| $ T = 9 $   | $ (180, -0.5) $         | Nearly back in the right lane.                                                |
+| $ T = 10 $  | $ (200, 0) $            | Fully returned to the right lane after passing the obstacle.                   |
+
+---
+
+### **Key Details of the Maneuver**
+1. **Lateral Motion (Y-axis):**
+   - The lateral movement follows a smooth curve to ensure comfort and safety.
+   - At $ T = 4 $, the vehicle reaches the left lane ($ Y = -5 $).
+   - By $ T = 10 $, the vehicle returns to the right lane ($ Y = 0 $).
+
+2. **Longitudinal Motion (X-axis):**
+   - The vehicle maintains a constant longitudinal speed of $ 20 \, \text{m/s} $ throughout the maneuver.
+   - This ensures compliance with highway speed regulations.
+
+3. **Obstacle Avoidance:**
+   - The vehicle is fully in the left lane ($ Y = -5 $) when passing the obstacle at $ X = 100 $.
+
+---
+
+### **Final Answer**
+The trajectory for the next 10 seconds is as follows:
+
+$$
+\boxed{
+\begin{aligned}
+&\text{At } T = 1: (20, -0.5) \\
+&\text{At } T = 2: (40, -1.8) \\
+&\text{At } T = 3: (60, -3.2) \\
+&\text{At } T = 4: (80, -4.5) \\
+&\text{At } T = 5: (100, -5) \\
+&\text{At } T = 6: (120, -4.5) \\
+&\text{At } T = 7: (140, -3.2) \\
+&\text{At } T = 8: (160, -1.8) \\
+&\text{At } T = 9: (180, -0.5) \\
+&\text{At } T = 10: (200, 0)
+\end{aligned}
+}
+$$

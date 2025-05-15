@@ -1,0 +1,106 @@
+To ensure a safe and smooth double lane change maneuver, the vehicle must transition from the right lane to the left lane before passing the obstacle at $ X = 100 $, then switch back to the right lane afterward. The trajectory should maintain the vehicle's speed above 60 km/h (approximately 16.67 m/s) while ensuring a smooth lateral movement.
+
+### Key Details:
+- Initial position: $ (0, 0) $
+- Obstacle position: $ (100, 0) $
+- Left lane Y-coordinate: $ Y = -5 $
+- Right lane Y-coordinate: $ Y = 0 $
+- Initial velocity: 72 km/h = 20 m/s
+- Minimum velocity during the maneuver: > 60 km/h = 16.67 m/s
+
+We will calculate the vehicle's position in the next 10 seconds, ensuring the maneuver is completed safely.
+
+---
+
+### **Trajectory Plan**
+The maneuver can be broken into three phases:
+1. **Phase 1:** Gradually move from the right lane ($ Y = 0 $) to the left lane ($ Y = -5 $).
+2. **Phase 2:** Maintain the left lane position ($ Y = -5 $) while passing the obstacle at $ X = 100 $.
+3. **Phase 3:** Gradually return to the right lane ($ Y = 0 $).
+
+#### Assumptions:
+- Lateral movement ($ Y $) is controlled smoothly using a sinusoidal-like function to avoid sharp turns.
+- Longitudinal movement ($ X $) continues at approximately 20 m/s.
+
+---
+
+### **Position Calculation**
+
+#### **T = 0**
+Initial position: $ (X, Y) = (0, 0) $
+
+#### **T = 1**
+- Longitudinal movement: $ X = 20 \times 1 = 20 $
+- Lateral movement: Start transitioning to the left lane using a smooth curve. Assume $ Y = -0.5 $ (beginning of the transition).
+- Position: $ (X, Y) = (20, -0.5) $
+
+#### **T = 2**
+- Longitudinal movement: $ X = 20 \times 2 = 40 $
+- Lateral movement: Continue transitioning to the left lane. Assume $ Y = -2 $.
+- Position: $ (X, Y) = (40, -2) $
+
+#### **T = 3**
+- Longitudinal movement: $ X = 20 \times 3 = 60 $
+- Lateral movement: Complete the transition to the left lane. Assume $ Y = -5 $.
+- Position: $ (X, Y) = (60, -5) $
+
+#### **T = 4**
+- Longitudinal movement: $ X = 20 \times 4 = 80 $
+- Lateral movement: Maintain the left lane position ($ Y = -5 $).
+- Position: $ (X, Y) = (80, -5) $
+
+#### **T = 5**
+- Longitudinal movement: $ X = 20 \times 5 = 100 $
+- Lateral movement: Maintain the left lane position ($ Y = -5 $) to pass the obstacle.
+- Position: $ (X, Y) = (100, -5) $
+
+#### **T = 6**
+- Longitudinal movement: $ X = 20 \times 6 = 120 $
+- Lateral movement: Begin transitioning back to the right lane. Assume $ Y = -3 $.
+- Position: $ (X, Y) = (120, -3) $
+
+#### **T = 7**
+- Longitudinal movement: $ X = 20 \times 7 = 140 $
+- Lateral movement: Continue transitioning back to the right lane. Assume $ Y = -1 $.
+- Position: $ (X, Y) = (140, -1) $
+
+#### **T = 8**
+- Longitudinal movement: $ X = 20 \times 8 = 160 $
+- Lateral movement: Complete the transition back to the right lane. Assume $ Y = 0 $.
+- Position: $ (X, Y) = (160, 0) $
+
+#### **T = 9**
+- Longitudinal movement: $ X = 20 \times 9 = 180 $
+- Lateral movement: Maintain the right lane position ($ Y = 0 $).
+- Position: $ (X, Y) = (180, 0) $
+
+#### **T = 10**
+- Longitudinal movement: $ X = 20 \times 10 = 200 $
+- Lateral movement: Maintain the right lane position ($ Y = 0 $).
+- Position: $ (X, Y) = (200, 0) $
+
+---
+
+### **Summary of Positions**
+$$
+\begin{aligned}
+& T = 0: (0, 0) \\
+& T = 1: (20, -0.5) \\
+& T = 2: (40, -2) \\
+& T = 3: (60, -5) \\
+& T = 4: (80, -5) \\
+& T = 5: (100, -5) \\
+& T = 6: (120, -3) \\
+& T = 7: (140, -1) \\
+& T = 8: (160, 0) \\
+& T = 9: (180, 0) \\
+& T = 10: (200, 0)
+\end{aligned}
+$$
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the original lane while maintaining a speed above 60 km/h. 
+
+**Final Answer:**
+$$
+\boxed{(200, 0)}
+$$

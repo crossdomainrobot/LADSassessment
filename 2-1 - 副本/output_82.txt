@@ -1,0 +1,59 @@
+To safely navigate around the obstacle while adhering to highway speed limits, we need to plan a smooth trajectory that involves changing lanes, overtaking the stopped vehicle, and returning to the right lane. Below is the detailed trajectory for the next 10 seconds (and beyond if necessary) in terms of positions $(X, Y)$ at each second.
+
+### Key Assumptions:
+1. **Initial Speed**: $72 \, \text{km/h} = 20 \, \text{m/s}$.
+2. **Highway Minimum Speed**: $60 \, \text{km/h} = 16.67 \, \text{m/s}$.
+3. **Lane Width**: The left lane corresponds to $Y = -5$, and the right lane corresponds to $Y = 0$.
+4. **Obstacle Position**: $(100, 0)$.
+5. **Maneuver Requirements**:
+   - Start in the right lane ($Y = 0$).
+   - Gradually move into the left lane ($Y = -5$) before reaching the obstacle.
+   - Stay in the left lane while passing the obstacle.
+   - Return to the right lane after overtaking.
+
+---
+
+### Trajectory Plan:
+
+#### **Phase 1: Lane Change Preparation**
+- Begin moving from the right lane ($Y = 0$) toward the left lane ($Y = -5$) while maintaining a high speed.
+
+#### **Phase 2: Passing the Obstacle**
+- Ensure the vehicle is fully in the left lane ($Y = -5$) when passing the obstacle at $X = 100$.
+
+#### **Phase 3: Returning to the Right Lane**
+- After overtaking the obstacle, gradually return to the right lane ($Y = 0$).
+
+---
+
+### Detailed Positions Over Time
+
+| **Time (T)** | **Position (X, Y)** | **Explanation** |
+|--------------|----------------------|-----------------|
+| $T = 0$      | $(0, 0)$            | Starting position in the right lane. |
+| $T = 1$      | $(20, -1)$          | Begin moving leftward; speed remains $20 \, \text{m/s}$. |
+| $T = 2$      | $(40, -2)$          | Continue moving leftward; speed remains $20 \, \text{m/s}$. |
+| $T = 3$      | $(60, -3)$          | Progressively shift leftward; speed remains $20 \, \text{m/s}$. |
+| $T = 4$      | $(80, -4)$          | Nearly in the left lane; speed remains $20 \, \text{m/s}$. |
+| $T = 5$      | $(100, -5)$         | Fully in the left lane ($Y = -5$); pass the obstacle. |
+| $T = 6$      | $(120, -5)$         | Remain in the left lane; continue overtaking. |
+| $T = 7$      | $(140, -4)$         | Begin returning to the right lane; speed remains $20 \, \text{m/s}$. |
+| $T = 8$      | $(160, -3)$         | Gradually shift back to the right lane. |
+| $T = 9$      | $(180, -2)$         | Continue moving rightward; speed remains $20 \, \text{m/s}$. |
+| $T = 10$     | $(200, -1)$         | Almost back in the right lane. |
+
+---
+
+### Final Maneuver Completion
+- By $T = 11$: The vehicle will be fully back in the right lane ($Y = 0$) at approximately $(220, 0)$.
+- Throughout the maneuver, the vehicle maintains a speed of at least $16.67 \, \text{m/s}$ (60 km/h), ensuring compliance with highway regulations.
+
+---
+
+### Summary of Trajectory
+The vehicle successfully executes a double lane change:
+1. Moves into the left lane before reaching the obstacle.
+2. Passes the obstacle safely while staying in the left lane.
+3. Returns to the right lane after overtaking.
+
+This ensures safe navigation around the obstacle while adhering to highway speed requirements.

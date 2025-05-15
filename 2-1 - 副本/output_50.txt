@@ -1,0 +1,64 @@
+To safely perform the double-lane change maneuver while maintaining a speed of at least 60 km/h, we need to plan a smooth trajectory that ensures the vehicle transitions from the right lane (Y = 0) to the left lane (Y = -5), overtakes the obstacle at X = 100, and then switches back to the right lane. Here's how the trajectory will unfold over time:
+
+### **Key Assumptions:**
+1. The initial speed is 72 km/h (20 m/s).
+2. The vehicle must maintain a speed of at least 60 km/h (16.67 m/s) during the maneuver.
+3. The lateral movement (Y-axis) will be gradual to ensure safety and stability.
+
+---
+
+### **Trajectory Plan**
+
+#### **Initial Position (T = 0):**
+- Starting position: (0, 0)
+- Speed: 72 km/h (20 m/s)
+
+#### **Step-by-Step Trajectory:**
+
+| Time (T) | Position (X, Y)         | Explanation                                                                 |
+|----------|--------------------------|-----------------------------------------------------------------------------|
+| T = 1    | (20, -0.5)              | Begin moving slightly to the left while continuing forward at 20 m/s.          |
+| T = 2    | (40, -1.5)              | Continue transitioning to the left lane while maintaining forward speed.         |
+| T = 3    | (60, -3.0)              | Progressively move further into the left lane.                                |
+| T = 4    | (80, -5.0)              | Fully in the left lane (Y = -5) just before reaching the obstacle.            |
+| T = 5    | (100, -5.0)             | Overtake the obstacle while staying in the left lane.                         |
+| T = 6    | (120, -5.0)             | Continue driving in the left lane after passing the obstacle.                 |
+| T = 7    | (140, -4.0)             | Start transitioning back to the right lane while maintaining forward speed.     |
+| T = 8    | (160, -2.5)             | Gradually move closer to the right lane.                                     |
+| T = 9    | (180, -1.0)             | Almost back in the right lane.                                               |
+| T = 10   | (200, 0.0)              | Fully back in the right lane, completing the maneuver.                         |
+
+---
+
+### **Detailed Analysis of the Maneuver:**
+
+1. **Lateral Movement (Y-axis):**
+   - From T = 0 to T = 4, the vehicle smoothly transitions from the right lane (Y = 0) to the left lane (Y = -5).
+   - At T = 5, the vehicle passes the obstacle while fully in the left lane.
+   - From T = 6 to T = 10, the vehicle transitions back to the right lane.
+
+2. **Longitudinal Movement (X-axis):**
+   - The vehicle maintains a constant longitudinal speed of approximately 20 m/s (72 km/h) throughout the maneuver.
+   - By T = 5, the vehicle has reached X = 100, successfully overtaking the obstacle.
+
+3. **Safety Considerations:**
+   - The lateral movement is gradual to avoid abrupt steering inputs.
+   - The vehicle remains above the minimum speed requirement of 60 km/h (16.67 m/s).
+
+---
+
+### **Final Answer:**
+The trajectory for the next 10 seconds is as follows:
+
+- T = 1: (20, -0.5)
+- T = 2: (40, -1.5)
+- T = 3: (60, -3.0)
+- T = 4: (80, -5.0)
+- T = 5: (100, -5.0)
+- T = 6: (120, -5.0)
+- T = 7: (140, -4.0)
+- T = 8: (160, -2.5)
+- T = 9: (180, -1.0)
+- T = 10: (200, 0.0)
+
+This path ensures a safe and smooth overtaking maneuver while adhering to highway speed regulations.

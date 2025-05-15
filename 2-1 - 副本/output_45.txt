@@ -1,0 +1,101 @@
+To safely navigate the double lane change maneuver while maintaining a velocity of over 60 km/h, we need to carefully plan the trajectory. The vehicle starts at (0, 0) with an initial speed of 72 km/h (20 m/s). We will gradually adjust the lateral position (Y) to move into the left lane, pass the obstacle, and then return to the right lane.
+
+### Key Assumptions:
+1. **Speed**: The vehicle maintains a speed of approximately 20 m/s (72 km/h).
+2. **Lateral Movement**: The vehicle smoothly transitions laterally using a sinusoidal-like path for smooth acceleration/deceleration in the Y direction.
+3. **Obstacle Position**: The obstacle is located at (100, 0).
+
+### Trajectory Plan:
+- Start in the right lane (Y = 0).
+- Gradually move to the left lane (Y = -5) before reaching the obstacle.
+- Pass the obstacle while staying in the left lane.
+- Gradually return to the right lane (Y = 0) after passing the obstacle.
+
+Here¡¯s the detailed trajectory:
+
+---
+
+#### **T = 0**
+- Position: (0, 0)
+- Speed: 20 m/s
+
+---
+
+#### **T = 1**
+- X = 20 m (20 m/s ¡Á 1 s)
+- Y = -0.5 m (gradual transition to the left lane)
+- Position: (20, -0.5)
+
+---
+
+#### **T = 2**
+- X = 40 m (20 m/s ¡Á 2 s)
+- Y = -1.5 m (continuing transition to the left lane)
+- Position: (40, -1.5)
+
+---
+
+#### **T = 3**
+- X = 60 m (20 m/s ¡Á 3 s)
+- Y = -3 m (approaching the left lane)
+- Position: (60, -3)
+
+---
+
+#### **T = 4**
+- X = 80 m (20 m/s ¡Á 4 s)
+- Y = -4.5 m (almost fully in the left lane)
+- Position: (80, -4.5)
+
+---
+
+#### **T = 5**
+- X = 100 m (20 m/s ¡Á 5 s)
+- Y = -5 m (fully in the left lane, passing the obstacle)
+- Position: (100, -5)
+
+---
+
+#### **T = 6**
+- X = 120 m (20 m/s ¡Á 6 s)
+- Y = -4.5 m (starting to transition back to the right lane)
+- Position: (120, -4.5)
+
+---
+
+#### **T = 7**
+- X = 140 m (20 m/s ¡Á 7 s)
+- Y = -3 m (continuing transition to the right lane)
+- Position: (140, -3)
+
+---
+
+#### **T = 8**
+- X = 160 m (20 m/s ¡Á 8 s)
+- Y = -1.5 m (further transitioning to the right lane)
+- Position: (160, -1.5)
+
+---
+
+#### **T = 9**
+- X = 180 m (20 m/s ¡Á 9 s)
+- Y = -0.5 m (almost back in the right lane)
+- Position: (180, -0.5)
+
+---
+
+#### **T = 10**
+- X = 200 m (20 m/s ¡Á 10 s)
+- Y = 0 m (fully back in the right lane)
+- Position: (200, 0)
+
+---
+
+### Summary of Maneuver:
+- **Lane Change Timing**:
+  - Start moving to the left lane around T = 1¨C4 seconds.
+  - Fully in the left lane by T = 5 seconds (X = 100 m, passing the obstacle).
+  - Begin returning to the right lane around T = 6¨C9 seconds.
+  - Fully back in the right lane by T = 10 seconds.
+
+This trajectory ensures a safe and smooth passage around the obstacle while maintaining highway speed requirements.

@@ -1,0 +1,94 @@
+To safely navigate the obstacle, we need to plan a trajectory that ensures the vehicle transitions smoothly from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle at X = 100, and then switches back to the right lane after clearing the obstacle. The vehicle must maintain a speed of at least 60 km/h (16.67 m/s) throughout the maneuver.
+
+The initial speed is 72 km/h (20 m/s). We will assume the vehicle can change lanes smoothly with a constant lateral acceleration and deceleration. Let's break this into steps:
+
+### Step-by-Step Trajectory Planning
+
+#### Initial Conditions:
+- Initial position: (X, Y) = (0, 0)
+- Initial velocity: 20 m/s
+- Lane width: 5 meters (right lane Y = 0, left lane Y = -5)
+
+#### Maneuver Plan:
+1. **Lane Change to Left Lane (T = 0 to T = 5 seconds):**
+   - Gradually move from Y = 0 to Y = -5 while maintaining a forward speed of approximately 20 m/s.
+   - Use a constant lateral acceleration to achieve the lane change.
+
+2. **Pass Obstacle in Left Lane (T = 5 to T = 10 seconds):**
+   - Continue driving in the left lane (Y = -5) until passing the obstacle at X = 100.
+
+3. **Lane Change Back to Right Lane (T = 10 to T = 15 seconds):**
+   - Gradually move back from Y = -5 to Y = 0 while maintaining a forward speed of approximately 20 m/s.
+
+---
+
+### Trajectory Calculation
+
+#### Timepoint T = 1 second:
+- Forward distance traveled: \( X = 20 \times 1 = 20 \) meters
+- Lateral position: Start moving to the left lane with a constant lateral acceleration. Assume lateral acceleration \( a_y = -1 \, \text{m/s}^2 \).
+  - \( Y = 0 + (-1/2) \times 1^2 = -0.5 \) meters
+- Position: \( (X, Y) = (20, -0.5) \)
+
+#### Timepoint T = 2 seconds:
+- Forward distance traveled: \( X = 20 \times 2 = 40 \) meters
+- Lateral position: Continue accelerating laterally.
+  - \( Y = -0.5 + (-1) \times 1 = -1.5 \) meters
+- Position: \( (X, Y) = (40, -1.5) \)
+
+#### Timepoint T = 3 seconds:
+- Forward distance traveled: \( X = 20 \times 3 = 60 \) meters
+- Lateral position: Continue accelerating laterally.
+  - \( Y = -1.5 + (-1) \times 1 = -2.5 \) meters
+- Position: \( (X, Y) = (60, -2.5) \)
+
+#### Timepoint T = 4 seconds:
+- Forward distance traveled: \( X = 20 \times 4 = 80 \) meters
+- Lateral position: Continue accelerating laterally.
+  - \( Y = -2.5 + (-1) \times 1 = -3.5 \) meters
+- Position: \( (X, Y) = (80, -3.5) \)
+
+#### Timepoint T = 5 seconds:
+- Forward distance traveled: \( X = 20 \times 5 = 100 \) meters
+- Lateral position: Reach the left lane (Y = -5).
+  - \( Y = -3.5 + (-1) \times 1 = -5 \) meters
+- Position: \( (X, Y) = (100, -5) \)
+
+#### Timepoint T = 6 seconds:
+- Forward distance traveled: \( X = 20 \times 6 = 120 \) meters
+- Lateral position: Remain in the left lane (Y = -5).
+- Position: \( (X, Y) = (120, -5) \)
+
+#### Timepoint T = 7 seconds:
+- Forward distance traveled: \( X = 20 \times 7 = 140 \) meters
+- Lateral position: Remain in the left lane (Y = -5).
+- Position: \( (X, Y) = (140, -5) \)
+
+#### Timepoint T = 8 seconds:
+- Forward distance traveled: \( X = 20 \times 8 = 160 \) meters
+- Lateral position: Remain in the left lane (Y = -5).
+- Position: \( (X, Y) = (160, -5) \)
+
+#### Timepoint T = 9 seconds:
+- Forward distance traveled: \( X = 20 \times 9 = 180 \) meters
+- Lateral position: Begin moving back to the right lane with a constant lateral acceleration \( a_y = 1 \, \text{m/s}^2 \).
+  - \( Y = -5 + (1/2) \times 1^2 = -4.5 \) meters
+- Position: \( (X, Y) = (180, -4.5) \)
+
+#### Timepoint T = 10 seconds:
+- Forward distance traveled: \( X = 20 \times 10 = 200 \) meters
+- Lateral position: Continue moving back to the right lane.
+  - \( Y = -4.5 + 1 \times 1 = -3.5 \) meters
+- Position: \( (X, Y) = (200, -3.5) \)
+
+---
+
+### Final Maneuver Completion
+Continue the same process until the vehicle fully transitions back to the right lane (Y = 0) at around T = 15 seconds.
+
+### Summary of Key Positions:
+- **T = 5:** \( (100, -5) \) ¡ª Fully in the left lane, ready to pass the obstacle.
+- **T = 10:** \( (200, -3.5) \) ¡ª Starting to transition back to the right lane.
+- **T = 15:** \( (300, 0) \) ¡ª Fully back in the right lane.
+
+This trajectory ensures a safe and smooth double lane change maneuver while maintaining highway speed.

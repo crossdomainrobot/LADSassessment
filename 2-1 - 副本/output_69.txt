@@ -1,0 +1,87 @@
+To safely navigate the double lane change maneuver while adhering to highway speed regulations, we need to carefully plan the trajectory of the vehicle. The key constraints are:
+
+1. **Initial speed**: 72 km/h (or approximately 20 m/s).
+2. **Minimum speed on the highway**: 60 km/h (or approximately 16.67 m/s).
+3. **Obstacle position**: At (X = 100, Y = 0).
+4. **Lane positions**:
+   - Right lane: Y = 0.
+   - Left lane: Y = -5.
+
+We will smoothly transition from the right lane to the left lane, pass the obstacle in the left lane, and then return to the right lane after clearing the obstacle. Below is the planned trajectory for the next 10 seconds:
+
+---
+
+### **Trajectory Plan**
+#### **T = 0**
+- Initial position: (0, 0).
+- Speed: 20 m/s.
+
+---
+
+#### **T = 1**
+- **Position**: (20, -0.5).
+- **Explanation**: Begin a gentle lateral movement toward the left lane while maintaining speed close to 20 m/s.
+
+---
+
+#### **T = 2**
+- **Position**: (40, -1.5).
+- **Explanation**: Continue moving laterally toward the left lane at a controlled rate.
+
+---
+
+#### **T = 3**
+- **Position**: (60, -3.0).
+- **Explanation**: Reach halfway into the left lane as the vehicle continues forward at 20 m/s.
+
+---
+
+#### **T = 4**
+- **Position**: (80, -4.5).
+- **Explanation**: Almost fully in the left lane, preparing to pass the obstacle.
+
+---
+
+#### **T = 5**
+- **Position**: (100, -5.0).
+- **Explanation**: Fully in the left lane, passing the obstacle safely at X = 100.
+
+---
+
+#### **T = 6**
+- **Position**: (120, -5.0).
+- **Explanation**: Remain in the left lane while continuing to move forward at 20 m/s.
+
+---
+
+#### **T = 7**
+- **Position**: (140, -4.0).
+- **Explanation**: Begin transitioning back to the right lane after clearing the obstacle.
+
+---
+
+#### **T = 8**
+- **Position**: (160, -2.0).
+- **Explanation**: Continue moving laterally toward the right lane while maintaining speed.
+
+---
+
+#### **T = 9**
+- **Position**: (180, -0.5).
+- **Explanation**: Nearly back in the right lane, completing the maneuver.
+
+---
+
+#### **T = 10**
+- **Position**: (200, 0.0).
+- **Explanation**: Fully returned to the right lane, resuming normal driving.
+
+---
+
+### **Summary**
+This trajectory ensures that:
+1. The vehicle transitions smoothly between lanes without abrupt movements.
+2. The vehicle maintains a speed above 60 km/h throughout the maneuver.
+3. The obstacle at (X = 100, Y = 0) is safely passed while in the left lane.
+
+If you'd like me to refine this further or adjust parameters, let me know!

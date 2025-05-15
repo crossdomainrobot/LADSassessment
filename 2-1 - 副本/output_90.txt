@@ -1,0 +1,73 @@
+To safely navigate around the obstacle vehicle, we need to plan a smooth trajectory that involves transitioning from the right lane (Y = 0) to the left lane (Y = -5), passing the obstacle at X = 100, and then returning to the right lane. The vehicle must maintain a speed of over 60 km/h during this maneuver.
+
+### Step-by-Step Trajectory Planning
+
+#### **Initial Conditions:**
+- Initial position: (0, 0)
+- Initial velocity: 72 km/h = 20 m/s
+- Obstacle location: (100, 0)
+- Left lane Y-coordinate: -5
+- Right lane Y-coordinate: 0
+
+We will use a constant longitudinal speed of 20 m/s (72 km/h) for simplicity. For lateral movement (Y-axis), we will smoothly transition using a sinusoidal-like curve to ensure a safe and comfortable lane change.
+
+---
+
+### **Trajectory Calculation**
+
+#### **Timepoints T = 1 to 10 seconds:**
+
+| **Time (T)** | **Position (X, Y)** |
+|--------------|----------------------|
+| **T = 0**    | (0, 0)              |
+| **T = 1**    | (20, -0.5)          |
+| **T = 2**    | (40, -2)            |
+| **T = 3**    | (60, -3.5)          |
+| **T = 4**    | (80, -5)            | *(Fully in the left lane)* |
+| **T = 5**    | (100, -5)           | *(Passing the obstacle)* |
+| **T = 6**    | (120, -5)           | *(Still in the left lane)* |
+| **T = 7**    | (140, -3.5)         |
+| **T = 8**    | (160, -2)           |
+| **T = 9**    | (180, -0.5)         |
+| **T = 10**   | (200, 0)            | *(Back in the right lane)* |
+
+---
+
+### **Explanation of the Trajectory:**
+
+1. **Lateral Movement (Y-axis):**
+   - From **T = 0 to T = 4**: Gradually move from the right lane (Y = 0) to the left lane (Y = -5).
+   - At **T = 4**, the vehicle is fully in the left lane.
+   - From **T = 5 to T = 6**: Maintain the left lane position while passing the obstacle at X = 100.
+   - From **T = 7 to T = 10**: Gradually return from the left lane (Y = -5) to the right lane (Y = 0).
+
+2. **Longitudinal Movement (X-axis):**
+   - The vehicle travels at a constant speed of 20 m/s, so the X-coordinate increases by 20 meters every second.
+
+3. **Safety Considerations:**
+   - The vehicle stays in the left lane while passing the obstacle at X = 100.
+   - The lateral transitions are smooth to ensure comfort and safety.
+
+---
+
+### **Final Answer:**
+
+The trajectory for the next 10 seconds is as follows:
+
+$$
+\boxed{
+\begin{aligned}
+&\text{T = 0: } (0, 0) \\
+&\text{T = 1: } (20, -0.5) \\
+&\text{T = 2: } (40, -2) \\
+&\text{T = 3: } (60, -3.5) \\
+&\text{T = 4: } (80, -5) \\
+&\text{T = 5: } (100, -5) \\
+&\text{T = 6: } (120, -5) \\
+&\text{T = 7: } (140, -3.5) \\
+&\text{T = 8: } (160, -2) \\
+&\text{T = 9: } (180, -0.5) \\
+&\text{T = 10: } (200, 0)
+\end{aligned}
+}
+$$

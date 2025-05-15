@@ -1,0 +1,66 @@
+To safely navigate the obstacle and complete the double lane change maneuver while maintaining highway speed, we need to carefully plan a smooth trajectory. Below is the planned trajectory for the vehicle over the next 10 seconds, ensuring that the vehicle stays in the left lane (Y = -5) when passing the obstacle at X = 100.
+
+### Key Assumptions:
+1. Initial speed: 72 km/h = 20 m/s.
+2. Highway minimum speed: 60 km/h = 16.67 m/s.
+3. The vehicle will smoothly transition laterally between lanes using a sinusoidal-like motion to ensure comfort and safety.
+4. The longitudinal position (X) increases linearly with time based on the vehicle's speed.
+5. Lane width: 5 meters (right lane Y = 0, left lane Y = -5).
+
+---
+
+### Trajectory Plan:
+
+| Time (T) | Position (X, Y)       | Speed (m/s) | Notes                                                                 |
+|----------|------------------------|-------------|----------------------------------------------------------------------|
+| T = 0    | (0, 0)                | 20          | Starting position in the right lane.                                  |
+| T = 1    | (20, -1.25)           | 20          | Begin lateral movement toward the left lane.                          |
+| T = 2    | (40, -2.5)            | 20          | Continue transitioning to the left lane.                               |
+| T = 3    | (60, -3.75)           | 20          | Further into the left lane.                                          |
+| T = 4    | (80, -5)              | 20          | Fully in the left lane, ready to pass the obstacle.                   |
+| T = 5    | (100, -5)             | 20          | Passing the obstacle at X = 100, fully in the left lane.              |
+| T = 6    | (120, -5)             | 20          | Continuing in the left lane after passing the obstacle.               |
+| T = 7    | (140, -3.75)          | 20          | Beginning to transition back to the right lane.                       |
+| T = 8    | (160, -2.5)           | 20          | Further transitioning to the right lane.                              |
+| T = 9    | (180, -1.25)          | 20          | Almost back in the right lane.                                      |
+| T = 10   | (200, 0)              | 20          | Fully back in the right lane, maneuver complete.                     |
+
+---
+
+### Explanation of the Maneuver:
+1. **Initial Phase (T = 0 to T = 4):**
+   - The vehicle starts in the right lane (Y = 0) and begins a gradual lateral transition to the left lane (Y = -5).
+   - By T = 4, the vehicle has fully entered the left lane at X = 80.
+
+2. **Passing the Obstacle (T = 4 to T = 6):**
+   - The vehicle remains in the left lane (Y = -5) as it passes the stopped vehicle at X = 100.
+   - The longitudinal speed remains constant at 20 m/s (72 km/h).
+
+3. **Transition Back to the Right Lane (T = 6 to T = 10):**
+   - After passing the obstacle, the vehicle gradually transitions back to the right lane (Y = 0).
+   - By T = 10, the vehicle has fully returned to the right lane at X = 200.
+
+---
+
+### Final Answer:
+The planned trajectory ensures the vehicle safely navigates the obstacle while adhering to highway speed requirements. The positions at each second are summarized in the table above. 
+
+**Boxed Final Answer:**
+$$
+\boxed{
+\text{Trajectory: } 
+\begin{aligned}
+&T = 0: (0, 0), \\
+&T = 1: (20, -1.25), \\
+&T = 2: (40, -2.5), \\
+&T = 3: (60, -3.75), \\
+&T = 4: (80, -5), \\
+&T = 5: (100, -5), \\
+&T = 6: (120, -5), \\
+&T = 7: (140, -3.75), \\
+&T = 8: (160, -2.5), \\
+&T = 9: (180, -1.25), \\
+&T = 10: (200, 0).
+\end{aligned}
+}
+$$

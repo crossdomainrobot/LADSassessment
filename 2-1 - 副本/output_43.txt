@@ -1,0 +1,104 @@
+To safely navigate the double lane change maneuver while ensuring compliance with highway speed limits, I will plan a smooth trajectory that involves gradually moving into the left lane, passing the obstacle, and then returning to the right lane. Below is the step-by-step plan for the vehicle's position at each second over the next 10 seconds:
+
+### **Key Assumptions:**
+1. Initial velocity = 72 km/h ¡Ö 20 m/s.
+2. Highway minimum speed = 60 km/h ¡Ö 16.67 m/s.
+3. The vehicle maintains a constant longitudinal speed of 20 m/s during the maneuver.
+4. Lateral movement (Y-axis) follows a smooth sinusoidal-like curve to ensure safe and gradual lane changes.
+
+---
+
+### **Trajectory Plan:**
+
+#### **T = 0 (Initial Position):**
+- Vehicle starts at position: **(0, 0)**.
+
+---
+
+#### **T = 1:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 1 \, \text{s} = 20 \, \text{m} \).
+- Begin lateral movement toward the left lane: \( Y = -1 \, \text{m} \).
+- Position: **(20, -1)**.
+
+---
+
+#### **T = 2:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 2 \, \text{s} = 40 \, \text{m} \).
+- Continue lateral movement: \( Y = -2 \, \text{m} \).
+- Position: **(40, -2)**.
+
+---
+
+#### **T = 3:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m} \).
+- Further lateral movement: \( Y = -3 \, \text{m} \).
+- Position: **(60, -3)**.
+
+---
+
+#### **T = 4:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 4 \, \text{s} = 80 \, \text{m} \).
+- Complete lateral movement into the left lane: \( Y = -5 \, \text{m} \).
+- Position: **(80, -5)**.
+
+---
+
+#### **T = 5:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 5 \, \text{s} = 100 \, \text{m} \).
+- Maintain position in the left lane: \( Y = -5 \, \text{m} \).
+- Position: **(100, -5)**.
+- **Passing the obstacle** at this point.
+
+---
+
+#### **T = 6:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 6 \, \text{s} = 120 \, \text{m} \).
+- Start lateral movement back to the right lane: \( Y = -4 \, \text{m} \).
+- Position: **(120, -4)**.
+
+---
+
+#### **T = 7:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 7 \, \text{s} = 140 \, \text{m} \).
+- Continue lateral movement: \( Y = -3 \, \text{m} \).
+- Position: **(140, -3)**.
+
+---
+
+#### **T = 8:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 8 \, \text{s} = 160 \, \text{m} \).
+- Further lateral movement: \( Y = -2 \, \text{m} \).
+- Position: **(160, -2)**.
+
+---
+
+#### **T = 9:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 9 \, \text{s} = 180 \, \text{m} \).
+- Nearly back to the right lane: \( Y = -1 \, \text{m} \).
+- Position: **(180, -1)**.
+
+---
+
+#### **T = 10:**
+- Longitudinal distance traveled: \( X = 20 \, \text{m/s} \times 10 \, \text{s} = 200 \, \text{m} \).
+- Fully back in the right lane: \( Y = 0 \, \text{m} \).
+- Position: **(200, 0)**.
+
+---
+
+### **Summary of Trajectory:**
+| Time (s) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -3)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -4)       |
+| 7        | (140, -3)       |
+| 8        | (160, -2)       |
+| 9        | (180, -1)       |
+| 10       | (200, 0)        |
+
+This trajectory ensures a smooth and safe double lane change maneuver while maintaining highway speed requirements.

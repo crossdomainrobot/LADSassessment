@@ -1,0 +1,106 @@
+To safely navigate around the obstacle vehicle located at (100, 0), we need to plan a smooth and safe trajectory that ensures the following:
+
+1. **Initial Lane Change:** Gradually move from the right lane (Y = 0) to the left lane (Y = -5).
+2. **Passing the Obstacle:** Stay in the left lane while passing the obstacle at X = 100.
+3. **Return to Right Lane:** Gradually return to the right lane (Y = 0) after passing the obstacle.
+
+### Key Assumptions:
+- Initial speed: 72 km/h ¡Ö 20 m/s.
+- Minimum highway speed: > 60 km/h ¡Ö 16.67 m/s.
+- Acceleration/deceleration for lateral movement is gradual and safe.
+- The longitudinal position (X) increases steadily at approximately 20 m/s.
+
+Here¡¯s the planned trajectory:
+
+---
+
+### Trajectory Plan
+
+#### **T = 0**
+- Position: (0, 0)
+- Speed: 20 m/s
+- Lane: Right lane
+
+---
+
+#### **T = 1**
+- Position: (20, -0.5)
+- Speed: 20 m/s
+- Lane: Starting to move slightly left
+
+---
+
+#### **T = 2**
+- Position: (40, -1.5)
+- Speed: 20 m/s
+- Lane: Continuing to move left
+
+---
+
+#### **T = 3**
+- Position: (60, -3)
+- Speed: 20 m/s
+- Lane: Nearing the left lane
+
+---
+
+#### **T = 4**
+- Position: (80, -4.5)
+- Speed: 20 m/s
+- Lane: Almost fully in the left lane
+
+---
+
+#### **T = 5**
+- Position: (100, -5)
+- Speed: 20 m/s
+- Lane: Fully in the left lane (passing the obstacle)
+
+---
+
+#### **T = 6**
+- Position: (120, -5)
+- Speed: 20 m/s
+- Lane: Maintaining position in the left lane
+
+---
+
+#### **T = 7**
+- Position: (140, -4.5)
+- Speed: 20 m/s
+- Lane: Starting to move back to the right lane
+
+---
+
+#### **T = 8**
+- Position: (160, -3)
+- Speed: 20 m/s
+- Lane: Continuing to move right
+
+---
+
+#### **T = 9**
+- Position: (180, -1.5)
+- Speed: 20 m/s
+- Lane: Nearly back in the right lane
+
+---
+
+#### **T = 10**
+- Position: (200, 0)
+- Speed: 20 m/s
+- Lane: Fully back in the right lane
+
+---
+
+### Summary of Key Points:
+1. **Lane Change Timing:**
+   - Start moving left at T = 1.
+   - Fully in the left lane by T = 5 (at X = 100).
+   - Begin returning to the right lane at T = 7.
+   - Fully back in the right lane by T = 10.
+
+2. **Speed Management:**
+   - Maintain a constant speed of 20 m/s throughout the maneuver to comply with highway speed regulations.
+
+This trajectory ensures a smooth and safe double lane change while adhering to highway driving rules.

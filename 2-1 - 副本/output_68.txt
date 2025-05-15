@@ -1,0 +1,75 @@
+To safely execute the double lane change maneuver while maintaining a highway-appropriate speed, I'll plan a trajectory that smoothly transitions to the left lane, passes the obstacle, and then switches back to the right lane. Below is the step-by-step trajectory for the next 10 seconds:
+
+### Key Details:
+- **Initial Speed**: 72 km/h = 20 m/s
+- **Obstacle Position**: (100, 0)
+- **Left Lane Y-coordinate**: -5
+- **Right Lane Y-coordinate**: 0
+
+### Trajectory Plan:
+1. Start in the right lane at (0, 0).
+2. Gradually transition to the left lane by adjusting the Y-coordinate.
+3. Maintain a velocity of over 60 km/h (16.67 m/s) throughout the maneuver.
+4. Stay in the left lane while passing the obstacle at X = 100.
+5. Transition back to the right lane after passing the obstacle.
+
+Here¡¯s the planned trajectory:
+
+#### T = 0 (Initial Position):
+- Position: (0, 0)
+
+#### T = 1:
+- X = 20 * 1 = 20 m (maintaining 20 m/s speed)
+- Y = -1 (gradual shift to the left lane)
+- Position: (20, -1)
+
+#### T = 2:
+- X = 20 * 2 = 40 m
+- Y = -2.5 (continuing the lane shift)
+- Position: (40, -2.5)
+
+#### T = 3:
+- X = 20 * 3 = 60 m
+- Y = -4 (almost fully in the left lane)
+- Position: (60, -4)
+
+#### T = 4:
+- X = 20 * 4 = 80 m
+- Y = -5 (fully in the left lane)
+- Position: (80, -5)
+
+#### T = 5:
+- X = 20 * 5 = 100 m
+- Y = -5 (still in the left lane, passing the obstacle)
+- Position: (100, -5)
+
+#### T = 6:
+- X = 20 * 6 = 120 m
+- Y = -5 (remaining in the left lane)
+- Position: (120, -5)
+
+#### T = 7:
+- X = 20 * 7 = 140 m
+- Y = -4 (beginning to shift back to the right lane)
+- Position: (140, -4)
+
+#### T = 8:
+- X = 20 * 8 = 160 m
+- Y = -2.5 (continuing the lane shift)
+- Position: (160, -2.5)
+
+#### T = 9:
+- X = 20 * 9 = 180 m
+- Y = -1 (nearing the right lane)
+- Position: (180, -1)
+
+#### T = 10:
+- X = 20 * 10 = 200 m
+- Y = 0 (fully back in the right lane)
+- Position: (200, 0)
+
+### Summary:
+- The vehicle starts in the right lane and gradually moves to the left lane by T = 4.
+- It remains in the left lane while passing the obstacle at X = 100 (T = 5).
+- After passing the obstacle, it shifts back to the right lane by T = 10.
+- Throughout the maneuver, the vehicle maintains a speed of 20 m/s (72 km/h), ensuring compliance with highway speed regulations.

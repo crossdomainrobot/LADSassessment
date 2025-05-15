@@ -1,0 +1,87 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to ensure that the vehicle stays within the speed limit (over 60 km/h), avoids the obstacle at $ X = 100 $, and switches back to the right lane after passing the obstacle. The initial velocity is 72 km/h, which translates to approximately $ 20 \, \text{m/s} $. Below is the planned trajectory:
+
+---
+
+### **Initial Setup**
+- Initial position: $ (X_0, Y_0) = (0, 0) $
+- Initial velocity: $ v_0 = 20 \, \text{m/s} $
+- Lane width: $ 5 \, \text{m} $ (right lane: $ Y = 0 $, left lane: $ Y = -5 $)
+- Obstacle position: $ (X_{\text{obs}}, Y_{\text{obs}}) = (100, 0) $
+
+We will use a smooth lateral motion (Y-axis) while maintaining longitudinal progress (X-axis).
+
+---
+
+### **Trajectory Plan**
+The vehicle will:
+1. Gradually move into the left lane ($ Y = -5 $) over the first few seconds.
+2. Pass the obstacle at $ X = 100 $ while staying in the left lane.
+3. Gradually return to the right lane ($ Y = 0 $) after passing the obstacle.
+
+Here is the detailed trajectory for the next 10 seconds:
+
+#### **T = 1 second**
+- Longitudinal position: $ X = 20 \, \text{m} $ (constant speed of $ 20 \, \text{m/s} $)
+- Lateral position: $ Y = -1 \, \text{m} $ (gradual transition to the left lane)
+- Position: $ (20, -1) $
+
+#### **T = 2 seconds**
+- Longitudinal position: $ X = 40 \, \text{m} $
+- Lateral position: $ Y = -2 \, \text{m} $
+- Position: $ (40, -2) $
+
+#### **T = 3 seconds**
+- Longitudinal position: $ X = 60 \, \text{m} $
+- Lateral position: $ Y = -3 \, \text{m} $
+- Position: $ (60, -3) $
+
+#### **T = 4 seconds**
+- Longitudinal position: $ X = 80 \, \text{m} $
+- Lateral position: $ Y = -4 \, \text{m} $
+- Position: $ (80, -4) $
+
+#### **T = 5 seconds**
+- Longitudinal position: $ X = 100 \, \text{m} $ (reaching the obstacle)
+- Lateral position: $ Y = -5 \, \text{m} $ (fully in the left lane)
+- Position: $ (100, -5) $
+
+#### **T = 6 seconds**
+- Longitudinal position: $ X = 120 \, \text{m} $
+- Lateral position: $ Y = -5 \, \text{m} $ (still in the left lane)
+- Position: $ (120, -5) $
+
+#### **T = 7 seconds**
+- Longitudinal position: $ X = 140 \, \text{m} $
+- Lateral position: $ Y = -4 \, \text{m} $ (gradual transition back to the right lane)
+- Position: $ (140, -4) $
+
+#### **T = 8 seconds**
+- Longitudinal position: $ X = 160 \, \text{m} $
+- Lateral position: $ Y = -3 \, \text{m} $
+- Position: $ (160, -3) $
+
+#### **T = 9 seconds**
+- Longitudinal position: $ X = 180 \, \text{m} $
+- Lateral position: $ Y = -2 \, \text{m} $
+- Position: $ (180, -2) $
+
+#### **T = 10 seconds**
+- Longitudinal position: $ X = 200 \, \text{m} $
+- Lateral position: $ Y = -1 \, \text{m} $
+- Position: $ (200, -1) $
+
+---
+
+### **Completion of Maneuver**
+After $ T = 10 \, \text{s} $, the vehicle can fully return to the right lane ($ Y = 0 $) while continuing to drive forward. The maneuver is completed safely, with the vehicle maintaining a speed above 60 km/h throughout.
+
+---
+
+### **Summary of Key Points**
+- At $ T = 5 \, \text{s} $, the vehicle passes the obstacle ($ X = 100 $) while fully in the left lane ($ Y = -5 $).
+- By $ T = 10 \, \text{s} $, the vehicle has started transitioning back to the right lane.
+- The vehicle's speed remains constant at $ 20 \, \text{m/s} $ (72 km/h), ensuring compliance with highway speed limits.
+
+$$
+\boxed{\text{Maneuver successfully planned and executed.}}
+$$

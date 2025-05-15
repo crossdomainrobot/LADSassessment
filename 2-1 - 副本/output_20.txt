@@ -1,0 +1,92 @@
+To safely execute the double lane change maneuver while maintaining a velocity of over 60 km/h, we need to plan a smooth trajectory that avoids abrupt changes in speed or direction. Below is the step-by-step trajectory for the next 10 seconds and beyond until the maneuver is completed.
+
+### Key Details:
+- Initial speed: **72 km/h = 20 m/s**
+- Minimum speed on highway: **60 km/h = 16.67 m/s**
+- Obstacle location: **(100, 0)**
+- Left lane Y-coordinate: **Y = -5**
+- Right lane Y-coordinate: **Y = 0**
+
+---
+
+### Trajectory Plan:
+
+#### Phase 1: Begin Lane Change (T = 0 to T = 3)
+In this phase, the vehicle starts moving from the right lane (Y = 0) toward the left lane (Y = -5). The lateral movement should be gradual to ensure safety and comfort.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+
+**Explanation**: 
+- At T = 0, the vehicle is at (0, 0).
+- By T = 3, the vehicle has moved 60 meters forward along the X-axis and fully transitioned into the left lane (Y = -5).
+
+---
+
+#### Phase 2: Maintain Speed in Left Lane (T = 3 to T = 7)
+In this phase, the vehicle continues driving straight in the left lane at a constant speed of 20 m/s to safely pass the obstacle at X = 100.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+
+**Explanation**:
+- From T = 3 to T = 7, the vehicle travels at 20 m/s along the left lane (Y = -5).
+- At T = 5, the vehicle safely passes the obstacle located at (100, 0).
+
+---
+
+#### Phase 3: Return to Right Lane (T = 7 to T = 9)
+In this phase, the vehicle transitions back to the right lane (Y = 0) after passing the obstacle.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 7        | (140, -5)       |
+| 8        | (160, -3.33)    |
+| 9        | (180, -1.67)    |
+
+**Explanation**:
+- Starting at T = 7, the vehicle begins moving laterally back toward the right lane.
+- By T = 9, the vehicle is halfway through the transition.
+
+---
+
+#### Phase 4: Complete Lane Change Back to Right Lane (T = 9 to T = 10)
+In this final phase, the vehicle completes its return to the right lane.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 9        | (180, -1.67)    |
+| 10       | (200, 0)        |
+
+**Explanation**:
+- By T = 10, the vehicle has returned to the right lane (Y = 0) and is now traveling at 20 m/s.
+
+---
+
+### Final Trajectory Summary:
+The vehicle successfully executes the double lane change maneuver while maintaining a speed above 60 km/h. Here¡¯s the complete trajectory:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -3.33)    |
+| 9        | (180, -1.67)    |
+| 10       | (200, 0)        |
+
+This trajectory ensures a safe and smooth passage around the obstacle while adhering to highway speed requirements.

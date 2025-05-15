@@ -1,0 +1,79 @@
+To safely navigate the double lane change maneuver while maintaining highway speed, I will plan a smooth trajectory that ensures the vehicle remains at or above 60 km/h and avoids the obstacle located at (100, 0). Below is the detailed trajectory for the next 10 seconds:
+
+### **Initial Conditions:**
+- Initial position: (0, 0)
+- Initial velocity: 72 km/h = 20 m/s
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: -5
+
+---
+
+### **Trajectory Plan:**
+The vehicle will:
+1. Gradually move into the left lane starting from T = 0.
+2. Pass the obstacle at X = 100 in the left lane (Y = -5).
+3. Gradually return to the right lane after passing the obstacle.
+
+Here¡¯s the step-by-step trajectory:
+
+#### **T = 0 (Initial Position):**
+- Position: (0, 0)
+
+#### **T = 1:**
+- The vehicle begins to shift slightly to the left.
+- Position: (20, -1)
+
+#### **T = 2:**
+- The vehicle continues shifting left while maintaining speed.
+- Position: (40, -2)
+
+#### **T = 3:**
+- The vehicle is halfway into the left lane.
+- Position: (60, -3)
+
+#### **T = 4:**
+- The vehicle fully enters the left lane.
+- Position: (80, -5)
+
+#### **T = 5:**
+- The vehicle passes the obstacle at X = 100 while staying in the left lane.
+- Position: (100, -5)
+
+#### **T = 6:**
+- The vehicle continues moving forward in the left lane.
+- Position: (120, -5)
+
+#### **T = 7:**
+- The vehicle starts shifting back to the right lane.
+- Position: (140, -3)
+
+#### **T = 8:**
+- The vehicle continues shifting right.
+- Position: (160, -2)
+
+#### **T = 9:**
+- The vehicle is halfway back to the right lane.
+- Position: (180, -1)
+
+#### **T = 10:**
+- The vehicle fully returns to the right lane.
+- Position: (200, 0)
+
+---
+
+### **Summary of Trajectory:**
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -3)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -3)       |
+| 8        | (160, -2)       |
+| 9        | (180, -1)       |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle safely changes lanes, avoids the obstacle, and returns to the original lane while maintaining highway speed.

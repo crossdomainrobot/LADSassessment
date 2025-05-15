@@ -1,0 +1,90 @@
+To safely navigate the double lane change maneuver, we need to plan a smooth trajectory that ensures the vehicle transitions from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle at X = 100, and then returns to the right lane. The vehicle must maintain a speed of at least 60 km/h throughout the maneuver.
+
+### Step 1: Convert Speed to Meters Per Second
+The initial speed is 72 km/h, which converts to:
+$$
+72 \, \text{km/h} = \frac{72 \times 1000}{3600} = 20 \, \text{m/s}.
+$$
+
+We will assume the vehicle maintains this speed during the maneuver.
+
+### Step 2: Define the Trajectory
+The trajectory will involve three phases:
+1. **Lane Change to Left Lane**: Gradually move from Y = 0 to Y = -5 while continuing forward.
+2. **Pass the Obstacle**: Stay in the left lane (Y = -5) as the vehicle reaches X = 100.
+3. **Lane Change Back to Right Lane**: Gradually return from Y = -5 to Y = 0 after passing the obstacle.
+
+### Step 3: Plan the Path
+We will calculate the position (X, Y) at each second for the next 10 seconds. The vehicle starts at (0, 0) at T = 0.
+
+#### Phase 1: Lane Change to Left Lane (T = 0 to T = 5)
+- Move from Y = 0 to Y = -5 over 5 seconds.
+- Simultaneously, continue moving forward at 20 m/s along the X-axis.
+
+At each second:
+$$
+Y(T) = -T \quad \text{(for T = 0 to 5)}.
+$$
+$$
+X(T) = 20 \times T.
+$$
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1    |
+| 2        | 40    | -2    |
+| 3        | 60    | -3    |
+| 4        | 80    | -4    |
+| 5        | 100   | -5    |
+
+#### Phase 2: Pass the Obstacle (T = 5 to T = 6)
+- Remain in the left lane (Y = -5).
+- Continue moving forward at 20 m/s along the X-axis.
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+
+#### Phase 3: Lane Change Back to Right Lane (T = 6 to T = 10)
+- Gradually move from Y = -5 to Y = 0 over 4 seconds.
+- Continue moving forward at 20 m/s along the X-axis.
+
+At each second:
+$$
+Y(T) = -5 + (T - 6) \quad \text{(for T = 6 to 10)}.
+$$
+$$
+X(T) = 20 \times T.
+$$
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 6        | 120   | -5    |
+| 7        | 140   | -4    |
+| 8        | 160   | -3    |
+| 9        | 180   | -2    |
+| 10       | 200   | -1    |
+
+### Final Answer: Positions Over the Next 10 Seconds
+$$
+\boxed{
+\begin{aligned}
+&\text{Time (T)} & \text{X (m)} & \text{Y (m)} \\
+&0 & 0 & 0 \\
+&1 & 20 & -1 \\
+&2 & 40 & -2 \\
+&3 & 60 & -3 \\
+&4 & 80 & -4 \\
+&5 & 100 & -5 \\
+&6 & 120 & -5 \\
+&7 & 140 & -4 \\
+&8 & 160 & -3 \\
+&9 & 180 & -2 \\
+&10 & 200 & -1 \\
+\end{aligned}
+}
+$$
+
+By following this trajectory, the vehicle safely changes lanes, passes the obstacle, and returns to the right lane while maintaining highway speeds.

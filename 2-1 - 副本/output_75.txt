@@ -1,0 +1,80 @@
+To safely navigate the double lane change maneuver, I will describe a smooth trajectory that ensures the vehicle stays within the speed limits while avoiding the obstacle. The vehicle starts at (0, 0) and must transition to the left lane (Y = -5), overtake the stopped vehicle at X = 100, and then return to the right lane (Y = 0). Below is the planned trajectory for the next 10 seconds.
+
+### Initial Conditions:
+- **Initial position**: (0, 0)
+- **Initial velocity**: 72 km/h ¡Ö 20 m/s
+- **Lane width**: 5 meters (right lane: Y = 0, left lane: Y = -5)
+- **Obstacle location**: (100, 0)
+
+### Trajectory Plan:
+The vehicle will smoothly transition laterally while maintaining a longitudinal velocity of approximately 20 m/s. Here's the step-by-step plan:
+
+#### T = 0 (Initial Position):
+- Position: (0, 0)
+
+#### T = 1:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 1 \, \text{s} = 20 \, \text{m}\)
+- Lateral movement: Start transitioning to the left lane.
+- Position: (20, -1)
+
+#### T = 2:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 2 \, \text{s} = 40 \, \text{m}\)
+- Lateral movement: Continue transitioning to the left lane.
+- Position: (40, -2)
+
+#### T = 3:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m}\)
+- Lateral movement: Complete transition to the left lane.
+- Position: (60, -5)
+
+#### T = 4:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 4 \, \text{s} = 80 \, \text{m}\)
+- Lateral movement: Maintain position in the left lane.
+- Position: (80, -5)
+
+#### T = 5:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 5 \, \text{s} = 100 \, \text{m}\)
+- Lateral movement: Pass the obstacle in the left lane.
+- Position: (100, -5)
+
+#### T = 6:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 6 \, \text{s} = 120 \, \text{m}\)
+- Lateral movement: Begin transitioning back to the right lane.
+- Position: (120, -4)
+
+#### T = 7:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 7 \, \text{s} = 140 \, \text{m}\)
+- Lateral movement: Continue transitioning back to the right lane.
+- Position: (140, -3)
+
+#### T = 8:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 8 \, \text{s} = 160 \, \text{m}\)
+- Lateral movement: Continue transitioning back to the right lane.
+- Position: (160, -2)
+
+#### T = 9:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 9 \, \text{s} = 180 \, \text{m}\)
+- Lateral movement: Complete transition back to the right lane.
+- Position: (180, -1)
+
+#### T = 10:
+- Longitudinal distance traveled: \(20 \, \text{m/s} \times 10 \, \text{s} = 200 \, \text{m}\)
+- Lateral movement: Fully back in the right lane.
+- Position: (200, 0)
+
+### Summary of Trajectory:
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -4)       |
+| 7        | (140, -3)       |
+| 8        | (160, -2)       |
+| 9        | (180, -1)       |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle safely transitions to the left lane, passes the obstacle, and returns to the right lane while maintaining a safe speed above 60 km/h.

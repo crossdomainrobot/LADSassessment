@@ -1,0 +1,73 @@
+To safely navigate the double lane change maneuver, we need to ensure the vehicle smoothly transitions into the left lane, passes the obstacle at $ X = 100 $, and then transitions back to the right lane. The trajectory must respect the highway's speed limits (over 60 km/h) and ensure a smooth lateral movement.
+
+### Key Details:
+- **Initial Speed**: $ 72 \, \text{km/h} = 20 \, \text{m/s} $
+- **Obstacle Location**: $ (X, Y) = (100, 0) $
+- **Left Lane Position**: $ Y = -5 $
+- **Right Lane Position**: $ Y = 0 $
+
+We'll assume the vehicle follows a smooth sinusoidal-like path for lateral movement to minimize discomfort and ensure safety.
+
+---
+
+### Trajectory Plan:
+1. Start in the right lane ($ Y = 0 $).
+2. Gradually move to the left lane ($ Y = -5 $) before reaching $ X = 100 $.
+3. Stay in the left lane while passing the obstacle at $ X = 100 $.
+4. Gradually return to the right lane after passing the obstacle.
+
+The longitudinal position ($ X $) will increase linearly with time due to the constant speed of $ 20 \, \text{m/s} $. The lateral position ($ Y $) will follow a smooth transition function.
+
+---
+
+### Lateral Transition Function:
+For simplicity, we use a sinusoidal function to model the lateral movement:
+$$
+Y(t) = A \cdot \sin\left(\frac{\pi t}{T_{\text{lateral}}} \right)
+$$
+Where:
+- $ A $ is the amplitude of the lateral movement ($ A = -5 $ for moving to the left lane).
+- $ T_{\text{lateral}} $ is the duration of the lateral transition (e.g., 3 seconds for each lane change).
+
+#### Lane Change Parameters:
+- First lane change: $ T_{\text{lateral}} = 3 \, \text{s} $ (from $ Y = 0 $ to $ Y = -5 $).
+- Second lane change: $ T_{\text{lateral}} = 3 \, \text{s} $ (from $ Y = -5 $ back to $ Y = 0 $).
+
+---
+
+### Longitudinal Position:
+The longitudinal position increases linearly with time:
+$$
+X(t) = 20t
+$$
+
+---
+
+### Trajectory Calculation:
+Below is the calculated trajectory for the next 10 seconds:
+
+| Time (T) | $ X(t) $ (m) | $ Y(t) $ (m) | Notes                                   |
+|----------|----------------|---------------|-----------------------------------------|
+| 0        | 0              | 0             | Initial position                        |
+| 1        | 20             | -1.67         | Starting to move left                  |
+| 2        | 40             | -3.33         | Continuing to move left                 |
+| 3        | 60             | -5            | Fully in the left lane                 |
+| 4        | 80             | -5            | Passing the obstacle                   |
+| 5        | 100            | -5            | Passing the obstacle                   |
+| 6        | 120            | -5            | Starting to move back to the right     |
+| 7        | 140            | -3.33         | Continuing to move back to the right    |
+| 8        | 160            | -1.67         | Approaching the right lane             |
+| 9        | 180            | 0             | Fully back in the right lane           |
+| 10       | 200            | 0             | Staying in the right lane              |
+
+---
+
+### Explanation:
+1. From $ T = 0 $ to $ T = 3 $: The vehicle smoothly transitions from the right lane ($ Y = 0 $) to the left lane ($ Y = -5 $).
+2. From $ T = 3 $ to $ T = 5 $: The vehicle remains in the left lane ($ Y = -5 $) while passing the obstacle at $ X = 100 $.
+3. From $ T = 6 $ to $ T = 9 $: The vehicle smoothly transitions back to the right lane ($ Y = 0 $).
+4. After $ T = 9 $: The vehicle continues driving in the right lane.
+
+This trajectory ensures safe navigation around the obstacle while maintaining highway speed requirements. 
+
+**Final Answer:** The trajectory positions are provided in the table above.

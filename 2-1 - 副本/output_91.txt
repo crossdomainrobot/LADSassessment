@@ -1,0 +1,64 @@
+To safely navigate the double lane change maneuver, we need to plan a smooth trajectory that avoids the obstacle while maintaining highway speed as much as possible. Below is the planned trajectory for the vehicle over the next 10 seconds and beyond until the maneuver is complete.
+
+### Key Assumptions:
+1. **Initial Speed**: The vehicle starts at 72 km/h (20 m/s).
+2. **Highway Speed Requirement**: Maintain speeds above 60 km/h (16.67 m/s) whenever possible.
+3. **Lateral Movement**: Gradual transitions between lanes to ensure safety and comfort.
+4. **Obstacle Location**: The obstacle is located at (X = 100, Y = 0).
+
+---
+
+### Trajectory Plan:
+
+#### Phase 1: Lane Change Preparation (T = 0 to T = 5)
+- Gradually move from the right lane (Y = 0) to the left lane (Y = -5) while maintaining highway speed.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)         |
+| 2        | (40, -2)         |
+| 3        | (60, -3)         |
+| 4        | (80, -4)         |
+| 5        | (100, -5)        |
+
+**Explanation**: 
+- At T = 5, the vehicle reaches the obstacle's X position (X = 100) and is fully in the left lane (Y = -5). During this phase, the vehicle maintains its initial speed of 20 m/s (72 km/h).
+
+---
+
+#### Phase 2: Passing the Obstacle (T = 5 to T = 7)
+- Stay in the left lane (Y = -5) while passing the obstacle.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 6        | (120, -5)        |
+| 7        | (140, -5)        |
+
+**Explanation**: 
+- The vehicle continues moving forward at 20 m/s (72 km/h) while remaining in the left lane to safely pass the obstacle.
+
+---
+
+#### Phase 3: Returning to the Right Lane (T = 7 to T = 10)
+- Gradually return to the right lane (Y = 0) after passing the obstacle.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 8        | (160, -4)        |
+| 9        | (180, -2)        |
+| 10       | (200, 0)         |
+
+**Explanation**: 
+- By T = 10, the vehicle has returned to the right lane (Y = 0) while continuing to travel at 20 m/s (72 km/h).
+
+---
+
+### Summary of Maneuver:
+- **Lane Change Preparation**: T = 0 to T = 5 (move to left lane).
+- **Passing the Obstacle**: T = 5 to T = 7 (stay in left lane).
+- **Returning to Right Lane**: T = 7 to T = 10 (gradual transition back).
+
+By following this trajectory, the vehicle safely avoids the obstacle while adhering to highway speed requirements. 
+
+**Final Position at T = 10**: (200, 0).

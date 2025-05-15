@@ -1,0 +1,75 @@
+To safely navigate the double lane change maneuver while ensuring the vehicle stays above 60 km/h, we will plan a smooth trajectory that transitions to the left lane before reaching the obstacle at X = 100, passes it, and then transitions back to the right lane. Below is the planned trajectory for the next 10 seconds, assuming the initial speed is 72 km/h (or 20 m/s).
+
+---
+
+### **Step-by-Step Trajectory**
+
+#### Initial Conditions:
+- Initial position: (0, 0)
+- Initial speed: 20 m/s
+- Target lanes:
+  - Right lane: Y = 0
+  - Left lane: Y = -5
+
+We will use a smooth lateral transition (Y-axis) while maintaining forward motion (X-axis). The lateral movement will follow a sinusoidal-like curve to ensure smoothness.
+
+---
+
+### **Trajectory Points**
+
+| **Time (T)** | **Position (X, Y)** | **Explanation** |
+|--------------|----------------------|-----------------|
+| T = 0        | (0, 0)              | Starting position in the right lane. |
+| T = 1        | (20, -0.5)          | Begin transitioning to the left lane. |
+| T = 2        | (40, -1.5)          | Continue moving leftward. |
+| T = 3        | (60, -3.0)          | Midway through the lane change. |
+| T = 4        | (80, -4.5)          | Almost fully in the left lane. |
+| T = 5        | (100, -5.0)         | Fully in the left lane, passing the obstacle. |
+| T = 6        | (120, -4.5)         | Start transitioning back to the right lane. |
+| T = 7        | (140, -3.0)         | Continuing the transition. |
+| T = 8        | (160, -1.5)         | Midway through returning to the right lane. |
+| T = 9        | (180, -0.5)         | Almost back in the right lane. |
+| T = 10       | (200, 0)            | Fully back in the right lane. |
+
+---
+
+### **Key Details of the Maneuver**
+1. **Forward Motion (X-axis):**
+   - The vehicle maintains a constant speed of 20 m/s (72 km/h), so the X-coordinate increases linearly with time:  
+     $ X(T) = 20 \times T $.
+
+2. **Lateral Transition (Y-axis):**
+   - A smooth sinusoidal function is used for the lateral transition:
+     $$
+     Y(T) = -5 \cdot \sin\left(\frac{\pi}{10} \cdot T\right)
+     $$
+   - This ensures the vehicle smoothly transitions from Y = 0 to Y = -5 and back to Y = 0 over the course of the maneuver.
+
+3. **Passing the Obstacle:**
+   - At T = 5, the vehicle reaches X = 100 and Y = -5, fully in the left lane, safely bypassing the obstacle.
+
+4. **Returning to the Right Lane:**
+   - After passing the obstacle, the vehicle begins transitioning back to the right lane, completing the maneuver by T = 10.
+
+---
+
+### **Final Answer**
+The trajectory positions for the next 10 seconds are as follows:
+
+$$
+\boxed{
+\begin{aligned}
+&\text{T = 0: } (0, 0) \\
+&\text{T = 1: } (20, -0.5) \\
+&\text{T = 2: } (40, -1.5) \\
+&\text{T = 3: } (60, -3.0) \\
+&\text{T = 4: } (80, -4.5) \\
+&\text{T = 5: } (100, -5.0) \\
+&\text{T = 6: } (120, -4.5) \\
+&\text{T = 7: } (140, -3.0) \\
+&\text{T = 8: } (160, -1.5) \\
+&\text{T = 9: } (180, -0.5) \\
+&\text{T = 10: } (200, 0)
+\end{aligned}
+}
+$$

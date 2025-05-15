@@ -1,0 +1,114 @@
+To safely execute the double lane change maneuver while adhering to the highway speed limit and avoiding the obstacle, we need to carefully plan the trajectory. Below is a step-by-step trajectory for the vehicle's position over time:
+
+### Key Assumptions:
+1. The vehicle's initial speed is 72 km/h (20 m/s).
+2. The vehicle must stay above 60 km/h (16.67 m/s) during the maneuver.
+3. A smooth transition is required for lateral movement (Y-axis) to avoid abrupt changes.
+
+### Trajectory Plan:
+- **Initial Position**: (0, 0)
+- **Obstacle Location**: (100, 0)
+- **Left Lane Y-coordinate**: -5
+
+We will calculate the vehicle's position at each second (T = 1, 2, ..., until the maneuver finishes).
+
+---
+
+#### **Time T = 0**
+- Position: (0, 0)
+- Speed: 20 m/s (along X-axis)
+
+---
+
+#### **Time T = 1**
+- Begin moving slightly toward the left lane.
+- Lateral velocity component: 1 m/s (to smoothly shift lanes).
+- Longitudinal velocity: 19.9 m/s (slightly reduced to accommodate lateral motion).
+- Position: (19.9, -1)
+
+---
+
+#### **Time T = 2**
+- Continue shifting left.
+- Lateral velocity: 1 m/s.
+- Longitudinal velocity: 19.8 m/s.
+- Position: (39.7, -2)
+
+---
+
+#### **Time T = 3**
+- Continue shifting left.
+- Lateral velocity: 1 m/s.
+- Longitudinal velocity: 19.7 m/s.
+- Position: (59.4, -3)
+
+---
+
+#### **Time T = 4**
+- Complete the lane change into the left lane.
+- Lateral velocity: 1 m/s.
+- Longitudinal velocity: 19.6 m/s.
+- Position: (79.0, -4)
+
+---
+
+#### **Time T = 5**
+- Fully in the left lane.
+- Lateral velocity: 0 m/s.
+- Longitudinal velocity: 20 m/s (return to original speed).
+- Position: (99.0, -5)
+
+---
+
+#### **Time T = 6**
+- Passing the obstacle (X = 100).
+- Stay in the left lane.
+- Longitudinal velocity: 20 m/s.
+- Position: (119.0, -5)
+
+---
+
+#### **Time T = 7**
+- Continuing past the obstacle.
+- Longitudinal velocity: 20 m/s.
+- Position: (139.0, -5)
+
+---
+
+#### **Time T = 8**
+- Begin shifting back to the right lane.
+- Lateral velocity: 1 m/s (toward Y = 0).
+- Longitudinal velocity: 19.9 m/s.
+- Position: (158.9, -4)
+
+---
+
+#### **Time T = 9**
+- Continue shifting back to the right lane.
+- Lateral velocity: 1 m/s.
+- Longitudinal velocity: 19.8 m/s.
+- Position: (178.7, -3)
+
+---
+
+#### **Time T = 10**
+- Complete the shift back to the right lane.
+- Lateral velocity: 1 m/s.
+- Longitudinal velocity: 19.7 m/s.
+- Position: (198.4, -2)
+
+---
+
+#### **Time T = 11**
+- Fully back in the right lane.
+- Lateral velocity: 0 m/s.
+- Longitudinal velocity: 20 m/s (return to original speed).
+- Position: (218.1, 0)
+
+---
+
+### Final Maneuver Summary:
+- At **T = 5**, the vehicle passes the obstacle at (100, -5), fully in the left lane.
+- By **T = 11**, the vehicle has completed the double lane change and returned to the right lane.
+
+This trajectory ensures safe passage of the obstacle while maintaining highway speed requirements and smooth lateral transitions.

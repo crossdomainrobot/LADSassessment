@@ -1,0 +1,76 @@
+To safely navigate the double lane change maneuver while maintaining a speed of over 60 km/h, we will plan a trajectory that smoothly transitions from the right lane to the left lane, passes the obstacle, and then transitions back to the right lane. Below is the planned trajectory for the vehicle position (X, Y) at each second until the maneuver is complete.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lane Width**: The distance between lanes is 5 meters (Y = 0 for the right lane, Y = -5 for the left lane).
+3. **Speed Constraint**: Maintain a minimum speed of 60 km/h = 16.67 m/s throughout the maneuver.
+4. **Smooth Transition**: Use gradual lateral movements to avoid abrupt changes in direction.
+
+---
+
+### Trajectory Plan:
+
+#### **Phase 1: Start Lane Change to Left Lane**
+- Gradually move from the right lane (Y = 0) to the left lane (Y = -5) while continuing forward at a speed of approximately 20 m/s.
+
+| Time (T) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 0        | 0              | 0             |
+| 1        | 20             | -1            |
+| 2        | 40             | -2            |
+| 3        | 60             | -3            |
+| 4        | 80             | -4            |
+| 5        | 100            | -5            |
+
+At T = 5 seconds, the vehicle is fully in the left lane (Y = -5) and aligned with the obstacle at X = 100.
+
+---
+
+#### **Phase 2: Pass the Obstacle**
+- Continue driving in the left lane (Y = -5) to safely pass the obstacle located at X = 100. Maintain a speed of 20 m/s.
+
+| Time (T) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 6        | 120            | -5            |
+| 7        | 140            | -5            |
+| 8        | 160            | -5            |
+
+At T = 8 seconds, the vehicle has passed the obstacle by a safe margin.
+
+---
+
+#### **Phase 3: Return to Right Lane**
+- Gradually transition back to the right lane (Y = 0) while continuing forward at a speed of approximately 20 m/s.
+
+| Time (T) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 9        | 180            | -4            |
+| 10       | 200            | -3            |
+| 11       | 220            | -2            |
+| 12       | 240            | -1            |
+| 13       | 260            | 0             |
+
+At T = 13 seconds, the vehicle is fully back in the right lane (Y = 0).
+
+---
+
+### Final Trajectory Summary:
+
+| Time (T) | X Position (m) | Y Position (m) |
+|----------|----------------|----------------|
+| 0        | 0              | 0             |
+| 1        | 20             | -1            |
+| 2        | 40             | -2            |
+| 3        | 60             | -3            |
+| 4        | 80             | -4            |
+| 5        | 100            | -5            |
+| 6        | 120            | -5            |
+| 7        | 140            | -5            |
+| 8        | 160            | -5            |
+| 9        | 180            | -4            |
+| 10       | 200            | -3            |
+| 11       | 220            | -2            |
+| 12       | 240            | -1            |
+| 13       | 260            | 0             |
+
+This trajectory ensures a smooth and safe double lane change maneuver while maintaining the required speed constraints.

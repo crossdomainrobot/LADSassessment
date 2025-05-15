@@ -1,0 +1,64 @@
+To safely perform the double lane change maneuver, we need to ensure that the vehicle smoothly transitions into the left lane before reaching the obstacle at X = 100, passes it while staying in the left lane, and then switches back to the right lane after passing the obstacle. The vehicle must also maintain a speed of at least 60 km/h (16.67 m/s).
+
+Let¡¯s break this down step by step:
+
+### Initial Conditions:
+- Initial position: (0, 0)
+- Initial velocity: 72 km/h = 20 m/s
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: -5
+
+### Trajectory Planning:
+We will plan the trajectory for the next 10 seconds or until the maneuver is completed. The vehicle will gradually move to the left lane, pass the obstacle, and return to the right lane.
+
+#### **Timepoint T = 0**
+- Position: (0, 0)
+
+#### **Timepoint T = 1**
+- Start moving slightly to the left while maintaining speed.
+- Position: (20, -0.5)
+
+#### **Timepoint T = 2**
+- Continue moving left while maintaining speed.
+- Position: (40, -1.5)
+
+#### **Timepoint T = 3**
+- Progressively move further to the left.
+- Position: (60, -3)
+
+#### **Timepoint T = 4**
+- Enter the left lane fully.
+- Position: (80, -5)
+
+#### **Timepoint T = 5**
+- Stay in the left lane and continue moving forward.
+- Position: (100, -5) ¡ú Passing the obstacle here.
+
+#### **Timepoint T = 6**
+- Continue moving forward in the left lane.
+- Position: (120, -5)
+
+#### **Timepoint T = 7**
+- Begin transitioning back to the right lane.
+- Position: (140, -3)
+
+#### **Timepoint T = 8**
+- Continue moving back to the right lane.
+- Position: (160, -1.5)
+
+#### **Timepoint T = 9**
+- Almost back in the right lane.
+- Position: (180, -0.5)
+
+#### **Timepoint T = 10**
+- Fully back in the right lane.
+- Position: (200, 0)
+
+---
+
+### Summary of Maneuver:
+- From T = 0 to T = 4: Gradually move from the right lane to the left lane.
+- At T = 5: Pass the obstacle while in the left lane.
+- From T = 6 to T = 10: Gradually move back to the right lane.
+
+This trajectory ensures the vehicle avoids the obstacle safely while adhering to highway speed requirements.

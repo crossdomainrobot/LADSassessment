@@ -1,0 +1,55 @@
+To safely navigate around the obstacle while adhering to highway speed limits and ensuring smooth lane changes, we can plan a trajectory that involves gradually shifting to the left lane, passing the obstacle, and then returning to the right lane. Below is the detailed trajectory for the next 10 seconds, assuming a constant velocity of **72 km/h (20 m/s)** along the X-axis.
+
+### Key Assumptions:
+1. The vehicle maintains a minimum speed of **60 km/h (16.67 m/s)** during the maneuver.
+2. The lateral movement (Y-axis) is controlled smoothly using a sinusoidal-like transition to minimize abrupt movements.
+3. The obstacle is located at **(X = 100, Y = 0)**.
+4. The left lane corresponds to **Y = -5**, and the right lane corresponds to **Y = 0**.
+
+---
+
+### Trajectory Plan:
+
+#### Initial Position:
+- At **T = 0**: Vehicle starts at **(X = 0, Y = 0)** with a velocity of **20 m/s**.
+
+#### Lateral Movement Plan:
+- Start transitioning to the left lane (Y = -5) starting at **T = 1**.
+- Complete the transition to the left lane by **T = 5**.
+- Stay in the left lane until **X > 100**.
+- Begin transitioning back to the right lane starting at **T = 8**.
+- Complete the transition back to the right lane by **T = 10**.
+
+---
+
+### Detailed Positions Over Time:
+
+| **Time (T)** | **Position (X, Y)**   | **Description**                                                                 |
+|--------------|------------------------|-------------------------------------------------------------------------------|
+| **T = 0**    | (0, 0)                | Starting position in the right lane.                                         |
+| **T = 1**    | (20, -1)              | Begin moving laterally toward the left lane.                                 |
+| **T = 2**    | (40, -2.5)            | Continue lateral movement; halfway to the left lane.                         |
+| **T = 3**    | (60, -4)              | Almost fully in the left lane.                                              |
+| **T = 4**    | (80, -4.8)            | Finalizing the transition to the left lane.                                  |
+| **T = 5**    | (100, -5)             | Fully in the left lane, passing the obstacle at **X = 100**.                 |
+| **T = 6**    | (120, -5)             | Continuing forward in the left lane.                                         |
+| **T = 7**    | (140, -5)             | Still in the left lane, moving away from the obstacle.                       |
+| **T = 8**    | (160, -4)             | Begin transitioning back to the right lane.                                   |
+| **T = 9**    | (180, -2)             | Continuing lateral movement toward the right lane.                           |
+| **T = 10**   | (200, 0)              | Fully back in the right lane, completing the double lane change maneuver.     |
+
+---
+
+### Explanation of the Maneuver:
+1. **Lateral Transition to Left Lane (T = 1 to T = 5):**
+   - Gradual movement from **Y = 0** to **Y = -5** ensures a smooth lane change.
+   - By **T = 5**, the vehicle is fully in the left lane and ready to pass the obstacle.
+
+2. **Passing the Obstacle (T = 5 to T = 7):**
+   - Maintain a constant speed of **20 m/s** while staying in the left lane (**Y = -5**) to safely bypass the stopped vehicle.
+
+3. **Lateral Transition Back to Right Lane (T = 8 to T = 10):**
+   - Gradual movement from **Y = -5** back to **Y = 0** ensures a smooth return to the original lane.
+   - By **T = 10**, the vehicle is fully back in the right lane.
+
+This trajectory ensures safe passage around the obstacle while maintaining highway speed requirements and minimizing abrupt movements.

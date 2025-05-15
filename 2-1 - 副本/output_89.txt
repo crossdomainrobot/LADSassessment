@@ -1,0 +1,77 @@
+To safely execute the double-lane change maneuver while maintaining highway speeds, we need to carefully plan the trajectory of the vehicle. The goal is to smoothly transition from the right lane (Y = 0) to the left lane (Y = -5), pass the obstacle at X = 100, and then return to the right lane after clearing the obstacle. Below is a detailed trajectory for the next 10 seconds.
+
+### Key Assumptions:
+1. **Initial speed**: 72 km/h = 20 m/s.
+2. **Lane width**: 5 meters (right lane: Y = 0, left lane: Y = -5).
+3. **Highway speed constraint**: Maintain a velocity of at least 60 km/h = 16.67 m/s.
+4. **Lateral acceleration**: Smoothly adjust lateral position without excessive jerk.
+
+---
+
+### Trajectory Plan:
+We will break the maneuver into three phases:
+1. **Phase 1**: Transition from the right lane to the left lane (T = 0 to T = 5).
+2. **Phase 2**: Stay in the left lane and overtake the obstacle (T = 5 to T = 8).
+3. **Phase 3**: Transition back to the right lane (T = 8 to T = 10).
+
+#### Phase 1: Lane Change to Left Lane (T = 0 to T = 5)
+During this phase, the vehicle transitions from the right lane (Y = 0) to the left lane (Y = -5). Simultaneously, it continues moving forward at approximately 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 0    | (0, 0)          |
+| T = 1    | (20, -1)        |
+| T = 2    | (40, -2)        |
+| T = 3    | (60, -3)        |
+| T = 4    | (80, -4)        |
+| T = 5    | (100, -5)       |
+
+At T = 5, the vehicle has successfully entered the left lane just as it reaches the obstacle at X = 100.
+
+---
+
+#### Phase 2: Overtake Obstacle in Left Lane (T = 5 to T = 8)
+During this phase, the vehicle remains in the left lane (Y = -5) and continues moving forward at approximately 20 m/s to clear the obstacle.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 5    | (100, -5)       |
+| T = 6    | (120, -5)       |
+| T = 7    | (140, -5)       |
+| T = 8    | (160, -5)       |
+
+By T = 8, the vehicle has safely overtaken the obstacle.
+
+---
+
+#### Phase 3: Lane Change Back to Right Lane (T = 8 to T = 10)
+During this phase, the vehicle transitions back from the left lane (Y = -5) to the right lane (Y = 0). It continues moving forward at approximately 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 8    | (160, -5)       |
+| T = 9    | (180, -2.5)     |
+| T = 10   | (200, 0)        |
+
+By T = 10, the vehicle has returned to the right lane.
+
+---
+
+### Summary of Trajectory:
+The vehicle follows the path below:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 0    | (0, 0)          |
+| T = 1    | (20, -1)        |
+| T = 2    | (40, -2)        |
+| T = 3    | (60, -3)        |
+| T = 4    | (80, -4)        |
+| T = 5    | (100, -5)       |
+| T = 6    | (120, -5)       |
+| T = 7    | (140, -5)       |
+| T = 8    | (160, -5)       |
+| T = 9    | (180, -2.5)     |
+| T = 10   | (200, 0)        |
+
+This trajectory ensures safe and smooth execution of the double-lane change maneuver while adhering to highway speed constraints.

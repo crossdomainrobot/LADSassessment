@@ -1,0 +1,108 @@
+To safely execute the double lane change maneuver while adhering to highway speed regulations, we need to carefully plan the trajectory of the vehicle. Below is a step-by-step description of the planned path for the next 10 seconds (or until the maneuver is completed). The vehicle will transition from the right lane (Y = 0) to the left lane (Y = -5), overtake the obstacle at X = 100, and return to the right lane after passing it.
+
+### Key Assumptions:
+1. Initial velocity: $ v = 72 \, \text{km/h} = 20 \, \text{m/s} $
+2. Minimum highway speed: $ v > 60 \, \text{km/h} = 16.67 \, \text{m/s} $
+3. Lane width: 5 meters
+4. Obstacle position: $ (X, Y) = (100, 0) $
+
+---
+
+### Trajectory Plan:
+The vehicle will follow a smooth lateral transition (Y-axis movement) while maintaining longitudinal progress (X-axis movement). Here's the planned trajectory:
+
+#### **Timepoint T = 0**:
+- Position: $ (0, 0) $
+- Velocity: $ 20 \, \text{m/s} $
+
+---
+
+#### **Timepoint T = 1**:
+- Longitudinal distance traveled: $ X = 20 \times 1 = 20 \, \text{m} $
+- Lateral movement begins: $ Y = -0.5 \, \text{m} $ (gradual shift to the left lane)
+- Position: $ (20, -0.5) $
+
+---
+
+#### **Timepoint T = 2**:
+- Longitudinal distance traveled: $ X = 20 \times 2 = 40 \, \text{m} $
+- Lateral movement continues: $ Y = -2 \, \text{m} $
+- Position: $ (40, -2) $
+
+---
+
+#### **Timepoint T = 3**:
+- Longitudinal distance traveled: $ X = 20 \times 3 = 60 \, \text{m} $
+- Lateral movement continues: $ Y = -3.5 \, \text{m} $
+- Position: $ (60, -3.5) $
+
+---
+
+#### **Timepoint T = 4**:
+- Longitudinal distance traveled: $ X = 20 \times 4 = 80 \, \text{m} $
+- Fully in the left lane: $ Y = -5 \, \text{m} $
+- Position: $ (80, -5) $
+
+---
+
+#### **Timepoint T = 5**:
+- Longitudinal distance traveled: $ X = 20 \times 5 = 100 \, \text{m} $
+- Still in the left lane: $ Y = -5 \, \text{m} $
+- Position: $ (100, -5) $
+- **Passes the obstacle at this point**
+
+---
+
+#### **Timepoint T = 6**:
+- Longitudinal distance traveled: $ X = 20 \times 6 = 120 \, \text{m} $
+- Begin transitioning back to the right lane: $ Y = -4 \, \text{m} $
+- Position: $ (120, -4) $
+
+---
+
+#### **Timepoint T = 7**:
+- Longitudinal distance traveled: $ X = 20 \times 7 = 140 \, \text{m} $
+- Continue transitioning: $ Y = -2.5 \, \text{m} $
+- Position: $ (140, -2.5) $
+
+---
+
+#### **Timepoint T = 8**:
+- Longitudinal distance traveled: $ X = 20 \times 8 = 160 \, \text{m} $
+- Continue transitioning: $ Y = -1 \, \text{m} $
+- Position: $ (160, -1) $
+
+---
+
+#### **Timepoint T = 9**:
+- Longitudinal distance traveled: $ X = 20 \times 9 = 180 \, \text{m} $
+- Almost back in the right lane: $ Y = -0.5 \, \text{m} $
+- Position: $ (180, -0.5) $
+
+---
+
+#### **Timepoint T = 10**:
+- Longitudinal distance traveled: $ X = 20 \times 10 = 200 \, \text{m} $
+- Fully back in the right lane: $ Y = 0 \, \text{m} $
+- Position: $ (200, 0) $
+
+---
+
+### Final Trajectory Summary:
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -0.5)      |
+| 2        | (40, -2)        |
+| 3        | (60, -3.5)      |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -4)       |
+| 7        | (140, -2.5)     |
+| 8        | (160, -1)       |
+| 9        | (180, -0.5)     |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle stays above the minimum highway speed, avoids the obstacle safely by fully entering the left lane, and returns to the right lane after passing the obstacle. 
+
+**Final Answer:** $\boxed{\text{Trajectory as shown in the table above}}$

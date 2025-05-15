@@ -1,0 +1,119 @@
+To safely navigate the obstacle, we need to plan a trajectory that involves moving into the left lane before reaching the obstacle, passing it while staying in the left lane, and then returning to the right lane after the obstacle. Below is a detailed plan for the vehicle's position at each second (T = 1, 2, ..., 10) until the maneuver is complete.
+
+### Key Assumptions:
+1. **Initial Speed**: The vehicle starts at 72 km/h (20 m/s).
+2. **Minimum Highway Speed**: The vehicle must maintain a speed of at least 60 km/h (16.67 m/s).
+3. **Lane Width**: The distance between lanes is 5 meters (Y = 0 for the right lane, Y = -5 for the left lane).
+4. **Obstacle Position**: The obstacle is located at (X = 100, Y = 0).
+
+### Maneuver Plan:
+- Start by gradually moving into the left lane while maintaining a safe speed.
+- Pass the obstacle while staying in the left lane.
+- Return to the right lane after passing the obstacle.
+
+---
+
+### Trajectory Calculation:
+
+#### **T = 0: Initial Position**
+- Position: (0, 0)
+- Speed: 20 m/s
+
+---
+
+#### **T = 1: Begin Lane Change**
+- Move slightly toward the left lane.
+- X = 20 (distance traveled forward at 20 m/s).
+- Y = -1 (gradual lateral movement).
+- Position: (20, -1)
+
+---
+
+#### **T = 2: Continue Lane Change**
+- Continue moving left.
+- X = 40 (distance traveled forward at 20 m/s).
+- Y = -2 (further lateral movement).
+- Position: (40, -2)
+
+---
+
+#### **T = 3: Near Left Lane**
+- Almost fully in the left lane.
+- X = 60 (distance traveled forward at 20 m/s).
+- Y = -4 (almost in the left lane).
+- Position: (60, -4)
+
+---
+
+#### **T = 4: Fully in Left Lane**
+- Complete the lane change.
+- X = 80 (distance traveled forward at 20 m/s).
+- Y = -5 (fully in the left lane).
+- Position: (80, -5)
+
+---
+
+#### **T = 5: Passing Obstacle**
+- Maintain position in the left lane while passing the obstacle.
+- X = 100 (reaching the obstacle).
+- Y = -5 (still in the left lane).
+- Position: (100, -5)
+
+---
+
+#### **T = 6: Past Obstacle**
+- Continue driving in the left lane after passing the obstacle.
+- X = 120 (distance traveled forward at 20 m/s).
+- Y = -5 (still in the left lane).
+- Position: (120, -5)
+
+---
+
+#### **T = 7: Begin Returning to Right Lane**
+- Start moving back to the right lane.
+- X = 140 (distance traveled forward at 20 m/s).
+- Y = -4 (gradual lateral movement back).
+- Position: (140, -4)
+
+---
+
+#### **T = 8: Continue Returning**
+- Continue moving toward the right lane.
+- X = 160 (distance traveled forward at 20 m/s).
+- Y = -2 (further lateral movement back).
+- Position: (160, -2)
+
+---
+
+#### **T = 9: Near Right Lane**
+- Almost fully in the right lane.
+- X = 180 (distance traveled forward at 20 m/s).
+- Y = -1 (almost in the right lane).
+- Position: (180, -1)
+
+---
+
+#### **T = 10: Fully in Right Lane**
+- Complete the return to the right lane.
+- X = 200 (distance traveled forward at 20 m/s).
+- Y = 0 (fully in the right lane).
+- Position: (200, 0)
+
+---
+
+### Summary of Positions:
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -4)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -4)       |
+| 8        | (160, -2)       |
+| 9        | (180, -1)       |
+| 10       | (200, 0)        |
+
+This trajectory ensures the vehicle safely changes lanes, passes the obstacle, and returns to the original lane while maintaining highway speed requirements.

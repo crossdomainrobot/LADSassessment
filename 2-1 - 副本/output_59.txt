@@ -1,0 +1,65 @@
+To safely navigate the double lane change maneuver, we need to ensure that the vehicle smoothly transitions from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle at X = 100, and then returns to the right lane. The vehicle must maintain a speed of at least 60 km/h (approximately 16.67 m/s). Below is a detailed trajectory plan for the next 10 seconds.
+
+### **Initial Setup**
+- Initial position: (0, 0)
+- Initial velocity: 72 km/h = 20 m/s
+- Lane width: 5 meters (right lane Y = 0, left lane Y = -5)
+
+---
+
+### **Trajectory Plan**
+
+#### **Phase 1: Lane Change to Left Lane (T = 0 to T = 3)**
+- Gradually decrease Y from 0 to -5 while maintaining a forward speed of approximately 20 m/s.
+- At T = 3, the vehicle should be fully in the left lane (Y = -5).
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+
+---
+
+#### **Phase 2: Maintain Left Lane and Approach Obstacle (T = 3 to T = 5)**
+- Continue driving straight in the left lane (Y = -5) while approaching the obstacle at X = 100.
+- Maintain a speed of approximately 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+
+---
+
+#### **Phase 3: Lane Change Back to Right Lane (T = 5 to T = 8)**
+- Gradually increase Y from -5 to 0 while passing the obstacle and continuing forward.
+- At T = 8, the vehicle should be fully back in the right lane (Y = 0).
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 6        | (120, -3.33)    |
+| 7        | (140, -1.67)    |
+| 8        | (160, 0)        |
+
+---
+
+#### **Phase 4: Continue Driving in Right Lane (T = 8 to T = 10)**
+- Drive straight in the right lane (Y = 0) while maintaining a speed of approximately 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+---
+
+### **Summary of Trajectory**
+The vehicle successfully performs the double lane change maneuver as follows:
+1. Moves from the right lane to the left lane over the first 3 seconds.
+2. Passes the obstacle at X = 100 while staying in the left lane.
+3. Returns to the right lane over the next 3 seconds.
+4. Continues driving in the right lane afterward.
+
+This trajectory ensures safety, smoothness, and compliance with highway speed regulations.

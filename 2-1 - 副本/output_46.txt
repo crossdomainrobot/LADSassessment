@@ -1,0 +1,90 @@
+To plan a safe and smooth trajectory for the double lane change maneuver, we need to ensure that the vehicle stays within the speed limits (over 60 km/h) and avoids the obstacle at (100, 0). Below is a detailed trajectory plan where the vehicle moves from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle, and switches back to the right lane after passing it.
+
+### Initial Parameters:
+- **Initial position**: (0, 0)
+- **Initial velocity**: 72 km/h = 20 m/s
+- **Obstacle position**: (100, 0)
+- **Left lane Y-coordinate**: -5
+- **Right lane Y-coordinate**: 0
+
+We will assume a smooth transition using constant lateral acceleration for lane changes and maintaining longitudinal velocity close to 20 m/s. The trajectory is calculated for each second.
+
+---
+
+### Trajectory Plan:
+
+#### **T = 0:**
+- Position: (0, 0)
+
+#### **T = 1:**
+- Longitudinal movement: X = 20 m (20 m/s ¡Á 1 s)
+- Start moving laterally toward the left lane with a gentle acceleration.
+- Lateral movement: Y = -1 m
+- Position: (20, -1)
+
+#### **T = 2:**
+- Longitudinal movement: X = 40 m (20 m/s ¡Á 2 s)
+- Continue moving laterally toward the left lane.
+- Lateral movement: Y = -3 m
+- Position: (40, -3)
+
+#### **T = 3:**
+- Longitudinal movement: X = 60 m (20 m/s ¡Á 3 s)
+- Continue moving laterally toward the left lane.
+- Lateral movement: Y = -5 m (reached the left lane)
+- Position: (60, -5)
+
+#### **T = 4:**
+- Longitudinal movement: X = 80 m (20 m/s ¡Á 4 s)
+- Stay in the left lane.
+- Lateral movement: Y = -5 m
+- Position: (80, -5)
+
+#### **T = 5:**
+- Longitudinal movement: X = 100 m (20 m/s ¡Á 5 s)
+- Pass the obstacle while staying in the left lane.
+- Lateral movement: Y = -5 m
+- Position: (100, -5)
+
+#### **T = 6:**
+- Longitudinal movement: X = 120 m (20 m/s ¡Á 6 s)
+- Begin moving back to the right lane with a gentle acceleration.
+- Lateral movement: Y = -3 m
+- Position: (120, -3)
+
+#### **T = 7:**
+- Longitudinal movement: X = 140 m (20 m/s ¡Á 7 s)
+- Continue moving back to the right lane.
+- Lateral movement: Y = -1 m
+- Position: (140, -1)
+
+#### **T = 8:**
+- Longitudinal movement: X = 160 m (20 m/s ¡Á 8 s)
+- Return to the right lane.
+- Lateral movement: Y = 0 m
+- Position: (160, 0)
+
+#### **T = 9:**
+- Longitudinal movement: X = 180 m (20 m/s ¡Á 9 s)
+- Stay in the right lane.
+- Lateral movement: Y = 0 m
+- Position: (180, 0)
+
+#### **T = 10:**
+- Longitudinal movement: X = 200 m (20 m/s ¡Á 10 s)
+- Stay in the right lane.
+- Lateral movement: Y = 0 m
+- Position: (200, 0)
+
+---
+
+### Summary of Trajectory:
+The vehicle successfully transitions to the left lane, passes the obstacle at (100, 0), and returns to the right lane while maintaining a longitudinal speed of approximately 20 m/s (72 km/h).
+
+**Final Answer:**
+$$
+\boxed{
+\text{Positions at T = 1 to T = 10 are: } 
+(20, -1), (40, -3), (60, -5), (80, -5), (100, -5), (120, -3), (140, -1), (160, 0), (180, 0), (200, 0).
+}
+$$

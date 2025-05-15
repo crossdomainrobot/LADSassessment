@@ -1,0 +1,47 @@
+To safely execute the double lane change maneuver while maintaining highway speed, we will plan a smooth trajectory that transitions from the right lane to the left lane before the obstacle, passes it, and then switches back to the right lane afterward. The vehicle's initial speed is 72 km/h (or approximately 20 m/s), and we must maintain speeds above 60 km/h (approximately 16.67 m/s). Below is the detailed trajectory for the next 10 seconds.
+
+### **Trajectory Plan**
+1. **Initial Phase (T = 0):** Start in the right lane at position (0, 0).
+2. **Lane Change Preparation:** Gradually move into the left lane by adjusting the Y-coordinate.
+3. **Pass Obstacle:** Stay in the left lane as you pass the obstacle at X = 100.
+4. **Return to Right Lane:** After passing the obstacle, transition back to the right lane.
+
+---
+
+### **Position Data**
+Below is the planned trajectory:
+
+| **Time (T)** | **Position (X, Y)** | **Speed (m/s)** |
+|--------------|----------------------|-----------------|
+| T = 0        | (0, 0)              | 20              |
+| T = 1        | (20, -1)            | 20              |
+| T = 2        | (40, -2)            | 20              |
+| T = 3        | (60, -3)            | 20              |
+| T = 4        | (80, -4)            | 20              |
+| T = 5        | (100, -5)           | 20              |
+| T = 6        | (120, -4)           | 20              |
+| T = 7        | (140, -3)           | 20              |
+| T = 8        | (160, -2)           | 20              |
+| T = 9        | (180, -1)           | 20              |
+| T = 10       | (200, 0)            | 20              |
+
+---
+
+### **Explanation of Maneuver**
+1. **T = 0 to T = 4:**  
+   - The vehicle starts at (0, 0) and moves forward at 20 m/s while gradually shifting its Y-coordinate from 0 to -5. By T = 4, the vehicle reaches (80, -4) and is almost fully in the left lane.
+   
+2. **T = 5:**  
+   - At this point, the vehicle is entirely in the left lane at position (100, -5), successfully passing the obstacle located at (100, 0).
+
+3. **T = 6 to T = 10:**  
+   - After passing the obstacle, the vehicle begins transitioning back to the right lane by gradually increasing its Y-coordinate from -5 to 0. By T = 10, the vehicle has returned to the right lane at position (200, 0).
+
+---
+
+### **Key Considerations**
+- **Speed Constraint:** The vehicle maintains a constant speed of 20 m/s throughout the maneuver, ensuring compliance with the highway speed requirement (> 60 km/h).
+- **Smooth Transition:** The lateral movement (Y-coordinate) follows a gradual and smooth curve to ensure safety and comfort during the lane changes.
+- **Obstacle Avoidance:** The vehicle stays in the left lane (Y = -5) while passing the obstacle at X = 100.
+
+This trajectory ensures a safe and efficient double lane change maneuver while adhering to highway driving regulations.

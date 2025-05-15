@@ -1,0 +1,116 @@
+To safely navigate the obstacle, we need to plan a smooth trajectory that ensures the vehicle changes lanes before reaching the obstacle, passes it in the left lane, and then switches back to the right lane after passing. The vehicle must maintain a speed of at least 60 km/h (16.67 m/s) during this maneuver.
+
+Let¡¯s break the problem into phases:
+1. **Lane change to the left lane** (before X = 100).
+2. **Passing the obstacle** (at X = 100, stay in the left lane).
+3. **Lane change back to the right lane** (after X = 100).
+
+The initial speed is 72 km/h (20 m/s). We will assume the vehicle maintains this speed throughout the maneuver unless explicitly stated otherwise.
+
+### Trajectory Planning
+
+#### Phase 1: Lane Change to the Left Lane
+- Start from (0, 0) at T = 0.
+- Gradually move to Y = -5 while traveling along the X-axis.
+- Complete the lane change by T = 5 seconds.
+
+#### Phase 2: Passing the Obstacle
+- Maintain Y = -5 as the vehicle travels past the obstacle at X = 100.
+- This phase occurs between T = 5 and T = 7 seconds.
+
+#### Phase 3: Lane Change Back to the Right Lane
+- Gradually return to Y = 0 while continuing to travel along the X-axis.
+- Complete the lane change by T = 10 seconds.
+
+Now, let¡¯s calculate the positions step by step:
+
+---
+
+### **T = 0**
+- Initial position: (0, 0)
+- Speed: 20 m/s
+
+---
+
+### **T = 1**
+- Travel 20 m along the X-axis.
+- Begin the lane change by moving slightly to the left.
+- Position: (20, -1)
+
+---
+
+### **T = 2**
+- Continue traveling along the X-axis.
+- Progress further into the lane change.
+- Position: (40, -2)
+
+---
+
+### **T = 3**
+- Continue traveling along the X-axis.
+- Progress further into the lane change.
+- Position: (60, -3)
+
+---
+
+### **T = 4**
+- Continue traveling along the X-axis.
+- Almost fully in the left lane.
+- Position: (80, -4)
+
+---
+
+### **T = 5**
+- Fully in the left lane.
+- Position: (100, -5)
+
+---
+
+### **T = 6**
+- Passing the obstacle while staying in the left lane.
+- Position: (120, -5)
+
+---
+
+### **T = 7**
+- Still passing the obstacle while staying in the left lane.
+- Position: (140, -5)
+
+---
+
+### **T = 8**
+- Begin lane change back to the right lane.
+- Position: (160, -4)
+
+---
+
+### **T = 9**
+- Continue lane change back to the right lane.
+- Position: (180, -2)
+
+---
+
+### **T = 10**
+- Fully back in the right lane.
+- Position: (200, 0)
+
+---
+
+### Final Answer
+The planned trajectory for the next 10 seconds is as follows:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -3)        |
+| 4        | (80, -4)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -4)       |
+| 9        | (180, -2)       |
+| 10       | (200, 0)        |
+
+This trajectory ensures a safe and smooth double lane change maneuver while maintaining the required speed.

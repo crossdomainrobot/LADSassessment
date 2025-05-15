@@ -1,0 +1,62 @@
+To safely perform the double lane change maneuver while adhering to the highway speed limit, we will carefully plan the trajectory of the vehicle. Below is a step-by-step description of the planned path, ensuring the vehicle stays at a velocity above 60 km/h and switches lanes appropriately.
+
+### Key Details:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Obstacle Location**: (X=100, Y=0).
+3. **Left Lane Y-coordinate**: Y = -5.
+4. **Time Step**: Every second (T = 1, 2, 3...).
+
+We will smoothly transition from the right lane (Y=0) to the left lane (Y=-5), pass the obstacle, and then return to the right lane after clearing it.
+
+---
+
+### Trajectory Plan:
+
+#### **Phase 1: Begin Lane Change to Left Lane (T = 0 to T = 5)**
+- Gradually decrease Y from 0 to -5 while maintaining X-speed near 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 0    | (0, 0)          |
+| T = 1    | (20, -1)        |
+| T = 2    | (40, -2)        |
+| T = 3    | (60, -3)        |
+| T = 4    | (80, -4)        |
+| T = 5    | (100, -5)       |
+
+At T = 5, the vehicle is fully in the left lane (Y = -5) and aligned with the obstacle (X = 100).
+
+---
+
+#### **Phase 2: Pass the Obstacle in the Left Lane (T = 6 to T = 7)**
+- Maintain Y = -5 and continue moving forward at approximately 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 6    | (120, -5)       |
+| T = 7    | (140, -5)       |
+
+By T = 7, the vehicle has safely passed the obstacle.
+
+---
+
+#### **Phase 3: Return to the Right Lane (T = 8 to T = 10)**
+- Gradually increase Y from -5 to 0 while maintaining X-speed near 20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| T = 8    | (160, -4)       |
+| T = 9    | (180, -2)       |
+| T = 10   | (200, 0)        |
+
+At T = 10, the vehicle is back in the right lane (Y = 0).
+
+---
+
+### Summary of Path:
+The vehicle performs a smooth double lane change maneuver as follows:
+1. Transition from the right lane to the left lane over 5 seconds.
+2. Pass the obstacle in the left lane while maintaining highway speed.
+3. Return to the right lane over the next 3 seconds.
+
+This ensures safety, compliance with highway speed limits, and a smooth driving experience.

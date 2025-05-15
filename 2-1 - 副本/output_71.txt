@@ -1,0 +1,53 @@
+To safely execute the double lane change maneuver while maintaining a speed of over 60 km/h, we need to plan the trajectory carefully. The vehicle starts at (0, 0) and must transition to the left lane (Y = -5), pass the obstacle at X = 100, and then return to the right lane (Y = 0). Below is the planned trajectory for the next 10 seconds.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h ¡Ö 20 m/s.
+2. **Speed Constraint**: Maintain a speed greater than 60 km/h (¡Ö 16.67 m/s).
+3. **Lane Width**: The distance between lanes is 5 meters.
+4. **Acceleration/Deceleration**: Smooth lateral and longitudinal transitions.
+
+---
+
+### Trajectory Plan:
+
+#### **Step 1: Begin Lane Change to Left Lane**
+- Start moving laterally toward the left lane (Y = -5) while maintaining forward speed.
+
+#### **Step 2: Pass the Obstacle in the Left Lane**
+- Ensure that the vehicle is fully in the left lane (Y = -5) before reaching X = 100.
+
+#### **Step 3: Return to Right Lane**
+- After passing the obstacle, begin transitioning back to the right lane (Y = 0).
+
+---
+
+### Position Coordinates Over Time:
+
+| **Time (T)** | **Position (X, Y)**       | **Description**                                                                 |
+|--------------|---------------------------|---------------------------------------------------------------------------------|
+| T = 0        | (0, 0)                   | Initial position: driving in the right lane.                                     |
+| T = 1        | (20, -0.5)               | Begin lateral movement toward the left lane.                                     |
+| T = 2        | (40, -1.5)               | Continue moving leftward while traveling forward.                                 |
+| T = 3        | (60, -3.0)               | Progressing toward the left lane; almost halfway across.                         |
+| T = 4        | (80, -4.5)               | Nearing the left lane; slowing lateral movement.                                 |
+| T = 5        | (100, -5.0)              | Fully in the left lane, passing the obstacle at X = 100.                        |
+| T = 6        | (120, -4.5)              | Begin transitioning back to the right lane.                                      |
+| T = 7        | (140, -3.0)              | Continuing to move rightward while maintaining forward speed.                    |
+| T = 8        | (160, -1.5)              | Approaching the right lane; reducing lateral movement.                          |
+| T = 9        | (180, -0.5)              | Nearly back in the right lane.                                                |
+| T = 10       | (200, 0)                 | Fully returned to the right lane; maneuver complete.                            |
+
+---
+
+### Explanation of Movement:
+1. **Lateral Movement (Y-axis)**:
+   - From T = 0 to T = 4: Gradually shift from Y = 0 to Y = -5 (left lane).
+   - From T = 6 to T = 10: Gradually shift from Y = -5 back to Y = 0 (right lane).
+
+2. **Longitudinal Movement (X-axis)**:
+   - The vehicle maintains a forward speed of approximately 20 m/s (72 km/h), ensuring it stays above the minimum required speed of 60 km/h.
+
+3. **Obstacle Clearance**:
+   - At T = 5, the vehicle is fully in the left lane (Y = -5) and passes the obstacle located at X = 100.
+
+This trajectory ensures safe and smooth execution of the double lane change maneuver while adhering to highway speed constraints.

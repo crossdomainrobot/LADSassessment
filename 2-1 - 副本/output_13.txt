@@ -1,0 +1,87 @@
+To plan a safe trajectory for the vehicle to perform a double lane change maneuver and pass the obstacle safely, we need to carefully consider the dynamics of the vehicle while ensuring it stays within highway speed limits. Below is a detailed trajectory for the next 10 seconds.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Highway Speed Limit**: Minimum speed = 60 km/h = 16.67 m/s.
+3. **Lane Width**: Y = 0 (right lane), Y = -5 (left lane).
+4. **Obstacle Location**: (X = 100, Y = 0).
+
+We will assume a smooth lateral transition using a sinusoidal-like trajectory for comfort and safety. The longitudinal velocity will remain near the initial speed of 20 m/s during the maneuver.
+
+---
+
+### Trajectory Plan:
+#### T = 0: Initial Position
+- Position: (0, 0)
+- Velocity: (20 m/s longitudinally, 0 m/s laterally)
+
+#### T = 1:
+- Longitudinal position: X = 20 m (20 m/s ¡Á 1 s)
+- Lateral position: Y = -1 m (gradual transition to left lane)
+- Position: (20, -1)
+
+#### T = 2:
+- Longitudinal position: X = 40 m (20 m/s ¡Á 2 s)
+- Lateral position: Y = -2.5 m (midpoint of transition to left lane)
+- Position: (40, -2.5)
+
+#### T = 3:
+- Longitudinal position: X = 60 m (20 m/s ¡Á 3 s)
+- Lateral position: Y = -4 m (almost fully in the left lane)
+- Position: (60, -4)
+
+#### T = 4:
+- Longitudinal position: X = 80 m (20 m/s ¡Á 4 s)
+- Lateral position: Y = -5 m (fully in the left lane)
+- Position: (80, -5)
+
+#### T = 5:
+- Longitudinal position: X = 100 m (20 m/s ¡Á 5 s)
+- Lateral position: Y = -5 m (still in the left lane, passing the obstacle at X = 100)
+- Position: (100, -5)
+
+#### T = 6:
+- Longitudinal position: X = 120 m (20 m/s ¡Á 6 s)
+- Lateral position: Y = -5 m (still in the left lane)
+- Position: (120, -5)
+
+#### T = 7:
+- Longitudinal position: X = 140 m (20 m/s ¡Á 7 s)
+- Lateral position: Y = -4 m (starting transition back to the right lane)
+- Position: (140, -4)
+
+#### T = 8:
+- Longitudinal position: X = 160 m (20 m/s ¡Á 8 s)
+- Lateral position: Y = -2.5 m (midpoint of transition back to the right lane)
+- Position: (160, -2.5)
+
+#### T = 9:
+- Longitudinal position: X = 180 m (20 m/s ¡Á 9 s)
+- Lateral position: Y = -1 m (almost fully in the right lane)
+- Position: (180, -1)
+
+#### T = 10:
+- Longitudinal position: X = 200 m (20 m/s ¡Á 10 s)
+- Lateral position: Y = 0 m (fully back in the right lane)
+- Position: (200, 0)
+
+---
+
+### Summary of the Maneuver:
+- From T = 0 to T = 4: Gradually move into the left lane.
+- From T = 4 to T = 6: Fully in the left lane, passing the obstacle at X = 100.
+- From T = 6 to T = 10: Gradually transition back to the right lane.
+
+This trajectory ensures that the vehicle remains within highway speed limits, smoothly transitions lanes, and avoids the obstacle located at (X = 100, Y = 0). 
+
+**Final Answer**: The positions at each second are as follows:
+- T = 1: (20, -1)
+- T = 2: (40, -2.5)
+- T = 3: (60, -4)
+- T = 4: (80, -5)
+- T = 5: (100, -5)
+- T = 6: (120, -5)
+- T = 7: (140, -4)
+- T = 8: (160, -2.5)
+- T = 9: (180, -1)
+- T = 10: (200, 0)

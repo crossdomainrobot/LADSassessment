@@ -1,0 +1,47 @@
+To safely perform the double lane change maneuver while maintaining highway speed, we need to carefully plan the trajectory. The vehicle must smoothly transition from the right lane (Y = 0) to the left lane (Y = -5), pass the obstacle at X = 100, and then return to the right lane afterward. Here's a detailed plan for the vehicle's position over time:
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h ¡Ö 20 m/s.
+2. **Minimum Highway Speed**: 60 km/h ¡Ö 16.67 m/s.
+3. **Lateral Movement**: Smooth lateral transitions (e.g., sinusoidal or linear).
+4. **Longitudinal Movement**: Maintain near-constant speed unless slowing is necessary for safety.
+
+---
+
+### Trajectory Plan
+
+#### Initial Position: (X=0, Y=0) at T=0
+The vehicle starts in the right lane at (X=0, Y=0).
+
+#### Step-by-Step Trajectory:
+Below is the planned trajectory for the next 10 seconds, with positions provided at each second (T=1, 2, ..., 10):
+
+| **Time (T)** | **Position (X, Y)**         | **Explanation**                                                                 |
+|--------------|-----------------------------|---------------------------------------------------------------------------------|
+| T = 1        | (20, -0.5)                 | Begin moving slightly leftward while traveling forward at ~20 m/s longitudinally.   |
+| T = 2        | (40, -1.5)                 | Continue transitioning to the left lane, increasing lateral movement.                |
+| T = 3        | (60, -3.0)                 | Halfway into the lane change; nearing the center between lanes.                  |
+| T = 4        | (80, -4.5)                 | Almost fully in the left lane as the obstacle approaches.                         |
+| T = 5        | (100, -5.0)                | Fully in the left lane, passing the stopped vehicle at X = 100.                   |
+| T = 6        | (120, -5.0)                | Remain in the left lane while continuing forward at ~20 m/s.                      |
+| T = 7        | (140, -4.5)                | Begin transitioning back to the right lane, reducing lateral offset.               |
+| T = 8        | (160, -3.0)                | Midway through the second lane change; closer to the right lane.                 |
+| T = 9        | (180, -1.5)                | Nearing completion of the lane change; almost back in the right lane.             |
+| T = 10       | (200, 0.0)                 | Fully back in the right lane, resuming normal driving conditions.                |
+
+---
+
+### Explanation of the Maneuver:
+1. **Lane Change Timing**:
+   - Start the first lane change early enough (around T=1) to ensure smooth merging into the left lane before reaching X=100.
+   - Complete the second lane change after safely passing the obstacle.
+
+2. **Speed Management**:
+   - Maintain a constant longitudinal speed of approximately 20 m/s (~72 km/h) throughout the maneuver.
+   - Ensure no abrupt deceleration or acceleration unless absolutely necessary.
+
+3. **Safety Considerations**:
+   - Verify that the left lane is clear before initiating the first lane change.
+   - Monitor surrounding traffic during the maneuver to avoid collisions.
+
+By following this trajectory, the vehicle will safely navigate around the obstacle while adhering to highway driving regulations.

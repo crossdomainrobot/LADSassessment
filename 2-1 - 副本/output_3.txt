@@ -1,0 +1,69 @@
+To safely navigate the double lane change maneuver while maintaining highway speeds, we will plan a trajectory that ensures smooth transitions into the left lane before passing the obstacle and back to the right lane afterward. Below is the detailed trajectory for the next 10 seconds, with positions provided at each second.
+
+### **Initial Conditions:**
+- Initial position: (0, 0)
+- Initial speed: 72 km/h = 20 m/s
+- Obstacle location: (100, 0)
+- Left lane Y-coordinate: -5
+- Right lane Y-coordinate: 0
+
+We will:
+1. Gradually move into the left lane over the first few seconds.
+2. Stay in the left lane as we pass the obstacle at X = 100.
+3. Gradually return to the right lane after passing the obstacle.
+
+---
+
+### **Trajectory Plan:**
+
+#### **T = 0**
+- Position: (0, 0)
+
+#### **T = 1**
+- Move slightly toward the left lane while traveling forward.
+- Position: (20, -1)
+
+#### **T = 2**
+- Continue moving left while increasing lateral displacement.
+- Position: (40, -2)
+
+#### **T = 3**
+- Almost fully in the left lane.
+- Position: (60, -4)
+
+#### **T = 4**
+- Fully in the left lane (-5).
+- Position: (80, -5)
+
+#### **T = 5**
+- Still in the left lane, approaching the obstacle.
+- Position: (100, -5)
+
+#### **T = 6**
+- Passing the obstacle while staying in the left lane.
+- Position: (120, -5)
+
+#### **T = 7**
+- Begin transitioning back to the right lane.
+- Position: (140, -4)
+
+#### **T = 8**
+- Continuing the transition to the right lane.
+- Position: (160, -2)
+
+#### **T = 9**
+- Nearly back in the right lane.
+- Position: (180, -1)
+
+#### **T = 10**
+- Fully back in the right lane.
+- Position: (200, 0)
+
+---
+
+### **Summary of Maneuver:**
+1. From T = 0 to T = 4, the vehicle transitions smoothly into the left lane.
+2. At T = 5, the vehicle passes the obstacle while fully in the left lane.
+3. From T = 6 to T = 10, the vehicle transitions back to the right lane.
+
+This trajectory ensures safe navigation around the obstacle while adhering to highway speed requirements. The vehicle maintains a speed of 20 m/s (72 km/h) throughout the maneuver.

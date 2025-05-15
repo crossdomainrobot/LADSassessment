@@ -1,0 +1,83 @@
+To safely execute the double lane change maneuver while adhering to highway speed limits, we need to carefully plan the trajectory of the vehicle. Below is a step-by-step description of the vehicle's position (X, Y) over time, ensuring that the vehicle stays within the required speed range and safely navigates around the obstacle.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lane Width**: The right lane corresponds to $Y = 0$, and the left lane corresponds to $Y = -5$.
+3. **Obstacle Location**: At $(X, Y) = (100, 0)$.
+4. **Speed Constraint**: Maintain a velocity greater than 60 km/h (16.67 m/s).
+5. **Time Step**: Provide positions at $T = 1, 2, 3, ..., 10$ seconds.
+
+---
+
+### Trajectory Plan
+The maneuver involves three phases:
+1. **Lane Change to Left Lane**: Gradually shift from $Y = 0$ to $Y = -5$ while maintaining speed.
+2. **Pass Obstacle in Left Lane**: Stay in the left lane ($Y = -5$) while passing the obstacle at $X = 100$.
+3. **Lane Change Back to Right Lane**: After passing the obstacle, gradually return to $Y = 0$.
+
+---
+
+### Detailed Trajectory
+Below is the planned trajectory for the next 10 seconds:
+
+#### Phase 1: Lane Change to Left Lane (T = 0 to T = 3)
+- Gradually decrease $Y$ from 0 to -5 while maintaining speed.
+- Assume a smooth quadratic transition for $Y$: $Y(T) = -\frac{5}{9}T^2$.
+
+| Time (T) | X (m) | Y (m) |
+|----------|--------|--------|
+| 0        | 0      | 0      |
+| 1        | 20     | -0.56  |
+| 2        | 40     | -2.22  |
+| 3        | 60     | -5     |
+
+At $T = 3$, the vehicle is fully in the left lane ($Y = -5$).
+
+---
+
+#### Phase 2: Pass Obstacle in Left Lane (T = 3 to T = 7)
+- Maintain $Y = -5$ while continuing forward.
+- Ensure $X > 100$ by $T = 7$.
+
+| Time (T) | X (m) | Y (m) |
+|----------|--------|--------|
+| 4        | 80     | -5     |
+| 5        | 100    | -5     |
+| 6        | 120    | -5     |
+| 7        | 140    | -5     |
+
+By $T = 7$, the vehicle has safely passed the obstacle at $X = 100$.
+
+---
+
+#### Phase 3: Lane Change Back to Right Lane (T = 7 to T = 10)
+- Gradually increase $Y$ from -5 to 0 while maintaining speed.
+- Assume a smooth quadratic transition for $Y$: $Y(T) = -5 + \frac{5}{9}(T - 7)^2$.
+
+| Time (T) | X (m) | Y (m) |
+|----------|--------|--------|
+| 8        | 160    | -3.33  |
+| 9        | 180    | -1.67  |
+| 10       | 200    | 0      |
+
+At $T = 10$, the vehicle is back in the right lane ($Y = 0$).
+
+---
+
+### Final Summary of Positions
+
+| Time (T) | X (m) | Y (m) |
+|----------|--------|--------|
+| 0        | 0      | 0      |
+| 1        | 20     | -0.56  |
+| 2        | 40     | -2.22  |
+| 3        | 60     | -5     |
+| 4        | 80     | -5     |
+| 5        | 100    | -5     |
+| 6        | 120    | -5     |
+| 7        | 140    | -5     |
+| 8        | 160    | -3.33  |
+| 9        | 180    | -1.67  |
+| 10       | 200    | 0      |
+
+This trajectory ensures safe navigation around the obstacle while maintaining highway speed constraints.

@@ -1,0 +1,61 @@
+To safely navigate the obstacle, we need to plan a trajectory that smoothly transitions from the right lane (Y = 0) to the left lane (Y = -5), pass the obstacle at X = 100, and then transition back to the right lane. The vehicle must maintain a speed of at least 60 km/h (16.67 m/s). Below is the planned trajectory for the next 10 seconds.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Lateral Movement**: Smoothly change lanes using a sinusoidal-like path to avoid abrupt movements.
+3. **Longitudinal Movement**: Maintain a constant speed of 20 m/s unless slowing down is necessary for safety.
+
+---
+
+### Trajectory Plan:
+#### Phase 1: Transition to the Left Lane (T = 0 to T = 4)
+- Start moving laterally toward the left lane while maintaining longitudinal progress.
+- At T = 4, fully transition to the left lane (Y = -5).
+
+#### Phase 2: Pass the Obstacle (T = 4 to T = 6)
+- Remain in the left lane (Y = -5) and continue forward to pass the obstacle at X = 100.
+
+#### Phase 3: Transition Back to the Right Lane (T = 6 to T = 10)
+- Gradually move back to the right lane (Y = 0) while continuing forward.
+
+---
+
+### Detailed Positions:
+
+| Time (T) | Position (X, Y)   | Notes                                                                 |
+|----------|-------------------|----------------------------------------------------------------------|
+| 0        | (0, 0)            | Initial position in the right lane.                                   |
+| 1        | (20, -1.25)       | Begin lateral movement toward the left lane.                         |
+| 2        | (40, -2.5)        | Continue transitioning to the left lane.                               |
+| 3        | (60, -3.75)       | Progressing toward the left lane.                                    |
+| 4        | (80, -5)          | Fully transitioned to the left lane.                                  |
+| 5        | (100, -5)         | Passing the obstacle at X = 100 in the left lane.                     |
+| 6        | (120, -5)         | Continue forward in the left lane after passing the obstacle.         |
+| 7        | (140, -3.75)      | Begin transitioning back to the right lane.                            |
+| 8        | (160, -2.5)       | Continuing to move back to the right lane.                            |
+| 9        | (180, -1.25)      | Approaching the right lane.                                          |
+| 10       | (200, 0)          | Fully transitioned back to the right lane.                            |
+
+---
+
+### Explanation of Lateral Movement:
+The lateral movement (Y-coordinate) follows a smooth transition based on a sinusoidal-like function:
+$$
+Y(T) = -5 \cdot \sin\left(\frac{\pi}{4} \cdot T\right) \quad \text{for } 0 \leq T \leq 4
+$$
+$$
+Y(T) = -5 + 5 \cdot \sin\left(\frac{\pi}{4} \cdot (T - 6)\right) \quad \text{for } 6 \leq T \leq 10
+$$
+
+This ensures a gradual and safe lane change without abrupt maneuvers.
+
+### Longitudinal Movement:
+The longitudinal position (X-coordinate) increases linearly with time:
+$$
+X(T) = 20 \cdot T
+$$
+since the vehicle maintains a constant speed of 20 m/s during the maneuver.
+
+---
+
+By following this trajectory, the vehicle safely transitions to the left lane, passes the obstacle, and returns to the right lane while adhering to highway speed regulations.

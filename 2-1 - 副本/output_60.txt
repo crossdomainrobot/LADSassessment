@@ -1,0 +1,82 @@
+To safely perform the double lane change maneuver while maintaining a velocity above 60 km/h, we need to plan a smooth and safe trajectory. Below is a detailed trajectory for the vehicle's position at each second (T = 1, 2, ..., until the maneuver finishes). The initial speed of 72 km/h is approximately **20 m/s**, and we'll ensure that the lateral movement into the left lane and back is gradual and safe.
+
+### Initial Conditions:
+- Initial position: (0, 0)
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: -5
+- Minimum speed: > 60 km/h (~16.67 m/s)
+
+---
+
+### Trajectory Plan:
+
+#### Phase 1: Start Lane Change to the Left Lane (T = 0 to T = 3)
+- Gradually move laterally from Y = 0 to Y = -5.
+- Maintain longitudinal speed at ~20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+
+At T = 3, the vehicle is fully in the left lane (Y = -5).
+
+---
+
+#### Phase 2: Pass the Obstacle in the Left Lane (T = 3 to T = 6)
+- Continue driving straight in the left lane at ~20 m/s.
+- Ensure X reaches 100 before starting the lane change back.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 3        | (60, -5)         |
+| 4        | (80, -5)         |
+| 5        | (100, -5)        |
+| 6        | (120, -5)        |
+
+At T = 5, the vehicle has passed the obstacle (X = 100).
+
+---
+
+#### Phase 3: Lane Change Back to the Right Lane (T = 6 to T = 9)
+- Gradually move laterally from Y = -5 back to Y = 0.
+- Maintain longitudinal speed at ~20 m/s.
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 6        | (120, -5)        |
+| 7        | (140, -3.33)     |
+| 8        | (160, -1.67)     |
+| 9        | (180, 0)         |
+
+At T = 9, the vehicle is back in the right lane (Y = 0).
+
+---
+
+### Final Trajectory Summary:
+Here¡¯s the complete trajectory for the vehicle over the next 10 seconds:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1.67)     |
+| 2        | (40, -3.33)     |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -3.33)    |
+| 8        | (160, -1.67)    |
+| 9        | (180, 0)        |
+
+---
+
+### Key Points:
+1. The vehicle smoothly transitions into the left lane by T = 3.
+2. It passes the obstacle (X = 100) safely in the left lane by T = 5.
+3. It transitions back to the right lane by T = 9.
+4. Throughout the maneuver, the longitudinal speed remains above 60 km/h (~16.67 m/s). 
+
+This trajectory ensures safety and compliance with highway driving rules.

@@ -1,0 +1,89 @@
+To safely execute the double-lane change maneuver while adhering to highway speed limits, we will plan a smooth trajectory that transitions from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle at X = 100, and then transitions back to the right lane. The vehicle's initial velocity is 72 km/h (or 20 m/s). We will ensure the vehicle remains above 60 km/h (or approximately 16.67 m/s) throughout the maneuver.
+
+### **Step-by-Step Trajectory Plan**
+We will calculate the vehicle's position at each second (T = 1, 2, ..., until the maneuver finishes). The trajectory will involve three phases:
+1. **Lane Change to Left Lane**: Gradually transition from Y = 0 to Y = -5.
+2. **Pass Obstacle in Left Lane**: Maintain Y = -5 while passing X = 100.
+3. **Lane Change Back to Right Lane**: Gradually transition from Y = -5 to Y = 0.
+
+The vehicle will maintain a constant longitudinal velocity of 20 m/s during the maneuver unless otherwise specified.
+
+---
+
+### **Trajectory Calculation**
+
+#### **Phase 1: Lane Change to Left Lane**
+- Start at (X, Y) = (0, 0).
+- Gradually decrease Y from 0 to -5 over the first 5 seconds.
+- During this time, X increases linearly at 20 m/s.
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1    |
+| 2        | 40    | -2    |
+| 3        | 60    | -3    |
+| 4        | 80    | -4    |
+| 5        | 100   | -5    |
+
+At T = 5, the vehicle has successfully transitioned to the left lane (Y = -5) and is aligned with the obstacle at X = 100.
+
+---
+
+#### **Phase 2: Pass Obstacle in Left Lane**
+- Maintain Y = -5 while continuing forward at 20 m/s.
+- Pass the obstacle at X = 100.
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -5    |
+
+At T = 8, the vehicle has passed the obstacle and is ready to transition back to the right lane.
+
+---
+
+#### **Phase 3: Lane Change Back to Right Lane**
+- Gradually increase Y from -5 to 0 over the next 5 seconds.
+- Continue moving forward at 20 m/s.
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 9        | 180   | -4    |
+| 10       | 200   | -3    |
+| 11       | 220   | -2    |
+| 12       | 240   | -1    |
+| 13       | 260   | 0     |
+
+At T = 13, the vehicle has completed the double-lane change maneuver and returned to the right lane (Y = 0).
+
+---
+
+### **Final Trajectory Summary**
+
+| Time (T) | X (m) | Y (m) |
+|----------|-------|-------|
+| 0        | 0     | 0     |
+| 1        | 20    | -1    |
+| 2        | 40    | -2    |
+| 3        | 60    | -3    |
+| 4        | 80    | -4    |
+| 5        | 100   | -5    |
+| 6        | 120   | -5    |
+| 7        | 140   | -5    |
+| 8        | 160   | -5    |
+| 9        | 180   | -4    |
+| 10       | 200   | -3    |
+| 11       | 220   | -2    |
+| 12       | 240   | -1    |
+| 13       | 260   | 0     |
+
+This trajectory ensures the vehicle safely avoids the obstacle, maintains highway speeds, and smoothly transitions between lanes. 
+
+**Boxed Final Answer:**
+$$
+\boxed{
+\text{The vehicle follows the trajectory described in the table above, completing the maneuver by T = 13.}
+}
+$$

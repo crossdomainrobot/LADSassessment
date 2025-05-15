@@ -1,0 +1,113 @@
+To safely perform the double lane change maneuver, we need to plan a trajectory that ensures the vehicle transitions smoothly into the left lane before reaching the obstacle at $ X = 100 $, stays in the left lane while passing it, and then transitions back to the right lane after the obstacle. The initial speed of the vehicle is $ 72 \, \text{km/h} $ (or $ 20 \, \text{m/s} $), and we must maintain a velocity greater than $ 60 \, \text{km/h} $ ($ 16.67 \, \text{m/s} $) throughout the maneuver.
+
+### Key Steps:
+1. **Lane Change to Left Lane**: Gradually move from $ Y = 0 $ (right lane) to $ Y = -5 $ (left lane).
+2. **Pass Obstacle**: Stay in the left lane ($ Y = -5 $) as the vehicle reaches $ X = 100 $.
+3. **Lane Change Back to Right Lane**: After passing the obstacle, transition back to $ Y = 0 $.
+
+We'll calculate the positions step by step for each second until the maneuver is complete.
+
+---
+
+### Trajectory Planning
+
+#### Initial Parameters:
+- Initial position: $ (X_0, Y_0) = (0, 0) $
+- Initial speed: $ v = 20 \, \text{m/s} $
+- Distance to obstacle: $ X_{\text{obstacle}} = 100 \, \text{m} $
+- Left lane: $ Y = -5 $
+- Right lane: $ Y = 0 $
+
+#### Assumptions:
+- Lateral movement ($ Y $) is controlled with a smooth acceleration/deceleration profile.
+- Longitudinal movement ($ X $) continues at approximately $ 20 \, \text{m/s} $, slightly adjusting if needed to stay above $ 16.67 \, \text{m/s} $.
+
+---
+
+### Detailed Trajectory Calculation:
+
+#### Timepoint $ T = 0 $:
+- Position: $ (X, Y) = (0, 0) $
+- Speed: $ 20 \, \text{m/s} $
+
+#### Timepoint $ T = 1 $:
+- Longitudinal movement: $ X = 20 \times 1 = 20 \, \text{m} $
+- Lateral movement: Begin transitioning to left lane. Use a smooth linear interpolation:  
+  $ Y = -5 \times (1/10) = -0.5 \, \text{m} $  
+- Position: $ (X, Y) = (20, -0.5) $
+
+#### Timepoint $ T = 2 $:
+- Longitudinal movement: $ X = 20 \times 2 = 40 \, \text{m} $
+- Lateral movement: Continue transitioning:  
+  $ Y = -5 \times (2/10) = -1.0 \, \text{m} $  
+- Position: $ (X, Y) = (40, -1.0) $
+
+#### Timepoint $ T = 3 $:
+- Longitudinal movement: $ X = 20 \times 3 = 60 \, \text{m} $
+- Lateral movement: Continue transitioning:  
+  $ Y = -5 \times (3/10) = -1.5 \, \text{m} $  
+- Position: $ (X, Y) = (60, -1.5) $
+
+#### Timepoint $ T = 4 $:
+- Longitudinal movement: $ X = 20 \times 4 = 80 \, \text{m} $
+- Lateral movement: Complete transition to left lane:  
+  $ Y = -5 \times (4/10) = -2.0 \, \text{m} $  
+- Position: $ (X, Y) = (80, -2.0) $
+
+#### Timepoint $ T = 5 $:
+- Longitudinal movement: $ X = 20 \times 5 = 100 \, \text{m} $
+- Lateral movement: Fully in left lane:  
+  $ Y = -5 $  
+- Position: $ (X, Y) = (100, -5) $
+
+#### Timepoint $ T = 6 $:
+- Longitudinal movement: $ X = 20 \times 6 = 120 \, \text{m} $
+- Lateral movement: Start transitioning back to right lane:  
+  $ Y = -5 + 5 \times (1/10) = -4.5 \, \text{m} $  
+- Position: $ (X, Y) = (120, -4.5) $
+
+#### Timepoint $ T = 7 $:
+- Longitudinal movement: $ X = 20 \times 7 = 140 \, \text{m} $
+- Lateral movement: Continue transitioning:  
+  $ Y = -5 + 5 \times (2/10) = -4.0 \, \text{m} $  
+- Position: $ (X, Y) = (140, -4.0) $
+
+#### Timepoint $ T = 8 $:
+- Longitudinal movement: $ X = 20 \times 8 = 160 \, \text{m} $
+- Lateral movement: Continue transitioning:  
+  $ Y = -5 + 5 \times (3/10) = -3.5 \, \text{m} $  
+- Position: $ (X, Y) = (160, -3.5) $
+
+#### Timepoint $ T = 9 $:
+- Longitudinal movement: $ X = 20 \times 9 = 180 \, \text{m} $
+- Lateral movement: Continue transitioning:  
+  $ Y = -5 + 5 \times (4/10) = -3.0 \, \text{m} $  
+- Position: $ (X, Y) = (180, -3.0) $
+
+#### Timepoint $ T = 10 $:
+- Longitudinal movement: $ X = 20 \times 10 = 200 \, \text{m} $
+- Lateral movement: Fully back in right lane:  
+  $ Y = 0 $  
+- Position: $ (X, Y) = (200, 0) $
+
+---
+
+### Final Answer:
+The planned trajectory for the next 10 seconds is as follows:
+$$
+\boxed{
+\begin{aligned}
+T = 0 & : (0, 0) \\
+T = 1 & : (20, -0.5) \\
+T = 2 & : (40, -1.0) \\
+T = 3 & : (60, -1.5) \\
+T = 4 & : (80, -2.0) \\
+T = 5 & : (100, -5) \\
+T = 6 & : (120, -4.5) \\
+T = 7 & : (140, -4.0) \\
+T = 8 & : (160, -3.5) \\
+T = 9 & : (180, -3.0) \\
+T = 10 & : (200, 0)
+\end{aligned}
+}
+$$

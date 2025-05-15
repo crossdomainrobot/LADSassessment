@@ -1,0 +1,87 @@
+To safely navigate the double lane change maneuver, I will provide a trajectory for the vehicle that ensures smooth transitions while adhering to highway speed limits. The initial velocity is 72 km/h (or approximately 20 m/s), and we need to stay above 60 km/h (16.67 m/s). Let's plan the trajectory step by step.
+
+---
+
+### **Initial Setup**
+- Initial position: (0, 0)
+- Obstacle location: (100, 0)
+- Left lane Y-coordinate: -5
+- Velocity: Start at 20 m/s, adjust as needed during lane changes.
+- Highway minimum speed: Stay above 16.67 m/s.
+
+---
+
+### **Trajectory Plan**
+We will divide the maneuver into three phases:
+1. **Lane Change to the Left Lane**: Gradually move from Y = 0 to Y = -5.
+2. **Pass the Obstacle in the Left Lane**: Maintain position at Y = -5 while passing X = 100.
+3. **Lane Change Back to the Right Lane**: Gradually return from Y = -5 to Y = 0 after passing the obstacle.
+
+Below is the detailed trajectory for the next 10 seconds:
+
+---
+
+### **Timepoint-by-Timepoint Trajectory**
+
+#### **T = 0**
+- Position: (0, 0)
+- Velocity: 20 m/s along X-axis.
+
+#### **T = 1**
+- Position: (20, -1)  
+  (Start moving slightly left to begin lane change.)
+- Velocity: ~19.5 m/s along X-axis, slight lateral movement.
+
+#### **T = 2**
+- Position: (40, -2)  
+  (Continue gradual leftward movement.)
+- Velocity: ~19 m/s along X-axis, increasing lateral speed.
+
+#### **T = 3**
+- Position: (60, -3)  
+  (Approaching halfway to the left lane.)
+- Velocity: ~18.5 m/s along X-axis, more lateral movement.
+
+#### **T = 4**
+- Position: (80, -4)  
+  (Almost fully in the left lane.)
+- Velocity: ~18 m/s along X-axis, completing lane change.
+
+#### **T = 5**
+- Position: (100, -5)  
+  (Fully in the left lane, passing the obstacle at X = 100.)
+- Velocity: 20 m/s along X-axis, no lateral movement.
+
+#### **T = 6**
+- Position: (120, -5)  
+  (Continuing straight in the left lane.)
+- Velocity: 20 m/s along X-axis.
+
+#### **T = 7**
+- Position: (140, -4)  
+  (Start moving back to the right lane.)
+- Velocity: ~19.5 m/s along X-axis, slight lateral movement.
+
+#### **T = 8**
+- Position: (160, -3)  
+  (Gradual return to the right lane.)
+- Velocity: ~19 m/s along X-axis, increasing lateral speed.
+
+#### **T = 9**
+- Position: (180, -2)  
+  (Approaching the right lane.)
+- Velocity: ~18.5 m/s along X-axis, more lateral movement.
+
+#### **T = 10**
+- Position: (200, 0)  
+  (Fully back in the right lane.)
+- Velocity: 20 m/s along X-axis, no lateral movement.
+
+---
+
+### **Key Notes**
+1. **Speed Management**: Throughout the maneuver, the vehicle maintains a speed of at least 16.67 m/s (60 km/h), ensuring compliance with highway regulations.
+2. **Smooth Lateral Movement**: The lateral movement (Y-coordinate) is gradual to ensure passenger comfort and vehicle stability.
+3. **Obstacle Clearance**: The vehicle stays in the left lane (Y = -5) while passing the obstacle at X = 100.
+
+This trajectory ensures a safe and efficient double lane change maneuver while adhering to highway driving rules.

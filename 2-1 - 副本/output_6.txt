@@ -1,0 +1,98 @@
+To safely navigate around the obstacle and perform a double lane change maneuver while maintaining highway speed, we need to carefully plan the trajectory. The vehicle starts at position (0, 0) with an initial speed of 72 km/h (or 20 m/s). We aim to complete the maneuver within 10 seconds while staying above 60 km/h (16.67 m/s).
+
+Here¡¯s the planned trajectory:
+
+### Step-by-Step Trajectory
+
+#### **T = 0 s**
+- Initial position: (0, 0)
+- Speed: 20 m/s
+- Lane: Right lane (Y = 0)
+
+---
+
+#### **T = 1 s**
+- X = 20 * 1 = 20 m (distance traveled forward)
+- Y = -1 m (start moving slightly left to prepare for lane change)
+- Position: (20, -1)
+
+---
+
+#### **T = 2 s**
+- X = 20 * 2 = 40 m
+- Y = -3 m (gradually move further left)
+- Position: (40, -3)
+
+---
+
+#### **T = 3 s**
+- X = 20 * 3 = 60 m
+- Y = -4.5 m (approaching the left lane)
+- Position: (60, -4.5)
+
+---
+
+#### **T = 4 s**
+- X = 20 * 4 = 80 m
+- Y = -5 m (fully in the left lane)
+- Position: (80, -5)
+
+---
+
+#### **T = 5 s**
+- X = 20 * 5 = 100 m
+- Y = -5 m (passing the obstacle while fully in the left lane)
+- Position: (100, -5)
+
+---
+
+#### **T = 6 s**
+- X = 20 * 6 = 120 m
+- Y = -5 m (continue in the left lane after passing the obstacle)
+- Position: (120, -5)
+
+---
+
+#### **T = 7 s**
+- X = 20 * 7 = 140 m
+- Y = -4 m (start moving back to the right lane)
+- Position: (140, -4)
+
+---
+
+#### **T = 8 s**
+- X = 20 * 8 = 160 m
+- Y = -2 m (further shifting toward the right lane)
+- Position: (160, -2)
+
+---
+
+#### **T = 9 s**
+- X = 20 * 9 = 180 m
+- Y = -1 m (almost back in the right lane)
+- Position: (180, -1)
+
+---
+
+#### **T = 10 s**
+- X = 20 * 10 = 200 m
+- Y = 0 m (fully back in the right lane)
+- Position: (200, 0)
+
+---
+
+### Summary of Trajectory
+The vehicle successfully completes the double lane change maneuver:
+1. Starts in the right lane at (0, 0).
+2. Gradually moves into the left lane by T = 4 s.
+3. Passes the obstacle at T = 5 s while fully in the left lane.
+4. Moves back to the right lane between T = 7 s and T = 10 s.
+
+This ensures safety and compliance with highway speed requirements. 
+
+**Final Answer:**
+$$
+\boxed{
+\text{Positions: } (20, -1), (40, -3), (60, -4.5), (80, -5), (100, -5), (120, -5), (140, -4), (160, -2), (180, -1), (200, 0)
+}
+$$

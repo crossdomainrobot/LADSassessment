@@ -1,0 +1,100 @@
+To safely navigate around the obstacle while adhering to highway speed regulations, we need to plan a smooth and controlled double-lane-change maneuver. Below is a detailed trajectory for the vehicle's position over time, ensuring the vehicle stays above 60 km/h (16.67 m/s) throughout the maneuver.
+
+### Key Parameters:
+- **Initial Speed**: 72 km/h = 20 m/s
+- **Obstacle Position**: (100, 0)
+- **Left Lane Y-coordinate**: -5
+- **Right Lane Y-coordinate**: 0
+
+### Maneuver Plan:
+1. Start in the right lane at (0, 0).
+2. Gradually move into the left lane before reaching the obstacle.
+3. Pass the obstacle while staying in the left lane.
+4. Return to the right lane after passing the obstacle.
+
+---
+
+### Trajectory Calculation:
+We will calculate the vehicle's position at each second (T = 1, 2, ..., 10). The X-coordinate represents longitudinal progress, and the Y-coordinate represents lateral movement.
+
+#### **T = 0: Initial Position**
+- Position: (0, 0)
+
+#### **T = 1**
+- Begin moving laterally toward the left lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 1 \, \text{s} = 20 \, \text{m} $
+- Lateral movement: $ Y = -1 $ (gradual shift to the left lane)
+- Position: (20, -1)
+
+#### **T = 2**
+- Continue moving laterally.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 2 \, \text{s} = 40 \, \text{m} $
+- Lateral movement: $ Y = -3 $ (closer to the left lane)
+- Position: (40, -3)
+
+#### **T = 3**
+- Almost fully in the left lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 3 \, \text{s} = 60 \, \text{m} $
+- Lateral movement: $ Y = -5 $ (now in the left lane)
+- Position: (60, -5)
+
+#### **T = 4**
+- Fully in the left lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 4 \, \text{s} = 80 \, \text{m} $
+- Lateral movement: $ Y = -5 $ (maintain left lane)
+- Position: (80, -5)
+
+#### **T = 5**
+- Passing the obstacle.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 5 \, \text{s} = 100 \, \text{m} $
+- Lateral movement: $ Y = -5 $ (still in the left lane)
+- Position: (100, -5)
+
+#### **T = 6**
+- Continuing past the obstacle.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 6 \, \text{s} = 120 \, \text{m} $
+- Lateral movement: $ Y = -5 $ (still in the left lane)
+- Position: (120, -5)
+
+#### **T = 7**
+- Begin shifting back to the right lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 7 \, \text{s} = 140 \, \text{m} $
+- Lateral movement: $ Y = -3 $ (gradual shift to the right lane)
+- Position: (140, -3)
+
+#### **T = 8**
+- Continuing the shift back.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 8 \, \text{s} = 160 \, \text{m} $
+- Lateral movement: $ Y = -1 $ (closer to the right lane)
+- Position: (160, -1)
+
+#### **T = 9**
+- Almost fully in the right lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 9 \, \text{s} = 180 \, \text{m} $
+- Lateral movement: $ Y = 0 $ (now in the right lane)
+- Position: (180, 0)
+
+#### **T = 10**
+- Fully back in the right lane.
+- Longitudinal progress: $ X = 20 \, \text{m/s} \times 10 \, \text{s} = 200 \, \text{m} $
+- Lateral movement: $ Y = 0 $ (staying in the right lane)
+- Position: (200, 0)
+
+---
+
+### Final Trajectory Summary:
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -3)        |
+| 3        | (60, -5)        |
+| 4        | (80, -5)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -3)       |
+| 8        | (160, -1)       |
+| 9        | (180, 0)        |
+| 10       | (200, 0)        |
+
+This trajectory ensures safe passage around the obstacle while maintaining highway speed requirements.

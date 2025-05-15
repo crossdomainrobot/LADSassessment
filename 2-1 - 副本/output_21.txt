@@ -1,0 +1,75 @@
+To safely navigate the obstacle while maintaining highway speeds, we need to plan a smooth trajectory that transitions from the right lane (Y = 0) to the left lane (Y = -5), overtakes the obstacle at X = 100, and then transitions back to the right lane after passing the obstacle. Below is a step-by-step description of the vehicle's position over time.
+
+### Key Assumptions:
+1. **Initial Speed**: 72 km/h = 20 m/s.
+2. **Minimum Highway Speed**: > 60 km/h = 16.67 m/s.
+3. **Lateral Movement**: The vehicle will smoothly transition between lanes using a constant lateral acceleration.
+4. **Longitudinal Movement**: The vehicle will decelerate slightly before the lane change to ensure safety, then accelerate back to maintain highway speed.
+
+---
+
+### Trajectory Plan:
+We divide the maneuver into three phases:
+1. **Lane Change to Left Lane**: Transition from Y = 0 to Y = -5 while continuing forward.
+2. **Pass Obstacle in Left Lane**: Maintain Y = -5 as the vehicle passes X = 100.
+3. **Lane Change Back to Right Lane**: Transition from Y = -5 to Y = 0 after passing the obstacle.
+
+---
+
+### Detailed Path:
+
+#### **Phase 1: Lane Change to Left Lane**
+- Start decelerating slightly to reduce longitudinal speed for safety during the lane change.
+- Begin lateral movement to Y = -5.
+
+| Time (T) | Position (X, Y)         | Velocity (m/s) |
+|----------|-------------------------|----------------|
+| T = 0    | (0, 0)                 | (20, 0)        |
+| T = 1    | (19, -0.5)             | (19, -1)       |
+| T = 2    | (38, -1.5)             | (18, -1)       |
+| T = 3    | (57, -2.5)             | (17, -1)       |
+| T = 4    | (76, -3.5)             | (16, -1)       |
+| T = 5    | (95, -5)               | (15, -1)       |
+
+At T = 5, the vehicle has fully entered the left lane (Y = -5).
+
+---
+
+#### **Phase 2: Pass Obstacle in Left Lane**
+- Accelerate back to highway speed (20 m/s).
+- Maintain Y = -5 while overtaking the obstacle at X = 100.
+
+| Time (T) | Position (X, Y)         | Velocity (m/s) |
+|----------|-------------------------|----------------|
+| T = 6    | (115, -5)              | (16, 0)        |
+| T = 7    | (136, -5)              | (17, 0)        |
+| T = 8    | (158, -5)              | (18, 0)        |
+| T = 9    | (181, -5)              | (19, 0)        |
+| T = 10   | (204, -5)              | (20, 0)        |
+
+By T = 10, the vehicle has passed the obstacle and is traveling at full speed in the left lane.
+
+---
+
+#### **Phase 3: Lane Change Back to Right Lane**
+- Begin transitioning back to the right lane (Y = 0) while maintaining highway speed.
+
+| Time (T) | Position (X, Y)         | Velocity (m/s) |
+|----------|-------------------------|----------------|
+| T = 11   | (224, -4)              | (20, 1)        |
+| T = 12   | (244, -3)              | (20, 1)        |
+| T = 13   | (264, -2)              | (20, 1)        |
+| T = 14   | (284, -1)              | (20, 1)        |
+| T = 15   | (304, 0)               | (20, 0)        |
+
+At T = 15, the vehicle has returned to the right lane (Y = 0) and resumed normal highway driving.
+
+---
+
+### Final Summary:
+The vehicle completes the double lane change maneuver safely, maintaining highway speeds throughout. The key positions are:
+- **T = 5**: Fully in the left lane (Y = -5).
+- **T = 10**: Passed the obstacle (X = 100) in the left lane.
+- **T = 15**: Returned to the right lane (Y = 0). 
+
+This trajectory ensures smooth and safe navigation around the obstacle.

@@ -1,0 +1,94 @@
+To safely navigate the double lane change maneuver, we need to plan a trajectory that ensures the vehicle transitions smoothly and safely into the left lane, passes the obstacle at X = 100, and then returns to the right lane afterward. The vehicle must maintain a speed of over 60 km/h (approximately 16.67 m/s) during this process.
+
+### **Initial Setup**
+- Initial position: (0, 0)
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: -5
+- Right lane Y-coordinate: 0
+- Initial speed: 72 km/h = 20 m/s
+- Minimum required speed: > 60 km/h = > 16.67 m/s
+
+We will use a smooth trajectory with controlled lateral movement (Y-axis) while maintaining longitudinal progress (X-axis). Here's the step-by-step trajectory:
+
+---
+
+### **Trajectory Calculation**
+
+#### **Timepoint T = 1 second**
+- Longitudinal position (X): \( X = 20 \times 1 = 20 \) meters (constant speed of 20 m/s).
+- Lateral position (Y): Start transitioning to the left lane. Use a quadratic curve for smooth transition.
+  - \( Y = -0.5 \times t^2 \), where \( t \) is time in seconds.
+  - At \( t = 1 \), \( Y = -0.5 \times 1^2 = -0.5 \).
+- Position: \( (20, -0.5) \).
+
+#### **Timepoint T = 2 seconds**
+- Longitudinal position (X): \( X = 20 \times 2 = 40 \) meters.
+- Lateral position (Y): Continue transitioning to the left lane.
+  - \( Y = -0.5 \times 2^2 = -2.0 \).
+- Position: \( (40, -2.0) \).
+
+#### **Timepoint T = 3 seconds**
+- Longitudinal position (X): \( X = 20 \times 3 = 60 \) meters.
+- Lateral position (Y): Continue transitioning to the left lane.
+  - \( Y = -0.5 \times 3^2 = -4.5 \).
+- Position: \( (60, -4.5) \).
+
+#### **Timepoint T = 4 seconds**
+- Longitudinal position (X): \( X = 20 \times 4 = 80 \) meters.
+- Lateral position (Y): Reach the left lane fully.
+  - \( Y = -5.0 \) (fully in the left lane).
+- Position: \( (80, -5.0) \).
+
+#### **Timepoint T = 5 seconds**
+- Longitudinal position (X): \( X = 20 \times 5 = 100 \) meters.
+- Lateral position (Y): Remain in the left lane as you pass the obstacle.
+  - \( Y = -5.0 \).
+- Position: \( (100, -5.0) \).
+
+#### **Timepoint T = 6 seconds**
+- Longitudinal position (X): \( X = 20 \times 6 = 120 \) meters.
+- Lateral position (Y): Begin transitioning back to the right lane.
+  - \( Y = -5.0 + 0.5 \times (t - 5)^2 \).
+  - At \( t = 6 \), \( Y = -5.0 + 0.5 \times (6 - 5)^2 = -5.0 + 0.5 = -4.5 \).
+- Position: \( (120, -4.5) \).
+
+#### **Timepoint T = 7 seconds**
+- Longitudinal position (X): \( X = 20 \times 7 = 140 \) meters.
+- Lateral position (Y): Continue transitioning back to the right lane.
+  - \( Y = -5.0 + 0.5 \times (7 - 5)^2 = -5.0 + 0.5 \times 4 = -3.0 \).
+- Position: \( (140, -3.0) \).
+
+#### **Timepoint T = 8 seconds**
+- Longitudinal position (X): \( X = 20 \times 8 = 160 \) meters.
+- Lateral position (Y): Continue transitioning back to the right lane.
+  - \( Y = -5.0 + 0.5 \times (8 - 5)^2 = -5.0 + 0.5 \times 9 = -0.5 \).
+- Position: \( (160, -0.5) \).
+
+#### **Timepoint T = 9 seconds**
+- Longitudinal position (X): \( X = 20 \times 9 = 180 \) meters.
+- Lateral position (Y): Return fully to the right lane.
+  - \( Y = 0.0 \).
+- Position: \( (180, 0.0) \).
+
+#### **Timepoint T = 10 seconds**
+- Longitudinal position (X): \( X = 20 \times 10 = 200 \) meters.
+- Lateral position (Y): Stay in the right lane.
+  - \( Y = 0.0 \).
+- Position: \( (200, 0.0) \).
+
+---
+
+### **Final Trajectory Summary**
+Here¡¯s the complete trajectory:
+- T = 1: (20, -0.5)
+- T = 2: (40, -2.0)
+- T = 3: (60, -4.5)
+- T = 4: (80, -5.0)
+- T = 5: (100, -5.0)
+- T = 6: (120, -4.5)
+- T = 7: (140, -3.0)
+- T = 8: (160, -0.5)
+- T = 9: (180, 0.0)
+- T = 10: (200, 0.0)
+
+This trajectory ensures the vehicle safely changes lanes, avoids the obstacle, and returns to the original lane while maintaining highway speed requirements.

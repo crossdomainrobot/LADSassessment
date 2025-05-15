@@ -1,0 +1,88 @@
+To safely perform the double lane change maneuver while maintaining highway speed, we need to carefully plan the trajectory of the vehicle. The goal is to smoothly transition into the left lane before reaching the obstacle at X = 100, pass it, and then return to the right lane afterward. Below is a detailed trajectory for the next 10 seconds (or until the maneuver is completed), ensuring that the vehicle stays above 60 km/h.
+
+### Initial Parameters:
+- **Initial position**: (0, 0)
+- **Initial velocity**: 72 km/h = 20 m/s
+- **Obstacle location**: (100, 0)
+- **Left lane Y-coordinate**: -5
+- **Right lane Y-coordinate**: 0
+
+We will assume a smooth lateral movement using a sinusoidal-like function for the Y-coordinate to ensure a gradual and safe lane change. The longitudinal movement (X-coordinate) will remain constant at 20 m/s unless slowing down is necessary for safety.
+
+---
+
+### Trajectory Plan:
+
+#### **T = 0 s**:
+- Position: (0, 0)
+- Velocity: 20 m/s along X-axis
+
+#### **T = 1 s**:
+- X = 20 ¡Á 1 = 20 m
+- Y = 0 + (-5) ¡Á sin(¦Ð/20 ¡Á 20) ¡Ö -1.23 m  
+- Position: (20, -1.23)
+
+#### **T = 2 s**:
+- X = 20 ¡Á 2 = 40 m
+- Y = 0 + (-5) ¡Á sin(¦Ð/20 ¡Á 40) ¡Ö -2.45 m  
+- Position: (40, -2.45)
+
+#### **T = 3 s**:
+- X = 20 ¡Á 3 = 60 m
+- Y = 0 + (-5) ¡Á sin(¦Ð/20 ¡Á 60) ¡Ö -3.63 m  
+- Position: (60, -3.63)
+
+#### **T = 4 s**:
+- X = 20 ¡Á 4 = 80 m
+- Y = 0 + (-5) ¡Á sin(¦Ð/20 ¡Á 80) ¡Ö -4.71 m  
+- Position: (80, -4.71)
+
+#### **T = 5 s**:
+- X = 20 ¡Á 5 = 100 m
+- Y = 0 + (-5) ¡Á sin(¦Ð/20 ¡Á 100) ¡Ö -5 m  
+- Position: (100, -5)  
+*(Now fully in the left lane, passing the obstacle)*
+
+#### **T = 6 s**:
+- X = 20 ¡Á 6 = 120 m
+- Y = -5 + (5) ¡Á sin(¦Ð/20 ¡Á 120) ¡Ö -4.71 m  
+- Position: (120, -4.71)
+
+#### **T = 7 s**:
+- X = 20 ¡Á 7 = 140 m
+- Y = -5 + (5) ¡Á sin(¦Ð/20 ¡Á 140) ¡Ö -3.63 m  
+- Position: (140, -3.63)
+
+#### **T = 8 s**:
+- X = 20 ¡Á 8 = 160 m
+- Y = -5 + (5) ¡Á sin(¦Ð/20 ¡Á 160) ¡Ö -2.45 m  
+- Position: (160, -2.45)
+
+#### **T = 9 s**:
+- X = 20 ¡Á 9 = 180 m
+- Y = -5 + (5) ¡Á sin(¦Ð/20 ¡Á 180) ¡Ö -1.23 m  
+- Position: (180, -1.23)
+
+#### **T = 10 s**:
+- X = 20 ¡Á 10 = 200 m
+- Y = -5 + (5) ¡Á sin(¦Ð/20 ¡Á 200) ¡Ö 0 m  
+- Position: (200, 0)  
+*(Back in the right lane)*
+
+---
+
+### Summary of Key Points:
+1. **Lane Change Start**: Begins at T = 1 s.
+2. **Fully in Left Lane**: By T = 5 s, at X = 100 m.
+3. **Pass Obstacle**: Safely passes the stopped vehicle at X = 100 m.
+4. **Return to Right Lane**: Completes the second lane change by T = 10 s.
+
+This trajectory ensures the vehicle remains within highway speed limits and performs a smooth, safe maneuver around the obstacle. 
+
+**Final Answer**:  
+$$
+\boxed{
+\text{Positions at each second are: } 
+(20, -1.23), (40, -2.45), (60, -3.63), (80, -4.71), (100, -5), (120, -4.71), (140, -3.63), (160, -2.45), (180, -1.23), (200, 0).
+}
+$$

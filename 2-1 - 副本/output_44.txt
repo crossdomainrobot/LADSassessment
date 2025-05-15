@@ -1,0 +1,81 @@
+To safely navigate the double lane change maneuver while adhering to highway speed regulations, we need to plan a trajectory that ensures the vehicle smoothly transitions into the left lane before passing the obstacle at $ X = 100 $, and then transitions back to the right lane afterward. The vehicle must maintain a velocity of at least 60 km/h (approximately 16.67 m/s) throughout the maneuver.
+
+### Key Details:
+- Initial position: $ (X, Y) = (0, 0) $
+- Obstacle position: $ (X, Y) = (100, 0) $
+- Left lane: $ Y = -5 $
+- Initial velocity: 72 km/h = 20 m/s
+- Minimum highway speed: 60 km/h = 16.67 m/s
+
+We will assume a smooth transition for lateral movement ($ Y $) using a sinusoidal-like function to ensure a gradual lane change. For longitudinal movement ($ X $), we'll maintain a near-constant velocity close to 20 m/s.
+
+---
+
+### Trajectory Calculation:
+
+#### Step 1: Lane Change Timing
+The total distance required for the maneuver is approximately $ X = 150 $ meters (from starting the lane change to returning to the right lane). At an average longitudinal velocity of 20 m/s, this will take about $ T = 7.5 $ seconds. To simplify, we'll calculate positions every second up to $ T = 10 $ seconds.
+
+#### Step 2: Lateral Movement ($ Y $)
+The lateral movement will follow a smooth curve described by:
+$$
+Y(T) = A \cdot \sin\left(\frac{\pi}{T_{\text{total}}} \cdot T\right),
+$$
+where:
+- $ A = -5 $ (amplitude for the lane width),
+- $ T_{\text{total}} = 7.5 $ seconds (time for the full maneuver).
+
+For simplicity, we'll approximate the lateral movement as piecewise linear:
+- Move from $ Y = 0 $ to $ Y = -5 $ over the first 3 seconds.
+- Stay in the left lane ($ Y = -5 $) while passing the obstacle.
+- Return to $ Y = 0 $ over the next 4 seconds.
+
+#### Step 3: Longitudinal Movement ($ X $)
+The longitudinal movement will be governed by:
+$$
+X(T) = V_{\text{avg}} \cdot T,
+$$
+where $ V_{\text{avg}} = 20 $ m/s initially, adjusted slightly if necessary to ensure safety.
+
+---
+
+### Planned Trajectory:
+
+| Time (T) | $ X(T) $ (m) | $ Y(T) $ (m) | Velocity (m/s) |
+|----------|----------------|----------------|----------------|
+| 0        | 0              | 0              | 20             |
+| 1        | 20             | -1.67          | 20             |
+| 2        | 40             | -3.33          | 20             |
+| 3        | 60             | -5             | 20             |
+| 4        | 80             | -5             | 20             |
+| 5        | 100            | -5             | 20             |
+| 6        | 120            | -3.33          | 20             |
+| 7        | 140            | -1.67          | 20             |
+| 8        | 160            | 0              | 20             |
+| 9        | 180            | 0              | 20             |
+| 10       | 200            | 0              | 20             |
+
+---
+
+### Explanation:
+1. **Initial Lane Change (T = 0每3):**
+   - Gradually move from $ Y = 0 $ to $ Y = -5 $ while traveling longitudinally.
+   - At $ T = 3 $, the vehicle is fully in the left lane.
+
+2. **Passing the Obstacle (T = 4每5):**
+   - Maintain $ Y = -5 $ while passing the obstacle at $ X = 100 $.
+
+3. **Returning to Right Lane (T = 6每8):**
+   - Gradually move from $ Y = -5 $ back to $ Y = 0 $ while continuing forward.
+
+4. **Final Straight Path (T = 9每10):**
+   - Resume normal driving in the right lane.
+
+---
+
+### Final Answer:
+The planned trajectory ensures safe passage around the obstacle while maintaining highway speed requirements. The vehicle's position at each second is summarized in the table above. 
+
+$$
+\boxed{\text{Trajectory complete by } T = 10 \text{ seconds.}}
+$$

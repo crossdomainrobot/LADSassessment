@@ -1,0 +1,82 @@
+To plan a safe trajectory for the vehicle to perform a double lane change maneuver while maintaining highway speed, we need to carefully adjust the lateral (Y) and longitudinal (X) positions. Below is a step-by-step plan of the vehicle's position at each second (T = 1, 2, ..., until the maneuver finishes). 
+
+### Assumptions:
+1. The initial velocity of the vehicle is **72 km/h** (or approximately **20 m/s**).
+2. The vehicle must stay above **60 km/h** (or approximately **16.67 m/s**) throughout the maneuver.
+3. The left lane has a Y-coordinate of **-5**, and the right lane has a Y-coordinate of **0**.
+4. The obstacle is located at **(100, 0)**.
+
+---
+
+### Trajectory Plan:
+
+#### **Phase 1: Lane Change to Left Lane**
+The vehicle starts moving toward the left lane by gradually adjusting its lateral position (Y).
+
+| Time (T) | Position (X, Y) | Explanation |
+|----------|------------------|-------------|
+| 0        | (0, 0)          | Initial position in the right lane. |
+| 1        | (20, -1)        | Begin moving laterally into the left lane while maintaining longitudinal speed. |
+| 2        | (40, -2)        | Continue lateral movement. |
+| 3        | (60, -3)        | Further adjust the lateral position. |
+| 4        | (80, -4)        | Approaching the left lane. |
+| 5        | (100, -5)       | Fully in the left lane, ready to pass the obstacle. |
+
+At T = 5 seconds, the vehicle is fully in the left lane (**Y = -5**) and aligned with the obstacle (**X = 100**).
+
+---
+
+#### **Phase 2: Passing the Obstacle**
+The vehicle continues driving straight in the left lane, maintaining its longitudinal speed.
+
+| Time (T) | Position (X, Y) | Explanation |
+|----------|------------------|-------------|
+| 6        | (120, -5)       | Moving past the obstacle in the left lane. |
+| 7        | (140, -5)       | Continuing in the left lane. |
+| 8        | (160, -5)       | Safe distance from the obstacle. |
+
+At T = 8 seconds, the vehicle is safely past the obstacle and ready to return to the right lane.
+
+---
+
+#### **Phase 3: Lane Change Back to Right Lane**
+The vehicle begins moving back to the right lane by gradually adjusting its lateral position (Y).
+
+| Time (T) | Position (X, Y) | Explanation |
+|----------|------------------|-------------|
+| 9        | (180, -4)       | Starting to move laterally back to the right lane. |
+| 10       | (200, -3)       | Continuing lateral movement. |
+| 11       | (220, -2)       | Further adjusting the lateral position. |
+| 12       | (240, -1)       | Approaching the right lane. |
+| 13       | (260, 0)        | Fully back in the right lane. |
+
+At T = 13 seconds, the vehicle has completed the double lane change maneuver and returned to the right lane (**Y = 0**).
+
+---
+
+### Final Trajectory Summary:
+Here¡¯s the complete trajectory for the vehicle:
+
+| Time (T) | Position (X, Y) |
+|----------|------------------|
+| 0        | (0, 0)          |
+| 1        | (20, -1)        |
+| 2        | (40, -2)        |
+| 3        | (60, -3)        |
+| 4        | (80, -4)        |
+| 5        | (100, -5)       |
+| 6        | (120, -5)       |
+| 7        | (140, -5)       |
+| 8        | (160, -5)       |
+| 9        | (180, -4)       |
+| 10       | (200, -3)       |
+| 11       | (220, -2)       |
+| 12       | (240, -1)       |
+| 13       | (260, 0)        |
+
+This trajectory ensures that the vehicle:
+1. Safely changes lanes to avoid the obstacle.
+2. Maintains a speed of over 60 km/h throughout the maneuver.
+3. Returns to the original lane after passing the obstacle. 
+
+**Final Answer:** $\boxed{\text{Trajectory as shown in the table above.}}$

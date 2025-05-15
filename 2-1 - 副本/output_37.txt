@@ -1,0 +1,65 @@
+To safely execute the double lane change maneuver while maintaining highway speed, we need to plan a smooth trajectory that avoids the obstacle at (100, 0) and ensures the vehicle returns to the right lane after passing it. Below is the planned trajectory for the next 10 seconds, with positions provided at each second.
+
+### Key Details:
+- Initial position: (0, 0)
+- Obstacle position: (100, 0)
+- Left lane Y-coordinate: -5
+- Highway speed: ¡Ý 60 km/h (¡Ö 16.67 m/s)
+- Initial speed: 72 km/h (¡Ö 20 m/s)
+
+We will smoothly transition into the left lane before reaching the obstacle, pass it while staying in the left lane, and then transition back to the right lane afterward.
+
+---
+
+### Trajectory Plan:
+#### **T = 0**: Start at (0, 0)
+- Begin driving at 72 km/h (20 m/s).
+
+#### **T = 1**: (20, -1)
+- Move slightly toward the left lane while maintaining speed.
+- X increases by 20 meters (due to speed), and Y transitions from 0 to -1.
+
+#### **T = 2**: (40, -2)
+- Continue moving toward the left lane.
+- X increases by another 20 meters, and Y transitions further to -2.
+
+#### **T = 3**: (60, -3)
+- Progressively move closer to the left lane.
+- X increases by another 20 meters, and Y transitions further to -3.
+
+#### **T = 4**: (80, -4)
+- Almost fully in the left lane.
+- X increases by another 20 meters, and Y transitions further to -4.
+
+#### **T = 5**: (100, -5)
+- Fully in the left lane, passing the obstacle safely.
+- X reaches the obstacle's position (100), and Y stabilizes at -5.
+
+#### **T = 6**: (120, -5)
+- Continue driving in the left lane past the obstacle.
+- X increases by another 20 meters, and Y remains at -5.
+
+#### **T = 7**: (140, -4)
+- Begin transitioning back to the right lane.
+- X increases by another 20 meters, and Y transitions from -5 to -4.
+
+#### **T = 8**: (160, -2)
+- Continue transitioning back to the right lane.
+- X increases by another 20 meters, and Y transitions further to -2.
+
+#### **T = 9**: (180, -1)
+- Almost back in the right lane.
+- X increases by another 20 meters, and Y transitions further to -1.
+
+#### **T = 10**: (200, 0)
+- Fully back in the right lane.
+- X increases by another 20 meters, and Y stabilizes at 0.
+
+---
+
+### Summary of Maneuver:
+- The vehicle smoothly transitions into the left lane starting at T = 1 and completes the lane change by T = 5.
+- It passes the obstacle at T = 5 while fully in the left lane.
+- It transitions back to the right lane starting at T = 7 and completes the maneuver by T = 10.
+
+This trajectory ensures safe passage of the obstacle while maintaining highway speeds and adhering to the constraints.

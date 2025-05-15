@@ -1,0 +1,48 @@
+To safely execute the double lane change maneuver, we need to ensure that the vehicle smoothly transitions from the right lane (Y = 0) to the left lane (Y = -5), passes the obstacle at X = 100 while staying in the left lane, and then returns to the right lane after passing the obstacle. The trajectory must also maintain a speed of over 60 km/h throughout the maneuver.
+
+### Key Assumptions:
+1. Initial speed: 72 km/h ¡Ö 20 m/s.
+2. The vehicle can decelerate slightly during the lane changes but must not drop below 60 km/h (¡Ö 16.67 m/s).
+3. The lateral movement (Y-direction) will be smooth and controlled using a sinusoidal-like curve to avoid abrupt steering.
+4. The longitudinal movement (X-direction) continues at near-constant speed, with slight adjustments for safety.
+
+Below is the planned trajectory:
+
+---
+
+### **Trajectory Plan**
+#### Initial Position: (0, 0) at T = 0
+
+| **Time (T)** | **Position (X, Y)** | **Explanation** |
+|--------------|----------------------|----------------|
+| **T = 1**    | (20, -0.5)          | Start moving slightly to the left while maintaining speed. Begin transitioning into the left lane. |
+| **T = 2**    | (40, -1.5)          | Continue shifting leftward; halfway through the first lane change. |
+| **T = 3**    | (60, -3.0)          | Almost fully in the left lane. Lateral movement slows down as we approach Y = -5. |
+| **T = 4**    | (80, -4.5)          | Fully in the left lane (Y ¡Ö -5). Prepare to pass the obstacle. |
+| **T = 5**    | (100, -5.0)         | Pass the obstacle at X = 100 while staying in the left lane. Maintain speed above 60 km/h. |
+| **T = 6**    | (120, -4.5)         | Begin transitioning back to the right lane. Gradually shift laterally. |
+| **T = 7**    | (140, -3.0)         | Continue moving toward the right lane. Lateral speed decreases. |
+| **T = 8**    | (160, -1.5)         | Halfway through the second lane change. Approaching the right lane. |
+| **T = 9**    | (180, -0.5)         | Nearly back in the right lane. Finalize the transition. |
+| **T = 10**   | (200, 0.0)          | Successfully complete the maneuver and return to the right lane. |
+
+---
+
+### **Details of the Maneuver**
+1. **Lane Change Timing**: 
+   - The first lane change (right to left) starts at T = 1 and finishes by T = 4.
+   - The second lane change (left to right) begins at T = 6 and finishes by T = 10.
+   
+2. **Speed Management**:
+   - The vehicle's longitudinal speed remains near 20 m/s (72 km/h) during most of the maneuver.
+   - Slight deceleration occurs during lane changes to stay safe, but the speed never drops below 16.67 m/s (60 km/h).
+
+3. **Lateral Movement**:
+   - The Y-coordinate follows a smooth sinusoidal-like curve to ensure stability and passenger comfort.
+   - The rate of lateral movement decreases as the vehicle approaches the target lane to prevent sharp turns.
+
+4. **Safety**:
+   - The vehicle stays entirely in the left lane (Y = -5) when passing the obstacle at X = 100.
+   - Adequate distance is maintained before and after the obstacle to ensure safe overtaking.
+
+This trajectory ensures a smooth, safe, and efficient double lane change maneuver while adhering to highway driving regulations.

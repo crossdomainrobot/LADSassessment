@@ -1,0 +1,93 @@
+To safely execute the double lane change maneuver while maintaining highway speed, we will plan a smooth trajectory that transitions from the right lane to the left lane before the obstacle at $ X = 100 $, passes it, and then switches back to the right lane. Below is the detailed trajectory for the next 10 seconds:
+
+### Key Assumptions:
+- Initial speed: $ 72 \, \text{km/h} = 20 \, \text{m/s} $
+- Highway speed must remain above $ 60 \, \text{km/h} = 16.67 \, \text{m/s} $
+- The vehicle starts at position $ (0, 0) $ at $ T = 0 $.
+- The left lane corresponds to $ Y = -5 $, and the right lane corresponds to $ Y = 0 $.
+
+---
+
+### Trajectory Plan
+We divide the maneuver into three phases:
+1. **Lane Change to Left Lane**: Gradually move from $ Y = 0 $ to $ Y = -5 $ while continuing forward.
+2. **Pass Obstacle in Left Lane**: Maintain $ Y = -5 $ as the vehicle passes $ X = 100 $.
+3. **Lane Change Back to Right Lane**: Gradually return from $ Y = -5 $ to $ Y = 0 $ after passing the obstacle.
+
+Below is the step-by-step trajectory:
+
+---
+
+#### Timepoint $ T = 1 \, \text{s} $
+- Position: $ (20, -1) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Start moving slightly to the left while maintaining forward speed.
+
+#### Timepoint $ T = 2 \, \text{s} $
+- Position: $ (40, -2) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Continue transitioning to the left lane.
+
+#### Timepoint $ T = 3 \, \text{s} $
+- Position: $ (60, -3) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Progressively shift toward the left lane.
+
+#### Timepoint $ T = 4 \, \text{s} $
+- Position: $ (80, -4) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Near completion of the first lane change.
+
+#### Timepoint $ T = 5 \, \text{s} $
+- Position: $ (100, -5) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Fully in the left lane, passing the obstacle at $ X = 100 $.
+
+#### Timepoint $ T = 6 \, \text{s} $
+- Position: $ (120, -5) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Continue driving in the left lane past the obstacle.
+
+#### Timepoint $ T = 7 \, \text{s} $
+- Position: $ (140, -4) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Begin transitioning back to the right lane.
+
+#### Timepoint $ T = 8 \, \text{s} $
+- Position: $ (160, -3) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Continue shifting to the right lane.
+
+#### Timepoint $ T = 9 \, \text{s} $
+- Position: $ (180, -2) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Approaching full alignment with the right lane.
+
+#### Timepoint $ T = 10 \, \text{s} $
+- Position: $ (200, -1) $
+- Speed: $ 20 \, \text{m/s} $
+- Explanation: Nearing completion of the second lane change.
+
+---
+
+### Final Notes:
+- After $ T = 10 \, \text{s} $, the vehicle will fully realign with the right lane ($ Y = 0 $) while maintaining highway speed.
+- This trajectory ensures safety by avoiding the obstacle and adhering to highway speed requirements. 
+
+**Final Answer:**  
+$$
+\boxed{
+\begin{aligned}
+&T = 1: (20, -1), \\
+&T = 2: (40, -2), \\
+&T = 3: (60, -3), \\
+&T = 4: (80, -4), \\
+&T = 5: (100, -5), \\
+&T = 6: (120, -5), \\
+&T = 7: (140, -4), \\
+&T = 8: (160, -3), \\
+&T = 9: (180, -2), \\
+&T = 10: (200, -1).
+\end{aligned}
+}
+$$
